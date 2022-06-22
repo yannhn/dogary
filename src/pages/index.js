@@ -1,7 +1,7 @@
 import {Helmet} from 'react-helmet';
 
 import Layout from '../components/Layout';
-import ShowName from '../components/showName/index.js';
+import ShowName from '../components/ShowName/index.js';
 
 export default function HomePage() {
 	return (

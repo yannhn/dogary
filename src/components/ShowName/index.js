@@ -1,7 +1,9 @@
+import StyledName from './styled.js';
+
 export default function ShowName() {
 	return (
 		<>
-			<h1>best doggo</h1>
+			<StyledName>best doggo</StyledName>
 		</>
 	);
 }
