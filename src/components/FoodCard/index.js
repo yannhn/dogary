@@ -1,4 +1,4 @@
-export default function AddFoodCard() {
+export default function FoodCard() {
 	return (
 		<>
 			<button>Add new food</button>

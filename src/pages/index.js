@@ -1,6 +1,6 @@
 import {Helmet} from 'react-helmet';
-import AddFoodCard from '../components/AddFoodCard';
 
+import FoodCard from '../components/FoodCard';
 import Layout from '../components/Layout';
 
 export default function HomePage() {
@@ -10,7 +10,7 @@ export default function HomePage() {
 				<title key="title">My Project</title>
 				<meta key="description" name="description" content="This is my project" />
 			</Helmet>
-			<AddFoodCard></AddFoodCard>
+			<FoodCard></FoodCard>
 		</Layout>
 	);
 }
