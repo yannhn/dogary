@@ -1,7 +1,12 @@
 export default function InputInfoForm() {
+	const handleSubmit = event => {
+		event.preventDefault();
+		alert('submit!');
+	};
+
 	return (
 		<section>
-			<form>
+			<form onSubmit={handleSubmit}>
 				<section>
 					<label>
 						Input Name:
