@@ -6,6 +6,7 @@ const FoodCardContainer = styled.section`
 	border: 1px solid black;
 	border-radius: 10px;
 	margin: 6em;
+	padding: 1em;
 `;
 
 const FoodCardHead = styled.section`
