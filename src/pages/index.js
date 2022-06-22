@@ -1,6 +1,7 @@
 import {Helmet} from 'react-helmet';
 
 import Layout from '../components/Layout';
+import ShowPicture from '../components/ShowPicture/index.js';
 
 export default function HomePage() {
 	return (
@@ -10,6 +11,7 @@ export default function HomePage() {
 				<meta key="description" name="description" content="This is my project" />
 			</Helmet>
 			<h1>Home</h1>
+			<ShowPicture></ShowPicture>
 		</Layout>
 	);
 }
