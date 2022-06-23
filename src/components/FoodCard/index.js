@@ -40,7 +40,7 @@ export default function FoodCard() {
 						<h2>Food</h2>
 						<h3>Type of food</h3>
 					</section>
-					<FoodCardButton onClick={handleShowForm}>+</FoodCardButton>
+					<FoodCardButton onClick={handleShowForm}>{showForm ? '-' : '+'}</FoodCardButton>
 				</FoodCardHead>
 				<FoodInfoContainer>
 					<FoodInfo>
