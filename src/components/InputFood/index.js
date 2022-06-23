@@ -1,4 +1,10 @@
+import {useState} from 'react';
+
 export default function InputFood() {
+	const [showFormContainer, setShowFormContainer] = useState(false);
+	const handleCloseForm = () => {
+		setShowFormContainer(!showFormContainer);
+	};
 	return (
 		<>
 			<form>
@@ -15,7 +21,7 @@ export default function InputFood() {
 						<input type="time" defaultValue="08:00"></input>
 					</label>
 				</section>
-				<button>Cancel</button>
+				<button onClick={handleCloseForm}>Cancel</button>
 				<button>Add</button>
 			</form>
 		</>
