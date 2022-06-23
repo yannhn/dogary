@@ -14,6 +14,7 @@ import {
 export default function FoodCard() {
 	const [data, setData] = useState([]);
 	const [showForm, setShowForm] = useState(false);
+	const [enteredAmount, setEnteredAmount] = useState(0);
 	// const fakeData = {amount: 40, time: '07:30'};
 
 	function addNewData(data) {
@@ -30,7 +31,6 @@ export default function FoodCard() {
 		(previousAmount, currentAmount) => previousAmount + currentAmount.amount,
 		0
 	);
-	//   const fixedPrice = totalPrice.toFixed(2);
 
 	return (
 		<>
@@ -42,15 +42,21 @@ export default function FoodCard() {
 					</section>
 					<FoodCardButton onClick={handleShowForm}>+</FoodCardButton>
 				</FoodCardHead>
-				<FoodInfoContainer key={data.id}>
+				<FoodInfoContainer>
 					<FoodInfo>
-						<p>What: DOGNAME ate {data.amount} gram</p>
-						<p>When: {data.time}</p>
+						<p>What: DOGNAME ate {enteredAmount} gram </p>
+						<p>When: </p>
 					</FoodInfo>
 					<FoodCounter>{todayAmount} / goal</FoodCounter>
 				</FoodInfoContainer>
 			</FoodCardContainer>
-			{showForm && <InputFood addNewData={addNewData}></InputFood>}
+			{showForm && (
+				<InputFood
+					addNewData={addNewData}
+					enteredAmount={enteredAmount}
+					setEnteredAmount={setEnteredAmount}
+				></InputFood>
+			)}
 		</>
 	);
 }

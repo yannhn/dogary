@@ -2,8 +2,7 @@ import {useState} from 'react';
 
 import {InputFoodContainer} from './styled';
 
-export default function InputFood({addNewData}) {
-	const [enteredAmount, setEnteredAmount] = useState(0);
+export default function InputFood({addNewData, enteredAmount, setEnteredAmount}) {
 	const [enteredTime, setEnteredTime] = useState('');
 	const [showFormContainer, setShowFormContainer] = useState(false);
 
@@ -13,7 +12,6 @@ export default function InputFood({addNewData}) {
 
 	const handleSubmit = event => {
 		event.preventDefault();
-
 		const newData = {
 			amount: parseInt(enteredAmount),
 			time: enteredTime,
