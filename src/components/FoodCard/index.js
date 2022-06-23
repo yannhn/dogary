@@ -12,10 +12,15 @@ import {
 } from './styled';
 
 export default function FoodCard() {
-	// const [data, setData] = useState([{amount: 20, time: '07:30'}]);
-	const fakeData = {amount: 40, time: '07:30'};
-
+	const [data, setData] = useState([]);
 	const [showForm, setShowForm] = useState(false);
+	// const fakeData = {amount: 40, time: '07:30'};
+
+	function addNewData(data) {
+		setData(prevItem => {
+			return [data, ...prevItem];
+		});
+	}
 
 	const handleShowForm = () => {
 		setShowForm(!showForm);
@@ -31,31 +36,17 @@ export default function FoodCard() {
 					</section>
 					<FoodCardButton onClick={handleShowForm}>+</FoodCardButton>
 				</FoodCardHead>
-				<FoodInfoContainer>
-					<FoodInfo>
-						<p>What: DOGNAME ate {fakeData.amount} gram</p>
-						<p>When: {fakeData.time}</p>
-					</FoodInfo>
-					<FoodCounter>current / goal</FoodCounter>
-				</FoodInfoContainer>
+				{data.map(item => (
+					<FoodInfoContainer key={item.id}>
+						<FoodInfo>
+							<p>What: DOGNAME ate {item.amount} gram</p>
+							<p>When: {item.time}</p>
+						</FoodInfo>
+						<FoodCounter>current / goal</FoodCounter>
+					</FoodInfoContainer>
+				))}
 			</FoodCardContainer>
-			{showForm && <InputFood></InputFood>}
+			{showForm && <InputFood addNewData={addNewData}></InputFood>}
 		</>
 	);
 }
-
-// const handleInfo = () => {
-// 	setShowInputInfo(!showInputInfo);
-// 	console.log(showInputInfo);
-// };
-
-// return (
-// 	<Layout>
-// 		<Helmet>
-// 			<title key="title">My Project</title>
-// 			<meta key="description" name="description" content="This is my project" />
-// 		</Helmet>
-// 		<section>
-// 			<button onClick={handleInfo}>
-// 				{showInputInfo ? 'hide InputForm' : 'show InputForm'}
-// 			</button>
