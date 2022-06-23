@@ -2,16 +2,21 @@ export default function InputFood() {
 	return (
 		<>
 			<form>
+				<h4>Your dog</h4>
 				<section>
 					<label>
-						<input></input>
+						How many gram did the dog eat
+						<input type="text"></input>
 					</label>
 				</section>
 				<section>
 					<label>
-						<input></input>
+						When did the dog eat
+						<input type="time" defaultValue="08:00"></input>
 					</label>
 				</section>
+				<button>Cancel</button>
+				<button>Add</button>
 			</form>
 		</>
 	);
