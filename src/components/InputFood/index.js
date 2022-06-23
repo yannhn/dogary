@@ -2,9 +2,10 @@ import {useState} from 'react';
 
 import {InputFoodContainer} from './styled';
 
-export default function InputFood({addNewData, enteredAmount, setEnteredAmount}) {
+export default function InputFood({addNewData}) {
 	const [enteredTime, setEnteredTime] = useState('');
 	const [showFormContainer, setShowFormContainer] = useState(false);
+	const [enteredAmount, setEnteredAmount] = useState(0);
 
 	const handleCloseForm = () => {
 		setShowFormContainer(!showFormContainer);
@@ -18,7 +19,7 @@ export default function InputFood({addNewData, enteredAmount, setEnteredAmount})
 		};
 		console.log(newData);
 		addNewData(newData);
-		setEnteredAmount(0);
+		setEnteredAmount(enteredAmount);
 		setEnteredTime('');
 	};
 

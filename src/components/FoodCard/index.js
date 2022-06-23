@@ -14,7 +14,7 @@ import {
 export default function FoodCard() {
 	const [data, setData] = useState([]);
 	const [showForm, setShowForm] = useState(false);
-	const [enteredAmount, setEnteredAmount] = useState(0);
+
 	// const fakeData = {amount: 40, time: '07:30'};
 
 	function addNewData(data) {
@@ -44,19 +44,13 @@ export default function FoodCard() {
 				</FoodCardHead>
 				<FoodInfoContainer>
 					<FoodInfo>
-						<p>What: DOGNAME ate {enteredAmount} gram </p>
+						<p>What: DOGNAME ate 0 gram </p>
 						<p>When: </p>
 					</FoodInfo>
 					<FoodCounter>{todayAmount} / goal</FoodCounter>
 				</FoodInfoContainer>
 			</FoodCardContainer>
-			{showForm && (
-				<InputFood
-					addNewData={addNewData}
-					enteredAmount={enteredAmount}
-					setEnteredAmount={setEnteredAmount}
-				></InputFood>
-			)}
+			{showForm && <InputFood addNewData={addNewData}></InputFood>}
 		</>
 	);
 }
