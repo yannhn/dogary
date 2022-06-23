@@ -2,14 +2,9 @@ import {useState} from 'react';
 
 import {InputFoodContainer} from './styled';
 
-export default function InputFood({addNewData, setSubmittedInput}) {
-	const [enteredTime, setEnteredTime] = useState('');
-	const [showFormContainer, setShowFormContainer] = useState(false);
+export default function InputFood({addNewData, setSubmittedFoodInput, setSubmittedTimeInput}) {
 	const [enteredAmount, setEnteredAmount] = useState(0);
-
-	const handleCloseForm = () => {
-		setShowFormContainer(!showFormContainer);
-	};
+	const [enteredTime, setEnteredTime] = useState('08:00');
 
 	const resetForm = () => {
 		setEnteredAmount(0);
@@ -24,7 +19,8 @@ export default function InputFood({addNewData, setSubmittedInput}) {
 		};
 		console.log(newData);
 		addNewData(newData);
-		setSubmittedInput(enteredAmount);
+		setSubmittedFoodInput(enteredAmount);
+		setSubmittedTimeInput(enteredTime);
 		resetForm();
 	};
 
@@ -56,7 +52,6 @@ export default function InputFood({addNewData, setSubmittedInput}) {
 						</label>
 					</section>
 					<section>
-						<button onClick={handleCloseForm}>Cancel</button>
 						<button type="submit">Add</button>
 					</section>
 				</form>
