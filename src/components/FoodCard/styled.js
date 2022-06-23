@@ -17,12 +17,11 @@ const FoodCardHead = styled.section`
 
 const FoodCardButton = styled.button`
 	padding: 0.5em 1em;
-	border: 1px solid black;
+	border: none;
 	border-radius: ${pxToRem(4)};
-	background: blue;
+	background: #343d46;
 	color: white;
 	font-size: 1em;
-	align-self: center;
 
 	&:hover {
 		background: grey;
