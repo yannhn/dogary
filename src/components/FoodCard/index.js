@@ -1,3 +1,5 @@
+import {useState} from 'react';
+
 import InputFood from '../InputFood/index.js';
 
 import {
@@ -10,6 +12,12 @@ import {
 } from './styled';
 
 export default function FoodCard() {
+	const [showForm, setShowForm] = useState(false);
+
+	// const handleShowForm = () => {
+	// 	setShowForm(!showForm);
+	// };
+
 	return (
 		<>
 			<FoodCardContainer>
@@ -18,9 +26,8 @@ export default function FoodCard() {
 						<h2>Food</h2>
 						<h3>Type of food</h3>
 					</section>
-					<FoodCardButton>+</FoodCardButton>
+					<FoodCardButton onClick={() => setShowForm(true)}>+</FoodCardButton>
 				</FoodCardHead>
-
 				<FoodInfoContainer>
 					<FoodInfo>
 						<p>What: DOGNAME ate 80gram</p>
@@ -29,8 +36,7 @@ export default function FoodCard() {
 					<FoodCounter>current / goal</FoodCounter>
 				</FoodInfoContainer>
 			</FoodCardContainer>
-
-			<InputFood></InputFood>
+			{showForm && <InputFood></InputFood>}
 		</>
 	);
 }
