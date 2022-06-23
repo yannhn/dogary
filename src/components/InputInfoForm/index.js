@@ -2,7 +2,7 @@ import {useState} from 'react';
 
 export default function InputInfoForm() {
 	const [enteredName, setEnteredName] = useState('');
-	const [image, setImage] = useState(null);
+	// const [image, setImage] = useState(null);
 
 	const nameChangeHandler = event => {
 		setEnteredName(event.target.value);
@@ -22,13 +22,13 @@ export default function InputInfoForm() {
 		<section>
 			<form onSubmit={handleSubmit}>
 				<section>
-					<label htmlFor="name">
+					<label>
 						Input Name:
 						<input type="text" value={enteredName} onChange={nameChangeHandler}></input>
 					</label>
 				</section>
 				<section>
-					<label htmlFor="picture">
+					<label>
 						Upload profile picture:
 						<input type="file" onChange={imageChangeHandler}></input>
 					</label>
