@@ -11,6 +11,11 @@ export default function InputFood({addNewData}) {
 		setShowFormContainer(!showFormContainer);
 	};
 
+	const resetForm = () => {
+		setEnteredAmount(0);
+		setEnteredTime('');
+	};
+
 	const handleSubmit = event => {
 		event.preventDefault();
 		const newData = {
@@ -19,8 +24,7 @@ export default function InputFood({addNewData}) {
 		};
 		console.log(newData);
 		addNewData(newData);
-		setEnteredAmount(enteredAmount);
-		setEnteredTime('');
+		resetForm();
 	};
 
 	return (
@@ -36,6 +40,7 @@ export default function InputFood({addNewData}) {
 								value={enteredAmount}
 								onChange={event => setEnteredAmount(event.target.value)}
 							></input>
+							<p>{event => setEnteredAmount(event.target.value)}</p>
 						</label>
 					</section>
 					<section>

@@ -15,8 +15,6 @@ export default function FoodCard() {
 	const [data, setData] = useState([]);
 	const [showForm, setShowForm] = useState(false);
 
-	// const fakeData = {amount: 40, time: '07:30'};
-
 	function addNewData(data) {
 		setData(prevItem => {
 			return [data, ...prevItem];
@@ -44,7 +42,7 @@ export default function FoodCard() {
 				</FoodCardHead>
 				<FoodInfoContainer>
 					<FoodInfo>
-						<p>What: DOGNAME ate 0 gram </p>
+						<p>What: DOGNAME ate {todayAmount} gram </p>
 						<p>When: </p>
 					</FoodInfo>
 					<FoodCounter>{todayAmount} / goal</FoodCounter>
