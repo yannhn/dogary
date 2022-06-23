@@ -2,7 +2,7 @@ import {useState} from 'react';
 
 import {InputFoodContainer} from './styled';
 
-export default function InputFood({addNewData}) {
+export default function InputFood({addNewData, setSubmittedInput}) {
 	const [enteredTime, setEnteredTime] = useState('');
 	const [showFormContainer, setShowFormContainer] = useState(false);
 	const [enteredAmount, setEnteredAmount] = useState(0);
@@ -24,6 +24,7 @@ export default function InputFood({addNewData}) {
 		};
 		console.log(newData);
 		addNewData(newData);
+		setSubmittedInput(enteredAmount);
 		resetForm();
 	};
 

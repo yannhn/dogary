@@ -14,6 +14,7 @@ import {
 export default function FoodCard() {
 	const [data, setData] = useState([]);
 	const [showForm, setShowForm] = useState(false);
+	const [submittedInput, setSubmittedInput] = useState(null);
 
 	function addNewData(data) {
 		setData(prevItem => {
@@ -42,13 +43,18 @@ export default function FoodCard() {
 				</FoodCardHead>
 				<FoodInfoContainer>
 					<FoodInfo>
-						<p>What: DOGNAME ate {todayAmount} gram </p>
+						<p>What: DOGNAME ate {submittedInput} gram </p>
 						<p>When: </p>
 					</FoodInfo>
 					<FoodCounter>{todayAmount} / goal</FoodCounter>
 				</FoodInfoContainer>
 			</FoodCardContainer>
-			{showForm && <InputFood addNewData={addNewData}></InputFood>}
+			{showForm && (
+				<InputFood
+					addNewData={addNewData}
+					setSubmittedInput={setSubmittedInput}
+				></InputFood>
+			)}
 		</>
 	);
 }
