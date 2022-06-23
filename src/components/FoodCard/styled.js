@@ -5,8 +5,8 @@ import {pxToRem} from '../../utils/unit';
 const FoodCardContainer = styled.section`
 	border: 1px solid black;
 	border-radius: 10px;
-	margin: 6em;
-	padding: 1em;
+	margin: 2em;
+	padding: 0.2em 1em;
 `;
 
 const FoodCardHead = styled.section`
@@ -17,11 +17,12 @@ const FoodCardHead = styled.section`
 
 const FoodCardButton = styled.button`
 	padding: 0.5em 1em;
-	border: 1px solid rgba(0, 0, 0, 0.3);
+	border: 1px solid black;
 	border-radius: ${pxToRem(4)};
 	background: blue;
 	color: white;
 	font-size: 1em;
+	align-self: center;
 
 	&:hover {
 		background: grey;
@@ -37,4 +38,20 @@ const FoodInfoContainer = styled.section`
 	justify-content: space-between;
 `;
 
-export {FoodCardContainer, FoodCardButton, FoodInfoContainer, FoodCardHead};
+const FoodInfo = styled.section`
+	font-weight: light;
+	text-align: start;
+	color: grey;
+	align-self: flex-end;
+	font-size: 0.8rem;
+`;
+
+const FoodCounter = styled.p`
+	font-weight: light;
+	text-align: end;
+	color: grey;
+	align-self: flex-end;
+	font-size: 0.8rem;
+`;
+
+export {FoodCardContainer, FoodCardButton, FoodInfoContainer, FoodCardHead, FoodCounter, FoodInfo};

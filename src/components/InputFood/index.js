@@ -3,10 +3,14 @@ export default function InputFood() {
 		<>
 			<form>
 				<section>
-					<label></label>
+					<label>
+						<input></input>
+					</label>
 				</section>
 				<section>
-					<label></label>
+					<label>
+						<input></input>
+					</label>
 				</section>
 			</form>
 		</>

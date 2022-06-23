@@ -1,19 +1,29 @@
-import {FoodCardContainer, FoodCardButton, FoodInfoContainer, FoodCardHead} from './styled';
+import {
+	FoodCardContainer,
+	FoodCardButton,
+	FoodInfoContainer,
+	FoodCardHead,
+	FoodCounter,
+	FoodInfo,
+} from './styled';
 
 export default function FoodCard() {
 	return (
 		<FoodCardContainer>
 			<FoodCardHead>
-				<h2>Food</h2>
-				<FoodCardButton>Add new food</FoodCardButton>
-			</FoodCardHead>
-			<h3>Type of food</h3>
-			<FoodInfoContainer>
 				<section>
+					<h2>Food</h2>
+					<h3>Type of food</h3>
+				</section>
+				<FoodCardButton>+</FoodCardButton>
+			</FoodCardHead>
+
+			<FoodInfoContainer>
+				<FoodInfo>
 					<p>What: DOGNAME ate 80gram</p>
 					<p>When: At 7:30</p>
-				</section>
-				<p>Counter: current food / goal</p>
+				</FoodInfo>
+				<FoodCounter>current / goal</FoodCounter>
 			</FoodInfoContainer>
 		</FoodCardContainer>
 	);
