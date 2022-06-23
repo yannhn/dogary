@@ -14,9 +14,9 @@ import {
 export default function FoodCard() {
 	const [showForm, setShowForm] = useState(false);
 
-	// const handleShowForm = () => {
-	// 	setShowForm(!showForm);
-	// };
+	const handleShowForm = () => {
+		setShowForm(!showForm);
+	};
 
 	return (
 		<>
@@ -26,7 +26,7 @@ export default function FoodCard() {
 						<h2>Food</h2>
 						<h3>Type of food</h3>
 					</section>
-					<FoodCardButton onClick={() => setShowForm(true)}>+</FoodCardButton>
+					<FoodCardButton onClick={handleShowForm}>+</FoodCardButton>
 				</FoodCardHead>
 				<FoodInfoContainer>
 					<FoodInfo>
@@ -40,3 +40,19 @@ export default function FoodCard() {
 		</>
 	);
 }
+
+// const handleInfo = () => {
+// 	setShowInputInfo(!showInputInfo);
+// 	console.log(showInputInfo);
+// };
+
+// return (
+// 	<Layout>
+// 		<Helmet>
+// 			<title key="title">My Project</title>
+// 			<meta key="description" name="description" content="This is my project" />
+// 		</Helmet>
+// 		<section>
+// 			<button onClick={handleInfo}>
+// 				{showInputInfo ? 'hide InputForm' : 'show InputForm'}
+// 			</button>
