@@ -12,6 +12,9 @@ import {
 } from './styled';
 
 export default function FoodCard() {
+	// const [data, setData] = useState([{amount: 20, time: '07:30'}]);
+	const fakeData = {amount: 40, time: '07:30'};
+
 	const [showForm, setShowForm] = useState(false);
 
 	const handleShowForm = () => {
@@ -30,8 +33,8 @@ export default function FoodCard() {
 				</FoodCardHead>
 				<FoodInfoContainer>
 					<FoodInfo>
-						<p>What: DOGNAME ate 80gram</p>
-						<p>When: At 7:30</p>
+						<p>What: DOGNAME ate {fakeData.amount} gram</p>
+						<p>When: {fakeData.time}</p>
 					</FoodInfo>
 					<FoodCounter>current / goal</FoodCounter>
 				</FoodInfoContainer>
