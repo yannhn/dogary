@@ -3,7 +3,7 @@ import {useState} from 'react';
 import {InputFoodContainer} from './styled';
 
 export default function InputFood({addNewData}) {
-	const [enteredAmount, setEnteredAmount] = useState('');
+	const [enteredAmount, setEnteredAmount] = useState(0);
 	const [enteredTime, setEnteredTime] = useState('');
 	const [showFormContainer, setShowFormContainer] = useState(false);
 
@@ -20,7 +20,7 @@ export default function InputFood({addNewData}) {
 		};
 		console.log(newData);
 		addNewData(newData);
-		setEnteredAmount('');
+		setEnteredAmount(0);
 		setEnteredTime('');
 	};
 
@@ -33,7 +33,7 @@ export default function InputFood({addNewData}) {
 						<label>
 							How many gram did the dog eat
 							<input
-								type="text"
+								type="number"
 								value={enteredAmount}
 								onChange={event => setEnteredAmount(event.target.value)}
 							></input>

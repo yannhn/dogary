@@ -26,6 +26,12 @@ export default function FoodCard() {
 		setShowForm(!showForm);
 	};
 
+	const todayAmount = data.reduce(
+		(previousAmount, currentAmount) => previousAmount + currentAmount.amount,
+		0
+	);
+	//   const fixedPrice = totalPrice.toFixed(2);
+
 	return (
 		<>
 			<FoodCardContainer>
@@ -37,12 +43,12 @@ export default function FoodCard() {
 					<FoodCardButton onClick={handleShowForm}>+</FoodCardButton>
 				</FoodCardHead>
 				{data.map(item => (
-					<FoodInfoContainer key={item.id}>
+					<FoodInfoContainer key={data.id}>
 						<FoodInfo>
 							<p>What: DOGNAME ate {item.amount} gram</p>
 							<p>When: {item.time}</p>
 						</FoodInfo>
-						<FoodCounter>current / goal</FoodCounter>
+						<FoodCounter>{todayAmount} / goal</FoodCounter>
 					</FoodInfoContainer>
 				))}
 			</FoodCardContainer>
