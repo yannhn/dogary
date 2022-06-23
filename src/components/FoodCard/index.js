@@ -42,15 +42,13 @@ export default function FoodCard() {
 					</section>
 					<FoodCardButton onClick={handleShowForm}>+</FoodCardButton>
 				</FoodCardHead>
-				{data.map(item => (
-					<FoodInfoContainer key={data.id}>
-						<FoodInfo>
-							<p>What: DOGNAME ate {item.amount} gram</p>
-							<p>When: {item.time}</p>
-						</FoodInfo>
-						<FoodCounter>{todayAmount} / goal</FoodCounter>
-					</FoodInfoContainer>
-				))}
+				<FoodInfoContainer key={data.id}>
+					<FoodInfo>
+						<p>What: DOGNAME ate {data.amount} gram</p>
+						<p>When: {data.time}</p>
+					</FoodInfo>
+					<FoodCounter>{todayAmount} / goal</FoodCounter>
+				</FoodInfoContainer>
 			</FoodCardContainer>
 			{showForm && <InputFood addNewData={addNewData}></InputFood>}
 		</>

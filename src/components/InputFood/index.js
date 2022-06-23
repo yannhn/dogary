@@ -15,7 +15,7 @@ export default function InputFood({addNewData}) {
 		event.preventDefault();
 
 		const newData = {
-			amount: enteredAmount,
+			amount: parseInt(enteredAmount),
 			time: enteredTime,
 		};
 		console.log(newData);
