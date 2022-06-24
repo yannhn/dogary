@@ -11,14 +11,14 @@ describe('WalkCard component', () => {
 		const title = screen.getByText('Walks');
 		const length = screen.getByText('Duration', {exact: false});
 		const time = screen.getByText('When', {exact: false});
-		expect(title).toBeInTheDocument;
-		expect(length).toBeInTheDocument;
-		expect(time).toBeInTheDocument;
+		expect(title).toBeInTheDocument();
+		expect(length).toBeInTheDocument();
+		expect(time).toBeInTheDocument();
 	});
 	it('should render the button in the component', () => {
 		render(<WalkCard />);
 
 		const button = screen.getByRole('button');
-		expect(button).toBeInTheDocument;
+		expect(button).toBeInTheDocument();
 	});
 });
