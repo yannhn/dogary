@@ -17,11 +17,23 @@ describe('Display FoodCard component', () => {
 		expect(time).toBeInTheDocument();
 		expect(amount).toBeInTheDocument();
 	});
-	it('should render the FoocCard button', () => {
-		render(<FoodCard />);
+	// it('should render the FoodCard button', () => {
+	// 	render(<FoodCard />);
 
+	// 	const button = screen.getByRole('button');
+	// 	expect(button).toBeInTheDocument();
+	// });
+});
+
+describe('Button component', () => {
+	it('should open form by click', async () => {
+		render(<FoodCard />);
 		const button = screen.getByRole('button');
 		expect(button).toBeInTheDocument();
+		const handleShowForm = jest.fn();
+		render(<FoodCard onClick={handleShowForm}></FoodCard>);
+		await userEvent.click(button);
+		expect(handleShowForm).toHaveBeenCalledTimes(0);
 	});
 });
 
