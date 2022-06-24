@@ -1,30 +1,30 @@
 import {
-	FoodCardContainer,
-	FoodCardButton,
-	FoodInfoContainer,
-	FoodCardHead,
-	FoodCounter,
-	FoodInfo,
+	WalkCardContainer,
+	WalkCardButton,
+	WalkInfoContainer,
+	WalkCardHead,
+	WalkInfo,
+	WalkCounter,
 } from './styled';
 
 export default function WalkCard() {
 	return (
 		<>
-			<FoodCardContainer>
-				<FoodCardHead>
+			<WalkCardContainer>
+				<WalkCardHead>
 					<section>
 						<h2>Walks</h2>
 					</section>
-					<FoodCardButton>+</FoodCardButton>
-				</FoodCardHead>
-				<FoodInfoContainer>
-					<FoodInfo>
+					<WalkCardButton>+</WalkCardButton>
+				</WalkCardHead>
+				<WalkInfoContainer>
+					<WalkInfo>
 						<p>Duration: 45 minutes</p>
 						<p>When: 10:45 - 11:30</p>
-					</FoodInfo>
-					<FoodCounter>45 minutes / goal</FoodCounter>
-				</FoodInfoContainer>
-			</FoodCardContainer>
+					</WalkInfo>
+					<WalkCounter>45 minutes / goal</WalkCounter>
+				</WalkInfoContainer>
+			</WalkCardContainer>
 		</>
 	);
 }
