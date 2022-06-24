@@ -2,10 +2,10 @@ import '@testing-library/jest-dom';
 import {render, screen} from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
-import Button from './';
+import FoodCard from './';
 
-describe('Button component', () => {
-	it('should render children', () => {
+describe('FoodCard component', () => {
+	it('should render FoodCard component', () => {
 		const text = 'Click me';
 		render(<Button>{text}</Button>);
 		const button = screen.getByText(text);
