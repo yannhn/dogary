@@ -7,10 +7,9 @@ import {
 	WalkCounter,
 } from './styled';
 
-export default function WalkCard({children}) {
+export default function WalkCard() {
 	return (
 		<>
-			{children}
 			<WalkCardContainer>
 				<WalkCardHead>
 					<section>
