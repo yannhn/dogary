@@ -22,7 +22,7 @@ export default function WalkCard() {
 						<p>Duration: 45 minutes</p>
 						<p>When: 10:45 - 11:30</p>
 					</WalkInfo>
-					<WalkCounter>45 minutes / goal</WalkCounter>
+					<WalkCounter>45 m (today) / 120m (goal)</WalkCounter>
 				</WalkInfoContainer>
 			</WalkCardContainer>
 		</>
