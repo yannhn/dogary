@@ -19,7 +19,7 @@ describe('WalkCard component', () => {
 	it('should render the button in the component', () => {
 		render(<WalkCard />);
 
-		const button = screen.getByText('+');
+		const button = screen.getByRole('button');
 		expect(button).toBeInTheDocument;
 	});
 });
