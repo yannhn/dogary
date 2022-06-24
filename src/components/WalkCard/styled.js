@@ -3,11 +3,10 @@ import styled from 'styled-components';
 import {pxToRem} from '../../utils/unit';
 
 const WalkCardContainer = styled.section`
-	border: 1px solid black;
 	margin: 2em;
-	border-radius: 10px;
-
 	padding: 0.2em 1em;
+	border: 1px solid black;
+	border-radius: 10px;
 `;
 
 const WalkCardHead = styled.section`
@@ -39,21 +38,19 @@ const WalkInfoContainer = styled.section`
 `;
 
 const WalkInfo = styled.section`
-	font-weight: light;
 	align-self: flex-end;
+	font-weight: light;
+	font-size: 0.8rem;
 	color: grey;
 	text-align: start;
-
-	font-size: 0.8rem;
 `;
 
 const WalkCounter = styled.p`
-	font-weight: light;
 	align-self: flex-end;
+	font-weight: light;
+	font-size: 0.8rem;
 	color: grey;
 	text-align: end;
-
-	font-size: 0.8rem;
 `;
 
 export {WalkCardContainer, WalkCardHead, WalkCardButton, WalkInfoContainer, WalkInfo, WalkCounter};
