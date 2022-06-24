@@ -4,15 +4,16 @@ import {pxToRem} from '../../utils/unit';
 
 const WalkCardContainer = styled.section`
 	border: 1px solid black;
-	border-radius: 10px;
 	margin: 2em;
+	border-radius: 10px;
+
 	padding: 0.2em 1em;
 `;
 
 const WalkCardHead = styled.section`
 	display: flex;
-	justify-content: space-between;
 	align-items: center;
+	justify-content: space-between;
 `;
 
 const WalkCardButton = styled.button`
@@ -39,17 +40,19 @@ const WalkInfoContainer = styled.section`
 
 const WalkInfo = styled.section`
 	font-weight: light;
-	text-align: start;
-	color: grey;
 	align-self: flex-end;
+	color: grey;
+	text-align: start;
+
 	font-size: 0.8rem;
 `;
 
 const WalkCounter = styled.p`
 	font-weight: light;
-	text-align: end;
-	color: grey;
 	align-self: flex-end;
+	color: grey;
+	text-align: end;
+
 	font-size: 0.8rem;
 `;
 
