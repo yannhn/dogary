@@ -39,17 +39,17 @@ const WalkInfoContainer = styled.section`
 
 const WalkInfo = styled.section`
 	align-self: flex-end;
-	font-weight: light;
-	font-size: 0.8rem;
 	color: grey;
+	font-size: 0.8rem;
+	font-weight: light;
 	text-align: start;
 `;
 
 const WalkCounter = styled.p`
 	align-self: flex-end;
-	font-weight: light;
-	font-size: 0.8rem;
 	color: grey;
+	font-size: 0.8rem;
+	font-weight: light;
 	text-align: end;
 `;
 
