@@ -3,10 +3,10 @@ import styled from 'styled-components';
 // import {pxToRem} from '../../utils/unit';
 
 const InputFoodContainer = styled.section`
-	border: 1px solid black;
 	margin: 2em;
-	border-radius: 10px;
 	padding: 0.2em 1em;
+	border: 1px solid black;
+	border-radius: 10px;
 
 	h4 {
 		display: flex;

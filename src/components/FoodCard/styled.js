@@ -3,10 +3,10 @@ import styled from 'styled-components';
 import {pxToRem} from '../../utils/unit';
 
 const FoodCardContainer = styled.section`
-	border: 1px solid black;
 	margin: 2em;
-	border-radius: 10px;
 	padding: 0.2em 1em;
+	border: 1px solid black;
+	border-radius: 10px;
 `;
 
 const FoodCardHead = styled.section`
@@ -38,19 +38,19 @@ const FoodInfoContainer = styled.section`
 `;
 
 const FoodInfo = styled.section`
-	font-weight: light;
 	align-self: flex-end;
+	font-weight: light;
 	color: grey;
-	text-align: start;
 	font-size: 0.8rem;
+	text-align: start;
 `;
 
 const FoodCounter = styled.p`
-	font-weight: light;
 	align-self: flex-end;
+	font-weight: light;
 	color: grey;
-	text-align: end;
 	font-size: 0.8rem;
+	text-align: end;
 `;
 
 export {FoodCardContainer, FoodCardButton, FoodInfoContainer, FoodCardHead, FoodCounter, FoodInfo};
