@@ -21,8 +21,8 @@ export default function BusinessCard() {
 						<p>When: at 07:30</p>
 					</BusinessInfo>
 					<BusinessCounter>
-						<p>1 /small</p>
-						<p>1 /big</p>
+						<p>1 / small</p>
+						<p>1 / big</p>
 					</BusinessCounter>
 				</BusinessInfoContainer>
 			</BusinessCardContainer>
