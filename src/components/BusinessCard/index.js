@@ -1,23 +1,31 @@
+import {
+	BusinessCardContainer,
+	BusinessCardHead,
+	BusinessInfoContainer,
+	BusinessInfo,
+	BusinessCounter,
+} from './styled';
+
 export default function BusinessCard() {
 	return (
 		<>
-			<section>
-				<article>
+			<BusinessCardContainer>
+				<BusinessCardHead>
 					<section>
-						<h2>"A dogs business"</h2>
+						<h2>A dogs business</h2>
 					</section>
-				</article>
-				<section>
-					<section>
+				</BusinessCardHead>
+				<BusinessInfoContainer>
+					<BusinessInfo>
 						<p>What: big AND/OR small</p>
 						<p>When: at 07:30</p>
-					</section>
-					<section>
-						<p>0 / small</p>
-						<p>0 / big</p>
-					</section>
-				</section>
-			</section>
+					</BusinessInfo>
+					<BusinessCounter>
+						<p>0 /small</p>
+						<p>0 /big</p>
+					</BusinessCounter>
+				</BusinessInfoContainer>
+			</BusinessCardContainer>
 		</>
 	);
 }
