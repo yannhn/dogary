@@ -15,8 +15,8 @@ const BusinessCardHead = styled.article`
 
 const BusinessInfoContainer = styled.section`
 	display: flex;
-	justify-content: space-between;
 	align-items: center;
+	justify-content: space-between;
 `;
 
 const BusinessInfo = styled.section`
