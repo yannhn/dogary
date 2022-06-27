@@ -1,8 +1,5 @@
 import styled from 'styled-components';
 
-const fontWeightInfoCounter = 'light';
-const fontSizeInfoCounter = '0.8rem';
-
 const WalkCardContainer = styled.section`
 	margin: 2em;
 	padding: 0.2em 1em;
@@ -23,17 +20,17 @@ const WalkInfoContainer = styled.section`
 
 const WalkInfo = styled.section`
 	align-self: flex-end;
-	color: grey;
-	${fontSizeInfoCounter}
-	${fontWeightInfoCounter}
+	color: var(--card-info-color);
+	font-size: var(--card-info-fontSize);
+	font-weight: var(--card-info-fontWeight);
 	text-align: start;
 `;
 
 const WalkCounter = styled.p`
 	align-self: flex-end;
-	color: grey;
-	${fontWeightInfoCounter}
-	${fontWeightInfoCounter}
+	color: var(--card-info-color);
+	font-size: var(--card-info-fontSize);
+	font-weight: var(--card-info-fontWeight);
 	text-align: end;
 `;
 
