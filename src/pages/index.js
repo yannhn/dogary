@@ -14,7 +14,7 @@ export default function HomePage() {
 			</Helmet>
 			<ShowName />
 			<ShowPicture />
-			<WalkCard></WalkCard>
+			<WalkCard />
 		</Layout>
 	);
 }

@@ -4,7 +4,6 @@ import {render, screen} from '@testing-library/react';
 import WalkCard from './';
 
 describe('WalkCard component', () => {
-	// Arrange
 	it('should render the text in the component', () => {
 		render(<WalkCard />);
 

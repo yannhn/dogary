@@ -1,11 +1,4 @@
-import {
-	WalkCardContainer,
-	WalkCardButton,
-	WalkInfoContainer,
-	WalkCardHead,
-	WalkInfo,
-	WalkCounter,
-} from './styled';
+import {WalkCardContainer, WalkInfoContainer, WalkCardHead, WalkInfo, WalkCounter} from './styled';
 
 export default function WalkCard() {
 	return (
@@ -15,7 +8,6 @@ export default function WalkCard() {
 					<section>
 						<h2>Walks</h2>
 					</section>
-					<WalkCardButton>+</WalkCardButton>
 				</WalkCardHead>
 				<WalkInfoContainer>
 					<WalkInfo>
