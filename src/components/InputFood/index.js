@@ -33,6 +33,7 @@ export default function InputFood({addNewFoodItem, setSubmittedFoodInput, setSub
 							How many gram did the dog eat
 							<input
 								type="number"
+								min="0"
 								value={enteredAmount}
 								onChange={event => setEnteredAmount(event.target.value)}
 							></input>
