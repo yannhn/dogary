@@ -17,11 +17,9 @@ export default function FoodCard() {
 	const [submittedFoodInput, setSubmittedFoodInput] = useState('');
 	const [submittedTimeInput, setSubmittedTimeInput] = useState('');
 
-	function addNewFoodItem(foodItem) {
-		setFoodItem(prevItem => {
-			const newFoodItem = [foodItem, ...prevItem];
-			setFoodItem(newFoodItem);
-		});
+	function addNewFoodItem(prevItem) {
+		const newFoodItems = [...foodItem, prevItem];
+		setFoodItem(newFoodItems);
 	}
 
 	const todayAmount = foodItem.reduce(

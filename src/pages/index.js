@@ -13,14 +13,10 @@ export default function HomePage() {
 				<title key="title">My Project</title>
 				<meta key="description" name="description" content="This is my project" />
 			</Helmet>
-
-			<ShowName />
-			<ShowPicture />
-			<FoodCard />
-
 			<ShowName />
 			<ShowPicture />
 			<WalkCard />
+			<FoodCard />
 		</Layout>
 	);
 }
