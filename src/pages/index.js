@@ -5,6 +5,10 @@ import Layout from '../components/Layout';
 import ShowName from '../components/ShowName/index.js';
 import ShowPicture from '../components/ShowPicture/index.js';
 
+
+import WalkCard from '../components/WalkCard';
+
+
 export default function HomePage() {
 	return (
 		<Layout>
@@ -13,9 +17,15 @@ export default function HomePage() {
 				<meta key="description" name="description" content="This is my project" />
 			</Helmet>
 
+
 			<ShowName />
 			<ShowPicture />
 			<FoodCard />
+
+			<ShowName />
+			<ShowPicture />
+			<WalkCard />
+
 		</Layout>
 	);
 }
