@@ -40,16 +40,16 @@ const FoodInfoContainer = styled.section`
 const FoodInfo = styled.section`
 	align-self: flex-end;
 	color: grey;
-	font-weight: light;
 	font-size: 0.8rem;
+	font-weight: light;
 	text-align: start;
 `;
 
 const FoodCounter = styled.p`
 	align-self: flex-end;
 	color: grey;
-	font-weight: light;
 	font-size: 0.8rem;
+	font-weight: light;
 	text-align: end;
 `;
 
