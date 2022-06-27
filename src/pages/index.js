@@ -2,6 +2,8 @@ import {Helmet} from 'react-helmet';
 
 import FoodCard from '../components/FoodCard';
 import Layout from '../components/Layout';
+import ShowName from '../components/ShowName/index.js';
+import ShowPicture from '../components/ShowPicture/index.js';
 
 export default function HomePage() {
 	return (
@@ -10,7 +12,10 @@ export default function HomePage() {
 				<title key="title">My Project</title>
 				<meta key="description" name="description" content="This is my project" />
 			</Helmet>
-			<FoodCard></FoodCard>
+
+			<ShowName />
+			<ShowPicture />
+			<FoodCard />
 		</Layout>
 	);
 }
