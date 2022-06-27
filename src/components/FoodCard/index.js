@@ -12,22 +12,19 @@ import {
 } from './styled';
 
 export default function FoodCard() {
-	const [data, setData] = useState([]);
+	const [foodItem, setFoodItem] = useState([]);
 	const [showForm, setShowForm] = useState(false);
-	const [submittedFoodInput, setSubmittedFoodInput] = useState(null);
-	const [submittedTimeInput, setSubmittedTimeInput] = useState(null);
+	const [submittedFoodInput, setSubmittedFoodInput] = useState('');
+	const [submittedTimeInput, setSubmittedTimeInput] = useState('');
 
-	function addNewData(data) {
-		setData(prevItem => {
-			return [data, ...prevItem];
+	function addNewFoodItem(foodItem) {
+		setFoodItem(prevItem => {
+			const newFoodItem = [foodItem, ...prevItem];
+			setFoodItem(newFoodItem);
 		});
 	}
 
-	const handleShowForm = () => {
-		setShowForm(!showForm);
-	};
-
-	const todayAmount = data.reduce(
+	const todayAmount = foodItem.reduce(
 		(previousAmount, currentAmount) => previousAmount + currentAmount.amount,
 		0
 	);
@@ -40,7 +37,13 @@ export default function FoodCard() {
 						<h2>Food</h2>
 						<h3>Type of food</h3>
 					</section>
-					<FoodCardButton onClick={handleShowForm}>{showForm ? '-' : '+'}</FoodCardButton>
+					<FoodCardButton
+						onClick={() => {
+							setShowForm(!showForm);
+						}}
+					>
+						{showForm ? '-' : '+'}
+					</FoodCardButton>
 				</FoodCardHead>
 				<FoodInfoContainer>
 					<FoodInfo>
@@ -52,7 +55,7 @@ export default function FoodCard() {
 			</FoodCardContainer>
 			{showForm && (
 				<InputFood
-					addNewData={addNewData}
+					addNewFoodItem={addNewFoodItem}
 					setSubmittedFoodInput={setSubmittedFoodInput}
 					setSubmittedTimeInput={setSubmittedTimeInput}
 				></InputFood>

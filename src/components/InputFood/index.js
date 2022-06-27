@@ -2,7 +2,7 @@ import {useState} from 'react';
 
 import {InputFoodContainer} from './styled';
 
-export default function InputFood({addNewData, setSubmittedFoodInput, setSubmittedTimeInput}) {
+export default function InputFood({addNewFoodItem, setSubmittedFoodInput, setSubmittedTimeInput}) {
 	const [enteredAmount, setEnteredAmount] = useState(0);
 	const [enteredTime, setEnteredTime] = useState('08:00');
 
@@ -13,12 +13,11 @@ export default function InputFood({addNewData, setSubmittedFoodInput, setSubmitt
 
 	const handleSubmit = event => {
 		event.preventDefault();
-		const newData = {
+		const newInput = {
 			amount: parseInt(enteredAmount),
 			time: enteredTime,
 		};
-		console.log(newData);
-		addNewData(newData);
+		addNewFoodItem(newInput);
 		setSubmittedFoodInput(enteredAmount);
 		setSubmittedTimeInput(enteredTime);
 		resetForm();
@@ -37,7 +36,6 @@ export default function InputFood({addNewData, setSubmittedFoodInput, setSubmitt
 								value={enteredAmount}
 								onChange={event => setEnteredAmount(event.target.value)}
 							></input>
-							<p>{event => setEnteredAmount(event.target.value)}</p>
 						</label>
 					</section>
 					<section>
