@@ -4,8 +4,8 @@ import styled from 'styled-components';
 
 const InputFoodContainer = styled.section`
 	border: 1px solid black;
-	border-radius: 10px;
 	margin: 2em;
+	border-radius: 10px;
 	padding: 0.2em 1em;
 
 	h4 {
