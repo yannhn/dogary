@@ -4,10 +4,7 @@ import FoodCard from '../components/FoodCard';
 import Layout from '../components/Layout';
 import ShowName from '../components/ShowName/index.js';
 import ShowPicture from '../components/ShowPicture/index.js';
-
-
 import WalkCard from '../components/WalkCard';
-
 
 export default function HomePage() {
 	return (
@@ -17,7 +14,6 @@ export default function HomePage() {
 				<meta key="description" name="description" content="This is my project" />
 			</Helmet>
 
-
 			<ShowName />
 			<ShowPicture />
 			<FoodCard />
@@ -25,7 +21,6 @@ export default function HomePage() {
 			<ShowName />
 			<ShowPicture />
 			<WalkCard />
-
 		</Layout>
 	);
 }
