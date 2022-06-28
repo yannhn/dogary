@@ -10,6 +10,7 @@ export default function WalkCard() {
 					<section>
 						<h2>Walks</h2>
 					</section>
+					<button>show Form</button>
 				</WalkCardHead>
 				<WalkInfoContainer>
 					<WalkInfo>
