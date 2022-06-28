@@ -20,7 +20,6 @@ export default function WalkCard() {
 		0
 	);
 
-	// const [showForm, setShowForm] = useState(false);
 	return (
 		<>
 			<WalkCardContainer>
