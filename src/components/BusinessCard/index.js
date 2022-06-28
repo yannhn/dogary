@@ -1,3 +1,5 @@
+import InputBusiness from '../InputBusiness';
+
 import {
 	BusinessCardContainer,
 	BusinessCardHead,
@@ -26,6 +28,7 @@ export default function BusinessCard() {
 					</BusinessCounter>
 				</BusinessInfoContainer>
 			</BusinessCardContainer>
+			<InputBusiness />
 		</>
 	);
 }
