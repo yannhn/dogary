@@ -6,6 +6,7 @@ import {WalkCardContainer, WalkInfoContainer, WalkCardHead, WalkInfo, WalkCounte
 
 export default function WalkCard() {
 	const [walkItem, setWalkItem] = useState([]);
+	const [showForm, setShowForm] = useState(false);
 	const [submittedDuration, setSubmittedDuration] = useState('');
 	const [submittedStartTime, setSubmittedStartTime] = useState('');
 
@@ -19,8 +20,6 @@ export default function WalkCard() {
 		0
 	);
 
-	console.log(walkTotal);
-
 	// const [showForm, setShowForm] = useState(false);
 	return (
 		<>
@@ -30,11 +29,11 @@ export default function WalkCard() {
 						<h2>Walks</h2>
 					</section>
 					<button
-					// onClick={() => {
-					// 	setShowForm(!showForm);
-					// }}
+						onClick={() => {
+							setShowForm(!showForm);
+						}}
 					>
-						{/* {showForm ? '-' : '+'} */}+
+						{showForm ? '-' : '+'}
 					</button>
 				</WalkCardHead>
 				<WalkInfoContainer>
@@ -42,15 +41,16 @@ export default function WalkCard() {
 						<p>Duration: {submittedDuration} h/m</p>
 						<p>When: {submittedStartTime} starting</p>
 					</WalkInfo>
-					<WalkCounter>{walkTotal} / goal</WalkCounter>
+					<WalkCounter>{walkTotal}/ goal</WalkCounter>
 				</WalkInfoContainer>
 			</WalkCardContainer>
-			{/* {showForm && <InputWalk />} */}
-			<InputWalk
-				addNewWalkItem={addNewWalkItem}
-				setSubmittedDuration={setSubmittedDuration}
-				setSubmittedStartTime={setSubmittedStartTime}
-			/>
+			{showForm && (
+				<InputWalk
+					addNewWalkItem={addNewWalkItem}
+					setSubmittedDuration={setSubmittedDuration}
+					setSubmittedStartTime={setSubmittedStartTime}
+				/>
+			)}
 		</>
 	);
 }

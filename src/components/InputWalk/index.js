@@ -1,5 +1,7 @@
 import {useState} from 'react';
 
+import {InputWalkContainer} from './styled';
+
 export default function InputWalk({addNewWalkItem, setSubmittedDuration, setSubmittedStartTime}) {
 	const [enteredDuration, setEnteredDuration] = useState('00:00');
 	const [enteredStartTime, setEnteredStartTime] = useState('00:00');
@@ -18,8 +20,9 @@ export default function InputWalk({addNewWalkItem, setSubmittedDuration, setSubm
 
 	return (
 		<>
-			<section>
+			<InputWalkContainer>
 				<form onSubmit={handleSubmit}>
+					<h4>Your walks</h4>
 					<section>
 						<label>
 							How long?
@@ -46,7 +49,7 @@ export default function InputWalk({addNewWalkItem, setSubmittedDuration, setSubm
 					</label> */}
 					<button type="submit">add</button>
 				</form>
-			</section>
+			</InputWalkContainer>
 		</>
 	);
 }
