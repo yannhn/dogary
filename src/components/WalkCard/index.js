@@ -1,3 +1,5 @@
+import InputWalk from '../InputWalk/index';
+
 import {WalkCardContainer, WalkInfoContainer, WalkCardHead, WalkInfo, WalkCounter} from './styled';
 
 export default function WalkCard() {
@@ -16,6 +18,7 @@ export default function WalkCard() {
 					</WalkInfo>
 					<WalkCounter>45 m (today) / 120m (goal)</WalkCounter>
 				</WalkInfoContainer>
+				<InputWalk />
 			</WalkCardContainer>
 		</>
 	);
