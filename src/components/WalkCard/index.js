@@ -1,8 +1,11 @@
+import {useState} from 'react';
+
 import InputWalk from '../InputWalk/index';
 
 import {WalkCardContainer, WalkInfoContainer, WalkCardHead, WalkInfo, WalkCounter} from './styled';
 
 export default function WalkCard() {
+	const [showForm, setShowForm] = useState(false);
 	return (
 		<>
 			<WalkCardContainer>
@@ -10,7 +13,13 @@ export default function WalkCard() {
 					<section>
 						<h2>Walks</h2>
 					</section>
-					<button>show Form</button>
+					<button
+						onClick={() => {
+							setShowForm(!showForm);
+						}}
+					>
+						{showForm ? '-' : '+'}
+					</button>
 				</WalkCardHead>
 				<WalkInfoContainer>
 					<WalkInfo>
@@ -19,8 +28,8 @@ export default function WalkCard() {
 					</WalkInfo>
 					<WalkCounter>45 m (today) / 120m (goal)</WalkCounter>
 				</WalkInfoContainer>
-				<InputWalk />
 			</WalkCardContainer>
+			{showForm && <InputWalk />}
 		</>
 	);
 }
