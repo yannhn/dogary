@@ -5,7 +5,23 @@ import InputWalk from '../InputWalk/index';
 import {WalkCardContainer, WalkInfoContainer, WalkCardHead, WalkInfo, WalkCounter} from './styled';
 
 export default function WalkCard() {
-	const [showForm, setShowForm] = useState(false);
+	const [walkItem, setWalkItem] = useState([]);
+	const [submittedDuration, setSubmittedDuration] = useState('');
+	const [submittedStartTime, setSubmittedStartTime] = useState('');
+
+	function addNewWalkItem(prevItem) {
+		const newWalkItem = [...walkItem, prevItem];
+		setWalkItem(newWalkItem);
+	}
+
+	const walkTotal = walkItem.reduce(
+		(previousDuration, currentDuration) => previousDuration + currentDuration.duration,
+		0
+	);
+
+	console.log(walkTotal);
+
+	// const [showForm, setShowForm] = useState(false);
 	return (
 		<>
 			<WalkCardContainer>
@@ -14,22 +30,27 @@ export default function WalkCard() {
 						<h2>Walks</h2>
 					</section>
 					<button
-						onClick={() => {
-							setShowForm(!showForm);
-						}}
+					// onClick={() => {
+					// 	setShowForm(!showForm);
+					// }}
 					>
-						{showForm ? '-' : '+'}
+						{/* {showForm ? '-' : '+'} */}+
 					</button>
 				</WalkCardHead>
 				<WalkInfoContainer>
 					<WalkInfo>
-						<p>Duration: 45 minutes</p>
-						<p>When: 10:45 - 11:30</p>
+						<p>Duration: {submittedDuration} h/m</p>
+						<p>When: {submittedStartTime} starting</p>
 					</WalkInfo>
-					<WalkCounter>45 m (today) / 120m (goal)</WalkCounter>
+					<WalkCounter>{walkTotal} / goal</WalkCounter>
 				</WalkInfoContainer>
 			</WalkCardContainer>
-			{showForm && <InputWalk />}
+			{/* {showForm && <InputWalk />} */}
+			<InputWalk
+				addNewWalkItem={addNewWalkItem}
+				setSubmittedDuration={setSubmittedDuration}
+				setSubmittedStartTime={setSubmittedStartTime}
+			/>
 		</>
 	);
 }

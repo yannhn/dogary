@@ -1,23 +1,49 @@
-export default function InputWalk() {
+import {useState} from 'react';
+
+export default function InputWalk({addNewWalkItem, setSubmittedDuration, setSubmittedStartTime}) {
+	const [enteredDuration, setEnteredDuration] = useState('00:00');
+	const [enteredStartTime, setEnteredStartTime] = useState('00:00');
+
+	const handleSubmit = event => {
+		event.preventDefault();
+		const newInput = {
+			duration: enteredDuration,
+			start: enteredStartTime,
+		};
+
+		addNewWalkItem(newInput);
+		setSubmittedDuration(enteredDuration);
+		setSubmittedStartTime(enteredStartTime);
+	};
+
 	return (
 		<>
 			<section>
-				<form>
+				<form onSubmit={handleSubmit}>
 					<section>
 						<label>
 							How long?
-							<input type="number"></input>
+							<input
+								type="time"
+								value={enteredDuration}
+								onChange={event => setEnteredDuration(event.target.value)}
+							></input>
 						</label>
-						<p>OR</p>
+						<p>-AND-</p>
 						<label>
-							TimeFrame
-							<input type="time"></input>
+							Starting time
+							<input
+								type="time"
+								value={enteredStartTime}
+								onChange={event => setEnteredStartTime(event.target.value)}
+							></input>
 						</label>
 					</section>
-					<label>
-						time of day
+					<p>-OR-</p>
+					{/* <label>
+						TimeFrame (e.g. 12 to 13)
 						<input type="time"></input>
-					</label>
+					</label> */}
 					<button type="submit">add</button>
 				</form>
 			</section>
