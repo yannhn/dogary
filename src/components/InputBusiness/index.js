@@ -1,7 +1,9 @@
+import {InputBusinessContainer} from './styled';
+
 export default function InputBusiness() {
 	return (
 		<>
-			<section>
+			<InputBusinessContainer>
 				<form>
 					<h4>Your dogs business</h4>
 					<section>
@@ -23,7 +25,7 @@ export default function InputBusiness() {
 					</section>
 					<button type="submit">add</button>
 				</form>
-			</section>
+			</InputBusinessContainer>
 		</>
 	);
 }
