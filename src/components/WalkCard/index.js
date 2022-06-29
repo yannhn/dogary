@@ -9,11 +9,16 @@ export default function WalkCard() {
 	const [showForm, setShowForm] = useState(false);
 	const [submittedDuration, setSubmittedDuration] = useState('');
 	const [submittedStartTime, setSubmittedStartTime] = useState('');
+	const [enteredDuration, setEnteredDuration] = useState('00:00');
+	const [enteredStartTime, setEnteredStartTime] = useState('00:00');
 
 	function addNewWalkItem(prevItem) {
 		const newWalkItem = [...walkItem, prevItem];
 		setWalkItem(newWalkItem);
 	}
+
+	// const splitTotal = submittedDuration.split(':').map(Number);
+	// console.log(splitTotal);
 
 	const walkTotal = walkItem.reduce(
 		(previousDuration, currentDuration) => previousDuration + currentDuration.duration,
@@ -48,6 +53,10 @@ export default function WalkCard() {
 					addNewWalkItem={addNewWalkItem}
 					setSubmittedDuration={setSubmittedDuration}
 					setSubmittedStartTime={setSubmittedStartTime}
+					enteredDuration={enteredDuration}
+					enteredStartTime={enteredStartTime}
+					setEnteredDuration={setEnteredDuration}
+					setEnteredStartTime={setEnteredStartTime}
 				/>
 			)}
 		</>
