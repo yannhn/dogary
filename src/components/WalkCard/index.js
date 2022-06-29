@@ -7,18 +7,11 @@ import {WalkCardContainer, WalkInfoContainer, WalkCardHead, WalkInfo, WalkCounte
 export default function WalkCard() {
 	const [walkItem, setWalkItem] = useState([]);
 	const [showForm, setShowForm] = useState(false);
-	const [submittedDuration, setSubmittedDuration] = useState('');
-	const [submittedStartTime, setSubmittedStartTime] = useState('');
 
 	function addNewWalkItem(prevItem) {
 		const newWalkItem = [...walkItem, prevItem];
 		setWalkItem(newWalkItem);
 	}
-
-	const walkTotal = walkItem.reduce(
-		(previousDuration, currentDuration) => previousDuration + currentDuration.duration,
-		0
-	);
 
 	return (
 		<>
@@ -37,19 +30,13 @@ export default function WalkCard() {
 				</WalkCardHead>
 				<WalkInfoContainer>
 					<WalkInfo>
-						<p>Duration: {submittedDuration} h/m</p>
-						<p>When: {submittedStartTime} starting</p>
+						<p>Duration: 120 h/m</p>
+						<p>When: 12:00 starting</p>
 					</WalkInfo>
-					<WalkCounter>{walkTotal}/ goal</WalkCounter>
+					<WalkCounter>120/ goal</WalkCounter>
 				</WalkInfoContainer>
 			</WalkCardContainer>
-			{showForm && (
-				<InputWalk
-					addNewWalkItem={addNewWalkItem}
-					setSubmittedDuration={setSubmittedDuration}
-					setSubmittedStartTime={setSubmittedStartTime}
-				/>
-			)}
+			{showForm && <InputWalk addNewWalkItem={addNewWalkItem} />}
 		</>
 	);
 }
