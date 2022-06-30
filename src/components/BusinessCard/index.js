@@ -21,7 +21,9 @@ export default function BusinessCard() {
 				<article>
 					<section>
 						<h2>A dogs business</h2>
-						<button onClick={() => setShowForm(!showForm)}>+</button>
+						<button onClick={() => setShowForm(!showForm)}>
+							{showForm ? '-' : '+'}
+						</button>
 					</section>
 				</article>
 				<section>
@@ -30,10 +32,11 @@ export default function BusinessCard() {
 						{items.map((item, index) => (
 							<section key={item.id}>
 								<p>
-									What SMALL: {index} - {String(item.smallBusiness)}
+									What SMALL: {index} -{' '}
+									{item.smallBusiness ? 'small' : 'no small'}
 								</p>
 								<p>
-									What BIG: {index} - {String(item.bigBusiness)}
+									What BIG: {index} - {item.bigBusiness ? 'big' : 'no big'}
 								</p>
 								<p>
 									When: {index} - {item.time}
