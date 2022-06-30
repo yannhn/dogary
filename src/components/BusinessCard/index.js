@@ -1,9 +1,12 @@
 import {nanoid} from 'nanoid';
 import {useState} from 'react';
 
+import InputBusiness from '../InputBusiness/index';
+
 import {BusinessCardContainer} from './styled';
 
 export default function BusinessCard() {
+	const [showForm, setShowForm] = useState(false);
 	const [items, setItems] = useState([
 		{
 			id: nanoid(),
@@ -37,6 +40,7 @@ export default function BusinessCard() {
 				<article>
 					<section>
 						<h2>A dogs business</h2>
+						<button onClick={() => setShowForm(!showForm)}>+</button>
 					</section>
 				</article>
 				<section>
@@ -58,7 +62,7 @@ export default function BusinessCard() {
 					</section>
 				</section>
 			</BusinessCardContainer>
-			{/* <InputBusiness/> */}
+			{showForm && <InputBusiness />}
 		</>
 	);
 }
