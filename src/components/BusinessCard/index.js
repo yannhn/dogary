@@ -7,32 +7,13 @@ import {BusinessCardContainer} from './styled';
 
 export default function BusinessCard() {
 	const [showForm, setShowForm] = useState(false);
-	const [items, setItems] = useState([
-		{
-			id: nanoid(),
-			big: true,
-			small: false,
-			time: '10:00',
-		},
-		{
-			id: nanoid(),
-			big: false,
-			small: true,
-			time: '14:00',
-		},
-		{
-			id: nanoid(),
-			big: true,
-			small: true,
-			time: '17:00',
-		},
-		{
-			id: nanoid(),
-			big: true,
-			small: true,
-			time: '21:00',
-		},
-	]);
+	const [items, setItems] = useState([]);
+
+	const addItems = event => {
+		setItems(prevEvents => {
+			return [...prevEvents, event];
+		});
+	};
 
 	return (
 		<>
@@ -46,11 +27,17 @@ export default function BusinessCard() {
 				<section>
 					<section>
 						<h4>Inputs</h4>
-						{items.map(item => (
+						{items.map((item, index) => (
 							<section key={item.id}>
-								<p>What BIG: {item.big ? 'big' : 'false'}</p>
-								<p>What SMALL: {item.small ? 'small' : 'false'}</p>
-								<p>When: {item.time}</p>
+								<p>
+									What SMALL: {index} - {String(item.smallBusiness)}
+								</p>
+								<p>
+									What BIG: {index} - {String(item.bigBusiness)}
+								</p>
+								<p>
+									When: {index} - {item.time}
+								</p>
 								<hr></hr>
 							</section>
 						))}
@@ -62,7 +49,7 @@ export default function BusinessCard() {
 					</section>
 				</section>
 			</BusinessCardContainer>
-			{showForm && <InputBusiness />}
+			{showForm && <InputBusiness addItems={addItems} />}
 		</>
 	);
 }

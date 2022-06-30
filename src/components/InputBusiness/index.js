@@ -1,8 +1,9 @@
+import {nanoid} from 'nanoid';
 import {useState} from 'react';
 
 import {InputBusinessContainer} from './styled';
 
-export default function InputBusiness({}) {
+export default function InputBusiness({addItems}) {
 	const [smallBusiness, setSmallBusiness] = useState(false);
 	const [bigBusiness, setBigBusiness] = useState(false);
 	const [time, setTime] = useState('');
@@ -18,12 +19,23 @@ export default function InputBusiness({}) {
 	// 	setBigBusiness(event.target.value);
 	// };
 
-	console.log(smallBusiness);
+	const submitHandler = e => {
+		e.preventDefault();
+		const event = {
+			id: nanoid(),
+			smallBusiness: smallBusiness,
+			bigBusiness: bigBusiness,
+			time: time,
+		};
+		console.log(event);
+		addItems(event);
+		resetForm();
+	};
 
 	return (
 		<>
 			<InputBusinessContainer>
-				<form>
+				<form onSubmit={submitHandler}>
 					<h4>Your dogs business</h4>
 					<section>
 						<h5>Type of business</h5>
@@ -31,16 +43,16 @@ export default function InputBusiness({}) {
 							small
 							<input
 								type="checkbox"
-								value={smallBusiness}
-								onChange={event => setSmallBusiness(event.target.value)}
+								checked={smallBusiness}
+								onChange={() => setSmallBusiness(!smallBusiness)}
 							></input>
 						</label>
 						<label>
 							big
 							<input
 								type="checkbox"
-								value={bigBusiness}
-								onChange={event => setBigBusiness(event.target.value)}
+								checked={bigBusiness}
+								onChange={() => setBigBusiness(!bigBusiness)}
 							></input>
 						</label>
 					</section>
@@ -56,7 +68,7 @@ export default function InputBusiness({}) {
 					</section>
 					<button type="submit">add</button>
 					<p>
-						small - {smallBusiness}, big - {bigBusiness}, date - {time}
+						small - {String(smallBusiness)}, big - {String(bigBusiness)}, date - {time}
 					</p>
 					<p onClick={resetForm}>reset form</p>
 				</form>
