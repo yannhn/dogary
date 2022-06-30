@@ -1,6 +1,6 @@
 import {InputBusinessContainer} from './styled';
 
-export default function InputBusiness() {
+export default function InputBusiness({addBusinessHandler}) {
 	return (
 		<>
 			<InputBusinessContainer>

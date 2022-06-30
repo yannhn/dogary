@@ -1,34 +1,64 @@
-import InputBusiness from '../InputBusiness';
+import {nanoid} from 'nanoid';
+import {useState} from 'react';
 
-import {
-	BusinessCardContainer,
-	BusinessCardHead,
-	BusinessInfoContainer,
-	BusinessInfo,
-	BusinessCounter,
-} from './styled';
+import {BusinessCardContainer} from './styled';
 
 export default function BusinessCard() {
+	const [items, setItems] = useState([
+		{
+			id: nanoid(),
+			big: true,
+			small: false,
+			time: '10:00',
+		},
+		{
+			id: nanoid(),
+			big: false,
+			small: true,
+			time: '14:00',
+		},
+		{
+			id: nanoid(),
+			big: true,
+			small: true,
+			time: '17:00',
+		},
+		{
+			id: nanoid(),
+			big: true,
+			small: true,
+			time: '21:00',
+		},
+	]);
+
 	return (
 		<>
 			<BusinessCardContainer>
-				<BusinessCardHead>
+				<article>
 					<section>
 						<h2>A dogs business</h2>
 					</section>
-				</BusinessCardHead>
-				<BusinessInfoContainer>
-					<BusinessInfo>
-						<p>What: big AND small</p>
-						<p>When: at 07:30</p>
-					</BusinessInfo>
-					<BusinessCounter>
+				</article>
+				<section>
+					<section>
+						<h4>Inputs</h4>
+						{items.map(item => (
+							<section key={item.id}>
+								<p>What BIG: {String(item.big)}</p>
+								<p>What SMALL: {String(item.small)}</p>
+								<p>When: {item.time}</p>
+								<hr></hr>
+							</section>
+						))}
+					</section>
+					<section>
+						<h4>Counter</h4>
 						<p>1 / small</p>
 						<p>1 / big</p>
-					</BusinessCounter>
-				</BusinessInfoContainer>
+					</section>
+				</section>
 			</BusinessCardContainer>
-			<InputBusiness />
+			{/* <InputBusiness/> */}
 		</>
 	);
 }
