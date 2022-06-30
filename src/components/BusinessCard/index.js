@@ -44,8 +44,8 @@ export default function BusinessCard() {
 						<h4>Inputs</h4>
 						{items.map(item => (
 							<section key={item.id}>
-								<p>What BIG: {String(item.big)}</p>
-								<p>What SMALL: {String(item.small)}</p>
+								<p>What BIG: {item.big ? 'big' : 'false'}</p>
+								<p>What SMALL: {item.small ? 'small' : 'false'}</p>
 								<p>When: {item.time}</p>
 								<hr></hr>
 							</section>
