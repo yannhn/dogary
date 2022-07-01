@@ -6,26 +6,28 @@ import {BusinessCardContainer, BusinessCardHead, BusinessCardButton} from './sty
 
 export default function BusinessCard() {
 	const [showForm, setShowForm] = useState(false);
-	const [items, setItems] = useState([]);
+	const [businessItems, setBusinessItems] = useState([]);
 
-	const addItems = event => {
-		setItems(prevEvents => {
-			return [...prevEvents, event];
-		});
-	};
+	function addNewBusinessItem(prevItem) {
+		const newBusinessItems = [...businessItems, prevItem];
+		setBusinessItems(newBusinessItems);
+	}
 
 	return (
 		<>
 			<BusinessCardContainer>
 				<BusinessCardHead>
-					<h2>A dogs business</h2>
+					<section>
+						<h2>Business</h2>
+						<p>A dog has to do what a dog has to do</p>
+					</section>
 					<BusinessCardButton onClick={() => setShowForm(!showForm)}>
 						{showForm ? '-' : '+'}
 					</BusinessCardButton>
 				</BusinessCardHead>
 				<section>
 					<section>
-						{items.map(item => (
+						{businessItems.map(item => (
 							<section key={item.id}>
 								<p>
 									What:{' '}
@@ -35,7 +37,7 @@ export default function BusinessCard() {
 										? 'small business'
 										: item.bigBusiness
 										? 'big business'
-										: 'No business (Sometimes your dog is simply just not in the right mood. Might have to try again later.)'}
+										: 'No business (Sometimes your dog is simply just not in the right mood. You might have to try again later.)'}
 								</p>
 								<p>When: {item.time}</p>
 								<hr></hr>
@@ -44,7 +46,7 @@ export default function BusinessCard() {
 					</section>
 				</section>
 			</BusinessCardContainer>
-			{showForm && <InputBusiness addItems={addItems} />}
+			{showForm && <InputBusiness addNewBusinessItem={addNewBusinessItem} />}
 		</>
 	);
 }

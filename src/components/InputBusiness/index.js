@@ -3,7 +3,7 @@ import {useState} from 'react';
 
 import {InputBusinessContainer, InputBusinessForm} from './styled';
 
-export default function InputBusiness({addItems}) {
+export default function InputBusiness({addNewBusinessItem}) {
 	const [smallBusiness, setSmallBusiness] = useState(false);
 	const [bigBusiness, setBigBusiness] = useState(false);
 	const [time, setTime] = useState('08:00');
@@ -16,13 +16,13 @@ export default function InputBusiness({addItems}) {
 
 	const submitHandler = event => {
 		event.preventDefault();
-		const newItem = {
+		const newBusinessItem = {
 			id: nanoid(),
 			smallBusiness: smallBusiness,
 			bigBusiness: bigBusiness,
 			time: time,
 		};
-		addItems(newItem);
+		addNewBusinessItem(newBusinessItem);
 		resetHandler();
 	};
 
@@ -30,9 +30,9 @@ export default function InputBusiness({addItems}) {
 		<>
 			<InputBusinessContainer>
 				<InputBusinessForm onSubmit={submitHandler}>
-					<h4>Your dogs business</h4>
+					<h2>Your dogs business</h2>
 					<section>
-						<h5>Type of business</h5>
+						<h3>Type of business</h3>
 						<label>
 							small
 							<input
@@ -51,7 +51,7 @@ export default function InputBusiness({addItems}) {
 						</label>
 					</section>
 					<section>
-						<h5>Time of business</h5>
+						<h3>Time of business</h3>
 						<label>
 							<input
 								type="time"
