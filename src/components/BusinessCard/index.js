@@ -1,14 +1,8 @@
-import {nanoid} from 'nanoid';
 import {useState} from 'react';
 
 import InputBusiness from '../InputBusiness/index';
 
-import {
-	BusinessCardContainer,
-	BusinessCardHead,
-	BusinessInfoContainer,
-	BusinessCardButton,
-} from './styled';
+import {BusinessCardContainer, BusinessCardHead, BusinessCardButton} from './styled';
 
 export default function BusinessCard() {
 	const [showForm, setShowForm] = useState(false);
@@ -24,37 +18,38 @@ export default function BusinessCard() {
 		<>
 			<BusinessCardContainer>
 				<BusinessCardHead>
-					<BusinessInfoContainer>
-						<h2>A dogs business</h2>
-						<BusinessCardButton onClick={() => setShowForm(!showForm)}>
-							{showForm ? '-' : '+'}
-						</BusinessCardButton>
-					</BusinessInfoContainer>
+					<h2>A dogs business</h2>
+					<BusinessCardButton onClick={() => setShowForm(!showForm)}>
+						{showForm ? '-' : '+'}
+					</BusinessCardButton>
 				</BusinessCardHead>
 				<section>
 					<section>
-						<h4>Inputs</h4>
 						{items.map((item, index) => (
 							<section key={item.id}>
 								<p>
-									What : {index} - {item.smallBusiness ? 'small' : ''}
+									{/* {if(item.smallBusiness && item.bigBusiness) {
+										'double business'	
+									} else if (item.smallBusiness) {
+										'small business'
+									} else if (item.bigBusiness) {
+										'big business'
+									} else {
+										none
+									}} */}
+									What:{' '}
+									{item.smallBusiness && item.bigBusiness
+										? 'double business'
+										: item.smallBusiness
+										? 'small business'
+										: item.bigBusiness
+										? 'big business'
+										: 'No business (Sometimes your dog is simply just not in the right mood. Might have to try again later.)'}
 								</p>
-								<p>
-									What BIG: {index} - {item.bigBusiness ? 'big' : 'no big'}
-								</p>
-								<p>
-									When: {index} - {item.time}
-								</p>
+								<p>When: {item.time}</p>
 								<hr></hr>
 							</section>
 						))}
-					</section>
-					<section>
-						<h4>Counter</h4>
-						<p>1 / small</p>
-						<p>1 / big</p>
-						<h4>Active </h4>
-						<h4>Overall number: {items.length}</h4>
 					</section>
 				</section>
 			</BusinessCardContainer>

@@ -7,4 +7,8 @@ const InputBusinessContainer = styled.section`
 	border-radius: 10px;
 `;
 
-export {InputBusinessContainer};
+const InputBusinessForm = styled.form`
+	text-align: center;
+`;
+
+export {InputBusinessContainer, InputBusinessForm};
