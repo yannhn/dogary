@@ -25,26 +25,22 @@ export default function BusinessCard() {
 						{showForm ? '-' : '+'}
 					</BusinessCardButton>
 				</BusinessCardHead>
-				<section>
-					<section>
-						{businessItems.map(item => (
-							<section key={item.id}>
-								<p>
-									What:{' '}
-									{item.smallBusiness && item.bigBusiness
-										? 'double business'
-										: item.smallBusiness
-										? 'small business'
-										: item.bigBusiness
-										? 'big business'
-										: 'No business (Sometimes your dog is simply just not in the right mood. You might have to try again later.)'}
-								</p>
-								<p>When: {item.time}</p>
-								<hr></hr>
-							</section>
-						))}
+				{businessItems.map(item => (
+					<section key={item.id}>
+						<p>
+							What:{' '}
+							{item.smallBusiness && item.bigBusiness
+								? 'double business'
+								: item.smallBusiness
+								? 'small business'
+								: item.bigBusiness
+								? 'big business'
+								: 'No business (Sometimes your dog is simply just not in the right mood. You might have to try again later.)'}
+						</p>
+						<p>When: {item.time}</p>
+						<hr></hr>
 					</section>
-				</section>
+				))}
 			</BusinessCardContainer>
 			{showForm && <InputBusiness addNewBusinessItem={addNewBusinessItem} />}
 		</>
