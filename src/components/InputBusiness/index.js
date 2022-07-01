@@ -6,17 +6,24 @@ import {InputBusinessContainer, InputBusinessForm} from './styled';
 export default function InputBusiness({addItems}) {
 	const [smallBusiness, setSmallBusiness] = useState(false);
 	const [bigBusiness, setBigBusiness] = useState(false);
-	const [time, setTime] = useState('');
+	const [time, setTime] = useState('08:00');
 
-	const submitHandler = e => {
-		e.preventDefault();
-		const event = {
+	const resetHandler = () => {
+		setSmallBusiness(false);
+		setBigBusiness(false);
+		setTime(time);
+	};
+
+	const submitHandler = event => {
+		event.preventDefault();
+		const newItem = {
 			id: nanoid(),
 			smallBusiness: smallBusiness,
 			bigBusiness: bigBusiness,
 			time: time,
 		};
-		addItems(event);
+		addItems(newItem);
+		resetHandler();
 	};
 
 	return (

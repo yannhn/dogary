@@ -25,18 +25,9 @@ export default function BusinessCard() {
 				</BusinessCardHead>
 				<section>
 					<section>
-						{items.map((item, index) => (
+						{items.map(item => (
 							<section key={item.id}>
 								<p>
-									{/* {if(item.smallBusiness && item.bigBusiness) {
-										'double business'	
-									} else if (item.smallBusiness) {
-										'small business'
-									} else if (item.bigBusiness) {
-										'big business'
-									} else {
-										none
-									}} */}
 									What:{' '}
 									{item.smallBusiness && item.bigBusiness
 										? 'double business'
