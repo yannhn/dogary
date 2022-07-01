@@ -1,12 +1,8 @@
 import {useState} from 'react';
 
-export default function InputInfoForm() {
+export default function InputInfoForm({setSubmittedName}) {
 	const [enteredName, setEnteredName] = useState('');
 	const [image, setImage] = useState(null);
-
-	const nameChangeHandler = event => {
-		setEnteredName(event.target.value);
-	};
 
 	function handleChange(e) {
 		console.log(e.target.files);
@@ -15,21 +11,23 @@ export default function InputInfoForm() {
 
 	const handleSubmit = event => {
 		event.preventDefault();
-		alert('submit!');
-		setEnteredName('');
+
+		console.log(enteredName);
+
+		setSubmittedName(enteredName);
 	};
 
 	return (
 		<section>
 			<form onSubmit={handleSubmit}>
 				<section>
+					<h2>What is the name of your dog?</h2>
 					<label>
 						Input Name:
 						<input
 							type="text"
-							accept=".png, .jpg, .jpeg"
 							value={enteredName}
-							onChange={nameChangeHandler}
+							onChange={event => setEnteredName(event.target.value)}
 						></input>
 					</label>
 				</section>
@@ -37,14 +35,18 @@ export default function InputInfoForm() {
 					<h2>Upload your image!</h2>
 					<label>
 						Upload profile picture:
-						<input type="file" onChange={handleChange}></input>
+						<input
+							type="file"
+							accept=".png, .jpg, .jpeg"
+							onChange={handleChange}
+						></input>
 					</label>
 					<section>
 						<h2>Image Preview</h2>
 						<img src={image} alt="preview" />
 					</section>
 				</section>
-				<button>Add</button>
+				<button type="submit">Add</button>
 			</form>
 		</section>
 	);
