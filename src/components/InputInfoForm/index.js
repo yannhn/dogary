@@ -1,8 +1,8 @@
 import {useState} from 'react';
 
-export default function InputInfoForm({setSubmittedName}) {
+export default function InputInfoForm({setSubmittedName, setSubmittedImg}) {
 	const [enteredName, setEnteredName] = useState('');
-	const [image, setImage] = useState(null);
+	const [image, setImage] = useState();
 
 	function handleChange(e) {
 		console.log(e.target.files);
@@ -11,10 +11,9 @@ export default function InputInfoForm({setSubmittedName}) {
 
 	const handleSubmit = event => {
 		event.preventDefault();
-
 		console.log(enteredName);
-
 		setSubmittedName(enteredName);
+		// setSubmittedImg(image);
 	};
 
 	return (
@@ -43,7 +42,7 @@ export default function InputInfoForm({setSubmittedName}) {
 					</label>
 					<section>
 						<h2>Image Preview</h2>
-						<img src={image} alt="preview" />
+						<img src={image} alt="preview" width="250" height="250" />
 					</section>
 				</section>
 				<button type="submit">Add</button>
