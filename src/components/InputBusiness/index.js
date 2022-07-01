@@ -14,11 +14,6 @@ export default function InputBusiness({addItems}) {
 		setTime('');
 	};
 
-	// const handleChange = event => {
-	// 	setSmallBusiness(event.target.value);
-	// 	setBigBusiness(event.target.value);
-	// };
-
 	const submitHandler = e => {
 		e.preventDefault();
 		const event = {

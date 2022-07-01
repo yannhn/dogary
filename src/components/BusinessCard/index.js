@@ -3,7 +3,12 @@ import {useState} from 'react';
 
 import InputBusiness from '../InputBusiness/index';
 
-import {BusinessCardContainer} from './styled';
+import {
+	BusinessCardContainer,
+	BusinessCardHead,
+	BusinessInfoContainer,
+	BusinessCardButton,
+} from './styled';
 
 export default function BusinessCard() {
 	const [showForm, setShowForm] = useState(false);
@@ -18,22 +23,21 @@ export default function BusinessCard() {
 	return (
 		<>
 			<BusinessCardContainer>
-				<article>
-					<section>
+				<BusinessCardHead>
+					<BusinessInfoContainer>
 						<h2>A dogs business</h2>
-						<button onClick={() => setShowForm(!showForm)}>
+						<BusinessCardButton onClick={() => setShowForm(!showForm)}>
 							{showForm ? '-' : '+'}
-						</button>
-					</section>
-				</article>
+						</BusinessCardButton>
+					</BusinessInfoContainer>
+				</BusinessCardHead>
 				<section>
 					<section>
 						<h4>Inputs</h4>
 						{items.map((item, index) => (
 							<section key={item.id}>
 								<p>
-									What SMALL: {index} -{' '}
-									{item.smallBusiness ? 'small' : 'no small'}
+									What : {index} - {item.smallBusiness ? 'small' : ''}
 								</p>
 								<p>
 									What BIG: {index} - {item.bigBusiness ? 'big' : 'no big'}
@@ -49,6 +53,8 @@ export default function BusinessCard() {
 						<h4>Counter</h4>
 						<p>1 / small</p>
 						<p>1 / big</p>
+						<h4>Active </h4>
+						<h4>Overall number: {items.length}</h4>
 					</section>
 				</section>
 			</BusinessCardContainer>
