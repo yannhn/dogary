@@ -2,15 +2,16 @@ import {useState} from 'react';
 
 export default function InputInfoForm() {
 	const [enteredName, setEnteredName] = useState('');
-	// const [image, setImage] = useState(null);
+	const [image, setImage] = useState(null);
 
 	const nameChangeHandler = event => {
 		setEnteredName(event.target.value);
 	};
 
-	const imageChangeHandler = event => {
-		console.log(event.target.value);
-	};
+	function handleChange(e) {
+		console.log(e.target.files);
+		setImage(URL.createObjectURL(e.target.files[0]));
+	}
 
 	const handleSubmit = event => {
 		event.preventDefault();
@@ -24,14 +25,24 @@ export default function InputInfoForm() {
 				<section>
 					<label>
 						Input Name:
-						<input type="text" value={enteredName} onChange={nameChangeHandler}></input>
+						<input
+							type="text"
+							accept=".png, .jpg, .jpeg"
+							value={enteredName}
+							onChange={nameChangeHandler}
+						></input>
 					</label>
 				</section>
 				<section>
+					<h2>Upload your image!</h2>
 					<label>
 						Upload profile picture:
-						<input type="file" onChange={imageChangeHandler}></input>
+						<input type="file" onChange={handleChange}></input>
 					</label>
+					<section>
+						<h2>Image Preview</h2>
+						<img src={image} alt="preview" />
+					</section>
 				</section>
 				<button>Add</button>
 			</form>
