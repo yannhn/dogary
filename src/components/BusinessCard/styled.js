@@ -38,23 +38,4 @@ const BusinessCardButton = styled.button`
 	}
 `;
 
-const BusinessInfo = styled.section`
-	color: var(--card-info-color);
-	font-size: var(--card-info-fontSize);
-	font-weight: var(--card-info-fontWeight);
-`;
-
-const BusinessCounter = styled.p`
-	color: var(--card-info-color);
-	font-size: var(--card-info-fontSize);
-	font-weight: var(--card-info-fontWeight);
-`;
-
-export {
-	BusinessCardContainer,
-	BusinessCardHead,
-	BusinessInfoContainer,
-	BusinessCardButton,
-	BusinessInfo,
-	BusinessCounter,
-};
+export {BusinessCardContainer, BusinessCardHead, BusinessInfoContainer, BusinessCardButton};
