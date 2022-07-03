@@ -1,5 +1,7 @@
 import styled from 'styled-components';
 
+import {pxToRem} from '../../utils/unit';
+
 const BusinessCardContainer = styled.section`
 	margin: 2em;
 	padding: 0.2em 1em;
@@ -19,22 +21,21 @@ const BusinessInfoContainer = styled.section`
 	justify-content: space-between;
 `;
 
-const BusinessInfo = styled.section`
-	color: var(--card-info-color);
-	font-size: var(--card-info-fontSize);
-	font-weight: var(--card-info-fontWeight);
+const BusinessCardButton = styled.button`
+	padding: 0.5em 1em;
+	border: none;
+	border-radius: ${pxToRem(4)};
+	background: #343d46;
+	color: white;
+	font-size: 1em;
+
+	&:hover {
+		background: grey;
+	}
+
+	&:active {
+		background: #bad;
+	}
 `;
 
-const BusinessCounter = styled.p`
-	color: var(--card-info-color);
-	font-size: var(--card-info-fontSize);
-	font-weight: var(--card-info-fontWeight);
-`;
-
-export {
-	BusinessCardContainer,
-	BusinessCardHead,
-	BusinessInfoContainer,
-	BusinessInfo,
-	BusinessCounter,
-};
+export {BusinessCardContainer, BusinessCardHead, BusinessInfoContainer, BusinessCardButton};
