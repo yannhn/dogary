@@ -1,3 +1,4 @@
+import {nanoid} from 'nanoid';
 import {useState} from 'react';
 
 import {InputWalkContainer} from './styled';
@@ -14,15 +15,16 @@ export default function InputWalk({addNewWalkItem}) {
 	const handleSubmit = event => {
 		event.preventDefault();
 		const newInput = {
+			id: nanoid(),
 			duration: enteredDuration,
 			start: enteredStartTime,
 		};
 
 		addNewWalkItem(newInput);
-		const splitTotal = enteredDuration.split(':').map(Number);
-		console.log(splitTotal);
-		const total = splitTotal.reduce((previous, current) => previous + current, 0);
-		console.log(total);
+		// const splitTotal = enteredDuration.split(':').map(Number);
+		// console.log(splitTotal);
+		// const total = splitTotal.reduce((previous, current) => previous + current, 0);
+		// console.log(total);
 	};
 
 	return (

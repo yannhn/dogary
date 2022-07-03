@@ -2,7 +2,7 @@ import {useState} from 'react';
 
 import InputWalk from '../InputWalk/index';
 
-import {WalkCardContainer, WalkInfoContainer, WalkCardHead, WalkInfo, WalkCounter} from './styled';
+import {WalkCardContainer, WalkCardHead, WalkCounter} from './styled';
 
 export default function WalkCard() {
 	const [walkItem, setWalkItem] = useState([]);
@@ -28,13 +28,13 @@ export default function WalkCard() {
 						{showForm ? '-' : '+'}
 					</button>
 				</WalkCardHead>
-				<WalkInfoContainer>
-					<WalkInfo>
-						<p>Duration: 120 h/m</p>
-						<p>When: 12:00 starting</p>
-					</WalkInfo>
-					<WalkCounter>120/ goal</WalkCounter>
-				</WalkInfoContainer>
+				{walkItem.map(item => (
+					<section key={item.id}>
+						<p>Duration: {item.duration} m/h</p>
+						<p>When started: {item.start}</p>
+					</section>
+				))}
+				<WalkCounter>120/ goal</WalkCounter>
 			</WalkCardContainer>
 			{showForm && <InputWalk addNewWalkItem={addNewWalkItem} />}
 		</>
