@@ -1,6 +1,6 @@
 import {useState} from 'react';
 
-export default function InputInfoForm({setSubmittedName, setSubmittedImg}) {
+export default function InputInfoForm({addNewInfo}) {
 	const [enteredName, setEnteredName] = useState('');
 	const [image, setImage] = useState([]);
 
@@ -12,9 +12,11 @@ export default function InputInfoForm({setSubmittedName, setSubmittedImg}) {
 	const handleSubmit = event => {
 		event.preventDefault();
 		console.log(enteredName);
-		setSubmittedName(enteredName);
-		setSubmittedImg(image);
-		// setSubmittedImg(image);
+		const newItems = {
+			enteredName: enteredName,
+			image: image,
+		};
+		addNewInfo(newItems);
 	};
 
 	return (

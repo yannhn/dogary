@@ -8,20 +8,28 @@ import ShowPicture from '../ShowPicture/index';
 
 export default function InputInfoButton() {
 	const [showForm, setShowForm] = useState(false);
-	const [submittedName, setSubmittedName] = useState('');
-	const [submittedImg, setSubmittedImg] = useState(null);
+	// const [submittedName, setSubmittedName] = useState('');
+	// const [submittedImg, setSubmittedImg] = useState(null);
+
+	const [submittedItems, setSubmittedItems] = useState([]);
+
+	function addNewInfo(prevItem) {
+		const newInfoItems = [...submittedItems, prevItem];
+		setSubmittedItems(newInfoItems);
+	}
 
 	return (
 		<>
 			<button onClick={() => setShowForm(!showForm)}>Show Form</button>
 			{showForm && (
 				<InputInfoForm
-					setSubmittedName={setSubmittedName}
-					setSubmittedImg={setSubmittedImg}
+					addNewInfo={addNewInfo}
+					// setSubmittedName={setSubmittedName}
+					// setSubmittedImg={setSubmittedImg}
 				/>
 			)}
-			<ShowName submittedName={submittedName}></ShowName>
-			<ShowPicture submittedImg={submittedImg}></ShowPicture>
+			<ShowName submittedItems={submittedItems}></ShowName>
+			<ShowPicture submittedItems={submittedItems}></ShowPicture>
 		</>
 	);
 }
