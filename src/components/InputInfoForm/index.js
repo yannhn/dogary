@@ -2,7 +2,7 @@ import {useState} from 'react';
 
 export default function InputInfoForm({setSubmittedName, setSubmittedImg}) {
 	const [enteredName, setEnteredName] = useState('');
-	const [image, setImage] = useState();
+	const [image, setImage] = useState([]);
 
 	function handleChange(e) {
 		console.log(e.target.files);
@@ -13,6 +13,7 @@ export default function InputInfoForm({setSubmittedName, setSubmittedImg}) {
 		event.preventDefault();
 		console.log(enteredName);
 		setSubmittedName(enteredName);
+		setSubmittedImg(image);
 		// setSubmittedImg(image);
 	};
 

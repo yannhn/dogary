@@ -20,7 +20,6 @@ export default function InputInfoButton() {
 					setSubmittedImg={setSubmittedImg}
 				/>
 			)}
-
 			<ShowName submittedName={submittedName}></ShowName>
 			<ShowPicture submittedImg={submittedImg}></ShowPicture>
 		</>
