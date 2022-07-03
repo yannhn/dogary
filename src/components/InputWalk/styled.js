@@ -16,6 +16,9 @@ const InputWalkContainer = styled.section`
 		align-items: center;
 		justify-content: center;
 	}
+	form {
+		text-align: center;
+	}
 `;
 
 export {InputWalkContainer};
