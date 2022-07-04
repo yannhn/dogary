@@ -1,16 +1,18 @@
 import {nanoid} from 'nanoid';
 import {useState} from 'react';
 
+import {InputInfoContainer, InfoForm, InfoImgPreview} from './styled';
+
 export default function InputInfoForm({addNewInfo}) {
 	const [enteredName, setEnteredName] = useState('');
 	const [image, setImage] = useState([]);
 
-	const imageChangeHandler = e => {
-		setImage(URL.createObjectURL(e.target.files[0]));
+	const imageChangeHandler = event => {
+		setImage(URL.createObjectURL(event.target.files[0]));
 	};
 
 	const nameChangeHandler = event => {
-		setEnteredName(event.target.value);
+		setEnteredName(event.target.value.replace(/^a-z/gi, ''));
 	};
 
 	const submitHandler = event => {
@@ -22,19 +24,23 @@ export default function InputInfoForm({addNewInfo}) {
 			image: image,
 		};
 		addNewInfo(newItems);
-		// onSaveInfoData(newItems);
 		setEnteredName('');
 		setImage([]);
 	};
 
 	return (
-		<section>
-			<form onSubmit={submitHandler}>
+		<InputInfoContainer>
+			<InfoForm onSubmit={submitHandler}>
 				<section>
 					<h2>What is the name of your dog?</h2>
 					<label>
 						Input Name:
-						<input type="text" value={enteredName} onChange={nameChangeHandler}></input>
+						<input
+							type="text"
+							placeholder="Name"
+							value={enteredName}
+							onChange={nameChangeHandler}
+						></input>
 					</label>
 				</section>
 				<section>
@@ -49,11 +55,11 @@ export default function InputInfoForm({addNewInfo}) {
 					</label>
 					<section>
 						<h2>Image Preview</h2>
-						<img src={image} alt="preview" width="250" height="250" />
+						<InfoImgPreview src={image} alt="preview" width="250" height="250" />
 					</section>
 				</section>
 				<button type="submit">Add</button>
-			</form>
-		</section>
+			</InfoForm>
+		</InputInfoContainer>
 	);
 }

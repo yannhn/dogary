@@ -8,16 +8,15 @@ export default function InputInfoButton() {
 	const [showForm, setShowForm] = useState(false);
 	const [submittedItems, setSubmittedItems] = useState([]);
 
-	function addNewInfo(prevItem) {
+	const addNewInfo = prevItem => {
 		const newInfoItems = [...submittedItems, prevItem];
 		setSubmittedItems(newInfoItems);
-	}
+	};
 
 	return (
 		<>
 			<button onClick={() => setShowForm(!showForm)}>Show Form</button>
 			{showForm && <InputInfoForm addNewInfo={addNewInfo} />}
-
 			{submittedItems.map((item, index, array) =>
 				index === array.length - 1 ? (
 					<section key={item.id}>
