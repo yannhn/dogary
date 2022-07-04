@@ -1,12 +1,11 @@
 import {nanoid} from 'nanoid';
 import {useState} from 'react';
 
-export default function InputInfoForm({addNewInfo, onSaveInfoData}) {
+export default function InputInfoForm({addNewInfo}) {
 	const [enteredName, setEnteredName] = useState('');
 	const [image, setImage] = useState([]);
 
 	const imageChangeHandler = e => {
-		console.log(e.target.files);
 		setImage(URL.createObjectURL(e.target.files[0]));
 	};
 
@@ -18,12 +17,14 @@ export default function InputInfoForm({addNewInfo, onSaveInfoData}) {
 		event.preventDefault();
 		const newItems = {
 			id: nanoid(),
-			enteredName: enteredName,
+			enteredName:
+				enteredName.trim().charAt(0).toUpperCase() + enteredName.slice(1).toLowerCase(),
 			image: image,
 		};
 		addNewInfo(newItems);
 		// onSaveInfoData(newItems);
 		setEnteredName('');
+		setImage([]);
 	};
 
 	return (

@@ -6,13 +6,11 @@ import ShowPicture from '../ShowPicture/index';
 
 export default function InputInfoButton() {
 	const [showForm, setShowForm] = useState(false);
-
 	const [submittedItems, setSubmittedItems] = useState([]);
 
 	function addNewInfo(prevItem) {
 		const newInfoItems = [...submittedItems, prevItem];
 		setSubmittedItems(newInfoItems);
-		console.log(newInfoItems);
 	}
 
 	return (
@@ -26,9 +24,7 @@ export default function InputInfoButton() {
 						<ShowName styledName={item.enteredName}></ShowName>
 						<ShowPicture styledImage={item.image}></ShowPicture>
 					</section>
-				) : (
-					console.log('Worked!')
-				)
+				) : null
 			)}
 			<hr></hr>
 		</>
