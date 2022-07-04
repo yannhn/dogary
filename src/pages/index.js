@@ -4,8 +4,6 @@ import BusinessCard from '../components/BusinessCard';
 import FoodCard from '../components/FoodCard';
 import InputInfoButton from '../components/InputInfoButton';
 import Layout from '../components/Layout';
-import ShowName from '../components/ShowName/index.js';
-import ShowPicture from '../components/ShowPicture/index.js';
 import WalkCard from '../components/WalkCard';
 
 export default function HomePage() {
