@@ -5,20 +5,14 @@ const InputWalkContainer = styled.section`
 	padding: 0.2em 1em;
 	border: 1px solid black;
 	border-radius: 10px;
-
-	h4 {
-		display: flex;
-		justify-content: center;
-	}
-	section {
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		justify-content: center;
-	}
-	form {
-		text-align: center;
-	}
 `;
 
-export {InputWalkContainer};
+const InputWalkForm = styled.form`
+	text-align: center;
+`;
+
+const InputWalkButton = styled.button`
+	margin-top: 1em;
+`;
+
+export {InputWalkContainer, InputWalkForm, InputWalkButton};

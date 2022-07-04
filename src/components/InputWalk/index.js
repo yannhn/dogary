@@ -1,7 +1,7 @@
 import {nanoid} from 'nanoid';
 import {useState} from 'react';
 
-import {InputWalkContainer} from './styled';
+import {InputWalkContainer, InputWalkForm, InputWalkButton} from './styled';
 
 export default function InputWalk({addNewWalkItem}) {
 	const [enteredDuration, setEnteredDuration] = useState('00:00');
@@ -21,30 +21,28 @@ export default function InputWalk({addNewWalkItem}) {
 	return (
 		<>
 			<InputWalkContainer>
-				<form onSubmit={handleSubmit}>
-					<h4>Your walks</h4>
+				<InputWalkForm onSubmit={handleSubmit}>
+					<h3>Your walks</h3>
 					<section>
-						<label>
-							How long?
-							<input
-								type="time"
-								value={enteredDuration}
-								onChange={event => setEnteredDuration(event.target.value)}
-							></input>
-						</label>
+						<label htmlFor="duration">How long?</label>
+						<input
+							id="duration"
+							type="time"
+							value={enteredDuration}
+							onChange={event => setEnteredDuration(event.target.value)}
+						></input>
 						<p>-AND-</p>
-						<label>
-							When started
-							<input
-								type="time"
-								defaultValue="08:00"
-								value={enteredStartTime}
-								onChange={event => setEnteredStartTime(event.target.value)}
-							></input>
-						</label>
+						<label htmlFor="startingTime">When started</label>
+						<input
+							id="startingTime"
+							type="time"
+							defaultValue="08:00"
+							value={enteredStartTime}
+							onChange={event => setEnteredStartTime(event.target.value)}
+						></input>
 					</section>
-					<button type="submit">add</button>
-				</form>
+					<InputWalkButton type="submit">add</InputWalkButton>
+				</InputWalkForm>
 			</InputWalkContainer>
 		</>
 	);
