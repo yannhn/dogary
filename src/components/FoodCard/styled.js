@@ -34,23 +34,7 @@ const FoodCardButton = styled.button`
 
 const FoodInfoContainer = styled.section`
 	display: flex;
-	justify-content: space-between;
+	flex-direction: column;
 `;
 
-const FoodInfo = styled.section`
-	align-self: flex-end;
-	color: grey;
-	font-size: 0.8rem;
-	font-weight: light;
-	text-align: start;
-`;
-
-const FoodCounter = styled.p`
-	align-self: flex-end;
-	color: grey;
-	font-size: 0.8rem;
-	font-weight: light;
-	text-align: end;
-`;
-
-export {FoodCardContainer, FoodCardButton, FoodInfoContainer, FoodCardHead, FoodCounter, FoodInfo};
+export {FoodCardContainer, FoodCardButton, FoodInfoContainer, FoodCardHead};

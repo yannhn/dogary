@@ -2,30 +2,16 @@ import {useState} from 'react';
 
 import InputFood from '../InputFood/index.js';
 
-import {
-	FoodCardContainer,
-	FoodCardButton,
-	FoodInfoContainer,
-	FoodCardHead,
-	FoodCounter,
-	FoodInfo,
-} from './styled';
+import {FoodCardContainer, FoodCardButton, FoodInfoContainer, FoodCardHead} from './styled';
 
 export default function FoodCard() {
-	const [foodItem, setFoodItem] = useState([]);
+	const [foodItems, setFoodItems] = useState([]);
 	const [showForm, setShowForm] = useState(false);
-	const [submittedFoodInput, setSubmittedFoodInput] = useState('');
-	const [submittedTimeInput, setSubmittedTimeInput] = useState('');
 
 	function addNewFoodItem(prevItem) {
-		const newFoodItems = [...foodItem, prevItem];
-		setFoodItem(newFoodItems);
+		const newFoodItems = [...foodItems, prevItem];
+		setFoodItems(newFoodItems);
 	}
-
-	const todayAmount = foodItem.reduce(
-		(previousAmount, currentAmount) => previousAmount + currentAmount.amount,
-		0
-	);
 
 	return (
 		<>
@@ -43,21 +29,15 @@ export default function FoodCard() {
 						{showForm ? '-' : '+'}
 					</FoodCardButton>
 				</FoodCardHead>
-				<FoodInfoContainer>
-					<FoodInfo>
-						<p>What: {submittedFoodInput} gram</p>
-						<p>When: {submittedTimeInput}</p>
-					</FoodInfo>
-					<FoodCounter>{todayAmount} / goal</FoodCounter>
-				</FoodInfoContainer>
+				{foodItems.map(item => (
+					<FoodInfoContainer key={item.id}>
+						<p>How much: {item.amount} gram</p>
+						<p>At: {item.time}</p>
+						<hr></hr>
+					</FoodInfoContainer>
+				))}
 			</FoodCardContainer>
-			{showForm && (
-				<InputFood
-					addNewFoodItem={addNewFoodItem}
-					setSubmittedFoodInput={setSubmittedFoodInput}
-					setSubmittedTimeInput={setSubmittedTimeInput}
-				></InputFood>
-			)}
+			{showForm && <InputFood addNewFoodItem={addNewFoodItem}></InputFood>}
 		</>
 	);
 }
