@@ -1,9 +1,9 @@
 import StyledPicture from './styled';
 
-export default function ShowPicture({submittedImg}) {
+export default function ShowPicture({test2}) {
 	return (
 		<>
-			<StyledPicture src={submittedImg} />
+			<StyledPicture src={test2} />
 		</>
 	);
 }

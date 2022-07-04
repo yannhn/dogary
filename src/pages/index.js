@@ -16,8 +16,7 @@ export default function HomePage() {
 				<meta key="description" name="description" content="This is my project" />
 			</Helmet>
 			<InputInfoButton />
-			<ShowName />
-			<ShowPicture />
+
 			<WalkCard />
 			<FoodCard />
 			<BusinessCard />

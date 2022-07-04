@@ -1,3 +1,4 @@
+import {nanoid} from 'nanoid';
 import {useState} from 'react';
 
 export default function InputInfoForm({addNewInfo}) {
@@ -13,6 +14,7 @@ export default function InputInfoForm({addNewInfo}) {
 		event.preventDefault();
 		console.log(enteredName);
 		const newItems = {
+			id: nanoid(),
 			enteredName: enteredName,
 			image: image,
 		};

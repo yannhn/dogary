@@ -28,8 +28,17 @@ export default function InputInfoButton() {
 					// setSubmittedImg={setSubmittedImg}
 				/>
 			)}
-			<ShowName submittedItems={submittedItems}></ShowName>
-			<ShowPicture submittedItems={submittedItems}></ShowPicture>
+			{/* <h2>{submittedItems.enteredName}</h2>
+			<img src={submittedItems.image}></img> */}
+
+			{submittedItems.slice(0, 1).map(item => (
+				<section key={item.id}>
+					<ShowName test={item.enteredName}></ShowName>
+					<ShowPicture test2={item.image}></ShowPicture>
+				</section>
+			))}
+			{/* <ShowName submittedName={submittedItems}></ShowName> */}
+			{/* {/* <ShowPicture submittedItems={submittedItems}></ShowPicture> */}
 		</>
 	);
 }
