@@ -6,6 +6,7 @@ import {InputWalkContainer, InputWalkForm, InputWalkButton} from './styled';
 export default function InputWalk({addNewWalkItem}) {
 	const [enteredDuration, setEnteredDuration] = useState('00:00');
 	const [enteredStartTime, setEnteredStartTime] = useState('08:00');
+	const [result, setResult] = useState(0);
 
 	const handleSubmit = event => {
 		event.preventDefault();
@@ -13,16 +14,19 @@ export default function InputWalk({addNewWalkItem}) {
 			id: nanoid(),
 			duration: enteredDuration,
 			startTime: enteredStartTime,
+			result: result + Number(enteredDuration.split(':')[0]),
 		};
-
 		addNewWalkItem(newInput);
+		const endHours = Number(enteredDuration.split(':')[0]);
+		console.log(endHours);
+		console.log(typeof endHours);
+		setResult(result + endHours);
 	};
 
-	const endHours = Number(enteredDuration.split(':')[0]);
-	console.log(endHours);
+	// const endMinutes = Number(enteredDuration.split(':')[1]);
+	// console.log(endMinutes);
 
-	const endMinutes = Number(enteredDuration.split(':')[1]);
-	console.log(endMinutes);
+	// const addHours = () => {};
 
 	return (
 		<>

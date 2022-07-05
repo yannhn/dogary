@@ -33,6 +33,7 @@ export default function WalkCard() {
 					<section key={item.id}>
 						<p>Duration: {item.duration} h/m</p>
 						<p>When started: {item.startTime}</p>
+						<p>result: {item.result}</p>
 						<hr></hr>
 					</section>
 				))}
