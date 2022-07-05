@@ -7,6 +7,12 @@ import {WalkCardContainer, WalkCardHead, WalkCardButton} from './styled';
 export default function WalkCard() {
 	const [showForm, setShowForm] = useState(false);
 	const [walkItem, setWalkItem] = useState([]);
+	const [count, setCount] = useState({});
+
+	function addCounter(prevItem) {
+		const newCount = {...walkItem, ...prevItem};
+		setCount(newCount);
+	}
 
 	function addNewWalkItem(prevItem) {
 		const newWalkItem = [...walkItem, prevItem];
@@ -19,7 +25,7 @@ export default function WalkCard() {
 				<WalkCardHead>
 					<section>
 						<h2>Walks</h2>
-						<p>Sum Duration: </p>
+						<p>Sum Duration: {count.result}</p>
 					</section>
 					<WalkCardButton
 						onClick={() => {
@@ -33,14 +39,11 @@ export default function WalkCard() {
 					<section key={item.id}>
 						<p>Duration: {item.duration} h/m</p>
 						<p>When started: {item.startTime}</p>
-						<p>
-							result: {item.resultHours} : {item.resultMinutes}
-						</p>
 						<hr></hr>
 					</section>
 				))}
 			</WalkCardContainer>
-			{showForm && <InputWalk addNewWalkItem={addNewWalkItem} />}
+			{showForm && <InputWalk addNewWalkItem={addNewWalkItem} addCounter={addCounter} />}
 		</>
 	);
 }
