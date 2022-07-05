@@ -33,11 +33,10 @@ export default function FoodCard() {
 					<FoodInfoContainer key={item.id}>
 						<p>How much: {item.amount} gram</p>
 						<p>At: {item.time}</p>
-						<hr></hr>
 					</FoodInfoContainer>
 				))}
 			</FoodCardContainer>
-			{showForm && <InputFood addNewFoodItem={addNewFoodItem}></InputFood>}
+			{showForm && <InputFood addNewFoodItem={addNewFoodItem} />}
 		</>
 	);
 }
