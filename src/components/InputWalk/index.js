@@ -18,6 +18,12 @@ export default function InputWalk({addNewWalkItem}) {
 		addNewWalkItem(newInput);
 	};
 
+	const endHours = Number(enteredDuration.split(':')[0]);
+	console.log(endHours);
+
+	const endMinutes = Number(enteredDuration.split(':')[1]);
+	console.log(endMinutes);
+
 	return (
 		<>
 			<InputWalkContainer>
