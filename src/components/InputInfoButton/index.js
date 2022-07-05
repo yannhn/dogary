@@ -6,10 +6,10 @@ import ShowPicture from '../ShowPicture/index';
 
 export default function InputInfoButton() {
 	const [showForm, setShowForm] = useState(false);
-	const [submittedItems, setSubmittedItems] = useState([]);
+	const [submittedItem, setSubmittedItems] = useState({enteredName: '', image: ''});
 
 	const addNewInfo = prevItem => {
-		const newInfoItems = [...submittedItems, prevItem];
+		const newInfoItems = {...submittedItem, ...prevItem};
 		setSubmittedItems(newInfoItems);
 	};
 
@@ -17,15 +17,10 @@ export default function InputInfoButton() {
 		<>
 			<button onClick={() => setShowForm(!showForm)}>Show Form</button>
 			{showForm && <InputInfoForm addNewInfo={addNewInfo} />}
-			{submittedItems.map((item, index, array) =>
-				index === array.length - 1 ? (
-					<section key={item.id}>
-						<ShowName styledName={item.enteredName}></ShowName>
-						<ShowPicture styledImage={item.image}></ShowPicture>
-					</section>
-				) : null
-			)}
-			<hr></hr>
+			<section>
+				<ShowName styledName={submittedItem.enteredName}></ShowName>
+				<ShowPicture styledImage={submittedItem.image}></ShowPicture>
+			</section>
 		</>
 	);
 }

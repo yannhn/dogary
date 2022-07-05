@@ -5,7 +5,7 @@ import {InputInfoContainer, InfoForm, InfoImgPreview} from './styled';
 
 export default function InputInfoForm({addNewInfo}) {
 	const [enteredName, setEnteredName] = useState('');
-	const [image, setImage] = useState([]);
+	const [image, setImage] = useState('');
 
 	const imageChangeHandler = event => {
 		setImage(URL.createObjectURL(event.target.files[0]));
