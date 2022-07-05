@@ -25,7 +25,7 @@ export default function WalkCard() {
 				<WalkCardHead>
 					<section>
 						<h2>Walks</h2>
-						<p>Sum Duration: {count.result}</p>
+						<p>Todays duration: {count.result} min</p>
 					</section>
 					<WalkCardButton
 						onClick={() => {
