@@ -1,6 +1,18 @@
-import {WalkCardContainer, WalkInfoContainer, WalkCardHead, WalkInfo, WalkCounter} from './styled';
+import {useState} from 'react';
+
+import InputWalk from '../InputWalk/index';
+
+import {WalkCardContainer, WalkCardHead, WalkCardButton} from './styled';
 
 export default function WalkCard() {
+	const [showForm, setShowForm] = useState(false);
+	const [walkItem, setWalkItem] = useState([]);
+
+	function addNewWalkItem(prevItem) {
+		const newWalkItem = [...walkItem, prevItem];
+		setWalkItem(newWalkItem);
+	}
+
 	return (
 		<>
 			<WalkCardContainer>
@@ -8,15 +20,23 @@ export default function WalkCard() {
 					<section>
 						<h2>Walks</h2>
 					</section>
+					<WalkCardButton
+						onClick={() => {
+							setShowForm(!showForm);
+						}}
+					>
+						{showForm ? '-' : '+'}
+					</WalkCardButton>
 				</WalkCardHead>
-				<WalkInfoContainer>
-					<WalkInfo>
-						<p>Duration: 45 minutes</p>
-						<p>When: 10:45 - 11:30</p>
-					</WalkInfo>
-					<WalkCounter>45 m (today) / 120m (goal)</WalkCounter>
-				</WalkInfoContainer>
+				{walkItem.map(item => (
+					<section key={item.id}>
+						<p>Duration: {item.duration} h/m</p>
+						<p>When started: {item.startTime}</p>
+						<hr></hr>
+					</section>
+				))}
 			</WalkCardContainer>
+			{showForm && <InputWalk addNewWalkItem={addNewWalkItem} />}
 		</>
 	);
 }

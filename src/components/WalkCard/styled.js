@@ -1,5 +1,7 @@
 import styled from 'styled-components';
 
+import {pxToRem} from '../../utils/unit';
+
 const WalkCardContainer = styled.section`
 	margin: 2em;
 	padding: 0.2em 1em;
@@ -13,25 +15,20 @@ const WalkCardHead = styled.article`
 	justify-content: space-between;
 `;
 
-const WalkInfoContainer = styled.section`
-	display: flex;
-	justify-content: space-between;
+const WalkCardButton = styled.button`
+	padding: 0.5em 1em;
+	border: none;
+	border-radius: ${pxToRem(4)};
+	background: #343d46;
+	color: white;
+	font-size: 1em;
+	&:hover {
+		background: grey;
+	}
+
+	&:active {
+		background: #bad;
+	}
 `;
 
-const WalkInfo = styled.section`
-	align-self: flex-end;
-	color: var(--card-info-color);
-	font-size: var(--card-info-fontSize);
-	font-weight: var(--card-info-fontWeight);
-	text-align: start;
-`;
-
-const WalkCounter = styled.p`
-	align-self: flex-end;
-	color: var(--card-info-color);
-	font-size: var(--card-info-fontSize);
-	font-weight: var(--card-info-fontWeight);
-	text-align: end;
-`;
-
-export {WalkCardContainer, WalkCardHead, WalkInfoContainer, WalkInfo, WalkCounter};
+export {WalkCardContainer, WalkCardHead, WalkCardButton};
