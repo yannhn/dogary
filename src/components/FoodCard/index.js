@@ -1,5 +1,6 @@
 import {useState} from 'react';
 
+import FormModal from '../FormModal';
 import InputFood from '../InputFood/index.js';
 
 import {
@@ -52,11 +53,13 @@ export default function FoodCard() {
 				</FoodInfoContainer>
 			</FoodCardContainer>
 			{showForm && (
-				<InputFood
-					addNewFoodItem={addNewFoodItem}
-					setSubmittedFoodInput={setSubmittedFoodInput}
-					setSubmittedTimeInput={setSubmittedTimeInput}
-				></InputFood>
+				<FormModal>
+					<InputFood
+						addNewFoodItem={addNewFoodItem}
+						setSubmittedFoodInput={setSubmittedFoodInput}
+						setSubmittedTimeInput={setSubmittedTimeInput}
+					></InputFood>
+				</FormModal>
 			)}
 		</>
 	);

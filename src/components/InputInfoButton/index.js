@@ -1,5 +1,6 @@
 import {useState} from 'react';
 
+import FormModal from '../FormModal';
 import InputInfoForm from '../InputInfoForm/index';
 import ShowName from '../ShowName/index';
 import ShowPicture from '../ShowPicture/index';
@@ -16,7 +17,12 @@ export default function InputInfoButton() {
 	return (
 		<>
 			<button onClick={() => setShowForm(!showForm)}>Show Form</button>
-			{showForm && <InputInfoForm addNewInfo={addNewInfo} />}
+			{showForm && (
+				<FormModal>
+					{' '}
+					<InputInfoForm addNewInfo={addNewInfo} />
+				</FormModal>
+			)}
 			<section>
 				<ShowName styledName={submittedItem.enteredName}></ShowName>
 				<ShowPicture styledImage={submittedItem.image}></ShowPicture>

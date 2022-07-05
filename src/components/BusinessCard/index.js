@@ -1,5 +1,6 @@
 import {useState} from 'react';
 
+import FormModal from '../FormModal';
 import InputBusiness from '../InputBusiness/index';
 
 import {BusinessCardContainer, BusinessCardHead, BusinessCardButton} from './styled';
@@ -42,7 +43,11 @@ export default function BusinessCard() {
 					</section>
 				))}
 			</BusinessCardContainer>
-			{showForm && <InputBusiness addNewBusinessItem={addNewBusinessItem} />}
+			{showForm && (
+				<FormModal>
+					<InputBusiness addNewBusinessItem={addNewBusinessItem} />
+				</FormModal>
+			)}
 		</>
 	);
 }
