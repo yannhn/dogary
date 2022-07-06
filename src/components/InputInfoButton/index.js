@@ -19,7 +19,11 @@ export default function InputInfoButton() {
 			<button onClick={() => setShowForm(!showForm)}>Show Form</button>
 			{showForm && (
 				<FormModal>
-					<InputInfoForm addNewInfo={addNewInfo} />
+					<InputInfoForm
+						addNewInfo={addNewInfo}
+						showForm={showForm}
+						setShowForm={setShowForm}
+					/>
 				</FormModal>
 			)}
 			<section>

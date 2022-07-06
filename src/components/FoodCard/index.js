@@ -6,8 +6,8 @@ import InputFood from '../InputFood/index.js';
 import {FoodCardContainer, FoodCardButton, FoodInfoContainer, FoodCardHead} from './styled';
 
 export default function FoodCard({goalAmount}) {
-	const [foodItems, setFoodItems] = useState([]);
 	const [showForm, setShowForm] = useState(false);
+	const [foodItems, setFoodItems] = useState([]);
 
 	function addNewFoodItem(prevItem) {
 		const newFoodItems = [...foodItems, prevItem];
@@ -42,6 +42,8 @@ export default function FoodCard({goalAmount}) {
 				<FormModal>
 					<InputFood
 						addNewFoodItem={addNewFoodItem}
+						showForm={showForm}
+						setShowForm={setShowForm}
 					></InputFood>
 				</FormModal>
 			)}

@@ -45,7 +45,11 @@ export default function BusinessCard() {
 			</BusinessCardContainer>
 			{showForm && (
 				<FormModal>
-					<InputBusiness addNewBusinessItem={addNewBusinessItem} />
+					<InputBusiness
+						addNewBusinessItem={addNewBusinessItem}
+						showForm={showForm}
+						setShowForm={setShowForm}
+					/>
 				</FormModal>
 			)}
 		</>
