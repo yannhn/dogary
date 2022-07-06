@@ -23,9 +23,6 @@ export default function InputFood({addNewFoodItem, setSubmittedFoodInput, setSub
 		resetForm();
 	};
 
-	const endHours = Number(enteredTime.split(':')[0]);
-	console.log(endHours);
-
 	return (
 		<>
 			<InputFoodContainer>
