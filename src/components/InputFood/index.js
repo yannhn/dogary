@@ -1,3 +1,4 @@
+import {nanoid} from 'nanoid';
 import {useState} from 'react';
 
 import {InputFoodContainer} from './styled';
@@ -6,27 +7,26 @@ export default function InputFood({addNewFoodItem, setSubmittedFoodInput, setSub
 	const [enteredAmount, setEnteredAmount] = useState(0);
 	const [enteredTime, setEnteredTime] = useState('08:00');
 
-	const resetForm = () => {
+	const resetHandler = () => {
 		setEnteredAmount(0);
 		setEnteredTime('');
 	};
 
-	const handleSubmit = event => {
+	const submitHandler = event => {
 		event.preventDefault();
-		const newInput = {
+		const newFoodInput = {
+			id: nanoid(),
 			amount: parseInt(enteredAmount),
 			time: enteredTime,
 		};
-		addNewFoodItem(newInput);
-		setSubmittedFoodInput(enteredAmount);
-		setSubmittedTimeInput(enteredTime);
-		resetForm();
+		addNewFoodItem(newFoodInput);
+		resetHandler();
 	};
 
 	return (
 		<>
 			<InputFoodContainer>
-				<form onSubmit={handleSubmit}>
+				<form onSubmit={submitHandler}>
 					<h4>Your dog</h4>
 					<section>
 						<label>
