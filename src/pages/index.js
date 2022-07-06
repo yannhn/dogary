@@ -1,7 +1,6 @@
 import {Helmet} from 'react-helmet';
 
 import BusinessCard from '../components/BusinessCard';
-import FoodCard from '../components/FoodCard';
 import InputGoalButton from '../components/InputGoalButton';
 import InputInfoButton from '../components/InputInfoButton';
 import Layout from '../components/Layout';
@@ -17,7 +16,6 @@ export default function HomePage() {
 			<InputInfoButton />
 			<InputGoalButton />
 			<WalkCard />
-			<FoodCard />
 			<BusinessCard />
 		</Layout>
 	);

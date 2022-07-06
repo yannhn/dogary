@@ -4,7 +4,7 @@ import InputFood from '../InputFood/index.js';
 
 import {FoodCardContainer, FoodCardButton, FoodInfoContainer, FoodCardHead} from './styled';
 
-export default function FoodCard() {
+export default function FoodCard({goalAmount}) {
 	const [foodItems, setFoodItems] = useState([]);
 	const [showForm, setShowForm] = useState(false);
 
@@ -20,6 +20,7 @@ export default function FoodCard() {
 					<section>
 						<h2>Food</h2>
 						<h3>Type of food</h3>
+						<p>Goal: {goalAmount} gram</p>
 					</section>
 					<FoodCardButton
 						onClick={() => {

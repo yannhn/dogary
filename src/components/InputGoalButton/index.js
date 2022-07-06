@@ -1,5 +1,6 @@
 import {useState} from 'react';
 
+import FoodCard from '../FoodCard';
 import InputGoalForm from '../InputGoalForm';
 
 export default function InputGoalButton() {
@@ -15,6 +16,7 @@ export default function InputGoalButton() {
 		<>
 			<button onClick={() => setShowForm(!showForm)}>Show Food Goal</button>
 			{showForm && <InputGoalForm addNewAmount={addNewAmount} />}
+			<FoodCard goalAmount={submittedAmount.amount} />
 		</>
 	);
 }
