@@ -5,7 +5,7 @@ export default function Footer() {
 		<footer>
 			<nav>
 				<Link to="/">Home</Link>
-				<Link to="/about">About me</Link>
+				<Link to="/calendar">Calendar</Link>
 			</nav>
 		</footer>
 	);
