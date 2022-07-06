@@ -45,7 +45,6 @@ export default function InputFood({addNewFoodItem, setSubmittedFoodInput, setSub
 							<input
 								type="time"
 								value={enteredTime}
-								defaultValue="08:00"
 								onChange={event => setEnteredTime(event.target.value)}
 							></input>
 						</label>
