@@ -17,6 +17,16 @@ export default function InputWalk({addNewWalkItem, addCounter, handleCount}) {
 	const showHours = convertHoursToMinute(enteredDuration);
 	const showMinutes = showHours * 60;
 
+	// Hours
+	const showRest = showMinutes % 60;
+	console.log(showRest);
+
+	// sum
+	const showAll = (showMinutes - showRest) / 60;
+	console.log(showAll);
+
+	// next step -> write in string
+
 	const handleSubmit = event => {
 		event.preventDefault();
 		const newInput = {
