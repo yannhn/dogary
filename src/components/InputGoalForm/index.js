@@ -11,6 +11,7 @@ export default function InputGoalForm({addNewAmount}) {
 			amount: amount,
 		};
 		addNewAmount(newAmount);
+		setAmount(0);
 	};
 
 	return (
@@ -21,6 +22,7 @@ export default function InputGoalForm({addNewAmount}) {
 				<input
 					id="enterAmount"
 					type="number"
+					value={amount}
 					min="0"
 					onChange={event => setAmount(event.target.value)}
 				/>
