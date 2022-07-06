@@ -46,7 +46,7 @@ export default function WalkCard() {
 			</WalkCardContainer>
 			{showForm && (
 				<FormModal>
-					<InputWalk addNewWalkItem={addNewWalkItem} />
+					<InputWalk addNewWalkItem={addNewWalkItem} addCounter={addCounter} />
 				</FormModal>
 			)}
 		</>
