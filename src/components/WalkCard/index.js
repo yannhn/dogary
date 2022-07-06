@@ -1,5 +1,6 @@
 import {useState} from 'react';
 
+import FormModal from '../FormModal';
 import InputWalk from '../InputWalk/index';
 
 import {WalkCardContainer, WalkCardHead, WalkCardButton} from './styled';
@@ -43,7 +44,11 @@ export default function WalkCard() {
 					</section>
 				))}
 			</WalkCardContainer>
-			{showForm && <InputWalk addNewWalkItem={addNewWalkItem} addCounter={addCounter} />}
+			{showForm && (
+				<FormModal>
+					<InputWalk addNewWalkItem={addNewWalkItem} />
+				</FormModal>
+			)}
 		</>
 	);
 }

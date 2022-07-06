@@ -1,5 +1,6 @@
 import {useState} from 'react';
 
+import FormModal from '../FormModal';
 import InputFood from '../InputFood/index.js';
 
 import {FoodCardContainer, FoodCardButton, FoodInfoContainer, FoodCardHead} from './styled';
@@ -36,7 +37,13 @@ export default function FoodCard() {
 					</FoodInfoContainer>
 				))}
 			</FoodCardContainer>
-			{showForm && <InputFood addNewFoodItem={addNewFoodItem} />}
+			{showForm && (
+				<FormModal>
+					<InputFood
+						addNewFoodItem={addNewFoodItem}
+					></InputFood>
+				</FormModal>
+			)}
 		</>
 	);
 }
