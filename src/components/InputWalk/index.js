@@ -3,9 +3,19 @@ import {useState} from 'react';
 
 import {InputWalkContainer, InputWalkForm, InputWalkButton} from './styled';
 
-export default function InputWalk({addNewWalkItem}) {
+export default function InputWalk({addNewWalkItem, addCounter, handleCount}) {
 	const [enteredDuration, setEnteredDuration] = useState('00:00');
 	const [enteredStartTime, setEnteredStartTime] = useState('08:00');
+	const [result, setResult] = useState(0);
+
+	const convertHoursToMinute = enteredDuration => {
+		const hours = enteredDuration.split(':')[0];
+		const minutes = enteredDuration.split(':')[1];
+		return parseInt(hours) + Number(minutes / 60);
+	};
+
+	const showHours = convertHoursToMinute(enteredDuration);
+	const showMinutes = showHours * 60;
 
 	const handleSubmit = event => {
 		event.preventDefault();
@@ -13,9 +23,12 @@ export default function InputWalk({addNewWalkItem}) {
 			id: nanoid(),
 			duration: enteredDuration,
 			startTime: enteredStartTime,
+			result: result + showMinutes,
 		};
 
+		addCounter(newInput);
 		addNewWalkItem(newInput);
+		setResult(result + showMinutes);
 	};
 
 	return (
@@ -36,7 +49,6 @@ export default function InputWalk({addNewWalkItem}) {
 						<input
 							id="startingTime"
 							type="time"
-							defaultValue="08:00"
 							value={enteredStartTime}
 							onChange={event => setEnteredStartTime(event.target.value)}
 						></input>
