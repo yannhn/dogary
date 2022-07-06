@@ -1,12 +1,12 @@
-import {Link} from 'react-router-dom';
+import {FooterContainer, FooterNav, FooterNavItems} from './styled';
 
 export default function Footer() {
 	return (
-		<footer>
-			<nav>
-				<Link to="/">Home</Link>
-				<Link to="/calendar">Calendar</Link>
-			</nav>
-		</footer>
+		<FooterContainer>
+			<FooterNav>
+				<FooterNavItems to="/">Home</FooterNavItems>
+				<FooterNavItems to="/calendar">Calendar</FooterNavItems>
+			</FooterNav>
+		</FooterContainer>
 	);
 }
