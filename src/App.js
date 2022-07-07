@@ -12,7 +12,7 @@ export default function App() {
 				<Routes>
 					<Route path="/">
 						<Route index element={<HomePage />} />
-						<Route path="calendar/" element={<CalendarPage />} />
+						<Route path="calendar" element={<CalendarPage />} />
 					</Route>
 				</Routes>
 			</BrowserRouter>
