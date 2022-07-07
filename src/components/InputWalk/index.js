@@ -3,10 +3,12 @@ import {useState} from 'react';
 
 import {InputWalkContainer, InputWalkForm, InputWalkButton} from './styled';
 
-export default function InputWalk({addNewWalkItem, addCounter, handleCount}) {
+export default function InputWalk({addNewWalkItem, addCounter}) {
 	const [enteredDuration, setEnteredDuration] = useState('00:00');
 	const [enteredStartTime, setEnteredStartTime] = useState('08:00');
 	const [result, setResult] = useState(0);
+
+	const [enteredDate, setEnteredDate] = useState('');
 
 	const convertHoursToMinute = enteredDuration => {
 		const hours = enteredDuration.split(':')[0];
@@ -24,8 +26,9 @@ export default function InputWalk({addNewWalkItem, addCounter, handleCount}) {
 			duration: enteredDuration,
 			startTime: enteredStartTime,
 			result: result + showMinutes,
+			date: new Date(enteredDate).toLocaleString(),
 		};
-
+		console.log(newInput);
 		addCounter(newInput);
 		addNewWalkItem(newInput);
 		setResult(result + showMinutes);
@@ -52,6 +55,15 @@ export default function InputWalk({addNewWalkItem, addCounter, handleCount}) {
 							value={enteredStartTime}
 							onChange={event => setEnteredStartTime(event.target.value)}
 						></input>
+						<p>DATE</p>
+						<label htmlFor="date">Date of Walk</label>
+						<input
+							id="date"
+							type="date"
+							min="2020-01-01"
+							max="2022-12-31"
+							onChange={event => setEnteredDate(event.target.value)}
+						/>
 					</section>
 					<InputWalkButton type="submit">add</InputWalkButton>
 				</InputWalkForm>

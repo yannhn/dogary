@@ -40,13 +40,14 @@ export default function WalkCard() {
 					<section key={item.id}>
 						<p>Duration: {item.duration} h/m</p>
 						<p>When started: {item.startTime}</p>
+						<p>Date: {item.date}</p>
 						<hr></hr>
 					</section>
 				))}
 			</WalkCardContainer>
 			{showForm && (
 				<FormModal>
-					<InputWalk addNewWalkItem={addNewWalkItem} />
+					<InputWalk addNewWalkItem={addNewWalkItem} addCounter={addCounter} />
 				</FormModal>
 			)}
 		</>
