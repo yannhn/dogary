@@ -55,12 +55,12 @@ export default function InputWalk({addNewWalkItem, addCounter}) {
 							value={enteredStartTime}
 							onChange={event => setEnteredStartTime(event.target.value)}
 						></input>
-						<p>DATE</p>
+						<p>DATE (Note: this will only be displayed in history-view)</p>
 						<label htmlFor="date">Date of Walk</label>
 						<input
 							id="date"
 							type="date"
-							min="2020-01-01"
+							min="2019-01-01"
 							max="2022-12-31"
 							onChange={event => setEnteredDate(event.target.value)}
 						/>
