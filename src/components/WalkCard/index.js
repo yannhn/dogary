@@ -20,6 +20,10 @@ export default function WalkCard() {
 		setWalkItem(newWalkItem);
 	}
 
+	function cancelForm() {
+		setShowForm(!showForm);
+	}
+
 	return (
 		<>
 			<WalkCardContainer>
@@ -49,8 +53,7 @@ export default function WalkCard() {
 					<InputWalk
 						addNewWalkItem={addNewWalkItem}
 						addCounter={addCounter}
-						showForm={showForm}
-						setShowForm={setShowForm}
+						cancelForm={cancelForm}
 					/>
 				</FormModal>
 			)}

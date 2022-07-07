@@ -3,7 +3,7 @@ import {useState} from 'react';
 
 import {InputInfoContainer, InfoForm, InfoImgPreview} from './styled';
 
-export default function InputInfoForm({addNewInfo, showForm, setShowForm}) {
+export default function InputInfoForm({addNewInfo, cancelForm}) {
 	const [enteredName, setEnteredName] = useState('');
 	const [image, setImage] = useState('');
 
@@ -59,7 +59,7 @@ export default function InputInfoForm({addNewInfo, showForm, setShowForm}) {
 					</section>
 				</section>
 				<button type="submit">Add</button>
-				<button type="button" onClick={() => setShowForm(!showForm)}>
+				<button type="button" onClick={cancelForm}>
 					cancel
 				</button>
 			</InfoForm>

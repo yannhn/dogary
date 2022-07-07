@@ -14,6 +14,10 @@ export default function BusinessCard() {
 		setBusinessItems(newBusinessItems);
 	}
 
+	function cancelForm() {
+		setShowForm(!showForm);
+	}
+
 	return (
 		<>
 			<BusinessCardContainer>
@@ -47,8 +51,7 @@ export default function BusinessCard() {
 				<FormModal>
 					<InputBusiness
 						addNewBusinessItem={addNewBusinessItem}
-						showForm={showForm}
-						setShowForm={setShowForm}
+						cancelForm={cancelForm}
 					/>
 				</FormModal>
 			)}

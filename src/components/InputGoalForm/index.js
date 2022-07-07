@@ -2,7 +2,7 @@ import {useState} from 'react';
 
 import {InputGoalContainer, GoalForm} from './styled';
 
-export default function InputGoalForm({addNewAmount, showForm, setShowForm}) {
+export default function InputGoalForm({addNewAmount, cancelForm}) {
 	const [amount, setAmount] = useState(0);
 
 	const submitHandler = event => {
@@ -28,7 +28,7 @@ export default function InputGoalForm({addNewAmount, showForm, setShowForm}) {
 				/>
 				<section>
 					<button>Add</button>
-					<button type="button" onClick={() => setShowForm(!showForm)}>
+					<button type="button" onClick={cancelForm}>
 						cancel
 					</button>
 				</section>

@@ -13,16 +13,16 @@ export default function InputGoalButton() {
 		setSubmittedAmount(newAmount);
 	};
 
+	function cancelForm() {
+		setShowForm(!showForm);
+	}
+
 	return (
 		<>
 			<button onClick={() => setShowForm(!showForm)}>Show Food Goal</button>
 			{showForm && (
 				<FormModal>
-					<InputGoalForm
-						addNewAmount={addNewAmount}
-						showForm={showForm}
-						setShowForm={setShowForm}
-					/>
+					<InputGoalForm addNewAmount={addNewAmount} cancelForm={cancelForm} />
 				</FormModal>
 			)}
 			<FoodCard goalAmount={submittedAmount.amount} />

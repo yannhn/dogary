@@ -14,6 +14,10 @@ export default function FoodCard({goalAmount}) {
 		setFoodItems(newFoodItems);
 	}
 
+	function cancelForm() {
+		setShowForm(!showForm);
+	}
+
 	return (
 		<>
 			<FoodCardContainer>
@@ -40,11 +44,7 @@ export default function FoodCard({goalAmount}) {
 			</FoodCardContainer>
 			{showForm && (
 				<FormModal>
-					<InputFood
-						addNewFoodItem={addNewFoodItem}
-						showForm={showForm}
-						setShowForm={setShowForm}
-					></InputFood>
+					<InputFood addNewFoodItem={addNewFoodItem} cancelForm={cancelForm}></InputFood>
 				</FormModal>
 			)}
 		</>
