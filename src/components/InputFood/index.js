@@ -3,7 +3,7 @@ import {useState} from 'react';
 
 import {InputFoodContainer} from './styled';
 
-export default function InputFood({addNewFoodItem, setSubmittedFoodInput, setSubmittedTimeInput}) {
+export default function InputFood({addNewFoodItem, cancelForm}) {
 	const [enteredAmount, setEnteredAmount] = useState(0);
 	const [enteredTime, setEnteredTime] = useState('08:00');
 
@@ -51,6 +51,9 @@ export default function InputFood({addNewFoodItem, setSubmittedFoodInput, setSub
 					</section>
 					<section>
 						<button type="submit">Add</button>
+						<button type="button" onClick={cancelForm}>
+							cancel
+						</button>
 					</section>
 				</form>
 			</InputFoodContainer>
