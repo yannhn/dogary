@@ -3,7 +3,7 @@ import {useState} from 'react';
 
 import {InputWalkContainer, InputWalkForm, InputWalkButton} from './styled';
 
-export default function InputWalk({addNewWalkItem, addCounter, handleCount}) {
+export default function InputWalk({addNewWalkItem, addCounter, cancelForm}) {
 	const [enteredDuration, setEnteredDuration] = useState('00:00');
 	const [enteredStartTime, setEnteredStartTime] = useState('08:00');
 	const [result, setResult] = useState(0);
@@ -53,7 +53,12 @@ export default function InputWalk({addNewWalkItem, addCounter, handleCount}) {
 							onChange={event => setEnteredStartTime(event.target.value)}
 						></input>
 					</section>
-					<InputWalkButton type="submit">add</InputWalkButton>
+					<section>
+						<InputWalkButton type="submit">add</InputWalkButton>
+						<button type="button" onClick={cancelForm}>
+							cancel
+						</button>
+					</section>
 				</InputWalkForm>
 			</InputWalkContainer>
 		</>

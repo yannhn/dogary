@@ -14,12 +14,16 @@ export default function InputInfoButton() {
 		setSubmittedItems(newInfoItems);
 	};
 
+	function cancelForm() {
+		setShowForm(!showForm);
+	}
+
 	return (
 		<>
 			<button onClick={() => setShowForm(!showForm)}>Show Form</button>
 			{showForm && (
 				<FormModal>
-					<InputInfoForm addNewInfo={addNewInfo} />
+					<InputInfoForm addNewInfo={addNewInfo} cancelForm={cancelForm} />
 				</FormModal>
 			)}
 			<section>
