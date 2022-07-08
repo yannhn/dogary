@@ -20,6 +20,10 @@
     "toc": "npx markdown-toc@1 README.md -i"
   },
   "dependencies": {
+    "@fullcalendar/daygrid": "^5.11.0",
+    "@fullcalendar/interaction": "^5.11.0",
+    "@fullcalendar/list": "^5.11.0",
+    "@fullcalendar/react": "^5.11.1",
     "axios": "0.27.2",
     "nanoid": "^3.3.4",
     "react": "18.1.0",
