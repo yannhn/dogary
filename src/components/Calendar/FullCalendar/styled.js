@@ -15,4 +15,9 @@ export const StyleWrapper = styled.section`
 		font-size: 1rem;
 		text-align: center;
 	}
+	.fc {
+		border-radius: 10px;
+		border: 1px solid red;
+		padding: 1em;
+	}
 `;
