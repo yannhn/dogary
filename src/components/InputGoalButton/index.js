@@ -1,6 +1,7 @@
 import {useState} from 'react';
 
 import FoodCard from '../FoodCard';
+import FormModal from '../FormModal';
 import InputGoalForm from '../InputGoalForm';
 
 export default function InputGoalButton() {
@@ -12,10 +13,18 @@ export default function InputGoalButton() {
 		setSubmittedAmount(newAmount);
 	};
 
+	function cancelForm() {
+		setShowForm(!showForm);
+	}
+
 	return (
 		<>
 			<button onClick={() => setShowForm(!showForm)}>Show Food Goal</button>
-			{showForm && <InputGoalForm addNewAmount={addNewAmount} />}
+			{showForm && (
+				<FormModal>
+					<InputGoalForm addNewAmount={addNewAmount} cancelForm={cancelForm} />
+				</FormModal>
+			)}
 			<FoodCard goalAmount={submittedAmount.amount} />
 		</>
 	);
