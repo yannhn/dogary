@@ -40,14 +40,12 @@ export default function WalkCard() {
 						{showForm ? '-' : '+'}
 					</WalkCardButton>
 				</WalkCardHead>
-				{walkItem.map(item => (
-					<section key={item.id}>
-						<p>Duration: {item.duration} h/m</p>
-						<p>When started: {item.startTime}</p>
-						<p>Date: {item.date}</p>
-						<hr></hr>
-					</section>
-				))}
+				<section>
+					<p>Duration: {count.duration} h/m</p>
+					<p>When started: {count.startTime}</p>
+					<p>Date: {count.date}</p>
+					<hr></hr>
+				</section>
 			</WalkCardContainer>
 			{showForm && (
 				<FormModal>
