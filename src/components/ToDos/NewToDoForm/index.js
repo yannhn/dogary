@@ -4,8 +4,7 @@ export default function NewToDoForm() {
 			<form>
 				<label htmlFor="todo-text">Input your todo</label>
 				<input id="todo-text" type="text" />
-				<label htmlFor="todo-date">Pick a date</label>
-				<input type="date"></input>
+				<button>Add ToDo</button>
 			</form>
 		</section>
 	);
