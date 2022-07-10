@@ -1,10 +1,12 @@
+import {ToDoItemContainer} from './styled';
+
 export default function ToDo() {
 	return (
 		<section>
-			<section>
+			<ToDoItemContainer>
 				<input type="checkbox"></input>
-				<p>Test</p>
-			</section>
+				<p>ToDo</p>
+			</ToDoItemContainer>
 		</section>
 	);
 }
