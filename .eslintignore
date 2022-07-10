@@ -1,3 +1,4 @@
 node_modules
 build
 calendar.js
+src/components/Calendar/FullCalendar/index.js
