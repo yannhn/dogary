@@ -1,6 +1,6 @@
 import {HeadingRecent, HeadingContainer} from './styled';
 
-export default function ToDoCardHeading() {
+export default function ToDoCardSection() {
 	return (
 		<HeadingContainer>
 			<HeadingRecent>Recent</HeadingRecent>

@@ -1,11 +1,11 @@
 import {ToDoItemContainer} from './styled';
 
-export default function ToDo() {
+export default function ToDo({title}) {
 	return (
 		<section>
 			<ToDoItemContainer>
 				<input type="checkbox"></input>
-				<p>ToDo</p>
+				<p>{title}</p>
 			</ToDoItemContainer>
 		</section>
 	);
