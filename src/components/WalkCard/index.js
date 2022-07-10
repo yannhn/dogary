@@ -51,68 +51,16 @@ export default function WalkCard() {
 				</FormModal>
 			)}
 			<h4>HISTORY</h4>
-			{walkItem.map(item => (
-				<section key={item.id}>
-					<h2>Date: {item.date}</h2>
-					<p>Duration: {item.duration} h/m</p>
-					<p>When started: {item.startTime}</p>
-					<hr></hr>
-				</section>
-			))}
+			{walkItem
+				.sort((a, b) => new Date(b.date) - new Date(a.date))
+				.map(item => (
+					<section key={item.id}>
+						<h2>Date: {item.date}</h2>
+						<p>Duration: {item.duration} h/m</p>
+						<p>When started: {item.startTime}</p>
+						<hr></hr>
+					</section>
+				))}
 		</>
 	);
-}
-
-{
-	/* <View>
-                    {Categories.map(category => {
-                         return category.type === 0 ?
-                            (
-                            <>
-                                <View>
-                                <Text> {category.category} </Text>
-                                <View>
-                                    <Text> Optional </Text>
-                                </View>
-                            </View>
-
-                            { itemData.filter(product => product.menu_item_id === category.data_id).map(b => {
-                                    return (<View key={b.id}>
-                                        <View>
-                                            <CheckBox
-                                                disabled={false}
-                                                value={checked[b.id]}
-                                            />
-                                            <Text>{b.name}</Text>
-                                        </View>
-                                        <View>
-                                            <Text> $${b.price}</Text>
-                                        </View>
-                                    </View>)
-                                })
-                            }</>)
-                       :
-                    (<><View>
-                        <Text> {category.category}  </Text>
-                        <View>
-                            <Text> REQUIRED </Text>
-                        </View>
-                    </View>
-                    {itemData.filter(product => product.menu_item_id === category.data_id).map(b => {
-                        return (<View >
-                            <RadioButton.Group
-                                key={b.id}
-                                onValueChange={value => {  }} value={value}>
-                                <View>
-                                    <RadioButton.Item label={b.name}
-                                        value={b}
-                                    />
-                                    <Text>RM {b.price}</Text>
-                                </View>
-                            </RadioButton.Group>
-                        </View>)
-                    })
-                    }</>)
-                })}
-       </View > */
 }
