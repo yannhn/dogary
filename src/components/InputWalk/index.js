@@ -26,7 +26,7 @@ export default function InputWalk({addNewWalkItem, addCounter, cancelForm}) {
 			duration: enteredDuration,
 			startTime: enteredStartTime,
 			result: result + showMinutes,
-			date: new Date(enteredDate).toLocaleString(),
+			date: new Date(enteredDate).toDateString(),
 		};
 		console.log(newInput);
 		addCounter(newInput);
