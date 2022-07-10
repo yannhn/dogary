@@ -15,6 +15,7 @@ export const StyleWrapper = styled.section`
 		font-size: 1rem;
 		text-align: center;
 	}
+
 	.fc {
 		padding: 1em;
 	}
