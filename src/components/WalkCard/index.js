@@ -10,6 +10,9 @@ export default function WalkCard() {
 	const [walkItem, setWalkItem] = useState([]);
 	const [count, setCount] = useState({});
 
+	const dates = walkItem.map(walk => walk.date);
+	const uniqueDates = [...new Set(dates)];
+
 	function addCounter(prevItem) {
 		const newCount = {...walkItem, ...prevItem};
 		setCount(newCount);
@@ -43,8 +46,6 @@ export default function WalkCard() {
 				<section>
 					<p>Duration: {count.duration} h/m</p>
 					<p>When started: {count.startTime}</p>
-					<p>Date: {count.date}</p>
-					<hr></hr>
 				</section>
 			</WalkCardContainer>
 			{showForm && (
@@ -56,15 +57,20 @@ export default function WalkCard() {
 					/>
 				</FormModal>
 			)}
-			// HIER FÄNGT DAS PROBLEM AN
 			<h4>HISTORY</h4>
-			{walkItem
-				.sort((a, b) => new Date(b.date) - new Date(a.date))
-				.map(item => (
-					<section key={item.id}>
-						<h2>Date: {item.date}</h2>
-						<p>Duration: {item.duration} h/m</p>
-						<p>When started: {item.startTime}</p>
+			{uniqueDates
+				.sort((a, b) => new Date(b) - new Date(a))
+				.map(date => (
+					<section key={date}>
+						<h2>Date: {date}</h2>
+						{walkItem
+							.filter(walk => walk.date === date)
+							.map(walk => (
+								<section key={walk.id}>
+									<p>Duration: {walk.duration} h/m</p>
+									<p>When started: {walk.startTime}</p>
+								</section>
+							))}
 						<hr></hr>
 					</section>
 				))}
