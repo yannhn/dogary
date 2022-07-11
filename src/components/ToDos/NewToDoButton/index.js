@@ -5,14 +5,14 @@ import NewToDoForm from '../NewToDoForm';
 
 import {OpenFormButtonContainer, OpenFormButton} from './styled';
 
-export default function NewToDoButton({addNewToDos}) {
+export default function NewToDoButton({addNewToDo}) {
 	const [showForm, setShowForm] = useState(false);
 
 	const saveToDoDataHandler = enteredTodo => {
 		const newTodo = {
 			...enteredTodo,
 		};
-		addNewToDos(newTodo);
+		addNewToDo(newTodo);
 	};
 
 	function cancelForm() {
