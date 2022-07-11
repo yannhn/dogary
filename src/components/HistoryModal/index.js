@@ -1,17 +1,15 @@
-import {ModalContainer, Modal} from './styled';
-
-//TODO: Button einfügen um Modal zu canceln
+import {ModalContainer, Modal, StyledHistoryModalHeader, StyledHistoryModalButton} from './styled';
 
 export default function HistoryModal({children, cancelHistoryForm}) {
 	return (
 		<ModalContainer>
 			<Modal open>
-				<section>
+				<StyledHistoryModalHeader>
 					<h2>History</h2>
-					<button type="button" onClick={cancelHistoryForm}>
+					<StyledHistoryModalButton type="button" onClick={cancelHistoryForm}>
 						Cancel
-					</button>
-				</section>
+					</StyledHistoryModalButton>
+				</StyledHistoryModalHeader>
 				{children}
 			</Modal>
 		</ModalContainer>

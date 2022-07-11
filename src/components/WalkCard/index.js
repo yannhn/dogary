@@ -14,7 +14,6 @@ export default function WalkCard() {
 
 	const dates = walkItem.map(walk => walk.date);
 	const uniqueDates = [...new Set(dates)];
-	console.log(uniqueDates);
 
 	function addCounter(prevItem) {
 		const newCount = {...walkItem, ...prevItem};
@@ -77,16 +76,16 @@ export default function WalkCard() {
 						.sort((a, b) => new Date(b) - new Date(a))
 						.map(date => (
 							<section key={date}>
-								<h2>Date: {date}</h2>
+								<h2>{date}</h2>
 								{walkItem
 									.filter(walk => walk.date === date)
 									.map(walk => (
 										<section key={walk.id}>
 											<p>Duration: {walk.duration} h/m</p>
 											<p>When started: {walk.startTime}</p>
+											<hr></hr>
 										</section>
 									))}
-								<hr></hr>
 							</section>
 						))}
 				</HistoryModal>

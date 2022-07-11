@@ -28,7 +28,6 @@ export default function InputWalk({addNewWalkItem, addCounter, cancelForm}) {
 			result: result + showMinutes,
 			date: new Date(enteredDate).toDateString(),
 		};
-		console.log(newInput);
 		addCounter(newInput);
 		addNewWalkItem(newInput);
 		setResult(result + showMinutes);
@@ -60,7 +59,7 @@ export default function InputWalk({addNewWalkItem, addCounter, cancelForm}) {
 						<input
 							id="date"
 							type="date"
-							min="2019-01-01"
+							min="2022-07-01"
 							max="2022-12-31"
 							onChange={event => setEnteredDate(event.target.value)}
 						/>
