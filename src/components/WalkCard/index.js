@@ -70,6 +70,3 @@ export default function WalkCard() {
 		</>
 	);
 }
-
-// Ich muss erst die Sachen mittels der reduce-method trennen
-// Danach kann ich sie dann rendern
