@@ -56,6 +56,7 @@ export default function WalkCard() {
 					/>
 				</FormModal>
 			)}
+			// HIER FÄNGT DAS PROBLEM AN
 			<h4>HISTORY</h4>
 			{walkItem
 				.sort((a, b) => new Date(b.date) - new Date(a.date))
