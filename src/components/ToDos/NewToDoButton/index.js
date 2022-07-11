@@ -1,6 +1,6 @@
-import {nanoid} from 'nanoid';
 import {useState} from 'react';
 
+import FormModal from '../../FormModal';
 import NewToDoForm from '../NewToDoForm';
 
 import {OpenFormButtonContainer, OpenFormButton} from './styled';
@@ -11,10 +11,13 @@ export default function NewToDoButton({addNewToDos}) {
 	const saveToDoDataHandler = enteredTodo => {
 		const newTodo = {
 			...enteredTodo,
-			id: nanoid(),
 		};
 		addNewToDos(newTodo);
 	};
+
+	function cancelForm() {
+		setShowForm(!showForm);
+	}
 
 	return (
 		<>
@@ -27,7 +30,14 @@ export default function NewToDoButton({addNewToDos}) {
 					{showForm ? '-' : '+'}
 				</OpenFormButton>
 			</OpenFormButtonContainer>
-			{showForm && <NewToDoForm saveToDoDataHandler={saveToDoDataHandler} />}
+			{showForm && (
+				<FormModal>
+					<NewToDoForm
+						saveToDoDataHandler={saveToDoDataHandler}
+						cancelForm={cancelForm}
+					/>
+				</FormModal>
+			)}
 		</>
 	);
 }
