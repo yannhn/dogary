@@ -24,14 +24,14 @@ export default function ToDo({id, title, editTask}) {
 					onChange={event => setNewName(event.target.value)}
 				/>
 			</div>
-			<div className="btn-group">
-				<button type="button" className="btn todo-cancel" onClick={() => setEditing(false)}>
+			<div>
+				<button type="button" onClick={() => setEditing(false)}>
 					Cancel
-					<span className="visually-hidden"> renaming {title}</span>
+					<span> renaming {title}</span>
 				</button>
-				<button type="submit" className="btn btn__primary todo-edit">
+				<button type="submit">
 					Save
-					<span className="visually-hidden"> new name for {title}</span>
+					<span> new name for {title}</span>
 				</button>
 			</div>
 		</form>
