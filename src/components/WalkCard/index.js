@@ -1,6 +1,7 @@
 import {useState} from 'react';
 
 import FormModal from '../FormModal';
+import HistoryModal from '../HistoryModal';
 import InputWalk from '../InputWalk/index';
 
 import {WalkCardContainer, WalkCardHead, WalkCardButton} from './styled';
@@ -27,6 +28,10 @@ export default function WalkCard() {
 
 	function cancelForm() {
 		setShowForm(!showForm);
+	}
+
+	function cancelHistoryForm() {
+		setShowHistory(!showHistory);
 	}
 
 	return (
@@ -66,24 +71,26 @@ export default function WalkCard() {
 					/>
 				</FormModal>
 			)}
-
-			{showHistory &&
-				uniqueDates
-					.sort((a, b) => new Date(b) - new Date(a))
-					.map(date => (
-						<section key={date}>
-							<h2>Date: {date}</h2>
-							{walkItem
-								.filter(walk => walk.date === date)
-								.map(walk => (
-									<section key={walk.id}>
-										<p>Duration: {walk.duration} h/m</p>
-										<p>When started: {walk.startTime}</p>
-									</section>
-								))}
-							<hr></hr>
-						</section>
-					))}
+			{showHistory && (
+				<HistoryModal cancelHistoryForm={cancelHistoryForm}>
+					{uniqueDates
+						.sort((a, b) => new Date(b) - new Date(a))
+						.map(date => (
+							<section key={date}>
+								<h2>Date: {date}</h2>
+								{walkItem
+									.filter(walk => walk.date === date)
+									.map(walk => (
+										<section key={walk.id}>
+											<p>Duration: {walk.duration} h/m</p>
+											<p>When started: {walk.startTime}</p>
+										</section>
+									))}
+								<hr></hr>
+							</section>
+						))}
+				</HistoryModal>
+			)}
 		</>
 	);
 }
