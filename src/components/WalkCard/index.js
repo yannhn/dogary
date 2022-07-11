@@ -7,11 +7,13 @@ import {WalkCardContainer, WalkCardHead, WalkCardButton} from './styled';
 
 export default function WalkCard() {
 	const [showForm, setShowForm] = useState(false);
+	const [showHistory, setShowHistory] = useState(false);
 	const [walkItem, setWalkItem] = useState([]);
 	const [count, setCount] = useState({});
 
 	const dates = walkItem.map(walk => walk.date);
 	const uniqueDates = [...new Set(dates)];
+	console.log(uniqueDates);
 
 	function addCounter(prevItem) {
 		const newCount = {...walkItem, ...prevItem};
@@ -35,6 +37,13 @@ export default function WalkCard() {
 						<h2>Walks</h2>
 						<p>Todays duration: {count.result} min</p>
 					</section>
+					<button
+						onClick={() => {
+							setShowHistory(!showHistory);
+						}}
+					>
+						{showHistory ? 'Hide History' : 'Show History'}
+					</button>
 					<WalkCardButton
 						onClick={() => {
 							setShowForm(!showForm);
@@ -57,23 +66,24 @@ export default function WalkCard() {
 					/>
 				</FormModal>
 			)}
-			<h4>HISTORY</h4>
-			{uniqueDates
-				.sort((a, b) => new Date(b) - new Date(a))
-				.map(date => (
-					<section key={date}>
-						<h2>Date: {date}</h2>
-						{walkItem
-							.filter(walk => walk.date === date)
-							.map(walk => (
-								<section key={walk.id}>
-									<p>Duration: {walk.duration} h/m</p>
-									<p>When started: {walk.startTime}</p>
-								</section>
-							))}
-						<hr></hr>
-					</section>
-				))}
+
+			{showHistory &&
+				uniqueDates
+					.sort((a, b) => new Date(b) - new Date(a))
+					.map(date => (
+						<section key={date}>
+							<h2>Date: {date}</h2>
+							{walkItem
+								.filter(walk => walk.date === date)
+								.map(walk => (
+									<section key={walk.id}>
+										<p>Duration: {walk.duration} h/m</p>
+										<p>When started: {walk.startTime}</p>
+									</section>
+								))}
+							<hr></hr>
+						</section>
+					))}
 		</>
 	);
 }
