@@ -1,11 +1,24 @@
-import FullCalendar from '@fullcalendar/react'; // must go before plugins
-import dayGridPlugin from '@fullcalendar/daygrid'; // a plugin!
+import FullCalendar from '@fullcalendar/react';
+import dayGridPlugin from '@fullcalendar/daygrid';
 import interactionPlugin from '@fullcalendar/interaction';
 import listPlugin from '@fullcalendar/list';
 
 import {StyleWrapper} from './styled';
+import {useState} from 'react';
+
+const handleDateClick = clickInfo => {
+	const selectedDate = allMeals.find(meal => meal.id === clickInfo.event.id);
+	setCurrentMeal(selectedDate);
+};
 
 export default function Calendar() {
+	const [currentView, setCurrentView] = useState('dayGridMonth');
+
+	const handleDateClick = () => {
+		const current = changeView('dayGridDay');
+		setCurrentView(current);
+	};
+
 	return (
 		<>
 			<StyleWrapper>
@@ -13,13 +26,15 @@ export default function Calendar() {
 					plugins={[dayGridPlugin, listPlugin, interactionPlugin]}
 					firstDay={1}
 					headerToolbar={{
-						left: 'dayGridMonth',
+						left: 'dayGridMonth,dayGridDay',
 						center: 'title',
 						right: 'prev,next,today',
 					}}
 					initialView="dayGridMonth"
-					dateClick={function (info) {
-						this.changeView('dayGridDay', info.dateStr);
+					dateClick={view => {
+						alert('Selected Date' + view.dateStr);
+						this.changeView('dayGridDay' + view.dateStr);
+						view.changeView();
 					}}
 					events={[
 						{

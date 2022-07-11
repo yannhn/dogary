@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const StyleWrapper = styled.section`
+export const StyleWrapper = styled.div`
 	padding: 1em;
 	.fc-bg-event {
 		background: #ea2001;
