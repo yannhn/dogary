@@ -11,6 +11,7 @@ export default function InputInfoButton() {
 
 	const addNewInfo = prevItem => {
 		const newInfoItems = {...submittedItem, ...prevItem};
+		setShowForm(false);
 		setSubmittedItems(newInfoItems);
 	};
 
