@@ -2,7 +2,6 @@ import {useState} from 'react';
 
 import NewToDoButton from '../NewToDoButton';
 import ToDo from '../ToDo';
-import ToDoCardSection from '../ToDoCardSection';
 import ToDoCardTitle from '../ToDoCardTitle';
 
 import {ToDoListContainer} from './styled';
@@ -33,7 +32,6 @@ export default function ToDoList() {
 	return (
 		<ToDoListContainer>
 			<ToDoCardTitle />
-			<ToDoCardSection />
 			{toDos.map(todo => (
 				<ToDo
 					key={todo.id}
