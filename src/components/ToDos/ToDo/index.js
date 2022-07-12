@@ -1,8 +1,8 @@
 import {useState} from 'react';
 
-import {ToDoItemContainer} from './styled';
+import {ToDoItemContainer, ToDoItem} from './styled';
 
-export default function ToDo({id, title, editTask}) {
+export default function ToDo({id, title, editTask, deleteToDo}) {
 	const [isEditing, setIsEditing] = useState(false);
 	const [newTitle, setNewTitle] = useState('');
 
@@ -34,9 +34,12 @@ export default function ToDo({id, title, editTask}) {
 				</ToDoItemContainer>
 			) : (
 				<ToDoItemContainer>
-					<input type="checkbox"></input>
-					<p>{title}</p>
+					<ToDoItem htmlFor="checkbox">
+						<input id="checkbox" type="checkbox"></input>
+						{title}
+					</ToDoItem>
 					<button onClick={() => setIsEditing(true)}>Edit</button>
+					<button onClick={deleteToDo}>Delete</button>
 				</ToDoItemContainer>
 			)}
 		</>

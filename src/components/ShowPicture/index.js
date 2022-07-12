@@ -1,9 +1,9 @@
-import StyledPicture from './styled';
+import {StyledPicture} from './styled';
 
 export default function ShowPicture({styledImage}) {
 	return (
 		<>
-			<StyledPicture src={styledImage} />
+			<StyledPicture src={styledImage ? styledImage : 'https://placedog.net/800/640?id=12'} />
 		</>
 	);
 }

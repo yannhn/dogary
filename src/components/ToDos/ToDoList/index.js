@@ -8,30 +8,40 @@ import ToDoCardTitle from '../ToDoCardTitle';
 import {ToDoListContainer} from './styled';
 
 export default function ToDoList() {
-	const [items, setItems] = useState([]);
+	const [toDos, setToDos] = useState([]);
 
 	function addNewToDo(newTodo) {
-		setItems(prevItem => {
-			return [newTodo, ...prevItem];
+		setToDos(prevToDo => {
+			return [newTodo, ...prevToDo];
 		});
 	}
 
 	function editTask(id, newTitle) {
-		const editedTaskList = items.map(item => {
-			if (id === item.id) {
-				return {...item, title: newTitle};
+		const editedToDos = toDos.map(toDo => {
+			if (id === toDo.id) {
+				return {...toDo, title: newTitle};
 			}
-			return item;
+			return toDo;
 		});
-		setItems(editedTaskList);
+		setToDos(editedToDos);
+	}
+	function deleteToDo(id) {
+		const filteredToDos = toDos.filter(todo => id !== todo.id);
+		setToDos(filteredToDos);
 	}
 
 	return (
 		<ToDoListContainer>
 			<ToDoCardTitle />
 			<ToDoCardSection />
-			{items.map(item => (
-				<ToDo key={item.id} id={item.id} title={item.title} editTask={editTask} />
+			{toDos.map(todo => (
+				<ToDo
+					key={todo.id}
+					id={todo.id}
+					title={todo.title}
+					editTask={editTask}
+					deleteToDo={() => deleteToDo(todo.id)}
+				/>
 			))}
 			<NewToDoButton addNewToDo={addNewToDo} />
 		</ToDoListContainer>
