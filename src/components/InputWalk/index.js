@@ -7,6 +7,9 @@ export default function InputWalk({addNewWalkItem, addCounter, cancelForm}) {
 	const [enteredDuration, setEnteredDuration] = useState('00:00');
 	const [enteredStartTime, setEnteredStartTime] = useState('08:00');
 	const [result, setResult] = useState(0);
+	const [message, setMessage] = useState('');
+
+	const [enteredDate, setEnteredDate] = useState('');
 
 	const convertHoursToMinute = enteredDuration => {
 		const hours = enteredDuration.split(':')[0];
@@ -24,11 +27,15 @@ export default function InputWalk({addNewWalkItem, addCounter, cancelForm}) {
 			duration: enteredDuration,
 			startTime: enteredStartTime,
 			result: result + showMinutes,
+			date: new Date(enteredDate).toDateString(),
 		};
 
 		addCounter(newInput);
 		addNewWalkItem(newInput);
 		setResult(result + showMinutes);
+		setMessage(
+			`Your last walk with your dog lasted ${newInput.duration} h/m at ${newInput.startTime} o'clock on ${newInput.date}! Your dog will forever be grateful!`
+		);
 	};
 
 	return (
@@ -52,6 +59,16 @@ export default function InputWalk({addNewWalkItem, addCounter, cancelForm}) {
 							value={enteredStartTime}
 							onChange={event => setEnteredStartTime(event.target.value)}
 						></input>
+						<p>DATE (Note: this will only be displayed in history-view)</p>
+						<label htmlFor="date">Date of Walk</label>
+						<input
+							id="date"
+							type="date"
+							min="2022-07-01"
+							max="2022-12-31"
+							required
+							onChange={event => setEnteredDate(event.target.value)}
+						/>
 					</section>
 					<section>
 						<InputWalkButton type="submit">add</InputWalkButton>
@@ -60,6 +77,8 @@ export default function InputWalk({addNewWalkItem, addCounter, cancelForm}) {
 						</button>
 					</section>
 				</InputWalkForm>
+				<h4>Last submit</h4>
+				<p>{message}</p>
 			</InputWalkContainer>
 		</>
 	);

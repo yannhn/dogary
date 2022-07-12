@@ -9,4 +9,4 @@ const StyledPicture = styled.img`
 	border-radius: 50%;
 `;
 
-export default StyledPicture;
+export {StyledPicture};
