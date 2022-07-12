@@ -12,6 +12,7 @@ export default function NewToDoForm({saveToDoDataHandler, cancelForm}) {
 			id: nanoid(),
 			title:
 				enteredTitle.trim().charAt(0).toUpperCase() + enteredTitle.slice(1).toLowerCase(),
+			completed: false,
 		};
 		saveToDoDataHandler(newToDo);
 		setEnteredTitle('');

@@ -2,6 +2,7 @@ import {useState} from 'react';
 
 import NewToDoButton from '../NewToDoButton';
 import ToDo from '../ToDo';
+import ToDoCardSection from '../ToDoCardSection';
 import ToDoCardTitle from '../ToDoCardTitle';
 
 import {ToDoListContainer} from './styled';
@@ -24,6 +25,17 @@ export default function ToDoList() {
 		});
 		setToDos(editedToDos);
 	}
+
+	function completeToDo(id) {
+		const completedToDos = toDos.map(toDo => {
+			if (id === toDo.id) {
+				return {...toDo, completed: !toDo.completed};
+			}
+			return toDo;
+		});
+		setToDos(completedToDos);
+	}
+
 	function deleteToDo(id) {
 		const filteredToDos = toDos.filter(todo => id !== todo.id);
 		setToDos(filteredToDos);
@@ -32,12 +44,14 @@ export default function ToDoList() {
 	return (
 		<ToDoListContainer>
 			<ToDoCardTitle />
+			<ToDoCardSection />
 			{toDos.map(todo => (
 				<ToDo
 					key={todo.id}
 					id={todo.id}
 					title={todo.title}
 					editTask={editTask}
+					completeToDo={() => completeToDo(todo.id)}
 					deleteToDo={() => deleteToDo(todo.id)}
 				/>
 			))}

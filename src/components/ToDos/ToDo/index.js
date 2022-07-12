@@ -2,7 +2,7 @@ import {useState} from 'react';
 
 import {ToDoItemContainer, ToDoItem} from './styled';
 
-export default function ToDo({id, title, editTask, deleteToDo}) {
+export default function ToDo({id, title, editTask, completeToDo, deleteToDo}) {
 	const [isEditing, setIsEditing] = useState(false);
 	const [newTitle, setNewTitle] = useState('');
 
@@ -13,13 +13,15 @@ export default function ToDo({id, title, editTask, deleteToDo}) {
 		setIsEditing(false);
 	}
 
+	console.log(handleSubmit);
+
 	return (
 		<>
 			{isEditing ? (
 				<ToDoItemContainer>
 					<form onSubmit={handleSubmit}>
 						<label htmlFor="checkbox" />
-						<input id="checkbox" type="checkbox"></input>
+						<input id="checkbox" type="checkbox" onChange={completeToDo}></input>
 						<label htmlFor="new-text-input" />
 						<input
 							id="new-text-input"
