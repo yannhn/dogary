@@ -16,7 +16,7 @@ export default function ToDo({id, title, editTask}) {
 	return (
 		<>
 			{isEditing ? (
-				<ToDoItemContainer>
+				// <ToDoItemContainer>
 					<form onSubmit={handleSubmit}>
 						<input type="checkbox"></input>
 						<input
@@ -31,7 +31,7 @@ export default function ToDo({id, title, editTask}) {
 							<button type="submit">Save new title for {title}</button>
 						</section>
 					</form>
-				</ToDoItemContainer>
+				{/* </ToDoItemContainer> */}
 			) : (
 				<ToDoItemContainer>
 					<input type="checkbox"></input>
