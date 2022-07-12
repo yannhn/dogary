@@ -22,8 +22,8 @@ export default function InputFood({addNewFoodItem, cancelForm, addLastSubmittedI
 		setMessage(
 			`Your dog last ate ${newFoodInput.amount} gram at ${newFoodInput.time} o'clock on ${newFoodInput.date}! Your dog will forever be grateful!`
 		);
-		setEnteredAmount(0);
 		setEnteredTime('08:00');
+		setEnteredAmount(0);
 	};
 
 	return (
