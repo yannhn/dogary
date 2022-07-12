@@ -26,7 +26,7 @@ export default function ToDoList() {
 			<ToDoCardTitle />
 			<ToDoCardSection />
 			{items.map(item => (
-				<ToDo key={item.id} title={item.title} deleteToDo={deleteToDo} />
+				<ToDo key={item.id} title={item.title} deleteToDo={() => deleteToDo(item.id)} />
 			))}
 			<NewToDoButton addNewToDo={addNewToDo} />
 		</ToDoListContainer>
