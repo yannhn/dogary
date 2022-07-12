@@ -2,7 +2,7 @@ import {useState} from 'react';
 
 import {ToDoItemContainer, ToDoItem} from './styled';
 
-export default function ToDo({id, title, editTask, completeToDo, deleteToDo}) {
+export default function ToDo({id, title, editTask, completeToDo, deleteToDo, completed}) {
 	const [isEditing, setIsEditing] = useState(false);
 	const [newTitle, setNewTitle] = useState('');
 
@@ -13,15 +13,13 @@ export default function ToDo({id, title, editTask, completeToDo, deleteToDo}) {
 		setIsEditing(false);
 	}
 
-	console.log(handleSubmit);
-
 	return (
 		<>
 			{isEditing ? (
 				<ToDoItemContainer>
 					<form onSubmit={handleSubmit}>
 						<label htmlFor="checkbox" />
-						<input id="checkbox" type="checkbox" onChange={completeToDo}></input>
+						<input id="checkbox" type="checkbox"></input>
 						<label htmlFor="new-text-input" />
 						<input
 							id="new-text-input"
@@ -39,12 +37,22 @@ export default function ToDo({id, title, editTask, completeToDo, deleteToDo}) {
 				</ToDoItemContainer>
 			) : (
 				<ToDoItemContainer>
-					<ToDoItem htmlFor="checkbox">
-						<input id="checkbox" type="checkbox"></input>
-						{title}
-					</ToDoItem>
-					<button onClick={() => setIsEditing(true)}>Edit</button>
-					<button onClick={deleteToDo}>Delete</button>
+					{completed ? (
+						<ToDoItem>{title}</ToDoItem>
+					) : (
+						<ToDoItem htmlFor="checkbox">
+							<input id="checkbox" type="checkbox" onChange={completeToDo}></input>
+							{title}
+						</ToDoItem>
+					)}
+					{completed ? (
+						<button onClick={deleteToDo}>Delete</button>
+					) : (
+						<section>
+							<button onClick={() => setIsEditing(true)}>Edit</button>
+							<button onClick={deleteToDo}>Delete</button>
+						</section>
+					)}
 				</ToDoItemContainer>
 			)}
 		</>

@@ -9,4 +9,8 @@ const ToDoItem = styled.label`
 	color: white;
 `;
 
-export {ToDoItemContainer, ToDoItem};
+const HideButton = styled.section`
+	display: ${props => (props.completed ? 'none' : '')};
+`;
+
+export {ToDoItemContainer, ToDoItem, HideButton};
