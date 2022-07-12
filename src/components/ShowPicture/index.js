@@ -1,5 +1,3 @@
-import {useState} from 'react';
-
 import {StyledPicture} from './styled';
 
 export default function ShowPicture({styledImage}) {

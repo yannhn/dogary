@@ -25,6 +25,7 @@ export default function NewToDoForm({saveToDoDataHandler, cancelForm}) {
 					id="todo-text"
 					type="text"
 					value={enteredTitle}
+					required
 					onChange={event => setEnteredTitle(event.target.value)}
 				/>
 				<button>Add ToDo</button>
