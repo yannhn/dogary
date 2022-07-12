@@ -18,9 +18,7 @@ export default function ToDoList() {
 
 	function editTask(id, newTitle) {
 		const editedTaskList = items.map(item => {
-			// if this item has the same ID as the edited item
 			if (id === item.id) {
-				//
 				return {...item, title: newTitle};
 			}
 			return item;
