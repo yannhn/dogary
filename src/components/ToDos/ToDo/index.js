@@ -18,8 +18,11 @@ export default function ToDo({id, title, editTask, deleteToDo}) {
 			{isEditing ? (
 				<ToDoItemContainer>
 					<form onSubmit={handleSubmit}>
-						<input type="checkbox"></input>
+						<label htmlFor="checkbox" />
+						<input id="checkbox" type="checkbox"></input>
+						<label htmlFor="new-text-input" />
 						<input
+							id="new-text-input"
 							type="text"
 							value={newTitle}
 							onChange={event => setNewTitle(event.target.value)}
