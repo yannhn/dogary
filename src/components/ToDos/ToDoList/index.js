@@ -16,12 +16,17 @@ export default function ToDoList() {
 		});
 	}
 
+	function deleteToDo(id) {
+		const filteredItems = items.filter(item => id !== item.id);
+		setItems(filteredItems);
+	}
+
 	return (
 		<ToDoListContainer>
 			<ToDoCardTitle />
 			<ToDoCardSection />
 			{items.map(item => (
-				<ToDo key={item.id} title={item.title} />
+				<ToDo key={item.id} title={item.title} deleteToDo={deleteToDo} />
 			))}
 			<NewToDoButton addNewToDo={addNewToDo} />
 		</ToDoListContainer>
