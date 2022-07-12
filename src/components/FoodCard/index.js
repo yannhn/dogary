@@ -57,12 +57,10 @@ export default function FoodCard({goalAmount}) {
 						{showForm ? '-' : '+'}
 					</FoodCardButton>
 				</FoodCardHead>
-				{foodItems.map(item => (
-					<FoodInfoContainer key={item.id}>
-						<p>How much: {lastSubmittedFoodItem.amount} gram</p>
-						<p>At: {lastSubmittedFoodItem.time}</p>
-					</FoodInfoContainer>
-				))}
+				<FoodInfoContainer>
+					<p>How much: {lastSubmittedFoodItem.amount} gram</p>
+					<p>At: {lastSubmittedFoodItem.time}</p>
+				</FoodInfoContainer>
 			</FoodCardContainer>
 			{showForm && (
 				<FormModal>
@@ -72,6 +70,25 @@ export default function FoodCard({goalAmount}) {
 						addLastSubmittedItem={addLastSubmittedItem}
 					></InputFood>
 				</FormModal>
+			)}
+			{showHistory && (
+				<HistoryModal onCancelHistoryForm={onCancelHistoryForm}>
+					{uniqueDates
+						.sort((a, b) => new Date(b) - new Date(a))
+						.map(date => (
+							<section key={date}>
+								<h2>{date}</h2>
+								{foodItems
+									.filter(food => food.date === date)
+									.map(food => (
+										<section key={food.id}>
+											<p>Amount: {food.amount}</p>
+											<p>When: {food.time}</p>
+										</section>
+									))}
+							</section>
+						))}
+				</HistoryModal>
 			)}
 		</>
 	);
