@@ -29,7 +29,7 @@ export default function WalkCard() {
 		setShowForm(!showForm);
 	}
 
-	function cancelHistoryForm() {
+	function onCancelHistoryForm() {
 		setShowHistory(!showHistory);
 	}
 
@@ -71,7 +71,7 @@ export default function WalkCard() {
 				</FormModal>
 			)}
 			{showHistory && (
-				<HistoryModal cancelHistoryForm={cancelHistoryForm}>
+				<HistoryModal onCancelHistoryForm={onCancelHistoryForm}>
 					{uniqueDates
 						.sort((a, b) => new Date(b) - new Date(a))
 						.map(date => (
@@ -83,7 +83,6 @@ export default function WalkCard() {
 										<section key={walk.id}>
 											<p>Duration: {walk.duration} h/m</p>
 											<p>When started: {walk.startTime}</p>
-											<hr></hr>
 										</section>
 									))}
 							</section>
