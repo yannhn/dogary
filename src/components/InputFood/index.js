@@ -3,14 +3,11 @@ import {useState} from 'react';
 
 import {InputFoodContainer} from './styled';
 
-export default function InputFood({addNewFoodItem, cancelForm}) {
+export default function InputFood({addNewFoodItem, cancelForm, addLastSubmittedItem}) {
 	const [enteredAmount, setEnteredAmount] = useState(0);
 	const [enteredTime, setEnteredTime] = useState('08:00');
-
-	const resetHandler = () => {
-		setEnteredAmount(0);
-		setEnteredTime('');
-	};
+	const [enteredDate, setEnteredDate] = useState('');
+	const [message, setMessage] = useState('');
 
 	const submitHandler = event => {
 		event.preventDefault();
@@ -18,9 +15,15 @@ export default function InputFood({addNewFoodItem, cancelForm}) {
 			id: nanoid(),
 			amount: parseInt(enteredAmount),
 			time: enteredTime,
+			date: new Date(enteredDate).toDateString(),
 		};
+		addLastSubmittedItem(newFoodInput);
 		addNewFoodItem(newFoodInput);
-		resetHandler();
+		setEnteredAmount(0);
+		setEnteredTime('');
+		setMessage(
+			`Your dog last ate ${newFoodInput.amount} gram at ${newFoodInput.time} o'clock on ${newFoodInput.date}! Your dog will forever be grateful!`
+		);
 	};
 
 	return (
@@ -35,6 +38,7 @@ export default function InputFood({addNewFoodItem, cancelForm}) {
 								type="number"
 								min="0"
 								value={enteredAmount}
+								required
 								onChange={event => setEnteredAmount(event.target.value)}
 							></input>
 						</label>
@@ -45,9 +49,21 @@ export default function InputFood({addNewFoodItem, cancelForm}) {
 							<input
 								type="time"
 								value={enteredTime}
+								required
 								onChange={event => setEnteredTime(event.target.value)}
 							></input>
 						</label>
+					</section>
+					<section>
+						<label htmlFor="date">Date of Food</label>
+						<input
+							id="date"
+							type="date"
+							min="2022-07-01"
+							max="2022-12-31"
+							required
+							onChange={event => setEnteredDate(event.target.value)}
+						/>
 					</section>
 					<section>
 						<button type="submit">Add</button>
@@ -56,6 +72,8 @@ export default function InputFood({addNewFoodItem, cancelForm}) {
 						</button>
 					</section>
 				</form>
+				<h4>Last submit</h4>
+				<p>{message}</p>
 			</InputFoodContainer>
 		</>
 	);
