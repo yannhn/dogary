@@ -1,10 +1,13 @@
-import {ToDoItemContainer} from './styled';
+import {ToDoItemContainer, ToDoItem} from './styled';
 
-export default function ToDo({title}) {
+export default function ToDo({title, deleteToDo}) {
 	return (
 		<ToDoItemContainer>
-			<input type="checkbox"></input>
-			<p>{title}</p>
+			<ToDoItem htmlFor="checkbox">
+				<input id="checkbox" type="checkbox"></input>
+				{title}
+			</ToDoItem>
+			<button onClick={deleteToDo}>Delete</button>
 		</ToDoItemContainer>
 	);
 }
