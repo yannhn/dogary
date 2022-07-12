@@ -1,18 +1,17 @@
 import styled from 'styled-components';
 
 const HeadingContainer = styled.section`
-	display: inline-block;
+	display: inline-flex;
+	justify-content: space-between;
 	margin-bottom: 1em;
 `;
 
 const FilterButton = styled.button`
-	gap: 2em;
-	border: 1px solid white;
-	background: red;
+	border: none;
+	border-radius: 5px;
+	background: crimson;
 	color: white;
-	font-size: 1rem;
-	cursor: pointer;
-
+	font-size: 2rem;
 	&:focus-visible {
 		box-shadow: 0 0 0 5px red;
 	}

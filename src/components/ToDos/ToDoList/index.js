@@ -9,7 +9,7 @@ import {ToDoListContainer} from './styled';
 
 export default function ToDoList() {
 	const [toDos, setToDos] = useState([]);
-	const [filter, setFilter] = useState('Open');
+	const [filter, setFilter] = useState('ToDo');
 
 	function addNewToDo(newTodo) {
 		setToDos(prevToDo => {
@@ -42,18 +42,9 @@ export default function ToDoList() {
 		setToDos(filteredToDos);
 	}
 
-	// const filterList = FILTER_NAMES.map(name => (
-	// 	<ToDoFilterSection
-	// 		key={name}
-	// 		name={name}
-	// 		isPressed={name === filter}
-	// 		setFilter={setFilter}
-	// 	/>
-	// ));
-
 	// Setup buttons
 	const FILTER_MAP = {
-		Open: toDo => !toDo.completed,
+		ToDo: toDo => !toDo.completed,
 		Log: toDo => toDo.completed,
 	};
 
@@ -64,12 +55,7 @@ export default function ToDoList() {
 		<ToDoListContainer>
 			<ToDoCardTitle />
 			{FILTER_NAMES.map(title => (
-				<ToDoFilterSection
-					key={title}
-					title={title}
-					isPressed={title === filter}
-					setFilter={setFilter}
-				/>
+				<ToDoFilterSection key={title} title={title} setFilter={setFilter} />
 			))}
 			{toDos.filter(FILTER_MAP[filter]).map(todo => (
 				<ToDo
