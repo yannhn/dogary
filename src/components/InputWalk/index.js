@@ -61,6 +61,7 @@ export default function InputWalk({addNewWalkItem, addCounter, cancelForm}) {
 							type="date"
 							min="2022-07-01"
 							max="2022-12-31"
+							required
 							onChange={event => setEnteredDate(event.target.value)}
 						/>
 					</section>
