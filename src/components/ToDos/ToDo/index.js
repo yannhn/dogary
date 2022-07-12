@@ -26,7 +26,7 @@ export default function ToDo({id, title, editTask}) {
 						/>
 						<section>
 							<button type="button" onClick={() => setIsEditing(false)}>
-								Cancel renaming {title}
+								Cancel editing {title}
 							</button>
 							<button type="submit">Save new title for {title}</button>
 						</section>
