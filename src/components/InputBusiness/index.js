@@ -25,7 +25,15 @@ export default function InputBusiness({addNewBusinessItem, cancelForm, addSubmit
 		setBigBusiness(false);
 		setTime(time);
 		setMessage(
-			`Your dog did ${newBusinessItem.smallBusiness} and/or ${newBusinessItem.bigBusiness} at ${newBusinessItem.time} o'clock on ${newBusinessItem.date}! Your dog will forever be grateful!`
+			`Your dog ${
+				newBusinessItem.smallBusiness && newBusinessItem.bigBusiness
+					? `did double business at ${newBusinessItem.time} o'clock on ${newBusinessItem.date}. Your dog will forever be grateful!`
+					: newBusinessItem.smallBusiness
+					? `did a small business at ${newBusinessItem.time} o'clock on ${newBusinessItem.date}. Your dog will forever be grateful!`
+					: newBusinessItem.bigBusiness
+					? `did a big business at ${newBusinessItem.time} o'clock on ${newBusinessItem.date}. Your dog will forever be grateful!`
+					: `didn't do any business at all at ${newBusinessItem.time} o'clock on ${newBusinessItem.date}. (Sometimes your dog is simply just not in the right mood. You might have to try again later.)`
+			}`
 		);
 	};
 
