@@ -58,6 +58,7 @@ export default function InputBusiness({addNewBusinessItem, cancelForm}) {
 							<input
 								type="time"
 								defaultValue="08:00"
+								required
 								onChange={event => setTime(event.target.value)}
 							></input>
 						</label>
