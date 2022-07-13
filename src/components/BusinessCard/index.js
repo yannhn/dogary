@@ -7,7 +7,11 @@ import {BusinessCardContainer, BusinessCardHead, BusinessCardButton} from './sty
 
 export default function BusinessCard() {
 	const [showForm, setShowForm] = useState(false);
+	const [showHistory, setShowHistory] = useState(false);
 	const [businessItems, setBusinessItems] = useState([]);
+
+	const dates = businessItems.map(business => business.date);
+	const uniqueDates = [...new Set(dates)];
 
 	function addNewBusinessItem(prevItem) {
 		const newBusinessItems = [...businessItems, prevItem];
