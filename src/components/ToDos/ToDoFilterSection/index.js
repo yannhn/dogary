@@ -8,7 +8,7 @@ export default function ToDoFilterSection({setStatus}) {
 
 	return (
 		<StyledFilterContainer>
-			<StyledFilterLabel>Filter by status</StyledFilterLabel>
+			<StyledFilterLabel>Filter your ToDos</StyledFilterLabel>
 			<StyledFilterSelect onChange={statusHandler}>
 				<option value="all">All</option>
 				<option value="uncompleted">open</option>

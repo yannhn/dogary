@@ -16,7 +16,7 @@ export default function ToDoList() {
 		filterChangeHandler();
 	}, [toDos, status]);
 
-	const filterChangeHandler = () => {
+	function filterChangeHandler() {
 		switch (status) {
 			case 'completed':
 				setFilteredToDo(toDos.filter(todo => todo.completed === true));
@@ -28,7 +28,7 @@ export default function ToDoList() {
 				setFilteredToDo(toDos);
 				break;
 		}
-	};
+	}
 
 	function addNewToDo(newTodo) {
 		setToDos(prevToDo => {

@@ -6,7 +6,6 @@ const StyledFilterContainer = styled.section`
 	justify-content: space-between;
 	width: 100%;
 	margin: 1rem 0;
-	border-bottom: 1px solid white;
 `;
 
 const StyledFilterLabel = styled.label`
@@ -15,10 +14,10 @@ const StyledFilterLabel = styled.label`
 `;
 
 const StyledFilterSelect = styled.select`
-	font: inherit;
-	padding: 0.5rem 3rem;
+	padding: 0.4rem 0.4rem;
+	border: none;
+	border-radius: 5px;
 	font-weight: bold;
-	border-radius: 6px;
 `;
 
 export {StyledFilterContainer, StyledFilterLabel, StyledFilterSelect};
