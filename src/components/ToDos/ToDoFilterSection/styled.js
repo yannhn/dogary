@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-const FilterContainer = styled.section`
+const StyledFilterContainer = styled.section`
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
@@ -9,9 +9,16 @@ const FilterContainer = styled.section`
 	border-bottom: 1px solid white;
 `;
 
-const FilterLabel = styled.label`
-	font-weight: bold;
+const StyledFilterLabel = styled.label`
 	color: white;
+	font-weight: bold;
 `;
 
-export {FilterContainer, FilterLabel};
+const StyledFilterSelect = styled.select`
+	font: inherit;
+	padding: 0.5rem 3rem;
+	font-weight: bold;
+	border-radius: 6px;
+`;
+
+export {StyledFilterContainer, StyledFilterLabel, StyledFilterSelect};
