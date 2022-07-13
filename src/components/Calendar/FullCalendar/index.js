@@ -26,7 +26,6 @@ export default function Calendar() {
 							title: 'e1',
 							display: 'background',
 						},
-
 						{
 							id: 'b',
 							start: '2022-07-08',
