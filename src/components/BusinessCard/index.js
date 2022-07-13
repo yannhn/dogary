@@ -87,8 +87,17 @@ export default function BusinessCard() {
 									.filter(businessItem => businessItem.date === date)
 									.map(businessItem => (
 										<section key={businessItem.id}>
-											<p>small: {businessItem.smallBusiness}</p>
-											<p>big: {businessItem.bigBusiness}</p>
+											<p>
+												What:{' '}
+												{businessItem.smallBusiness &&
+												businessItem.bigBusiness
+													? 'double business'
+													: businessItem.smallBusiness
+													? 'small business'
+													: businessItem.bigBusiness
+													? 'big business'
+													: 'No business!'}
+											</p>
 											<p>When: {businessItem.time}</p>
 										</section>
 									))}
