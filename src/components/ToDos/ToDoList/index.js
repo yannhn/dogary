@@ -1,4 +1,4 @@
-import {useState} from 'react';
+import {useState, useEffect} from 'react';
 
 import NewToDoButton from '../NewToDoButton';
 import ToDo from '../ToDo';
@@ -9,7 +9,26 @@ import {ToDoListContainer} from './styled';
 
 export default function ToDoList() {
 	const [toDos, setToDos] = useState([]);
-	const [filter, setFilter] = useState('ToDo');
+	const [status, setStatus] = useState('all');
+	const [filteredToDo, setFilteredToDo] = useState([]);
+
+	useEffect(() => {
+		filterChangeHandler();
+	}, [toDos, status]);
+
+	const filterChangeHandler = () => {
+		switch (status) {
+			case 'completed':
+				setFilteredToDo(toDos.filter(todo => todo.completed === true));
+				break;
+			case 'uncompleted':
+				setFilteredToDo(toDos.filter(todo => todo.completed === false));
+				break;
+			default:
+				setFilteredToDo(toDos);
+				break;
+		}
+	};
 
 	function addNewToDo(newTodo) {
 		setToDos(prevToDo => {
@@ -42,22 +61,11 @@ export default function ToDoList() {
 		setToDos(filteredToDos);
 	}
 
-	// Setup buttons
-	const FILTER_MAP = {
-		ToDo: toDo => !toDo.completed,
-		Log: toDo => toDo.completed,
-	};
-
-	// Get array instead of Object
-	const FILTER_NAMES = Object.keys(FILTER_MAP);
-
 	return (
 		<ToDoListContainer>
 			<ToDoCardTitle />
-			{FILTER_NAMES.map(title => (
-				<ToDoFilterSection key={title} title={title} setFilter={setFilter} />
-			))}
-			{toDos.filter(FILTER_MAP[filter]).map(todo => (
+			<ToDoFilterSection onChangeFilter={filterChangeHandler} setStatus={setStatus} />
+			{filteredToDo.map(todo => (
 				<ToDo
 					key={todo.id}
 					id={todo.id}

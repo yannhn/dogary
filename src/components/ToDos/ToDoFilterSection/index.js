@@ -1,9 +1,19 @@
-import {FilterButton, HeadingContainer} from './styled';
+import {FilterContainer, FilterLabel} from './styled';
 
-export default function ToDoFilterSection({setFilter, title}) {
+export default function ToDoFilterSection({setStatus}) {
+	const statusHandler = event => {
+		console.log(event.target.value);
+		setStatus(event.target.value);
+	};
+
 	return (
-		<HeadingContainer>
-			<FilterButton onClick={() => setFilter(title)}>{title}</FilterButton>
-		</HeadingContainer>
+		<FilterContainer>
+			<FilterLabel>Filter by status</FilterLabel>
+			<select onChange={statusHandler}>
+				<option value="all">All</option>
+				<option value="uncompleted">open</option>
+				<option value="completed">completed</option>
+			</select>
+		</FilterContainer>
 	);
 }

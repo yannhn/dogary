@@ -1,31 +1,17 @@
 import styled from 'styled-components';
 
-const HeadingContainer = styled.section`
-	display: inline-flex;
+const FilterContainer = styled.section`
+	display: flex;
+	align-items: center;
 	justify-content: space-between;
-	margin-bottom: 1em;
+	width: 100%;
+	margin: 1rem 0;
+	border-bottom: 1px solid white;
 `;
 
-const FilterButton = styled.button`
-	border: none;
-	border-radius: 5px;
-	background: crimson;
+const FilterLabel = styled.label`
+	font-weight: bold;
 	color: white;
-	font-size: 2rem;
-	&:focus-visible {
-		box-shadow: 0 0 0 5px red;
-	}
-
-	&:focus {
-		outline: 0;
-	}
-
-	&:hover {
-		background: #ccc;
-	}
-	&:active {
-		background: #bbb;
-	}
 `;
 
-export {FilterButton, HeadingContainer};
+export {FilterContainer, FilterLabel};
