@@ -12,11 +12,8 @@ export default function CalendarPage() {
 				<meta key="description" name="description" content="Calendar" />
 			</Helmet>
 			<h1>Calendar</h1>
-<<<<<<< HEAD
 			<Calendar />
-=======
 			<ToDoList />
->>>>>>> main
 		</Layout>
 	);
 }

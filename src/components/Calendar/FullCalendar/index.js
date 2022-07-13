@@ -4,21 +4,8 @@ import interactionPlugin from '@fullcalendar/interaction';
 import listPlugin from '@fullcalendar/list';
 
 import {StyleWrapper} from './styled';
-import {useState} from 'react';
-
-const handleDateClick = clickInfo => {
-	const selectedDate = allMeals.find(meal => meal.id === clickInfo.event.id);
-	setCurrentMeal(selectedDate);
-};
 
 export default function Calendar() {
-	const [currentView, setCurrentView] = useState('dayGridMonth');
-
-	const handleDateClick = () => {
-		const current = changeView('dayGridDay');
-		setCurrentView(current);
-	};
-
 	return (
 		<>
 			<StyleWrapper>
@@ -31,10 +18,8 @@ export default function Calendar() {
 						right: 'prev,next,today',
 					}}
 					initialView="dayGridMonth"
-					dateClick={view => {
-						alert('Selected Date' + view.dateStr);
-						this.changeView('dayGridDay' + view.dateStr);
-						view.changeView();
+					dateClick={function (info) {
+						this.changeView('dayGridDay', info.dateStr);
 					}}
 					events={[
 						{
