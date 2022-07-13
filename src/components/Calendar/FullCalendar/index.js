@@ -13,14 +13,12 @@ export default function Calendar() {
 					plugins={[dayGridPlugin, listPlugin, interactionPlugin]}
 					firstDay={1}
 					headerToolbar={{
-						left: 'dayGridMonth,dayGridDay',
+						left: 'dayGridMonth',
 						center: 'title',
 						right: 'prev,next,today',
 					}}
+					navLinks={true}
 					initialView="dayGridMonth"
-					dateClick={function (info) {
-						this.changeView('dayGridDay', info.dateStr);
-					}}
 					events={[
 						{
 							id: 'a',
