@@ -11,6 +11,7 @@ export const GlobalStyle = createGlobalStyle`
 		--card-info-color: grey;
 		--card-info-fontSize: 0.8rem;
 		--card-info-fontWeight: light;
+
 	}
 	html {
 		font-size: 16px;
