@@ -9,8 +9,8 @@ export default function ToDo({id, title, editTask, completeToDo, deleteToDo, com
 	function handleSubmit(event) {
 		event.preventDefault();
 		editTask(id, newTitle);
-		setNewTitle('');
 		setIsEditing(false);
+		setNewTitle('');
 	}
 
 	return (
@@ -24,11 +24,19 @@ export default function ToDo({id, title, editTask, completeToDo, deleteToDo, com
 						<input
 							id="new-text-input"
 							type="text"
+							placeholder={title}
 							value={newTitle}
+							required
 							onChange={event => setNewTitle(event.target.value)}
 						/>
 						<section>
-							<button type="button" onClick={() => setIsEditing(false)}>
+							<button
+								type="button"
+								onClick={() => {
+									setIsEditing(false);
+									setNewTitle('');
+								}}
+							>
 								Cancel editing {title}
 							</button>
 							<button type="submit">Save new title for {title}</button>
@@ -38,20 +46,23 @@ export default function ToDo({id, title, editTask, completeToDo, deleteToDo, com
 			) : (
 				<ToDoItemContainer>
 					{completed ? (
-						<ToDoItem>{title}</ToDoItem>
+						<ToDoItem htmlFor="checkbox">
+							<input
+								id="checkbox"
+								type="checkbox"
+								defaultChecked="true"
+								onChange={completeToDo}
+							></input>
+							{title}
+							<button onClick={deleteToDo}>Delete</button>
+						</ToDoItem>
 					) : (
 						<ToDoItem htmlFor="checkbox">
 							<input id="checkbox" type="checkbox" onChange={completeToDo}></input>
 							{title}
-						</ToDoItem>
-					)}
-					{completed ? (
-						<button onClick={deleteToDo}>Delete</button>
-					) : (
-						<section>
 							<button onClick={() => setIsEditing(true)}>Edit</button>
 							<button onClick={deleteToDo}>Delete</button>
-						</section>
+						</ToDoItem>
 					)}
 				</ToDoItemContainer>
 			)}
