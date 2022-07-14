@@ -1,7 +1,7 @@
 import {useState} from 'react';
 
-import FormModal from '../../FormModal/index.js';
-import ShowPicture from '../../ShowPicture/index';
+import FormModal from '../../../FormModal/index.js';
+import ShowPicture from '../../../ShowPicture/index';
 import InputImageForm from '../InputImageForm';
 
 export default function InputImageButton() {
