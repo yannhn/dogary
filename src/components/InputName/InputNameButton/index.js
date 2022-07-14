@@ -2,7 +2,7 @@ import {useState} from 'react';
 
 import FormModal from '../../FormModal/index';
 import ShowName from '../../ShowName/index';
-import InputInfoForm from '../InputInfoForm/index';
+import InputNameForm from '../InputNameForm/index';
 
 export default function InputInfoButton() {
 	const [showForm, setShowForm] = useState(false);
@@ -23,7 +23,7 @@ export default function InputInfoButton() {
 			<button onClick={() => setShowForm(!showForm)}>Show Form</button>
 			{showForm && (
 				<FormModal>
-					<InputInfoForm addNewInfo={addNewInfo} cancelForm={cancelForm} />
+					<InputNameForm addNewInfo={addNewInfo} cancelForm={cancelForm} />
 				</FormModal>
 			)}
 			<section>
