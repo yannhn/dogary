@@ -10,7 +10,6 @@ export default function ToDo({id, title, editTask, completeToDo, deleteToDo, com
 		event.preventDefault();
 		editTask(id, newTitle);
 		setIsEditing(false);
-		setNewTitle('');
 	}
 
 	return (
@@ -24,8 +23,7 @@ export default function ToDo({id, title, editTask, completeToDo, deleteToDo, com
 						<input
 							id="new-text-input"
 							type="text"
-							placeholder={title}
-							value={newTitle}
+							defaultValue={title}
 							required
 							onChange={event => setNewTitle(event.target.value)}
 						/>
