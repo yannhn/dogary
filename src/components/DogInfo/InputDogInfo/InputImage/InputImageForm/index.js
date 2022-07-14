@@ -30,6 +30,7 @@ export default function InputImageForm({addNewInfo, cancelForm}) {
 						id="img-input"
 						type="file"
 						accept=".png, .jpg, .jpeg"
+						required
 						onChange={imageChangeHandler}
 					></input>
 				</section>

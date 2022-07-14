@@ -1,8 +1,8 @@
 import {Helmet} from 'react-helmet';
 
 import BusinessCard from '../components/BusinessCard';
-import InputImageButton from '../components/DogInfo/InputImage/InputImageButton';
-import InputNameButton from '../components/DogInfo/InputName/InputNameButton';
+import InputImageButton from '../components/DogInfo/InputDogInfo/InputImage/InputImageButton';
+import InputNameButton from '../components/DogInfo/InputDogInfo/InputName/InputNameButton';
 import InputGoalButton from '../components/InputGoalButton';
 import Layout from '../components/Layout';
 import WalkCard from '../components/WalkCard';
