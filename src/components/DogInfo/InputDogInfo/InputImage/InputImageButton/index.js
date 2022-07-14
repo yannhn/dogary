@@ -1,7 +1,7 @@
 import {useState} from 'react';
 
 import FormModal from '../../../../FormModal/index.js';
-import ShowPicture from '../../../../ShowPicture/index';
+import ShowImage from '../../../RenderDogInfo/ShowImage/index';
 import InputImageForm from '../InputImageForm';
 
 export default function InputImageButton() {
@@ -27,7 +27,7 @@ export default function InputImageButton() {
 				</FormModal>
 			)}
 			<section>
-				<ShowPicture styledImage={submittedItem.image}></ShowPicture>
+				<ShowImage styledImage={submittedItem.image}></ShowImage>
 			</section>
 		</>
 	);

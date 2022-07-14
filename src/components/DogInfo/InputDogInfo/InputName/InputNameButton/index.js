@@ -1,7 +1,7 @@
 import {useState} from 'react';
 
 import FormModal from '../../../../FormModal/index';
-import ShowName from '../../../../ShowName/index';
+import ShowName from '../../../RenderDogInfo/ShowName/index';
 import InputNameForm from '../InputNameForm/index';
 
 export default function InputInfoButton() {
