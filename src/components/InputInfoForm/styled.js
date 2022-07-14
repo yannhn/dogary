@@ -10,4 +10,4 @@ const InfoForm = styled.form`
 	text-align: center;
 `;
 
-export {InputInfoContainer, InfoForm, InfoImgPreview};
+export {InputInfoContainer, InfoForm};

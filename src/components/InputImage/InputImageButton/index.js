@@ -1,8 +1,8 @@
 import {useState} from 'react';
 
-import FormModal from '../FormModal';
+import FormModal from '../../FormModal/index.js';
+import ShowPicture from '../../ShowPicture/index';
 import InputImageForm from '../InputImageForm';
-import ShowPicture from '../ShowPicture/index';
 
 export default function InputImageButton() {
 	const [showForm, setShowForm] = useState(false);

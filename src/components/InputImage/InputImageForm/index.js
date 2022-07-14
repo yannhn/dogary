@@ -1,5 +1,6 @@
 import {nanoid} from 'nanoid';
 import {useState} from 'react';
+
 import {InputInfoContainer, InfoForm, InfoImgPreview} from './styled';
 
 export default function InputImageForm({addNewInfo, cancelForm}) {
