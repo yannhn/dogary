@@ -4,7 +4,7 @@ import FormModal from '../../../../FormModal/index';
 import ShowName from '../../../RenderDogInfo/ShowName/index';
 import InputNameForm from '../InputNameForm/index';
 
-export default function InputInfoButton() {
+export default function InputNameButton() {
 	const [showForm, setShowForm] = useState(false);
 	const [submittedItem, setSubmittedItems] = useState({enteredName: ''});
 

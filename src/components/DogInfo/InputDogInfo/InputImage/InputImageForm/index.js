@@ -3,7 +3,7 @@ import {useState} from 'react';
 
 import {InputInfoContainer, InfoForm, InfoImgPreview} from './styled';
 
-export default function InputImageForm({addNewInfo, cancelForm}) {
+export default function InputImageForm({passInfo, cancelForm}) {
 	const [image, setImage] = useState('');
 
 	const imageChangeHandler = event => {
@@ -16,7 +16,7 @@ export default function InputImageForm({addNewInfo, cancelForm}) {
 			id: nanoid(),
 			image: image,
 		};
-		addNewInfo(newItems);
+		passInfo(newItems);
 		setImage([]);
 	};
 

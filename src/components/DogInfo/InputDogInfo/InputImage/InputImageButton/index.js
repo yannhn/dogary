@@ -1,17 +1,15 @@
 import {useState} from 'react';
 
 import FormModal from '../../../../FormModal/index.js';
-import ShowImage from '../../../RenderDogInfo/ShowImage/index';
 import InputImageForm from '../InputImageForm';
 
-export default function InputImageButton() {
+export default function InputImageButton({addNewInfo}) {
 	const [showForm, setShowForm] = useState(false);
-	const [submittedItem, setSubmittedItems] = useState({image: ''});
 
-	const addNewInfo = prevItem => {
-		const newInfoItems = {...submittedItem, ...prevItem};
+	const passInfo = prevItem => {
+		const newInfoItems = {...prevItem};
 		setShowForm(false);
-		setSubmittedItems(newInfoItems);
+		addNewInfo(newInfoItems);
 	};
 
 	function cancelForm() {
@@ -23,12 +21,9 @@ export default function InputImageButton() {
 			<button onClick={() => setShowForm(!showForm)}>Show Form</button>
 			{showForm && (
 				<FormModal>
-					<InputImageForm addNewInfo={addNewInfo} cancelForm={cancelForm} />
+					<InputImageForm passInfo={passInfo} cancelForm={cancelForm} />
 				</FormModal>
 			)}
-			<section>
-				<ShowImage styledImage={submittedItem.image}></ShowImage>
-			</section>
 		</>
 	);
 }
