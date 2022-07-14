@@ -1,6 +1,6 @@
 import {useState} from 'react';
 
-import NewToDoButton from '../NewToDoButton';
+import NewToDoForm from '../NewToDoForm';
 import ToDo from '../ToDo';
 import ToDoCardTitle from '../ToDoCardTitle';
 import ToDoFilterSection from '../ToDoFilterSection';
@@ -59,6 +59,7 @@ export default function ToDoList() {
 		<ToDoListContainer>
 			<ToDoCardTitle />
 			<ToDoFilterSection onChangeStatus={newStatus => setStatus(newStatus)} />
+			<NewToDoForm addNewToDo={addNewToDo} />
 			{filteredToDo.map(todo => (
 				<ToDo
 					key={todo.id}
@@ -70,7 +71,6 @@ export default function ToDoList() {
 					deleteToDo={() => deleteToDo(todo.id)}
 				/>
 			))}
-			<NewToDoButton addNewToDo={addNewToDo} />
 		</ToDoListContainer>
 	);
 }

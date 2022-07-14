@@ -2,8 +2,8 @@ import styled from 'styled-components';
 
 const NewToDoFormContainer = styled.form`
 	display: flex;
-	flex-direction: column;
 	align-items: center;
+	margin-bottom: 2em;
 `;
 
 const NewToDoFormLabel = styled.label`
