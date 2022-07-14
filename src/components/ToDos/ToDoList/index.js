@@ -19,6 +19,8 @@ export default function ToDoList() {
 				return toDos.filter(todo => todo.completed === true);
 			case 'uncompleted':
 				return toDos.filter(todo => todo.completed === false);
+			case 'urgent':
+				return toDos.filter(todo => todo.urgent === true && todo.completed === false);
 			default:
 				return toDos;
 		}
@@ -50,6 +52,16 @@ export default function ToDoList() {
 		setToDos(completedToDos);
 	}
 
+	function urgentToDo(id) {
+		const urgentToDos = toDos.map(toDo => {
+			if (id === toDo.id) {
+				return {...toDo, urgent: !toDo.urgent};
+			}
+			return toDo;
+		});
+		setToDos(urgentToDos);
+	}
+
 	function deleteToDo(id) {
 		const filteredToDos = toDos.filter(todo => id !== todo.id);
 		setToDos(filteredToDos);
@@ -65,9 +77,11 @@ export default function ToDoList() {
 					id={todo.id}
 					title={todo.title}
 					completed={todo.completed}
+					urgent={todo.urgent}
 					editTask={editTask}
 					completeToDo={() => completeToDo(todo.id)}
 					deleteToDo={() => deleteToDo(todo.id)}
+					urgentToDo={() => urgentToDo(todo.id)}
 				/>
 			))}
 			<NewToDoButton addNewToDo={addNewToDo} />
