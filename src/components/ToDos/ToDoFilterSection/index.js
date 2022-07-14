@@ -1,9 +1,8 @@
 import {StyledFilterContainer, StyledFilterLabel, StyledFilterSelect} from './styled';
 
-export default function ToDoFilterSection({setStatus}) {
+export default function ToDoFilterSection({onChangeStatus}) {
 	const statusHandler = event => {
-		console.log(event.target.value);
-		setStatus(event.target.value);
+		onChangeStatus(event.target.value);
 	};
 
 	return (

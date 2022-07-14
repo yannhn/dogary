@@ -1,4 +1,4 @@
-import {useState, useEffect} from 'react';
+import {useState} from 'react';
 
 import NewToDoButton from '../NewToDoButton';
 import ToDo from '../ToDo';
@@ -10,23 +10,17 @@ import {ToDoListContainer} from './styled';
 export default function ToDoList() {
 	const [toDos, setToDos] = useState([]);
 	const [status, setStatus] = useState('all');
-	const [filteredToDo, setFilteredToDo] = useState([]);
 
-	useEffect(() => {
-		filterChangeHandler();
-	}, [toDos, status]);
+	const filteredToDo = filterChangeHandler();
 
 	function filterChangeHandler() {
 		switch (status) {
 			case 'completed':
-				setFilteredToDo(toDos.filter(todo => todo.completed === true));
-				break;
+				return toDos.filter(todo => todo.completed === true);
 			case 'uncompleted':
-				setFilteredToDo(toDos.filter(todo => todo.completed === false));
-				break;
+				return toDos.filter(todo => todo.completed === false);
 			default:
-				setFilteredToDo(toDos);
-				break;
+				return toDos;
 		}
 	}
 
@@ -64,7 +58,7 @@ export default function ToDoList() {
 	return (
 		<ToDoListContainer>
 			<ToDoCardTitle />
-			<ToDoFilterSection onChangeFilter={filterChangeHandler} setStatus={setStatus} />
+			<ToDoFilterSection onChangeStatus={newStatus => setStatus(newStatus)} />
 			{filteredToDo.map(todo => (
 				<ToDo
 					key={todo.id}
