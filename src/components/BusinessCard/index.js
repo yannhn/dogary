@@ -33,6 +33,13 @@ export default function BusinessCard() {
 		setShowHistory(!showHistory);
 	}
 
+	// const lastSubmit = businessItems[businessItems.length - 1];
+	// console.log(lastSubmit.smallBusiness);
+
+	// console.log(businessItems[businessItems.length - 1].smallBusiness);
+	// const lastSubmit = businessItems[businessItems.length - 1];
+	// console.log(lastSubmit);
+
 	return (
 		<>
 			<BusinessCardContainer>
@@ -52,6 +59,20 @@ export default function BusinessCard() {
 						{showForm ? '-' : '+'}
 					</BusinessCardButton>
 				</BusinessCardHead>
+				<section>
+					<p>
+						What:{' '}
+						{submittedBusinessItem.smallBusiness && submittedBusinessItem.bigBusiness
+							? 'double business'
+							: submittedBusinessItem.smallBusiness
+							? 'small business'
+							: submittedBusinessItem.bigBusiness
+							? 'big business'
+							: 'No business yet! (Sometimes your dog is simply just not in the right mood. You might have to try again later.)'}
+					</p>
+					<p>When: {submittedBusinessItem.time}</p>
+					<hr></hr>
+				</section>
 				<section>
 					<p>
 						What:{' '}
