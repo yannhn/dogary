@@ -1,7 +1,7 @@
 import {nanoid} from 'nanoid';
 import {useState} from 'react';
 
-import {InputInfoContainer, InfoForm, InfoImgPreview} from './styled';
+import {InputInfoContainer, InfoForm} from './styled';
 
 export default function InputInfoForm({addNewInfo, cancelForm}) {
 	const [enteredName, setEnteredName] = useState('');

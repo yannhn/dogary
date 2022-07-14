@@ -3,11 +3,10 @@ import {useState} from 'react';
 import FormModal from '../FormModal';
 import InputInfoForm from '../InputInfoForm/index';
 import ShowName from '../ShowName/index';
-import ShowPicture from '../ShowPicture/index';
 
 export default function InputInfoButton() {
 	const [showForm, setShowForm] = useState(false);
-	const [submittedItem, setSubmittedItems] = useState({enteredName: '', image: ''});
+	const [submittedItem, setSubmittedItems] = useState({enteredName: ''});
 
 	const addNewInfo = prevItem => {
 		const newInfoItems = {...submittedItem, ...prevItem};
@@ -29,7 +28,6 @@ export default function InputInfoButton() {
 			)}
 			<section>
 				<ShowName styledName={submittedItem.enteredName}></ShowName>
-				<ShowPicture styledImage={submittedItem.image}></ShowPicture>
 			</section>
 		</>
 	);

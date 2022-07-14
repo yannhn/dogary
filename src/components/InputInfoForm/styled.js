@@ -10,8 +10,4 @@ const InfoForm = styled.form`
 	text-align: center;
 `;
 
-const InfoImgPreview = styled.img`
-	border-radius: 50%;
-`;
-
 export {InputInfoContainer, InfoForm, InfoImgPreview};
