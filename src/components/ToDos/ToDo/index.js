@@ -70,7 +70,9 @@ export default function ToDo({
 							<button onClick={() => setIsEditing(true)}>Edit</button>
 							<button onClick={deleteToDo}>Delete</button>
 							<button onClick={urgentToDo}>
-								{urgent ? 'not so urgent' : 'urgent'}
+								{urgent
+									? 'not so urgent / blue after styling'
+									: 'urgent / red after styling'}
 							</button>
 						</ToDoItem>
 					)}

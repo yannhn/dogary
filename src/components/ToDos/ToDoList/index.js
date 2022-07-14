@@ -20,7 +20,7 @@ export default function ToDoList() {
 			case 'uncompleted':
 				return toDos.filter(todo => todo.completed === false);
 			case 'urgent':
-				return toDos.filter(todo => todo.urgent === true && todo.completed === false);
+				return toDos.filter(todo => todo.urgent === true && !todo.completed);
 			default:
 				return toDos;
 		}
