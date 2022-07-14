@@ -33,7 +33,11 @@ export default function BusinessCard() {
 		setShowHistory(!showHistory);
 	}
 
-	// const lastSubmit = businessItems[businessItems.length - 1];
+	const lastSubmit = businessItems[businessItems.length - 1];
+	console.log(lastSubmit);
+
+	// console.log(businessItems.at(-1).bigBusiness);
+
 	// console.log(lastSubmit.smallBusiness);
 
 	// console.log(businessItems[businessItems.length - 1].smallBusiness);
@@ -60,20 +64,26 @@ export default function BusinessCard() {
 					</BusinessCardButton>
 				</BusinessCardHead>
 				<section>
-					<p>
-						What:{' '}
-						{submittedBusinessItem.smallBusiness && submittedBusinessItem.bigBusiness
-							? 'double business'
-							: submittedBusinessItem.smallBusiness
-							? 'small business'
-							: submittedBusinessItem.bigBusiness
-							? 'big business'
-							: 'No business yet! (Sometimes your dog is simply just not in the right mood. You might have to try again later.)'}
-					</p>
-					<p>When: {submittedBusinessItem.time}</p>
-					<hr></hr>
-				</section>
-				<section>
+					<section>
+						{businessItems.map((item, i) => {
+							console.log(i);
+							<p>
+								What:{' '}
+								{item.smallBusiness && item.bigBusiness
+									? 'double business'
+									: item.smallBusiness
+									? 'small business'
+									: item.bigBusiness
+									? 'big business'
+									: 'No business yet! (Sometimes your dog is simply just not in the right mood. You might have to try again later.)'}
+							</p>;
+							if (item.bigBusiness) {
+								return <section key={item.id}>big business</section>;
+							} else if (item.smallBusiness) {
+								return <section key={item.id}>small business</section>;
+							}
+						})}
+					</section>
 					<p>
 						What:{' '}
 						{submittedBusinessItem.smallBusiness && submittedBusinessItem.bigBusiness
