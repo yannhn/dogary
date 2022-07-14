@@ -1,17 +1,15 @@
 import {useState} from 'react';
 
 import FormModal from '../../../../FormModal/index';
-import ShowName from '../../../RenderDogInfo/ShowName/index';
 import InputNameForm from '../InputNameForm/index';
 
-export default function InputNameButton() {
+export default function InputNameButton({addNewInfo}) {
 	const [showForm, setShowForm] = useState(false);
-	const [submittedItem, setSubmittedItems] = useState({enteredName: ''});
 
-	const addNewInfo = prevItem => {
-		const newInfoItems = {...submittedItem, ...prevItem};
+	const passInfo = prevItem => {
+		const newInfoItems = {...prevItem};
 		setShowForm(false);
-		setSubmittedItems(newInfoItems);
+		addNewInfo(newInfoItems);
 	};
 
 	function cancelForm() {
@@ -20,15 +18,12 @@ export default function InputNameButton() {
 
 	return (
 		<>
-			<button onClick={() => setShowForm(!showForm)}>Show Form</button>
+			<button onClick={() => setShowForm(!showForm)}>Change Name</button>
 			{showForm && (
 				<FormModal>
-					<InputNameForm addNewInfo={addNewInfo} cancelForm={cancelForm} />
+					<InputNameForm passInfo={passInfo} cancelForm={cancelForm} />
 				</FormModal>
 			)}
-			<section>
-				<ShowName styledName={submittedItem.enteredName}></ShowName>
-			</section>
 		</>
 	);
 }

@@ -18,7 +18,7 @@ export default function InputImageButton({addNewInfo}) {
 
 	return (
 		<>
-			<button onClick={() => setShowForm(!showForm)}>Show Form</button>
+			<button onClick={() => setShowForm(!showForm)}>Change Image</button>
 			{showForm && (
 				<FormModal>
 					<InputImageForm passInfo={passInfo} cancelForm={cancelForm} />

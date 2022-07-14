@@ -3,7 +3,7 @@ import {useState} from 'react';
 
 import {InputInfoContainer, InfoForm} from './styled';
 
-export default function InputInfoForm({addNewInfo, cancelForm}) {
+export default function InputInfoForm({passInfo, cancelForm}) {
 	const [enteredName, setEnteredName] = useState('');
 
 	const nameChangeHandler = event => {
@@ -17,7 +17,7 @@ export default function InputInfoForm({addNewInfo, cancelForm}) {
 			enteredName:
 				enteredName.trim().charAt(0).toUpperCase() + enteredName.slice(1).toLowerCase(),
 		};
-		addNewInfo(newItems);
+		passInfo(newItems);
 		setEnteredName('');
 	};
 
