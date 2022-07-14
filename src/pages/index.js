@@ -3,7 +3,7 @@ import {Helmet} from 'react-helmet';
 import BusinessCard from '../components/BusinessCard';
 import InputGoalButton from '../components/InputGoalButton';
 import InputImageButton from '../components/InputImage/InputImageButton';
-import InputInfoButton from '../components/InputInfoButton';
+import InputInfoButton from '../components/InputName/InputInfoButton';
 import Layout from '../components/Layout';
 import WalkCard from '../components/WalkCard';
 

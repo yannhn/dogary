@@ -1,8 +1,8 @@
 import {useState} from 'react';
 
-import FormModal from '../FormModal';
+import FormModal from '../../FormModal/index';
+import ShowName from '../../ShowName/index';
 import InputInfoForm from '../InputInfoForm/index';
-import ShowName from '../ShowName/index';
 
 export default function InputInfoButton() {
 	const [showForm, setShowForm] = useState(false);
