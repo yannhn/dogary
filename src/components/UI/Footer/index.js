@@ -6,6 +6,7 @@ export default function Footer() {
 			<FooterNav>
 				<FooterNavItems to="/">Home</FooterNavItems>
 				<FooterNavItems to="/calendar">Calendar</FooterNavItems>
+				<FooterNavItems to="/todo">ToDo</FooterNavItems>
 			</FooterNav>
 		</FooterContainer>
 	);
