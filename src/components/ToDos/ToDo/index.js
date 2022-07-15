@@ -2,7 +2,16 @@ import {useState} from 'react';
 
 import {ToDoItemContainer, ToDoItem} from './styled';
 
-export default function ToDo({id, title, editTask, completeToDo, deleteToDo, completed}) {
+export default function ToDo({
+	id,
+	title,
+	editTask,
+	completeToDo,
+	deleteToDo,
+	completed,
+	urgentToDo,
+	urgent,
+}) {
 	const [isEditing, setIsEditing] = useState(false);
 	const [newTitle, setNewTitle] = useState('');
 
@@ -60,6 +69,11 @@ export default function ToDo({id, title, editTask, completeToDo, deleteToDo, com
 							{title}
 							<button onClick={() => setIsEditing(true)}>Edit</button>
 							<button onClick={deleteToDo}>Delete</button>
+							<button onClick={urgentToDo}>
+								{urgent
+									? 'not so urgent / blue after styling'
+									: 'urgent / red after styling'}
+							</button>
 						</ToDoItem>
 					)}
 				</ToDoItemContainer>
