@@ -29,6 +29,11 @@ export default function FoodCard({goalAmount}) {
 
 	const lastSubmit = foodItems[foodItems.length - 1];
 
+	const foodSum = foodItems.reduce(
+		(total, currentValue) => (total = total + currentValue.amount),
+		0
+	);
+
 	return (
 		<>
 			<FoodCardContainer>
@@ -55,12 +60,12 @@ export default function FoodCard({goalAmount}) {
 				{goalAmount && <p>Goal: {goalAmount} gram</p>}
 				{lastSubmit && goalAmount ? (
 					<FoodInfoContainer>
-						<p>Todays sum: {lastSubmit.result} gram</p>
+						<p>Todays sum: {foodSum} gram</p>
 						{
 							<p>
-								{lastSubmit.result >= goalAmount
+								{foodSum >= goalAmount
 									? 'food goal reached (unless you want to have a chunky boy you should probably stop feeding your dog.)'
-									: `missing food: ${goalAmount - lastSubmit.result} gram`}
+									: `missing food: ${goalAmount - foodSum} gram`}
 							</p>
 						}
 						<h4>Last Input</h4>
@@ -68,12 +73,14 @@ export default function FoodCard({goalAmount}) {
 						<p>At: {lastSubmit.time}</p>
 					</FoodInfoContainer>
 				) : (
-					<FoodInfoContainer>
-						<p>Todays sum: {lastSubmit.result} gram</p>
-						<h4>Last Input</h4>
-						<p>How much {lastSubmit.amount} gram</p>
-						<p>At: {lastSubmit.time}</p>
-					</FoodInfoContainer>
+					lastSubmit && (
+						<FoodInfoContainer>
+							<p>Todays sum: {foodSum} gram</p>
+							<h4>Last Input</h4>
+							<p>How much {lastSubmit.amount} gram</p>
+							<p>At: {lastSubmit.time}</p>
+						</FoodInfoContainer>
+					)
 				)}
 			</FoodCardContainer>
 			{showForm && (
