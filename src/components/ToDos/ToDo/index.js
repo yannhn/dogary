@@ -1,6 +1,6 @@
 import {useState} from 'react';
 
-import {ToDoItemContainer, ToDoItem} from './styled';
+import {ToDoItemContainer, ToDoItem, ToDoButtonGroup} from './styled';
 
 export default function ToDo({
 	id,
@@ -26,8 +26,6 @@ export default function ToDo({
 			{isEditing ? (
 				<ToDoItemContainer>
 					<form onSubmit={handleSubmit}>
-						<label htmlFor="checkbox" />
-						<input id="checkbox" type="checkbox"></input>
 						<label htmlFor="new-text-input" />
 						<input
 							id="new-text-input"
@@ -53,27 +51,33 @@ export default function ToDo({
 			) : (
 				<ToDoItemContainer>
 					{completed ? (
-						<ToDoItem htmlFor="checkbox">
+						<ToDoItem>
+							<label htmlFor="checkbox" />
 							<input
 								id="checkbox"
 								type="checkbox"
 								defaultChecked="true"
 								onChange={completeToDo}
-							></input>
+							/>
 							{title}
-							<button onClick={deleteToDo}>Delete</button>
+							<ToDoButtonGroup>
+								<button onClick={deleteToDo}>Delete</button>
+							</ToDoButtonGroup>
 						</ToDoItem>
 					) : (
-						<ToDoItem htmlFor="checkbox">
-							<input id="checkbox" type="checkbox" onChange={completeToDo}></input>
+						<ToDoItem>
+							<label htmlFor="checkbox" />
+							<input id="checkbox" type="checkbox" onChange={completeToDo} />
 							{title}
-							<button onClick={() => setIsEditing(true)}>Edit</button>
-							<button onClick={deleteToDo}>Delete</button>
-							<button onClick={urgentToDo}>
-								{urgent
-									? 'not so urgent / blue after styling'
-									: 'urgent / red after styling'}
-							</button>
+							<ToDoButtonGroup>
+								<button onClick={() => setIsEditing(true)}>Edit</button>
+								<button onClick={deleteToDo}>Delete</button>
+								<button onClick={urgentToDo}>
+									{urgent
+										? 'not so urgent / blue after styling'
+										: 'urgent / red after styling'}
+								</button>
+							</ToDoButtonGroup>
 						</ToDoItem>
 					)}
 				</ToDoItemContainer>

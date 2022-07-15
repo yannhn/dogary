@@ -5,12 +5,18 @@ const ToDoItemContainer = styled.section`
 	gap: 0.6em;
 `;
 
-const ToDoItem = styled.label`
+const ToDoItem = styled.section`
+	display: flex;
+	align-items: center;
+	margin-top: 1em;
 	color: white;
+	font-size: 1.4rem;
 `;
 
-const HideButton = styled.section`
-	display: ${props => (props.completed ? 'none' : '')};
+const ToDoButtonGroup = styled.section`
+	display: flex;
+	justify-content: flex-end;
+	align-items: center;
 `;
 
-export {ToDoItemContainer, ToDoItem, HideButton};
+export {ToDoItemContainer, ToDoItem, ToDoButtonGroup};
