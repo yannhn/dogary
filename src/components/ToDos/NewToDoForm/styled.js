@@ -5,7 +5,7 @@ const NewToDoFormContainer = styled.form`
 	align-items: center;
 	justify-content: center;
 	margin-top: 2em;
-	margin-bottom: 1em;
+	margin-bottom: 2em;
 `;
 
 const NewToDoInput = styled.input`

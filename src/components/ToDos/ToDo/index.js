@@ -1,6 +1,13 @@
+import {Icon} from '@iconify/react';
 import {useState} from 'react';
 
-import {ToDoItemContainer, ToDoItem, ToDoButtonGroup} from './styled';
+import {
+	ToDoItemContainer,
+	ToDoItem,
+	ToDoButtonGroup,
+	DeleteButton,
+	ToDoInputSection,
+} from './styled';
 
 export default function ToDo({
 	id,
@@ -52,17 +59,19 @@ export default function ToDo({
 				<ToDoItemContainer>
 					{completed ? (
 						<ToDoItem>
-							<label htmlFor="checkbox" />
-							<input
-								id="checkbox"
-								type="checkbox"
-								defaultChecked="true"
-								onChange={completeToDo}
-							/>
-							{title}
-							<ToDoButtonGroup>
-								<button onClick={deleteToDo}>Delete</button>
-							</ToDoButtonGroup>
+							<ToDoInputSection>
+								<label htmlFor="checkbox" />
+								<input
+									id="checkbox"
+									type="checkbox"
+									defaultChecked="true"
+									onChange={completeToDo}
+								/>
+								{title}
+							</ToDoInputSection>
+							<DeleteButton onClick={deleteToDo}>
+								<Icon icon="mdi:delete" width="2rem" height="2rem" color="white" />
+							</DeleteButton>
 						</ToDoItem>
 					) : (
 						<ToDoItem>

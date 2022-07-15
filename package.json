@@ -24,6 +24,7 @@
     "@fullcalendar/interaction": "^5.11.0",
     "@fullcalendar/list": "^5.11.0",
     "@fullcalendar/react": "^5.11.1",
+    "@mui/icons-material": "^5.8.4",
     "@mui/material": "^5.9.0",
     "@mui/styled-engine-sc": "^5.8.0",
     "axios": "0.27.2",
@@ -36,6 +37,7 @@
     "zustand": "4.0.0-rc.1"
   },
   "devDependencies": {
+    "@iconify/react": "^3.2.2",
     "@jest/globals": "^28.1.0",
     "@mdx-js/react": "^2.1.1",
     "@storybook/addon-actions": "^6.5.9",
