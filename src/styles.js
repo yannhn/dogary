@@ -5,7 +5,7 @@ export const GlobalStyle = createGlobalStyle`
 	*::before,
 	*::after {
 		box-sizing: border-box;
-		font-family: 'Roboto', sans-serif;
+
 	}
 	
 	:root {
@@ -22,5 +22,6 @@ export const GlobalStyle = createGlobalStyle`
 		margin: 0;
 		background-color: #FFF9F4;
 		font-size: 1rem;
+		font-family: 'Roboto', sans-serif;
 	}
 `;

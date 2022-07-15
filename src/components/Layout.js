@@ -4,10 +4,8 @@ import Footer from './UI/Footer';
 export default function Layout({children}) {
 	return (
 		<>
-			<main>
-				{children}
-				<Background />
-			</main>
+			<main>{children}</main>
+			<Background />
 			<Footer />
 		</>
 	);
