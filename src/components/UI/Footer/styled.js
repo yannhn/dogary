@@ -3,6 +3,7 @@ import styled from 'styled-components';
 
 const FooterContainer = styled.footer`
 	position: relative;
+	z-index: 1;
 	margin-top: 4em;
 `;
 
