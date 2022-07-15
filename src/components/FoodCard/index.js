@@ -36,7 +36,6 @@ export default function FoodCard({goalAmount}) {
 					<section>
 						<h2>Food</h2>
 						<h3>Type of food</h3>
-						<p>Goal: {goalAmount} gram</p>
 					</section>
 					<button
 						onClick={() => {
@@ -53,11 +52,27 @@ export default function FoodCard({goalAmount}) {
 						{showForm ? '-' : '+'}
 					</FoodCardButton>
 				</FoodCardHead>
-				{lastSubmit && (
+				{goalAmount && <p>Goal: {goalAmount} gram</p>}
+				{lastSubmit && goalAmount ? (
 					<FoodInfoContainer>
-						<p>How much {lastSubmit.amount}</p>
+						<p>Todays sum: {lastSubmit.result} gram</p>
+						{
+							<p>
+								{lastSubmit.result >= goalAmount
+									? 'food goal reached (unless you want to have a chunky boy you should probably stop feeding your dog.)'
+									: `missing food: ${goalAmount - lastSubmit.result} gram`}
+							</p>
+						}
+						<h4>Last Input</h4>
+						<p>How much {lastSubmit.amount} gram</p>
 						<p>At: {lastSubmit.time}</p>
-						<p>Todays sum: {lastSubmit.result}</p>
+					</FoodInfoContainer>
+				) : (
+					<FoodInfoContainer>
+						<p>Todays sum: {lastSubmit.result} gram</p>
+						<h4>Last Input</h4>
+						<p>How much {lastSubmit.amount} gram</p>
+						<p>At: {lastSubmit.time}</p>
 					</FoodInfoContainer>
 				)}
 			</FoodCardContainer>
