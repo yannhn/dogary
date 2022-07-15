@@ -3,7 +3,7 @@ import {useState} from 'react';
 
 import {NewToDoFormContainer, NewToDoFormLabel} from './styled';
 
-export default function NewToDoForm({saveToDoDataHandler, cancelForm}) {
+export default function NewToDoForm({cancelForm, addNewToDo}) {
 	const [enteredTitle, setEnteredTitle] = useState('');
 
 	const submitHandler = event => {
@@ -15,7 +15,7 @@ export default function NewToDoForm({saveToDoDataHandler, cancelForm}) {
 			completed: false,
 			urgent: false,
 		};
-		saveToDoDataHandler(newToDo);
+		addNewToDo(newToDo);
 		setEnteredTitle('');
 	};
 
@@ -30,10 +30,7 @@ export default function NewToDoForm({saveToDoDataHandler, cancelForm}) {
 					required
 					onChange={event => setEnteredTitle(event.target.value)}
 				/>
-				<button>Add ToDo</button>
-				<button type="button" onClick={cancelForm}>
-					Close
-				</button>
+				<button type="submit">Add ToDo</button>
 			</NewToDoFormContainer>
 		</section>
 	);
