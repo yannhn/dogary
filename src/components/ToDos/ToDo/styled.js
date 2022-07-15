@@ -25,14 +25,57 @@ const ToDoButtonGroup = styled.section`
 	align-items: center;
 `;
 
+const EditToDoInput = styled.input`
+	padding: 0.5rem;
+	border: none;
+	// TODO: Fix width
+	background: white;
+	border-bottom-left-radius: 5px;
+	border-top-left-radius: 5px;
+`;
+
+const CancelEdit = styled.button`
+	border: none;
+	background-color: #c3423f;
+	border-top-left-radius: 5px;
+	border-bottom-left-radius: 5px;
+`;
+
+const SaveEdit = styled.button`
+	border: none;
+	background-color: #628b48;
+	border-top-right-radius: 5px;
+	border-bottom-right-radius: 5px;
+`;
+
+const EditButton = styled.button`
+	border: none;
+	background-color: #fff9f4;
+	border-top-left-radius: 5px;
+	border-bottom-left-radius: 5px;
+`;
+
+const UrgentButton = styled.button`
+	border: none;
+	background-color: #fff9f4;
+`;
+
 const DeleteButton = styled.button`
-	display: flex;
-	justify-content: flex-end;
-	align-items: center;
 	border: none;
 	background-color: #c3423f;
 	border-top-right-radius: 5px;
 	border-bottom-right-radius: 5px;
 `;
 
-export {ToDoItemContainer, ToDoItem, ToDoButtonGroup, DeleteButton, ToDoInputSection};
+export {
+	ToDoItemContainer,
+	ToDoItem,
+	ToDoButtonGroup,
+	DeleteButton,
+	ToDoInputSection,
+	EditButton,
+	UrgentButton,
+	CancelEdit,
+	SaveEdit,
+	EditToDoInput,
+};

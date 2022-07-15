@@ -1,3 +1,4 @@
+import {Icon} from '@iconify/react';
 import {NavLink} from 'react-router-dom';
 import styled from 'styled-components';
 
@@ -30,4 +31,13 @@ const FooterNavItems = styled(NavLink)`
 	}
 `;
 
-export {FooterContainer, FooterNav, FooterNavItems};
+const FooterIcon = styled(Icon)`
+	&:hover {
+		color: lightblue;
+	}
+	&.active {
+		color: #ffbaa5;
+	}
+`;
+
+export {FooterContainer, FooterNav, FooterNavItems, FooterIcon};

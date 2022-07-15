@@ -7,6 +7,11 @@ import {
 	ToDoButtonGroup,
 	DeleteButton,
 	ToDoInputSection,
+	EditButton,
+	UrgentButton,
+	CancelEdit,
+	SaveEdit,
+	EditToDoInput,
 } from './styled';
 
 export default function ToDo({
@@ -34,7 +39,7 @@ export default function ToDo({
 				<ToDoItemContainer>
 					<form onSubmit={handleSubmit}>
 						<label htmlFor="new-text-input" />
-						<input
+						<EditToDoInput
 							id="new-text-input"
 							type="text"
 							defaultValue={title}
@@ -42,16 +47,28 @@ export default function ToDo({
 							onChange={event => setNewTitle(event.target.value)}
 						/>
 						<section>
-							<button
+							<CancelEdit
 								type="button"
 								onClick={() => {
 									setIsEditing(false);
 									setNewTitle('');
 								}}
 							>
-								Cancel editing {title}
-							</button>
-							<button type="submit">Save new title for {title}</button>
+								<Icon
+									icon="mdi:close-circle"
+									width="2rem"
+									height="2rem"
+									color="white"
+								/>
+							</CancelEdit>
+							<SaveEdit type="submit">
+								<Icon
+									icon="mdi:check-circle"
+									width="2rem"
+									height="2rem"
+									color="white"
+								/>
+							</SaveEdit>
 						</section>
 					</form>
 				</ToDoItemContainer>
@@ -75,17 +92,45 @@ export default function ToDo({
 						</ToDoItem>
 					) : (
 						<ToDoItem>
-							<label htmlFor="checkbox" />
-							<input id="checkbox" type="checkbox" onChange={completeToDo} />
-							{title}
+							<ToDoInputSection>
+								<label htmlFor="checkbox" />
+								<input id="checkbox" type="checkbox" onChange={completeToDo} />
+								{title}
+							</ToDoInputSection>
 							<ToDoButtonGroup>
-								<button onClick={() => setIsEditing(true)}>Edit</button>
-								<button onClick={deleteToDo}>Delete</button>
-								<button onClick={urgentToDo}>
-									{urgent
-										? 'not so urgent / blue after styling'
-										: 'urgent / red after styling'}
-								</button>
+								<EditButton onClick={() => setIsEditing(true)}>
+									<Icon
+										icon="mdi:pencil"
+										width="2rem"
+										height="2rem"
+										color="#1f2b4d"
+									/>
+								</EditButton>
+								<UrgentButton onClick={urgentToDo}>
+									{urgent ? (
+										<Icon
+											icon="mdi:alarm-note-off"
+											width="2rem"
+											height="2rem"
+											color=" #c3423f" // RED
+										/>
+									) : (
+										<Icon
+											icon="mdi:alarm-note"
+											width="2rem"
+											height="2rem"
+											color="#1f2b4d" // BLUE
+										/>
+									)}
+								</UrgentButton>
+								<DeleteButton onClick={deleteToDo}>
+									<Icon
+										icon="mdi:delete"
+										width="2rem"
+										height="2rem"
+										color="white"
+									/>
+								</DeleteButton>
 							</ToDoButtonGroup>
 						</ToDoItem>
 					)}
