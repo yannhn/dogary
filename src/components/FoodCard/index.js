@@ -60,6 +60,7 @@ export default function FoodCard({goalAmount}) {
 				<FoodInfoContainer>
 					<p>How much: {lastSubmittedFoodItem.amount} gram</p>
 					<p>At: {lastSubmittedFoodItem.time}</p>
+					<p>Todays sum: {lastSubmittedFoodItem.result}</p>
 				</FoodInfoContainer>
 			</FoodCardContainer>
 			{showForm && (
