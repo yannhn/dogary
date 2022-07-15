@@ -11,6 +11,7 @@ export default function ToDoFilterSection({onChangeStatus}) {
 			<StyledFilterSelect onChange={statusHandler}>
 				<option value="all">All</option>
 				<option value="uncompleted">open</option>
+				<option value="urgent">urgent</option>
 				<option value="completed">completed</option>
 			</StyledFilterSelect>
 		</StyledFilterContainer>

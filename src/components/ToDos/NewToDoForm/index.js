@@ -13,6 +13,7 @@ export default function NewToDoForm({cancelForm, addNewToDo}) {
 			title:
 				enteredTitle.trim().charAt(0).toUpperCase() + enteredTitle.slice(1).toLowerCase(),
 			completed: false,
+			urgent: false,
 		};
 		addNewToDo(newToDo);
 		setEnteredTitle('');
