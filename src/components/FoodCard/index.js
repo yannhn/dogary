@@ -10,7 +10,6 @@ export default function FoodCard({goalAmount}) {
 	const [showForm, setShowForm] = useState(false);
 	const [showHistory, setShowHistory] = useState(false);
 	const [foodItems, setFoodItems] = useState([]);
-	const [lastSubmittedFoodItem, setLastSubmittedFoodItem] = useState({});
 
 	const dates = foodItems.map(foodItem => foodItem.date);
 	const uniqueDates = [...new Set(dates)];
@@ -20,11 +19,6 @@ export default function FoodCard({goalAmount}) {
 		setFoodItems(newFoodItems);
 	}
 
-	function addLastSubmittedItem(prevItem) {
-		const newItem = {...foodItems, ...prevItem};
-		setLastSubmittedFoodItem(newItem);
-	}
-
 	function cancelForm() {
 		setShowForm(!showForm);
 	}
@@ -32,6 +26,8 @@ export default function FoodCard({goalAmount}) {
 	function onCancelHistoryForm() {
 		setShowHistory(!showHistory);
 	}
+
+	const lastSubmit = foodItems[foodItems.length - 1];
 
 	return (
 		<>
@@ -57,19 +53,17 @@ export default function FoodCard({goalAmount}) {
 						{showForm ? '-' : '+'}
 					</FoodCardButton>
 				</FoodCardHead>
-				<FoodInfoContainer>
-					<p>How much: {lastSubmittedFoodItem.amount} gram</p>
-					<p>At: {lastSubmittedFoodItem.time}</p>
-					<p>Todays sum: {lastSubmittedFoodItem.result}</p>
-				</FoodInfoContainer>
+				{lastSubmit && (
+					<FoodInfoContainer>
+						<p>How much {lastSubmit.amount}</p>
+						<p>At: {lastSubmit.time}</p>
+						<p>Todays sum: {lastSubmit.result}</p>
+					</FoodInfoContainer>
+				)}
 			</FoodCardContainer>
 			{showForm && (
 				<FormModal>
-					<InputFood
-						addNewFoodItem={addNewFoodItem}
-						cancelForm={cancelForm}
-						addLastSubmittedItem={addLastSubmittedItem}
-					></InputFood>
+					<InputFood addNewFoodItem={addNewFoodItem} cancelForm={cancelForm}></InputFood>
 				</FormModal>
 			)}
 			{showHistory && (
