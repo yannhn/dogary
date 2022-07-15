@@ -12,16 +12,16 @@ export default function InputNameButton({addNewInfo}) {
 		addNewInfo(newInfoItems);
 	};
 
-	function cancelForm() {
+	const showFormHandler = () => {
 		setShowForm(!showForm);
-	}
+	};
 
 	return (
 		<>
-			<button onClick={() => setShowForm(!showForm)}>Change Name</button>
+			<button onClick={showFormHandler}>Change Name</button>
 			{showForm && (
 				<FormModal>
-					<InputNameForm passInfo={passInfo} cancelForm={cancelForm} />
+					<InputNameForm passInfo={passInfo} cancelForm={showFormHandler} />
 				</FormModal>
 			)}
 		</>

@@ -12,16 +12,16 @@ export default function InputImageButton({addNewInfo}) {
 		addNewInfo(newInfoItems);
 	};
 
-	function cancelForm() {
+	const showFormHandler = () => {
 		setShowForm(!showForm);
-	}
+	};
 
 	return (
 		<>
-			<button onClick={() => setShowForm(!showForm)}>Change Image</button>
+			<button onClick={showFormHandler}>Change Image</button>
 			{showForm && (
 				<FormModal>
-					<InputImageForm passInfo={passInfo} cancelForm={cancelForm} />
+					<InputImageForm passInfo={passInfo} cancelForm={showFormHandler} />
 				</FormModal>
 			)}
 		</>

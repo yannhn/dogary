@@ -20,8 +20,8 @@ export default function DogInfoBar() {
 				<InputImageButton addNewInfo={addNewInfo} />
 			</section>
 			<section>
-				<ShowName styledName={submittedItem.enteredName} />
-				<ShowImage styledImage={submittedItem.image} />
+				<ShowName name={submittedItem.enteredName} />
+				<ShowImage image={submittedItem.image} />
 			</section>
 		</>
 	);
