@@ -3,7 +3,7 @@ import {useState} from 'react';
 
 import {InputBusinessContainer, InputBusinessForm} from './styled';
 
-export default function InputBusiness({addNewBusinessItem, cancelForm, addSubmittedItem}) {
+export default function InputBusiness({addNewBusinessItem, cancelForm}) {
 	const [smallBusiness, setSmallBusiness] = useState(false);
 	const [bigBusiness, setBigBusiness] = useState(false);
 	const [time, setTime] = useState('08:00');
@@ -20,7 +20,6 @@ export default function InputBusiness({addNewBusinessItem, cancelForm, addSubmit
 			date: new Date(enteredDate).toDateString(),
 		};
 		addNewBusinessItem(newBusinessItem);
-		addSubmittedItem(newBusinessItem);
 		setSmallBusiness(false);
 		setBigBusiness(false);
 		setTime(time);

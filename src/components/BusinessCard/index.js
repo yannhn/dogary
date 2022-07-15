@@ -28,7 +28,6 @@ export default function BusinessCard() {
 	}
 
 	const lastSubmit = businessItems[businessItems.length - 1];
-	console.log(lastSubmit);
 
 	return (
 		<>
