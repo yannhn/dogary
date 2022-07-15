@@ -33,16 +33,9 @@ export default function BusinessCard() {
 		setShowHistory(!showHistory);
 	}
 
+	// Hier ziehe ich das letzte Element des arrays
 	const lastSubmit = businessItems[businessItems.length - 1];
 	console.log(lastSubmit);
-
-	// console.log(businessItems.at(-1).bigBusiness);
-
-	// console.log(lastSubmit.smallBusiness);
-
-	// console.log(businessItems[businessItems.length - 1].smallBusiness);
-	// const lastSubmit = businessItems[businessItems.length - 1];
-	// console.log(lastSubmit);
 
 	return (
 		<>
@@ -65,8 +58,7 @@ export default function BusinessCard() {
 				</BusinessCardHead>
 				<section>
 					<section>
-						{businessItems.map((item, i) => {
-							console.log(i);
+						{lastSubmit.map(item => {
 							<p>
 								What:{' '}
 								{item.smallBusiness && item.bigBusiness
@@ -77,11 +69,6 @@ export default function BusinessCard() {
 									? 'big business'
 									: 'No business yet! (Sometimes your dog is simply just not in the right mood. You might have to try again later.)'}
 							</p>;
-							if (item.bigBusiness) {
-								return <section key={item.id}>big business</section>;
-							} else if (item.smallBusiness) {
-								return <section key={item.id}>small business</section>;
-							}
 						})}
 					</section>
 					<p>
