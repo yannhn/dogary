@@ -14,18 +14,18 @@ export default function FoodCard({goalAmount}) {
 	const dates = foodItems.map(foodItem => foodItem.date);
 	const uniqueDates = [...new Set(dates)];
 
-	function addNewFoodItem(prevItem) {
+	const addNewFoodItem = prevItem => {
 		const newFoodItems = [...foodItems, prevItem];
 		setFoodItems(newFoodItems);
-	}
+	};
 
-	function cancelForm() {
+	const cancelForm = () => {
 		setShowForm(!showForm);
-	}
+	};
 
-	function onCancelHistoryForm() {
+	const onCancelHistoryForm = () => {
 		setShowHistory(!showHistory);
-	}
+	};
 
 	const lastSubmit = foodItems[foodItems.length - 1];
 
