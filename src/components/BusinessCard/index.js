@@ -10,15 +10,9 @@ export default function BusinessCard() {
 	const [showForm, setShowForm] = useState(false);
 	const [showHistory, setShowHistory] = useState(false);
 	const [businessItems, setBusinessItems] = useState([]);
-	const [submittedBusinessItem, setSubmittedBusinessItem] = useState({});
 
 	const dates = businessItems.map(business => business.date);
 	const uniqueDates = [...new Set(dates)];
-
-	function addSubmittedItem(prevItem) {
-		const newItem = {...businessItems, ...prevItem};
-		setSubmittedBusinessItem(newItem);
-	}
 
 	function addNewBusinessItem(prevItem) {
 		const newBusinessItems = [...businessItems, prevItem];
@@ -33,7 +27,6 @@ export default function BusinessCard() {
 		setShowHistory(!showHistory);
 	}
 
-	// Hier ziehe ich das letzte Element des arrays
 	const lastSubmit = businessItems[businessItems.length - 1];
 	console.log(lastSubmit);
 
@@ -58,38 +51,29 @@ export default function BusinessCard() {
 				</BusinessCardHead>
 				<section>
 					<section>
-						{lastSubmit.map(item => {
-							<p>
-								What:{' '}
-								{item.smallBusiness && item.bigBusiness
-									? 'double business'
-									: item.smallBusiness
-									? 'small business'
-									: item.bigBusiness
-									? 'big business'
-									: 'No business yet! (Sometimes your dog is simply just not in the right mood. You might have to try again later.)'}
-							</p>;
-						})}
+						{lastSubmit && (
+							<section>
+								<p>
+									What:{' '}
+									{lastSubmit.smallBusiness && lastSubmit.bigBusiness
+										? 'double business'
+										: lastSubmit.smallBusiness
+										? 'small business'
+										: lastSubmit.bigBusiness
+										? 'big business'
+										: 'No business yet! (Sometimes your dog is simply just not in the right mood. You might have to try again later.)'}
+								</p>
+								<p>When: {lastSubmit.time}</p>
+								<hr></hr>
+							</section>
+						)}
 					</section>
-					<p>
-						What:{' '}
-						{submittedBusinessItem.smallBusiness && submittedBusinessItem.bigBusiness
-							? 'double business'
-							: submittedBusinessItem.smallBusiness
-							? 'small business'
-							: submittedBusinessItem.bigBusiness
-							? 'big business'
-							: 'No business yet! (Sometimes your dog is simply just not in the right mood. You might have to try again later.)'}
-					</p>
-					<p>When: {submittedBusinessItem.time}</p>
-					<hr></hr>
 				</section>
 			</BusinessCardContainer>
 			{showForm && (
 				<FormModal>
 					<InputBusiness
 						addNewBusinessItem={addNewBusinessItem}
-						addSubmittedItem={addSubmittedItem}
 						cancelForm={cancelForm}
 					/>
 				</FormModal>
