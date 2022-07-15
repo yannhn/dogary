@@ -8,7 +8,7 @@ const ToDoItem = styled.section`
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
-	margin-top: 0.6em;
+	margin-top: 0.5em;
 	color: white;
 	font-size: 1.2rem;
 	background-color: #1f2b4d;
@@ -25,25 +25,36 @@ const ToDoButtonGroup = styled.section`
 	align-items: center;
 `;
 
+const EditToDoForm = styled.form`
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	margin-top: 0.5em;
+`;
+
 const EditToDoInput = styled.input`
-	padding: 0.5rem;
+	min-width: 12em;
+	padding: 0.45rem;
 	border: none;
-	// TODO: Fix width
-	background: white;
-	border-bottom-left-radius: 5px;
 	border-top-left-radius: 5px;
+	border-bottom-left-radius: 5px;
+	background: white;
+	font-size: 1.2rem;
+`;
+
+const EditToDoButtonGroup = styled.section`
+	display: flex;
+	justify-content: flex-end;
 `;
 
 const CancelEdit = styled.button`
 	border: none;
 	background-color: #c3423f;
-	border-top-left-radius: 5px;
-	border-bottom-left-radius: 5px;
 `;
 
 const SaveEdit = styled.button`
 	border: none;
-	background-color: #628b48;
+	background-color: #64b6ac;
 	border-top-right-radius: 5px;
 	border-bottom-right-radius: 5px;
 `;
@@ -51,8 +62,6 @@ const SaveEdit = styled.button`
 const EditButton = styled.button`
 	border: none;
 	background-color: #fff9f4;
-	border-top-left-radius: 5px;
-	border-bottom-left-radius: 5px;
 `;
 
 const UrgentButton = styled.button`
@@ -78,4 +87,6 @@ export {
 	CancelEdit,
 	SaveEdit,
 	EditToDoInput,
+	EditToDoForm,
+	EditToDoButtonGroup,
 };

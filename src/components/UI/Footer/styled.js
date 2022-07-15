@@ -9,7 +9,10 @@ const FooterContainer = styled.footer`
 `;
 
 const FooterNav = styled.nav`
+	border-top-left-radius: 5px;
+	border-top-right-radius: 5px;
 	display: flex;
+	align-items: center;
 	position: fixed;
 	bottom: 0;
 	justify-content: space-around;
@@ -18,17 +21,9 @@ const FooterNav = styled.nav`
 `;
 
 const FooterNavItems = styled(NavLink)`
-	list-style-type: none;
-	color: white;
-	font-size: 2rem;
-	text-decoration: none;
-
-	&:hover {
-		color: lightblue;
-	}
-	&.active {
-		color: #ffbaa5;
-	}
+	display: flex;
+	align-items: center;
+	padding: 1em;
 `;
 
 const FooterIcon = styled(Icon)`

@@ -7,13 +7,13 @@ export default function Footer() {
 		<FooterContainer>
 			<FooterNav>
 				<FooterNavItems to="/">
-					<Icon icon="mdi:dog" width="2rem" height="2rem" color="white" />
+					<Icon icon="mdi:dog" width="2.4rem" height="2.4rem" color="white" />
 				</FooterNavItems>
 				<FooterNavItems to="/calendar">
-					<Icon icon="mdi:calendar-month" width="2rem" height="2rem" color="white" />
+					<Icon icon="mdi:calendar-month" width="2.4rem" height="2.4rem" color="white" />
 				</FooterNavItems>
 				<FooterNavItems to="/todo">
-					<Icon icon="mdi:calendar-check" width="2rem" height="2rem" color="white" />
+					<Icon icon="mdi:calendar-check" width="2.4rem" height="2.4rem" color="white" />
 				</FooterNavItems>
 			</FooterNav>
 		</FooterContainer>

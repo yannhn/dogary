@@ -12,6 +12,8 @@ import {
 	CancelEdit,
 	SaveEdit,
 	EditToDoInput,
+	EditToDoForm,
+	EditToDoButtonGroup,
 } from './styled';
 
 export default function ToDo({
@@ -37,16 +39,18 @@ export default function ToDo({
 		<>
 			{isEditing ? (
 				<ToDoItemContainer>
-					<form onSubmit={handleSubmit}>
-						<label htmlFor="new-text-input" />
-						<EditToDoInput
-							id="new-text-input"
-							type="text"
-							defaultValue={title}
-							required
-							onChange={event => setNewTitle(event.target.value)}
-						/>
+					<EditToDoForm onSubmit={handleSubmit}>
 						<section>
+							<label htmlFor="new-text-input" />
+							<EditToDoInput
+								id="new-text-input"
+								type="text"
+								defaultValue={title}
+								required
+								onChange={event => setNewTitle(event.target.value)}
+							/>
+						</section>
+						<EditToDoButtonGroup>
 							<CancelEdit
 								type="button"
 								onClick={() => {
@@ -69,8 +73,8 @@ export default function ToDo({
 									color="white"
 								/>
 							</SaveEdit>
-						</section>
-					</form>
+						</EditToDoButtonGroup>
+					</EditToDoForm>
 				</ToDoItemContainer>
 			) : (
 				<ToDoItemContainer>
@@ -112,14 +116,14 @@ export default function ToDo({
 											icon="mdi:alarm-note-off"
 											width="2rem"
 											height="2rem"
-											color=" #c3423f" // RED
+											color=" #c3423f"
 										/>
 									) : (
 										<Icon
 											icon="mdi:alarm-note"
 											width="2rem"
 											height="2rem"
-											color="#1f2b4d" // BLUE
+											color="#1f2b4d"
 										/>
 									)}
 								</UrgentButton>
