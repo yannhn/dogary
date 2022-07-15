@@ -1,15 +1,10 @@
 import {nanoid} from 'nanoid';
 import {useState} from 'react';
 
-import {InputInfoContainer, InfoForm, InfoImgPreview} from './styled';
+import {InputInfoContainer, InfoForm} from './styled';
 
-export default function InputInfoForm({addNewInfo, cancelForm}) {
+export default function InputInfoForm({passInfo, cancelForm}) {
 	const [enteredName, setEnteredName] = useState('');
-	const [image, setImage] = useState('');
-
-	const imageChangeHandler = event => {
-		setImage(URL.createObjectURL(event.target.files[0]));
-	};
 
 	const nameChangeHandler = event => {
 		setEnteredName(event.target.value.replace(/^a-z/gi, ''));
@@ -21,11 +16,9 @@ export default function InputInfoForm({addNewInfo, cancelForm}) {
 			id: nanoid(),
 			enteredName:
 				enteredName.trim().charAt(0).toUpperCase() + enteredName.slice(1).toLowerCase(),
-			image: image,
 		};
-		addNewInfo(newItems);
+		passInfo(newItems);
 		setEnteredName('');
-		setImage([]);
 	};
 
 	return (
@@ -42,21 +35,6 @@ export default function InputInfoForm({addNewInfo, cancelForm}) {
 							onChange={nameChangeHandler}
 						></input>
 					</label>
-				</section>
-				<section>
-					<h2>Upload your image!</h2>
-					<label>
-						Upload profile picture:
-						<input
-							type="file"
-							accept=".png, .jpg, .jpeg"
-							onChange={imageChangeHandler}
-						></input>
-					</label>
-					<section>
-						<h2>Image Preview</h2>
-						<InfoImgPreview src={image} alt="preview" width="250" height="250" />
-					</section>
 				</section>
 				<button type="submit">Add</button>
 				<button type="button" onClick={cancelForm}>
