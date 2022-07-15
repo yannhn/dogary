@@ -1,8 +1,8 @@
 import {Helmet} from 'react-helmet';
 
 import BusinessCard from '../components/BusinessCard';
+import DogInfoBar from '../components/DogInfo/DogInfoBar';
 import InputGoalButton from '../components/InputGoalButton';
-import InputInfoButton from '../components/InputInfoButton';
 import Layout from '../components/Layout';
 import WalkCard from '../components/WalkCard';
 
@@ -13,7 +13,7 @@ export default function HomePage() {
 				<title key="title">My Project</title>
 				<meta key="description" name="description" content="This is my project" />
 			</Helmet>
-			<InputInfoButton />
+			<DogInfoBar />
 			<InputGoalButton />
 			<WalkCard />
 			<BusinessCard />
