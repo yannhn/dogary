@@ -7,12 +7,8 @@ export default function InputBusiness({addNewBusinessItem, cancelForm}) {
 	const [smallBusiness, setSmallBusiness] = useState(false);
 	const [bigBusiness, setBigBusiness] = useState(false);
 	const [time, setTime] = useState('08:00');
-
-	const resetHandler = () => {
-		setSmallBusiness(false);
-		setBigBusiness(false);
-		setTime(time);
-	};
+	const [enteredDate, setEnteredDate] = useState('');
+	const [message, setMessage] = useState('');
 
 	const submitHandler = event => {
 		event.preventDefault();
@@ -21,9 +17,23 @@ export default function InputBusiness({addNewBusinessItem, cancelForm}) {
 			smallBusiness: smallBusiness,
 			bigBusiness: bigBusiness,
 			time: time,
+			date: new Date(enteredDate).toDateString(),
 		};
 		addNewBusinessItem(newBusinessItem);
-		resetHandler();
+		setSmallBusiness(false);
+		setBigBusiness(false);
+		setTime(time);
+		setMessage(
+			`Your dog ${
+				newBusinessItem.smallBusiness && newBusinessItem.bigBusiness
+					? `did double business at ${newBusinessItem.time} o'clock on ${newBusinessItem.date}. Your dog will forever be grateful!`
+					: newBusinessItem.smallBusiness
+					? `did a small business at ${newBusinessItem.time} o'clock on ${newBusinessItem.date}. Your dog will forever be grateful!`
+					: newBusinessItem.bigBusiness
+					? `did a big business at ${newBusinessItem.time} o'clock on ${newBusinessItem.date}. Your dog will forever be grateful!`
+					: `didn't do any business at all at ${newBusinessItem.time} o'clock on ${newBusinessItem.date}. (Sometimes your dog is simply just not in the right mood. You might have to try again later.)`
+			}`
+		);
 	};
 
 	return (
@@ -56,15 +66,28 @@ export default function InputBusiness({addNewBusinessItem, cancelForm}) {
 							<input
 								type="time"
 								defaultValue="08:00"
+								required
 								onChange={event => setTime(event.target.value)}
 							></input>
 						</label>
+						<h3>Date of business</h3>
+						<label htmlFor="date">Date of Business</label>
+						<input
+							id="date"
+							type="date"
+							min="2022-07-01"
+							max="2022-12-31"
+							required
+							onChange={event => setEnteredDate(event.target.value)}
+						/>
 					</section>
 					<button type="submit">add</button>
 					<button type="button" onClick={cancelForm}>
 						cancel
 					</button>
 				</InputBusinessForm>
+				<h4>Last submit</h4>
+				<p>{message}</p>
 			</InputBusinessContainer>
 		</>
 	);
