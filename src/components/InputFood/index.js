@@ -7,7 +7,6 @@ export default function InputFood({addNewFoodItem, cancelForm}) {
 	const [enteredAmount, setEnteredAmount] = useState(0);
 	const [enteredTime, setEnteredTime] = useState('08:00');
 	const [enteredDate, setEnteredDate] = useState('');
-	const [result, setResult] = useState(0);
 	const [message, setMessage] = useState('');
 
 	const submitHandler = event => {
@@ -16,11 +15,9 @@ export default function InputFood({addNewFoodItem, cancelForm}) {
 			id: nanoid(),
 			amount: parseInt(enteredAmount),
 			time: enteredTime,
-			result: result + parseInt(enteredAmount),
 			date: new Date(enteredDate).toDateString(),
 		};
 		addNewFoodItem(newFoodInput);
-		setResult(result + parseInt(enteredAmount));
 		setMessage(
 			`Your dog last ate ${newFoodInput.amount} gram at ${newFoodInput.time} o'clock on ${newFoodInput.date}! Your dog will forever be grateful!`
 		);
