@@ -5,7 +5,14 @@ import FormModal from '../FormModal';
 import HistoryModal from '../HistoryModal';
 import InputWalk from '../InputWalk/index';
 
-import {WalkCardContainer, WalkCardHead, WalkCardButton} from './styled';
+import {
+	WalkCardContainer,
+	WalkInfoContainer,
+	WalkCardHeaderGroup,
+	WalkCardButtonGroup,
+	WalkCardButtonAdd,
+	BusinessCardButtonHistory,
+} from './styled';
 
 export default function WalkCard() {
 	const [showForm, setShowForm] = useState(false);
@@ -37,39 +44,42 @@ export default function WalkCard() {
 	return (
 		<>
 			<WalkCardContainer>
-				<WalkCardHead>
-					<section>
+				<WalkInfoContainer>
+					<WalkCardHeaderGroup>
 						<h2>Walks</h2>
-						<p>Todays duration: {count.result} min</p>
-					</section>
-					<button
-						onClick={() => {
-							setShowHistory(!showHistory);
-						}}
-					>
-						<Icon
-							icon="mdi:history"
-							width="2rem"
-							height="2rem"
-							color="white"
-							alt="show history"
-						/>
-					</button>
-					<WalkCardButton
-						onClick={() => {
-							setShowForm(!showForm);
-						}}
-					>
-						<Icon
-							icon="mdi:plus-circle"
-							width="2rem"
-							height="2rem"
-							color="white"
-							alt="add activity"
-						/>
-					</WalkCardButton>
-				</WalkCardHead>
+						<WalkCardButtonGroup>
+							<BusinessCardButtonHistory
+								onClick={() => {
+									setShowHistory(!showHistory);
+								}}
+							>
+								<Icon
+									icon="mdi:history"
+									width="1.6rem"
+									height="1.6rem"
+									color="white"
+									alt="show history"
+								/>
+							</BusinessCardButtonHistory>
+							<WalkCardButtonAdd
+								onClick={() => {
+									setShowForm(!showForm);
+								}}
+							>
+								<Icon
+									icon="mdi:plus-circle"
+									width="1.6rem"
+									height="1.6rem"
+									color="white"
+									alt="add activity"
+								/>
+							</WalkCardButtonAdd>
+						</WalkCardButtonGroup>
+					</WalkCardHeaderGroup>
+					<p>Take a walk in your dogs shoes</p>
+				</WalkInfoContainer>
 				<section>
+					<p>Todays duration: {count.result} min</p>
 					<p>Duration: {count.duration} h/m</p>
 					<p>When started: {count.startTime}</p>
 				</section>

@@ -9,11 +9,6 @@ const BusinessCardContainer = styled.section`
 	box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px; // 1 bei box-shadow
 `;
 
-const BusinessCardHead = styled.article`
-	display: flex;
-	justify-content: space-between;
-`;
-
 const BusinessInfoContainer = styled.section`
 	display: flex;
 	flex-direction: column;
@@ -50,7 +45,6 @@ const BusinessCardButtonAdd = styled.button`
 
 export {
 	BusinessCardContainer,
-	BusinessCardHead,
 	BusinessInfoContainer,
 	BusinessCardButtonHistory,
 	BusinessCardButtonAdd,

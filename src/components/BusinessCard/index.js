@@ -7,7 +7,6 @@ import InputBusiness from '../InputBusiness/index';
 
 import {
 	BusinessCardContainer,
-	BusinessCardHead,
 	BusinessInfoContainer,
 	BusinessCardHeaderGroup,
 	BusinessCardButtonGroup,
