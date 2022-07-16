@@ -3,7 +3,7 @@ import {useState} from 'react';
 
 import {InputFoodContainer} from './styled';
 
-export default function InputFood({addNewFoodItem, cancelForm, addLastSubmittedItem}) {
+export default function InputFood({addNewFoodItem, cancelForm}) {
 	const [enteredAmount, setEnteredAmount] = useState(0);
 	const [enteredTime, setEnteredTime] = useState('08:00');
 	const [enteredDate, setEnteredDate] = useState('');
@@ -17,7 +17,6 @@ export default function InputFood({addNewFoodItem, cancelForm, addLastSubmittedI
 			time: enteredTime,
 			date: new Date(enteredDate).toDateString(),
 		};
-		addLastSubmittedItem(newFoodInput);
 		addNewFoodItem(newFoodInput);
 		setMessage(
 			`Your dog last ate ${newFoodInput.amount} gram at ${newFoodInput.time} o'clock on ${newFoodInput.date}! Your dog will forever be grateful!`
