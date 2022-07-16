@@ -35,51 +35,45 @@ export default function ToDo({
 		setIsEditing(false);
 	}
 
-	//TODO: style checkbox
-	//TODO: Footerlinks should be set to active
-	//TODO: Zeilenumbruch im p tag
-
 	return (
 		<>
 			{isEditing ? (
-				<section>
-					<EditToDoForm onSubmit={handleSubmit}>
-						<section>
-							<label htmlFor="new-text-input" />
-							<EditToDoInput
-								id="new-text-input"
-								type="text"
-								defaultValue={title}
-								required
-								onChange={event => setNewTitle(event.target.value)}
+				<EditToDoForm onSubmit={handleSubmit}>
+					<section>
+						<label htmlFor="new-text-input" />
+						<EditToDoInput
+							id="new-text-input"
+							type="text"
+							defaultValue={title}
+							required
+							onChange={event => setNewTitle(event.target.value)}
+						/>
+					</section>
+					<EditToDoButtonGroup>
+						<CancelEdit
+							type="button"
+							onClick={() => {
+								setIsEditing(false);
+								setNewTitle('');
+							}}
+						>
+							<Icon
+								icon="mdi:close-circle"
+								width="2rem"
+								height="2rem"
+								color="white"
 							/>
-						</section>
-						<EditToDoButtonGroup>
-							<CancelEdit
-								type="button"
-								onClick={() => {
-									setIsEditing(false);
-									setNewTitle('');
-								}}
-							>
-								<Icon
-									icon="mdi:close-circle"
-									width="2rem"
-									height="2rem"
-									color="white"
-								/>
-							</CancelEdit>
-							<SaveEdit type="submit">
-								<Icon
-									icon="mdi:check-circle"
-									width="2rem"
-									height="2rem"
-									color="white"
-								/>
-							</SaveEdit>
-						</EditToDoButtonGroup>
-					</EditToDoForm>
-				</section>
+						</CancelEdit>
+						<SaveEdit type="submit">
+							<Icon
+								icon="mdi:check-circle"
+								width="2rem"
+								height="2rem"
+								color="white"
+							/>
+						</SaveEdit>
+					</EditToDoButtonGroup>
+				</EditToDoForm>
 			) : (
 				<section>
 					{completed ? (

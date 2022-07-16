@@ -57,7 +57,7 @@ const EditToDoForm = styled.form`
 `;
 
 const EditToDoInput = styled.input`
-	min-width: 12em;
+	width: 12em;
 	padding: 0.484rem;
 	border: none;
 	border-top-left-radius: 5px;
