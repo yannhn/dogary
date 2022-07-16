@@ -6,9 +6,6 @@ export default function Background() {
 			<TestStyle></TestStyle>
 			<TestStyle2></TestStyle2>
 			<TestStyle3></TestStyle3>
-			<div></div>
-			<div></div>
-			<div></div>
 		</div>
 	);
 }

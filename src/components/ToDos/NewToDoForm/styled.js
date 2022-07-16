@@ -9,33 +9,32 @@ const NewToDoFormContainer = styled.form`
 `;
 
 const NewToDoInput = styled.input`
+	width: 15em;
 	padding: 0.5rem;
 	border: none;
-	// TODO: Fix width
-	min-width: 15em;
-	font-size: 1rem;
-	background: white;
-	border-bottom-left-radius: 5px;
 	border-top-left-radius: 5px;
+	border-bottom-left-radius: 5px;
+	background: white;
+	font-size: 1rem;
+	text-align: auto;
 `;
 
 const NewToDoButton = styled.button`
 	padding: 0.62rem 2em;
-	border: none;
-	color: white;
-	background: #1f2b4d;
-	cursor: pointer;
-
 	transition: all 0.3s ease;
+	border: none;
 	border-top-right-radius: 5px;
 	border-bottom-right-radius: 5px;
+	background: #1f2b4d;
+	color: white;
+	cursor: pointer;
 
 	&:focus-visible {
 		box-shadow: 0 0 0 5px red;
 	}
 
 	&:hover {
-		background: #ff6f47;
+		background: #64b6ac;
 	}
 
 	&:active {

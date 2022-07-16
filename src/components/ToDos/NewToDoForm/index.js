@@ -30,6 +30,8 @@ export default function NewToDoForm({addNewToDo}) {
 						value={enteredTitle}
 						placeholder="Your next todo..."
 						required
+						numberOfLines={4}
+						multiline
 						onChange={event => setEnteredTitle(event.target.value)}
 					/>
 				</section>

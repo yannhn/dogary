@@ -1,37 +1,52 @@
 import styled from 'styled-components';
 
-const ToDoItemContainer = styled.section``;
-
 const ToDoItem = styled.section`
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
 	margin-top: 0.5em;
-	color: white;
-	font-size: 1.2rem;
-	background-color: #1f2b4d;
 	border-radius: 5px;
+	background-color: #1f2b4d;
+	box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+	font-size: 1rem;
 `;
 
 const ToDoInputSection = styled.section`
 	gap: 0.2em;
 	display: flex;
 	align-items: center;
-	justify-content: flex-start;
-	height: 20px;
-	/* line-height: 0.3; */
 `;
 
 const ToDoTitle = styled.p`
+	margin-left: 0.2em;
 	color: white;
 	font-size: 1rem;
-	text-decoration: ${props => (props.completed ? 'line-through' : '')};
+	text-align: auto;
+	text-decoration: ${props => (props.line ? 'line-through' : '')};
 `;
 
 const ToDoButtonGroup = styled.section`
 	display: flex;
-	justify-content: flex-end;
-	align-items: center;
+	margin: 0 0.4em 0 2em;
+`;
+
+const EditButton = styled.button`
+	border: none;
+	border-top-left-radius: 5px;
+	border-bottom-left-radius: 5px;
+	background-color: #fff9f4;
+`;
+
+const UrgentButton = styled.button`
+	border: none;
+	background-color: #fff9f4;
+`;
+
+const DeleteButton = styled.button`
+	border: none;
+	border-top-right-radius: 5px;
+	border-bottom-right-radius: 5px;
+	background-color: #c3423f;
 `;
 
 const EditToDoForm = styled.form`
@@ -48,8 +63,8 @@ const EditToDoInput = styled.input`
 	border-top-left-radius: 5px;
 	border-bottom-left-radius: 5px;
 	background: white;
-	font-size: 1.2rem;
 	color: #1f2b4d;
+	font-size: 1.2rem;
 `;
 
 const EditToDoButtonGroup = styled.section`
@@ -64,30 +79,12 @@ const CancelEdit = styled.button`
 
 const SaveEdit = styled.button`
 	border: none;
+	border-top-right-radius: 5px;
+	border-bottom-right-radius: 5px;
 	background-color: #64b6ac;
-	border-top-right-radius: 5px;
-	border-bottom-right-radius: 5px;
-`;
-
-const EditButton = styled.button`
-	border: none;
-	background-color: #fff9f4;
-`;
-
-const UrgentButton = styled.button`
-	border: none;
-	background-color: #fff9f4;
-`;
-
-const DeleteButton = styled.button`
-	border: none;
-	background-color: #c3423f;
-	border-top-right-radius: 5px;
-	border-bottom-right-radius: 5px;
 `;
 
 export {
-	ToDoItemContainer,
 	ToDoItem,
 	ToDoButtonGroup,
 	DeleteButton,

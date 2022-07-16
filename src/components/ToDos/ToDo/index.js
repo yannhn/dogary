@@ -2,7 +2,6 @@ import {Icon} from '@iconify/react';
 import {useState} from 'react';
 
 import {
-	ToDoItemContainer,
 	ToDoItem,
 	ToDoButtonGroup,
 	DeleteButton,
@@ -43,7 +42,7 @@ export default function ToDo({
 	return (
 		<>
 			{isEditing ? (
-				<ToDoItemContainer>
+				<section>
 					<EditToDoForm onSubmit={handleSubmit}>
 						<section>
 							<label htmlFor="new-text-input" />
@@ -80,31 +79,33 @@ export default function ToDo({
 							</SaveEdit>
 						</EditToDoButtonGroup>
 					</EditToDoForm>
-				</ToDoItemContainer>
+				</section>
 			) : (
-				<ToDoItemContainer>
+				<section>
 					{completed ? (
 						<ToDoItem>
 							<ToDoInputSection>
 								<label htmlFor="checkbox" />
-								<input
-									id="checkbox"
-									type="checkbox"
-									defaultChecked="true"
-									onChange={completeToDo}
-								/>
-								<ToDoTitle completed>{title}</ToDoTitle>
+								<input id="checkbox" type="checkbox" onChange={completeToDo} />
+								<ToDoTitle line={completed}>{title}</ToDoTitle>
 							</ToDoInputSection>
-							<DeleteButton onClick={deleteToDo}>
-								<Icon icon="mdi:delete" width="2rem" height="2rem" color="white" />
-							</DeleteButton>
+							<ToDoButtonGroup>
+								<DeleteButton onClick={deleteToDo}>
+									<Icon
+										icon="mdi:delete"
+										width="2rem"
+										height="2rem"
+										color="white"
+									/>
+								</DeleteButton>
+							</ToDoButtonGroup>
 						</ToDoItem>
 					) : (
 						<ToDoItem>
 							<ToDoInputSection>
 								<label htmlFor="checkbox" />
 								<input id="checkbox" type="checkbox" onChange={completeToDo} />
-								<ToDoTitle>{title}</ToDoTitle>
+								<ToDoTitle multiline>{title}</ToDoTitle>
 							</ToDoInputSection>
 							<ToDoButtonGroup>
 								<EditButton onClick={() => setIsEditing(true)}>
@@ -143,7 +144,7 @@ export default function ToDo({
 							</ToDoButtonGroup>
 						</ToDoItem>
 					)}
-				</ToDoItemContainer>
+				</section>
 			)}
 		</>
 	);
