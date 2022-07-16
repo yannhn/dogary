@@ -10,9 +10,8 @@ const ModalContainer = styled.section`
 `;
 
 const Modal = styled.dialog`
-	max-width: 480px;
 	margin: 0 auto;
-	padding: 30px;
+	padding: 1em;
 	border-radius: 10px;
 	background: #fff;
 `;
