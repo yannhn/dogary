@@ -9,10 +9,10 @@ const FooterContainer = styled.footer`
 `;
 
 const FooterNav = styled.nav`
-	border-top-left-radius: 10px;
-	border-top-right-radius: 10px;
 	display: flex;
 	align-items: center;
+	border-top-left-radius: 10px;
+	border-top-right-radius: 10px;
 	position: fixed;
 	bottom: 0;
 	justify-content: space-around;
