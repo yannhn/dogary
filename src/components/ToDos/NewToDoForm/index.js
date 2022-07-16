@@ -28,7 +28,7 @@ export default function NewToDoForm({addNewToDo}) {
 						id="todo-text"
 						type="text"
 						value={enteredTitle}
-						placeholder="Input your next todo"
+						placeholder="Your next todo..."
 						required
 						onChange={event => setEnteredTitle(event.target.value)}
 					/>

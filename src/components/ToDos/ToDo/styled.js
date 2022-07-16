@@ -1,8 +1,6 @@
 import styled from 'styled-components';
 
-const ToDoItemContainer = styled.section`
-	gap: 0.6em;
-`;
+const ToDoItemContainer = styled.section``;
 
 const ToDoItem = styled.section`
 	display: flex;
@@ -16,7 +14,17 @@ const ToDoItem = styled.section`
 `;
 
 const ToDoInputSection = styled.section`
-	gap: 1em;
+	gap: 0.2em;
+	display: flex;
+	align-items: center;
+	justify-content: flex-start;
+	height: 20px;
+`;
+
+const ToDoTitle = styled.p`
+	color: white;
+	font-size: 1rem;
+	text-decoration: ${props => (props.completed ? 'line-through' : '')};
 `;
 
 const ToDoButtonGroup = styled.section`
@@ -34,12 +42,13 @@ const EditToDoForm = styled.form`
 
 const EditToDoInput = styled.input`
 	min-width: 12em;
-	padding: 0.45rem;
+	padding: 0.484rem;
 	border: none;
 	border-top-left-radius: 5px;
 	border-bottom-left-radius: 5px;
 	background: white;
 	font-size: 1.2rem;
+	color: #1f2b4d;
 `;
 
 const EditToDoButtonGroup = styled.section`
@@ -89,4 +98,5 @@ export {
 	EditToDoInput,
 	EditToDoForm,
 	EditToDoButtonGroup,
+	ToDoTitle,
 };

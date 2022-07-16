@@ -14,6 +14,7 @@ import {
 	EditToDoInput,
 	EditToDoForm,
 	EditToDoButtonGroup,
+	ToDoTitle,
 } from './styled';
 
 export default function ToDo({
@@ -88,7 +89,7 @@ export default function ToDo({
 									defaultChecked="true"
 									onChange={completeToDo}
 								/>
-								{title}
+								<ToDoTitle completed>{title}</ToDoTitle>
 							</ToDoInputSection>
 							<DeleteButton onClick={deleteToDo}>
 								<Icon icon="mdi:delete" width="2rem" height="2rem" color="white" />
@@ -99,7 +100,7 @@ export default function ToDo({
 							<ToDoInputSection>
 								<label htmlFor="checkbox" />
 								<input id="checkbox" type="checkbox" onChange={completeToDo} />
-								{title}
+								<ToDoTitle>{title}</ToDoTitle>
 							</ToDoInputSection>
 							<ToDoButtonGroup>
 								<EditButton onClick={() => setIsEditing(true)}>
@@ -143,3 +144,7 @@ export default function ToDo({
 		</>
 	);
 }
+
+// const ToDoTitle = styled.h2`
+//   text-decoration: ${(props) => (props.completed ? "line-through" : "")};
+// `;
