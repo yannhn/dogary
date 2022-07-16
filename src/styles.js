@@ -21,7 +21,7 @@ export const GlobalStyle = createGlobalStyle`
 	body {
 		margin: 0;
 		background-color: #FFF9F4;
-		font-size: 1rem;
 		font-family: 'Roboto', sans-serif;
+		font-size: 1rem;
 	}
 `;

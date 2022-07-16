@@ -1,4 +1,3 @@
-// import {Icon} from '@iconify/react';
 import {NavLink} from 'react-router-dom';
 import styled from 'styled-components';
 
@@ -10,13 +9,13 @@ const FooterContainer = styled.footer`
 
 const FooterNav = styled.nav`
 	display: flex;
-	align-items: center;
-	border-top-left-radius: 10px;
-	border-top-right-radius: 10px;
 	position: fixed;
 	bottom: 0;
+	align-items: center;
 	justify-content: space-around;
 	width: 100%;
+	border-top-left-radius: 10px;
+	border-top-right-radius: 10px;
 	background-color: #1f2b4d;
 `;
 

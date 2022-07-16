@@ -9,17 +9,17 @@ const StyledFilterContainer = styled.section`
 `;
 
 const StyledFilterLabel = styled.label`
+	align-self: flex-end;
 	color: white;
 	font-weight: bold;
-	align-self: flex-end;
 `;
 
 const StyledFilterSelect = styled.select`
+	margin-bottom: 0.2em;
 	padding: 0.4rem 0.4rem;
 	border: none;
 	border-radius: 5px;
 	font-weight: bold;
-	margin-bottom: 0.2em;
 `;
 
 export {StyledFilterContainer, StyledFilterLabel, StyledFilterSelect};
