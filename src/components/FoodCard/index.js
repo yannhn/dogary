@@ -4,8 +4,16 @@ import {useState} from 'react';
 import FormModal from '../FormModal';
 import HistoryModal from '../HistoryModal';
 import InputFood from '../InputFood/index.js';
+import InputGoalButton from '../InputGoalButton';
 
-import {FoodCardContainer, FoodCardButton, FoodInfoContainer, FoodCardHead} from './styled';
+import {
+	FoodCardContainer,
+	FoodInfoContainer,
+	FoodCardHeaderGroup,
+	FoodCardButtonGroup,
+	FoodCardButtonHistory,
+	FoodCardButtonAdd,
+} from './styled';
 
 export default function FoodCard({goalAmount}) {
 	const [showForm, setShowForm] = useState(false);
@@ -38,38 +46,41 @@ export default function FoodCard({goalAmount}) {
 	return (
 		<>
 			<FoodCardContainer>
-				<FoodCardHead>
-					<section>
+				<FoodInfoContainer>
+					<FoodCardHeaderGroup>
 						<h2>Food</h2>
-						<h3>Type of food</h3>
-					</section>
-					<button
-						onClick={() => {
-							setShowHistory(!showHistory);
-						}}
-					>
-						<Icon
-							icon="mdi:history"
-							width="2rem"
-							height="2rem"
-							color="white"
-							alt="show history"
-						/>
-					</button>
-					<FoodCardButton
-						onClick={() => {
-							setShowForm(!showForm);
-						}}
-					>
-						<Icon
-							icon="mdi:plus-circle"
-							width="2rem"
-							height="2rem"
-							color="white"
-							alt="add activity"
-						/>
-					</FoodCardButton>
-				</FoodCardHead>
+						<FoodCardButtonGroup>
+							<InputGoalButton />
+							<FoodCardButtonHistory
+								onClick={() => {
+									setShowHistory(!showHistory);
+								}}
+							>
+								<Icon
+									icon="mdi:history"
+									width="1.6rem"
+									height="1.6rem"
+									color="white"
+									alt="show history"
+								/>
+							</FoodCardButtonHistory>
+							<FoodCardButtonAdd
+								onClick={() => {
+									setShowForm(!showForm);
+								}}
+							>
+								<Icon
+									icon="mdi:plus-circle"
+									width="1.6rem"
+									height="1.6rem"
+									color="white"
+									alt="add activity"
+								/>
+							</FoodCardButtonAdd>
+						</FoodCardButtonGroup>
+					</FoodCardHeaderGroup>
+					<p>A dogs gotta eat</p>
+				</FoodInfoContainer>
 				{goalAmount && <p>Goal: {goalAmount} gram</p>}
 				{lastSubmit && goalAmount ? (
 					<FoodInfoContainer>
