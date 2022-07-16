@@ -1,7 +1,16 @@
 import {nanoid} from 'nanoid';
 import {useState} from 'react';
 
-import {InputFoodContainer} from './styled';
+import {
+	InputFoodContainer,
+	InputFoodForm,
+	InputFoodHeader,
+	InputFoodSection,
+	InputFoodButtonGroup,
+	CancelButton,
+	AddButton,
+	LastSubmitSection,
+} from './styled';
 
 export default function InputFood({addNewFoodItem, cancelForm}) {
 	const [enteredAmount, setEnteredAmount] = useState(0);
@@ -28,51 +37,51 @@ export default function InputFood({addNewFoodItem, cancelForm}) {
 	return (
 		<>
 			<InputFoodContainer>
-				<form onSubmit={submitHandler}>
-					<h4>Your dog</h4>
-					<section>
-						<label>
-							How many gram did the dog eat
-							<input
-								type="number"
-								min="0"
-								value={enteredAmount}
-								required
-								onChange={event => setEnteredAmount(event.target.value)}
-							></input>
-						</label>
-					</section>
-					<section>
-						<label>
-							When did the dog eat
-							<input
-								type="time"
-								value={enteredTime}
-								required
-								onChange={event => setEnteredTime(event.target.value)}
-							></input>
-						</label>
-					</section>
-					<section>
-						<label htmlFor="date">Date of Food</label>
+				<InputFoodForm onSubmit={submitHandler}>
+					<InputFoodHeader>Input food</InputFoodHeader>
+					<InputFoodSection>
+						<label htmlFor="food-amount-input">How many gram did your dog eat?</label>
 						<input
-							id="date"
+							id="food-amount-input"
+							type="number"
+							min="0"
+							value={enteredAmount}
+							required
+							onChange={event => setEnteredAmount(event.target.value)}
+						/>
+					</InputFoodSection>
+					<InputFoodSection>
+						<label htmlFor="food-amount-time">At what time did your dog eat? </label>
+						<input
+							id="food-amount-time"
+							type="time"
+							value={enteredTime}
+							required
+							onChange={event => setEnteredTime(event.target.value)}
+						/>
+					</InputFoodSection>
+					<InputFoodSection>
+						<label htmlFor="food-amount-date">When did your dog eat?</label>
+						<input
+							id="food-amount-date"
 							type="date"
 							min="2022-07-01"
 							max="2022-12-31"
 							required
 							onChange={event => setEnteredDate(event.target.value)}
 						/>
-					</section>
-					<section>
-						<button type="submit">Add</button>
-						<button type="button" onClick={cancelForm}>
-							cancel
-						</button>
-					</section>
-				</form>
-				<h4>Last submit</h4>
-				<p>{message}</p>
+					</InputFoodSection>
+					<InputFoodButtonGroup>
+						<CancelButton type="button" onClick={cancelForm}>
+							Cancel
+						</CancelButton>
+						<AddButton type="submit">Add food</AddButton>
+					</InputFoodButtonGroup>
+				</InputFoodForm>
+				<LastSubmitSection>
+					<h3>Last submit</h3>
+					<p>{message}</p>
+				</LastSubmitSection>
 			</InputFoodContainer>
 		</>
 	);

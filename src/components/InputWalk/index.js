@@ -1,7 +1,13 @@
 import {nanoid} from 'nanoid';
 import {useState} from 'react';
 
-import {InputWalkContainer, InputWalkForm, InputWalkButton} from './styled';
+import {
+	InputWalkContainer,
+	InputWalkForm,
+	InputWalkButtonGroup,
+	CancelButton,
+	AddButton,
+} from './styled';
 
 export default function InputWalk({addNewWalkItem, addCounter, cancelForm}) {
 	const [enteredDuration, setEnteredDuration] = useState('00:00');
@@ -42,9 +48,9 @@ export default function InputWalk({addNewWalkItem, addCounter, cancelForm}) {
 		<>
 			<InputWalkContainer>
 				<InputWalkForm onSubmit={handleSubmit}>
-					<h3>Your walks</h3>
+					<h2>Your dog-walks</h2>
 					<section>
-						<label htmlFor="duration">How long?</label>
+						<label htmlFor="duration">How long was your last walk?</label>
 						<input
 							id="duration"
 							type="time"
@@ -52,15 +58,14 @@ export default function InputWalk({addNewWalkItem, addCounter, cancelForm}) {
 							onChange={event => setEnteredDuration(event.target.value)}
 						></input>
 						<p>-AND-</p>
-						<label htmlFor="startingTime">When started</label>
+						<label htmlFor="startingTime">At what time started your last walk?</label>
 						<input
 							id="startingTime"
 							type="time"
 							value={enteredStartTime}
 							onChange={event => setEnteredStartTime(event.target.value)}
 						></input>
-						<p>DATE (Note: this will only be displayed in history-view)</p>
-						<label htmlFor="date">Date of Walk</label>
+						<label htmlFor="date">When started your last walk?</label>
 						<input
 							id="date"
 							type="date"
@@ -70,15 +75,17 @@ export default function InputWalk({addNewWalkItem, addCounter, cancelForm}) {
 							onChange={event => setEnteredDate(event.target.value)}
 						/>
 					</section>
-					<section>
-						<InputWalkButton type="submit">add</InputWalkButton>
-						<button type="button" onClick={cancelForm}>
+					<InputWalkButtonGroup>
+						<CancelButton type="button" onClick={cancelForm}>
 							cancel
-						</button>
-					</section>
+						</CancelButton>
+						<AddButton type="submit">add walk</AddButton>
+					</InputWalkButtonGroup>
 				</InputWalkForm>
-				<h4>Last submit</h4>
-				<p>{message}</p>
+				<section>
+					<h3>Last submit</h3>
+					<p>{message}</p>
+				</section>
 			</InputWalkContainer>
 		</>
 	);

@@ -1,7 +1,13 @@
 import {nanoid} from 'nanoid';
 import {useState} from 'react';
 
-import {InputBusinessContainer, InputBusinessForm} from './styled';
+import {
+	InputBusinessContainer,
+	InputBusinessForm,
+	InputBusinessButtonGroup,
+	CancelButton,
+	AddButton,
+} from './styled';
 
 export default function InputBusiness({addNewBusinessItem, cancelForm}) {
 	const [smallBusiness, setSmallBusiness] = useState(false);
@@ -42,38 +48,36 @@ export default function InputBusiness({addNewBusinessItem, cancelForm}) {
 				<InputBusinessForm onSubmit={submitHandler}>
 					<h2>Your dogs business</h2>
 					<section>
-						<h3>Type of business</h3>
-						<label>
-							small
-							<input
-								type="checkbox"
-								checked={smallBusiness}
-								onChange={() => setSmallBusiness(!smallBusiness)}
-							></input>
-						</label>
-						<label>
-							big
-							<input
-								type="checkbox"
-								checked={bigBusiness}
-								onChange={() => setBigBusiness(!bigBusiness)}
-							></input>
-						</label>
+						<p>Type of business</p>
+						<label htmlFor="checkbox-big">small</label>
+						<input
+							id="checkbox-big"
+							type="checkbox"
+							checked={smallBusiness}
+							onChange={() => setSmallBusiness(!smallBusiness)}
+						/>
+						<label htmlFor="checkbox-big">big </label>
+						<input
+							id="checkbox-big"
+							type="checkbox"
+							checked={bigBusiness}
+							onChange={() => setBigBusiness(!bigBusiness)}
+						/>
 					</section>
 					<section>
-						<h3>Time of business</h3>
-						<label>
-							<input
-								type="time"
-								defaultValue="08:00"
-								required
-								onChange={event => setTime(event.target.value)}
-							></input>
-						</label>
-						<h3>Date of business</h3>
-						<label htmlFor="date">Date of Business</label>
+						<label htmlFor="business-time">Time of business </label>
 						<input
-							id="date"
+							id="business-time"
+							type="time"
+							defaultValue="08:00"
+							required
+							onChange={event => setTime(event.target.value)}
+						/>
+					</section>
+					<section>
+						<label htmlFor="business-date">Date of Business</label>
+						<input
+							id="business-date"
 							type="date"
 							min="2022-07-01"
 							max="2022-12-31"
@@ -81,13 +85,17 @@ export default function InputBusiness({addNewBusinessItem, cancelForm}) {
 							onChange={event => setEnteredDate(event.target.value)}
 						/>
 					</section>
-					<button type="submit">add</button>
-					<button type="button" onClick={cancelForm}>
-						cancel
-					</button>
+					<InputBusinessButtonGroup>
+						<CancelButton type="button" onClick={cancelForm}>
+							cancel
+						</CancelButton>
+						<AddButton type="submit">add business</AddButton>
+					</InputBusinessButtonGroup>
 				</InputBusinessForm>
-				<h4>Last submit</h4>
-				<p>{message}</p>
+				<section>
+					<h3>Last submit</h3>
+					<p>{message}</p>
+				</section>
 			</InputBusinessContainer>
 		</>
 	);

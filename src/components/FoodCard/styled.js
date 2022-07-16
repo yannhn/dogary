@@ -9,6 +9,10 @@ const FoodCardContainer = styled.section`
 	box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px; // 1 bei box-shadow
 `;
 
+// box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px; // 22
+// box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+// box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+
 const FoodInfoContainer = styled.section`
 	display: flex;
 	flex-direction: column;
