@@ -10,28 +10,29 @@ export default function FoodCard({goalAmount}) {
 	const [showForm, setShowForm] = useState(false);
 	const [showHistory, setShowHistory] = useState(false);
 	const [foodItems, setFoodItems] = useState([]);
-	const [lastSubmittedFoodItem, setLastSubmittedFoodItem] = useState({});
 
 	const dates = foodItems.map(foodItem => foodItem.date);
 	const uniqueDates = [...new Set(dates)];
 
-	function addNewFoodItem(prevItem) {
+	const addNewFoodItem = prevItem => {
 		const newFoodItems = [...foodItems, prevItem];
 		setFoodItems(newFoodItems);
-	}
+	};
 
-	function addLastSubmittedItem(prevItem) {
-		const newItem = {...foodItems, ...prevItem};
-		setLastSubmittedFoodItem(newItem);
-	}
-
-	function cancelForm() {
+	const cancelForm = () => {
 		setShowForm(!showForm);
-	}
+	};
 
-	function onCancelHistoryForm() {
+	const onCancelHistoryForm = () => {
 		setShowHistory(!showHistory);
-	}
+	};
+
+	const lastSubmit = foodItems[foodItems.length - 1];
+
+	const foodSum = foodItems.reduce(
+		(total, currentValue) => (total = total + currentValue.amount),
+		0
+	);
 
 	return (
 		<>
@@ -40,7 +41,6 @@ export default function FoodCard({goalAmount}) {
 					<section>
 						<h2>Food</h2>
 						<h3>Type of food</h3>
-						<p>Goal: {goalAmount} gram</p>
 					</section>
 					<button
 						onClick={() => {
@@ -57,18 +57,35 @@ export default function FoodCard({goalAmount}) {
 						{showForm ? '-' : '+'}
 					</FoodCardButton>
 				</FoodCardHead>
-				<FoodInfoContainer>
-					<p>How much: {lastSubmittedFoodItem.amount} gram</p>
-					<p>At: {lastSubmittedFoodItem.time}</p>
-				</FoodInfoContainer>
+				{goalAmount && <p>Goal: {goalAmount} gram</p>}
+				{lastSubmit && goalAmount ? (
+					<FoodInfoContainer>
+						<p>Todays sum: {foodSum} gram</p>
+						{
+							<p>
+								{foodSum >= goalAmount
+									? 'food goal reached (unless you want to have a chunky boy you should probably stop feeding your dog.)'
+									: `missing food: ${goalAmount - foodSum} gram`}
+							</p>
+						}
+						<h4>Last Input</h4>
+						<p>How much {lastSubmit.amount} gram</p>
+						<p>At: {lastSubmit.time}</p>
+					</FoodInfoContainer>
+				) : (
+					lastSubmit && (
+						<FoodInfoContainer>
+							<p>Todays sum: {foodSum} gram</p>
+							<h4>Last Input</h4>
+							<p>How much {lastSubmit.amount} gram</p>
+							<p>At: {lastSubmit.time}</p>
+						</FoodInfoContainer>
+					)
+				)}
 			</FoodCardContainer>
 			{showForm && (
 				<FormModal>
-					<InputFood
-						addNewFoodItem={addNewFoodItem}
-						cancelForm={cancelForm}
-						addLastSubmittedItem={addLastSubmittedItem}
-					></InputFood>
+					<InputFood addNewFoodItem={addNewFoodItem} cancelForm={cancelForm}></InputFood>
 				</FormModal>
 			)}
 			{showHistory && (
