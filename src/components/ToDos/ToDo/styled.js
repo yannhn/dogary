@@ -19,6 +19,7 @@ const ToDoInputSection = styled.section`
 	align-items: center;
 	justify-content: flex-start;
 	height: 20px;
+	/* line-height: 0.3; */
 `;
 
 const ToDoTitle = styled.p`

@@ -36,6 +36,10 @@ export default function ToDo({
 		setIsEditing(false);
 	}
 
+	//TODO: style checkbox
+	//TODO: Footerlinks should be set to active
+	//TODO: Zeilenumbruch im p tag
+
 	return (
 		<>
 			{isEditing ? (
