@@ -1,3 +1,4 @@
+import {Icon} from '@iconify/react';
 import {useState} from 'react';
 
 import FormModal from '../FormModal';
@@ -47,14 +48,26 @@ export default function FoodCard({goalAmount}) {
 							setShowHistory(!showHistory);
 						}}
 					>
-						{showHistory ? 'Hide History' : 'Show History'}
+						<Icon
+							icon="mdi:history"
+							width="2rem"
+							height="2rem"
+							color="white"
+							alt="show history"
+						/>
 					</button>
 					<FoodCardButton
 						onClick={() => {
 							setShowForm(!showForm);
 						}}
 					>
-						{showForm ? '-' : '+'}
+						<Icon
+							icon="mdi:plus-circle"
+							width="2rem"
+							height="2rem"
+							color="white"
+							alt="add activity"
+						/>
 					</FoodCardButton>
 				</FoodCardHead>
 				<FoodInfoContainer>

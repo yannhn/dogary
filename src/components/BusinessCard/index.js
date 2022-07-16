@@ -1,3 +1,4 @@
+import {Icon} from '@iconify/react';
 import {useState} from 'react';
 
 import FormModal from '../FormModal';
@@ -42,10 +43,22 @@ export default function BusinessCard() {
 							setShowHistory(!showHistory);
 						}}
 					>
-						{showHistory ? 'Hide History' : 'Show History'}
+						<Icon
+							icon="mdi:history"
+							width="2rem"
+							height="2rem"
+							color="white"
+							alt="show history"
+						/>
 					</button>
 					<BusinessCardButton onClick={() => setShowForm(!showForm)}>
-						{showForm ? '-' : '+'}
+						<Icon
+							icon="mdi:plus-circle"
+							width="2rem"
+							height="2rem"
+							color="white"
+							alt="add activity"
+						/>
 					</BusinessCardButton>
 				</BusinessCardHead>
 				<section>
