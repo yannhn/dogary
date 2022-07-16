@@ -56,7 +56,7 @@ export default function InputBusiness({addNewBusinessItem, cancelForm}) {
 							checked={smallBusiness}
 							onChange={() => setSmallBusiness(!smallBusiness)}
 						/>
-						<label htmlFor="checkbox-big">big </label>
+						<label htmlFor="checkbox-big">big</label>
 						<input
 							id="checkbox-big"
 							type="checkbox"
