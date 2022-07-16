@@ -1,7 +1,7 @@
 import {nanoid} from 'nanoid';
 import {useState} from 'react';
 
-import {InputInfoContainer, InfoForm, InfoImgPreview} from './styled';
+import {InputInfoContainer, InfoForm, InfoImgPreview, StyledPreviewContainer} from './styled';
 
 export default function InputImageForm({passInfo, cancelForm}) {
 	const [image, setImage] = useState('');
@@ -36,7 +36,9 @@ export default function InputImageForm({passInfo, cancelForm}) {
 				</section>
 				<section>
 					<h2>Image Preview</h2>
-					<InfoImgPreview src={image} alt="preview" width="250" height="250" />
+					<StyledPreviewContainer>
+						<InfoImgPreview src={image} alt="preview" width="auto" height="auto" />
+					</StyledPreviewContainer>
 				</section>
 				<button type="submit">Add</button>
 				<button type="button" onClick={cancelForm}>
