@@ -9,6 +9,7 @@ const InputFoodForm = styled.form`
 const InputFoodHeader = styled.h2`
 	display: flex;
 	justify-content: center;
+	border-bottom: 1px solid #343d46;
 `;
 
 const InputFoodSection = styled.section`
@@ -20,6 +21,7 @@ const InputFoodSection = styled.section`
 
 const InputFoodLabel = styled.label`
 	margin-bottom: 0.4em;
+	text-align: center;
 `;
 
 const InputFoodAmount = styled.input`

@@ -7,8 +7,8 @@ const ModalContainer = styled.section`
 	left: 0;
 	width: 100%;
 	height: 100%;
-	background: rgba(0, 0, 0, 0.5);
 	overflow: hidden;
+	background: rgba(0, 0, 0, 0.5);
 `;
 
 const Modal = styled.dialog`
@@ -19,12 +19,12 @@ const Modal = styled.dialog`
 	max-height: 80%;
 	margin: 0 auto;
 	padding: 1.4em;
+	overflow-y: auto;
 	transform: translate(0, -30%);
 	border: none;
 	border-radius: 5px;
 	background: #fff;
 	box-shadow: rgba(0, 0, 0, 0.24) 0 3px 8px;
-	overflow-y: auto;
 `;
 
 const StyledHistoryModalHeader = styled.section`
@@ -32,6 +32,7 @@ const StyledHistoryModalHeader = styled.section`
 	align-items: center;
 	justify-content: space-between;
 	border-bottom: 2px solid #343d46;
+	color: #343d46;
 `;
 
 const StyledHistoryModalButton = styled.button`

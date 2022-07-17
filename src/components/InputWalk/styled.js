@@ -9,6 +9,7 @@ const InputWalkForm = styled.form`
 const InputWalkHeader = styled.h2`
 	display: flex;
 	justify-content: center;
+	border-bottom: 1px solid #343d46;
 `;
 
 const InputWalkSection = styled.section`

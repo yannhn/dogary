@@ -13,7 +13,6 @@ export default function HistoryModal({children, onCancelHistoryForm}) {
 						Get back
 					</StyledHistoryModalButton>
 				</StyledHistoryModalHeader>
-
 				{children}
 			</Modal>
 		</ModalContainer>

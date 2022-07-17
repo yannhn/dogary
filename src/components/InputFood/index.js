@@ -45,7 +45,7 @@ export default function InputFood({addNewFoodItem, cancelForm}) {
 		<>
 			<InputFoodContainer>
 				<InputFoodForm onSubmit={submitHandler}>
-					<InputFoodHeader>Input food</InputFoodHeader>
+					<InputFoodHeader>Enter food</InputFoodHeader>
 					<InputFoodSection>
 						<InputFoodLabel htmlFor="food-amount-input">
 							How many gram did your dog eat?

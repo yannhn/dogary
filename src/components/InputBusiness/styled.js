@@ -6,6 +6,12 @@ const InputBusinessForm = styled.form`
 	padding: 0.2em 2em;
 `;
 
+const InputBusinessHeader = styled.h2`
+	display: flex;
+	justify-content: center;
+	border-bottom: 1px solid #343d46;
+`;
+
 const InputBusinessCheckboxSection = styled.section`
 	display: flex;
 	flex-direction: column;
@@ -18,6 +24,24 @@ const InputBusinessSection = styled.section`
 	flex-direction: column;
 	align-items: center;
 	margin-bottom: 1em;
+`;
+
+const InputBusinessLabel = styled.label`
+	margin-bottom: 0.4em;
+`;
+
+const InputBusinessTime = styled.input`
+	padding: 0.4em;
+	border: 1px solid black;
+	border-radius: 5px;
+	text-align: center;
+`;
+
+const InputBusinessDate = styled.input`
+	padding: 0.4em;
+	border: 1px solid black;
+	border-radius: 5px;
+	text-align: center;
 `;
 
 const InputBusinessButtonGroup = styled.section`
@@ -47,7 +71,11 @@ const LastSubmitText = styled.p`
 export {
 	InputBusinessContainer,
 	InputBusinessForm,
+	InputBusinessHeader,
+	InputBusinessLabel,
 	InputBusinessCheckboxSection,
+	InputBusinessTime,
+	InputBusinessDate,
 	InputBusinessSection,
 	InputBusinessButtonGroup,
 	LastSubmitSection,

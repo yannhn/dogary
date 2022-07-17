@@ -7,7 +7,11 @@ import CancelButton from '../Forms/Buttons/CancelButton';
 import {
 	InputBusinessContainer,
 	InputBusinessForm,
+	InputBusinessHeader,
 	InputBusinessCheckboxSection,
+	InputBusinessLabel,
+	InputBusinessTime,
+	InputBusinessDate,
 	InputBusinessSection,
 	InputBusinessButtonGroup,
 	LastSubmitSection,
@@ -52,27 +56,31 @@ export default function InputBusiness({addNewBusinessItem, cancelForm}) {
 		<>
 			<InputBusinessContainer>
 				<InputBusinessForm onSubmit={submitHandler}>
-					<h2>Your dogs business</h2>
+					<InputBusinessHeader>Enter business</InputBusinessHeader>
 					<InputBusinessCheckboxSection>
 						<p>Type of business</p>
-						<label htmlFor="checkbox-big">small</label>
-						<input
-							id="checkbox-big"
-							type="checkbox"
-							checked={smallBusiness}
-							onChange={() => setSmallBusiness(!smallBusiness)}
-						/>
-						<label htmlFor="checkbox-big">big</label>
-						<input
-							id="checkbox-big"
-							type="checkbox"
-							checked={bigBusiness}
-							onChange={() => setBigBusiness(!bigBusiness)}
-						/>
+						<section>
+							<label htmlFor="checkbox-big">small</label>
+							<input
+								id="checkbox-big"
+								type="checkbox"
+								checked={smallBusiness}
+								onChange={() => setSmallBusiness(!smallBusiness)}
+							/>
+							<label htmlFor="checkbox-big">big</label>
+							<input
+								id="checkbox-big"
+								type="checkbox"
+								checked={bigBusiness}
+								onChange={() => setBigBusiness(!bigBusiness)}
+							/>
+						</section>
 					</InputBusinessCheckboxSection>
 					<InputBusinessSection>
-						<label htmlFor="business-time">Time of business </label>
-						<input
+						<InputBusinessLabel htmlFor="business-time">
+							Time of business{' '}
+						</InputBusinessLabel>
+						<InputBusinessTime
 							id="business-time"
 							type="time"
 							defaultValue="08:00"
@@ -81,8 +89,10 @@ export default function InputBusiness({addNewBusinessItem, cancelForm}) {
 						/>
 					</InputBusinessSection>
 					<InputBusinessSection>
-						<label htmlFor="business-date">Date of Business</label>
-						<input
+						<InputBusinessLabel htmlFor="business-date">
+							Date of Business
+						</InputBusinessLabel>
+						<InputBusinessDate
 							id="business-date"
 							type="date"
 							min="2022-07-01"

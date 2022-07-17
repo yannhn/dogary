@@ -58,7 +58,7 @@ export default function InputWalk({addNewWalkItem, addCounter, cancelForm}) {
 		<>
 			<InputWalkContainer>
 				<InputWalkForm onSubmit={handleSubmit}>
-					<InputWalkHeader>Your dog-walks</InputWalkHeader>
+					<InputWalkHeader>Enter walks</InputWalkHeader>
 					<InputWalkSection>
 						<InputWalkLabel htmlFor="duration">
 							How long was your last walk?
