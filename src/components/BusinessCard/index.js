@@ -106,7 +106,7 @@ export default function BusinessCard() {
 									.map(businessItem => (
 										<section key={businessItem.id}>
 											<p>
-												What:{' '}
+												Type:{' '}
 												{businessItem.smallBusiness &&
 												businessItem.bigBusiness
 													? 'double business'

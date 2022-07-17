@@ -67,6 +67,7 @@ export default function InputWalk({addNewWalkItem, addCounter, cancelForm}) {
 							id="duration"
 							type="time"
 							value={enteredDuration}
+							required
 							onChange={event => setEnteredDuration(event.target.value)}
 						/>
 					</InputWalkSection>
@@ -78,6 +79,7 @@ export default function InputWalk({addNewWalkItem, addCounter, cancelForm}) {
 							id="startingTime"
 							type="time"
 							value={enteredStartTime}
+							required
 							onChange={event => setEnteredStartTime(event.target.value)}
 						/>
 					</InputWalkSection>
@@ -86,7 +88,7 @@ export default function InputWalk({addNewWalkItem, addCounter, cancelForm}) {
 						<InputWalkDate
 							id="date"
 							type="date"
-							min="2022-07-01"
+							min="2022-07-18"
 							max="2022-12-31"
 							required
 							onChange={event => setEnteredDate(event.target.value)}

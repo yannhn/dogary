@@ -31,7 +31,7 @@ const CancelButton = styled.button`
 	font-size: 1em;
 
 	&:hover {
-		background: #d8b;
+		background: #aa3936;
 	}
 
 	&:active {
@@ -48,7 +48,7 @@ const AddButton = styled.button`
 	font-size: 1em;
 
 	&:hover {
-		background: #d8b;
+		background: #559c93;
 	}
 
 	&:active {

@@ -4,6 +4,7 @@ import {useState} from 'react';
 import {
 	InputInfoContainer,
 	InfoForm,
+	InfoFormInput,
 	InfoImgPreview,
 	StyledPreviewContainer,
 	ButtonGroup,
@@ -34,13 +35,13 @@ export default function InputImageForm({passInfo, cancelForm}) {
 				<section>
 					<h2>Upload your cutest picture!</h2>
 					<label htmlFor="img-input">(Preferably of your dog.)</label>
-					<input
+					<InfoFormInput
 						id="img-input"
 						type="file"
 						accept=".png, .jpg, .jpeg"
 						required
 						onChange={imageChangeHandler}
-					></input>
+					/>
 				</section>
 				<section>
 					<h2>Picture Preview</h2>

@@ -41,6 +41,10 @@ const FoodCardButtonHistory = styled.button`
 	border: none;
 	background: #343d46;
 	cursor: pointer;
+
+	&:hover {
+		background: #1a1f24;
+	}
 `;
 
 const FoodCardButtonAdd = styled.button`
@@ -50,6 +54,10 @@ const FoodCardButtonAdd = styled.button`
 	border-bottom-right-radius: 5px;
 	background: #343d46;
 	cursor: pointer;
+
+	&:hover {
+		background: #1a1f24;
+	}
 `;
 
 export {

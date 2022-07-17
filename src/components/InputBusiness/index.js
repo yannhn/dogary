@@ -83,7 +83,7 @@ export default function InputBusiness({addNewBusinessItem, cancelForm}) {
 						<InputBusinessTime
 							id="business-time"
 							type="time"
-							defaultValue="08:00"
+							value={time}
 							required
 							onChange={event => setTime(event.target.value)}
 						/>
@@ -95,7 +95,7 @@ export default function InputBusiness({addNewBusinessItem, cancelForm}) {
 						<InputBusinessDate
 							id="business-date"
 							type="date"
-							min="2022-07-01"
+							min="2022-07-18"
 							max="2022-12-31"
 							required
 							onChange={event => setEnteredDate(event.target.value)}

@@ -37,7 +37,6 @@ export default function InputFood({addNewFoodItem, cancelForm}) {
 		setMessage(
 			`Your dog last ate ${newFoodInput.amount} gram at ${newFoodInput.time} o'clock on ${newFoodInput.date}! Your dog will forever be grateful!`
 		);
-		setEnteredTime('08:00');
 		setEnteredAmount(0);
 	};
 
@@ -78,8 +77,9 @@ export default function InputFood({addNewFoodItem, cancelForm}) {
 						<InputFoodDate
 							id="food-amount-date"
 							type="date"
-							min="2022-07-01"
+							min="2022-07-18"
 							max="2022-12-31"
+							value={enteredDate}
 							required
 							onChange={event => setEnteredDate(event.target.value)}
 						/>

@@ -8,6 +8,11 @@ const InfoForm = styled.form`
 	text-align: center;
 `;
 
+const InfoFormInput = styled.input`
+	margin: 1em 0 0 0;
+	text-align: center;
+`;
+
 const StyledPreviewContainer = styled.div`
 	display: flex;
 	justify-content: center;
@@ -37,7 +42,7 @@ const CancelButton = styled.button`
 	font-size: 1em;
 
 	&:hover {
-		background: #d8b;
+		background: #aa3936;
 	}
 
 	&:active {
@@ -54,7 +59,7 @@ const AddButton = styled.button`
 	font-size: 1em;
 
 	&:hover {
-		background: #d8b;
+		background: #559c93;
 	}
 
 	&:active {
@@ -65,6 +70,7 @@ const AddButton = styled.button`
 export {
 	InputInfoContainer,
 	InfoForm,
+	InfoFormInput,
 	InfoImgPreview,
 	StyledPreviewContainer,
 	CancelButton,
