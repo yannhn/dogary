@@ -4,7 +4,14 @@ import {useState} from 'react';
 import AddButton from '../Forms/Buttons/AddButton';
 import CancelButton from '../Forms/Buttons/CancelButton';
 
-import {InputBusinessContainer, InputBusinessForm, InputBusinessButtonGroup} from './styled';
+import {
+	InputBusinessContainer,
+	InputBusinessForm,
+	InputBusinessCheckboxSection,
+	InputBusinessSection,
+	InputBusinessButtonGroup,
+	LastSubmitSection,
+} from './styled';
 
 export default function InputBusiness({addNewBusinessItem, cancelForm}) {
 	const [smallBusiness, setSmallBusiness] = useState(false);
@@ -44,7 +51,7 @@ export default function InputBusiness({addNewBusinessItem, cancelForm}) {
 			<InputBusinessContainer>
 				<InputBusinessForm onSubmit={submitHandler}>
 					<h2>Your dogs business</h2>
-					<section>
+					<InputBusinessCheckboxSection>
 						<p>Type of business</p>
 						<label htmlFor="checkbox-big">small</label>
 						<input
@@ -60,8 +67,8 @@ export default function InputBusiness({addNewBusinessItem, cancelForm}) {
 							checked={bigBusiness}
 							onChange={() => setBigBusiness(!bigBusiness)}
 						/>
-					</section>
-					<section>
+					</InputBusinessCheckboxSection>
+					<InputBusinessSection>
 						<label htmlFor="business-time">Time of business </label>
 						<input
 							id="business-time"
@@ -70,8 +77,8 @@ export default function InputBusiness({addNewBusinessItem, cancelForm}) {
 							required
 							onChange={event => setTime(event.target.value)}
 						/>
-					</section>
-					<section>
+					</InputBusinessSection>
+					<InputBusinessSection>
 						<label htmlFor="business-date">Date of Business</label>
 						<input
 							id="business-date"
@@ -81,16 +88,16 @@ export default function InputBusiness({addNewBusinessItem, cancelForm}) {
 							required
 							onChange={event => setEnteredDate(event.target.value)}
 						/>
-					</section>
+					</InputBusinessSection>
 					<InputBusinessButtonGroup>
 						<CancelButton buttonText={'Cancel'} type="button" cancelForm={cancelForm} />
 						<AddButton buttonText={'Add business'} type="submit" />
 					</InputBusinessButtonGroup>
 				</InputBusinessForm>
-				<section>
+				<LastSubmitSection>
 					<h3>Last submit</h3>
 					<p>{message}</p>
-				</section>
+				</LastSubmitSection>
 			</InputBusinessContainer>
 		</>
 	);

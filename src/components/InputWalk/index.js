@@ -4,7 +4,18 @@ import {useState} from 'react';
 import AddButton from '../Forms/Buttons/AddButton';
 import CancelButton from '../Forms/Buttons/CancelButton';
 
-import {InputWalkContainer, InputWalkForm, InputWalkButtonGroup} from './styled';
+import {
+	InputWalkContainer,
+	InputWalkForm,
+	InputWalkHeader,
+	InputWalkSection,
+	InputWalkLabel,
+	InputWalkDuration,
+	InputWalkStartingTime,
+	InputWalkDate,
+	InputWalkButtonGroup,
+	LastSubmitSection,
+} from './styled';
 
 export default function InputWalk({addNewWalkItem, addCounter, cancelForm}) {
 	const [enteredDuration, setEnteredDuration] = useState('00:00');
@@ -45,25 +56,32 @@ export default function InputWalk({addNewWalkItem, addCounter, cancelForm}) {
 		<>
 			<InputWalkContainer>
 				<InputWalkForm onSubmit={handleSubmit}>
-					<h2>Your dog-walks</h2>
-					<section>
-						<label htmlFor="duration">How long was your last walk?</label>
-						<input
+					<InputWalkHeader>Your dog-walks</InputWalkHeader>
+					<InputWalkSection>
+						<InputWalkLabel htmlFor="duration">
+							How long was your last walk?
+						</InputWalkLabel>
+						<InputWalkDuration
 							id="duration"
 							type="time"
 							value={enteredDuration}
 							onChange={event => setEnteredDuration(event.target.value)}
-						></input>
-						<p>-AND-</p>
-						<label htmlFor="startingTime">At what time started your last walk?</label>
-						<input
+						/>
+					</InputWalkSection>
+					<InputWalkSection>
+						<InputWalkLabel htmlFor="startingTime">
+							At what time started your last walk?
+						</InputWalkLabel>
+						<InputWalkStartingTime
 							id="startingTime"
 							type="time"
 							value={enteredStartTime}
 							onChange={event => setEnteredStartTime(event.target.value)}
-						></input>
-						<label htmlFor="date">When started your last walk?</label>
-						<input
+						/>
+					</InputWalkSection>
+					<InputWalkSection>
+						<InputWalkLabel htmlFor="date">When started your last walk?</InputWalkLabel>
+						<InputWalkDate
 							id="date"
 							type="date"
 							min="2022-07-01"
@@ -71,16 +89,16 @@ export default function InputWalk({addNewWalkItem, addCounter, cancelForm}) {
 							required
 							onChange={event => setEnteredDate(event.target.value)}
 						/>
-					</section>
+					</InputWalkSection>
 					<InputWalkButtonGroup>
 						<CancelButton buttonText={'Cancel'} type="button" cancelForm={cancelForm} />
-						<AddButton type="submit">add walk</AddButton>
+						<AddButton buttonText={'Add walk'} type="submit" />
 					</InputWalkButtonGroup>
 				</InputWalkForm>
-				<section>
+				<LastSubmitSection>
 					<h3>Last submit</h3>
 					<p>{message}</p>
-				</section>
+				</LastSubmitSection>
 			</InputWalkContainer>
 		</>
 	);

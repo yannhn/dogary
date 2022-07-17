@@ -1,13 +1,25 @@
 import styled from 'styled-components';
 
 const InputBusinessContainer = styled.section`
-	padding: 0.2em 1em;
-	border: 1px solid black;
-	border-radius: 10px;
+	padding: 0.2em 2em;
 `;
 
 const InputBusinessForm = styled.form`
-	text-align: center;
+	margin-bottom: 2em;
+`;
+
+const InputBusinessCheckboxSection = styled.section`
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	margin-bottom: 1em;
+`;
+
+const InputBusinessSection = styled.section`
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	margin-bottom: 1em;
 `;
 
 const InputBusinessButtonGroup = styled.section`
@@ -16,4 +28,16 @@ const InputBusinessButtonGroup = styled.section`
 	margin-top: 1em;
 `;
 
-export {InputBusinessContainer, InputBusinessForm, InputBusinessButtonGroup};
+const LastSubmitSection = styled.section`
+	border: 1px solid black;
+	border-radius: 5px;
+`;
+
+export {
+	InputBusinessContainer,
+	InputBusinessForm,
+	InputBusinessCheckboxSection,
+	InputBusinessSection,
+	InputBusinessButtonGroup,
+	LastSubmitSection,
+};
