@@ -1,6 +1,9 @@
 import {nanoid} from 'nanoid';
 import {useState} from 'react';
 
+import AddButton from '../Forms/Buttons/AddButton';
+import CancelButton from '../Forms/Buttons/CancelButton';
+
 import {
 	InputFoodContainer,
 	InputFoodForm,
@@ -11,8 +14,6 @@ import {
 	InputFoodTime,
 	InputFoodDate,
 	InputFoodButtonGroup,
-	CancelButton,
-	AddButton,
 	LastSubmitSection,
 } from './styled';
 
@@ -82,10 +83,8 @@ export default function InputFood({addNewFoodItem, cancelForm}) {
 						/>
 					</InputFoodSection>
 					<InputFoodButtonGroup>
-						<CancelButton type="button" onClick={cancelForm}>
-							Cancel
-						</CancelButton>
-						<AddButton type="submit">Add food</AddButton>
+						<CancelButton buttonText={'Cancel'} type="button" cancelForm={cancelForm} />
+						<AddButton buttonText={'Add food'} type="submit" />
 					</InputFoodButtonGroup>
 				</InputFoodForm>
 				<LastSubmitSection>

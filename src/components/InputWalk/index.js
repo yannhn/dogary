@@ -1,13 +1,10 @@
 import {nanoid} from 'nanoid';
 import {useState} from 'react';
 
-import {
-	InputWalkContainer,
-	InputWalkForm,
-	InputWalkButtonGroup,
-	CancelButton,
-	AddButton,
-} from './styled';
+import AddButton from '../Forms/Buttons/AddButton';
+import CancelButton from '../Forms/Buttons/CancelButton';
+
+import {InputWalkContainer, InputWalkForm, InputWalkButtonGroup} from './styled';
 
 export default function InputWalk({addNewWalkItem, addCounter, cancelForm}) {
 	const [enteredDuration, setEnteredDuration] = useState('00:00');
@@ -76,9 +73,7 @@ export default function InputWalk({addNewWalkItem, addCounter, cancelForm}) {
 						/>
 					</section>
 					<InputWalkButtonGroup>
-						<CancelButton type="button" onClick={cancelForm}>
-							cancel
-						</CancelButton>
+						<CancelButton buttonText={'Cancel'} type="button" cancelForm={cancelForm} />
 						<AddButton type="submit">add walk</AddButton>
 					</InputWalkButtonGroup>
 				</InputWalkForm>

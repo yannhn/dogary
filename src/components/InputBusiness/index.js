@@ -1,13 +1,10 @@
 import {nanoid} from 'nanoid';
 import {useState} from 'react';
 
-import {
-	InputBusinessContainer,
-	InputBusinessForm,
-	InputBusinessButtonGroup,
-	CancelButton,
-	AddButton,
-} from './styled';
+import AddButton from '../Forms/Buttons/AddButton';
+import CancelButton from '../Forms/Buttons/CancelButton';
+
+import {InputBusinessContainer, InputBusinessForm, InputBusinessButtonGroup} from './styled';
 
 export default function InputBusiness({addNewBusinessItem, cancelForm}) {
 	const [smallBusiness, setSmallBusiness] = useState(false);
@@ -86,10 +83,8 @@ export default function InputBusiness({addNewBusinessItem, cancelForm}) {
 						/>
 					</section>
 					<InputBusinessButtonGroup>
-						<CancelButton type="button" onClick={cancelForm}>
-							cancel
-						</CancelButton>
-						<AddButton type="submit">add business</AddButton>
+						<CancelButton buttonText={'Cancel'} type="button" cancelForm={cancelForm} />
+						<AddButton buttonText={'Add business'} type="submit" />
 					</InputBusinessButtonGroup>
 				</InputBusinessForm>
 				<section>
