@@ -4,26 +4,29 @@ import styled from 'styled-components';
 const FooterContainer = styled.footer`
 	position: relative;
 	z-index: 1;
-	margin-top: 4em;
+	margin-top: 6em;
 `;
 
 const FooterNav = styled.nav`
 	display: flex;
 	position: fixed;
 	bottom: 0;
+	align-items: center;
 	justify-content: space-around;
 	width: 100%;
+	border-top-left-radius: 10px;
+	border-top-right-radius: 10px;
 	background-color: #1f2b4d;
 `;
 
 const FooterNavItems = styled(NavLink)`
-	list-style-type: none;
-	color: white;
-	font-size: 2rem;
-	text-decoration: none;
+	display: flex;
+	align-items: center;
+	justify-content: space-around;
+	padding: 0.8em;
 
 	&:hover {
-		color: lightblue;
+		color: #ea2001;
 	}
 	&.active {
 		color: #ffbaa5;

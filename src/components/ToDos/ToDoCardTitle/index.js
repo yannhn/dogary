@@ -3,7 +3,7 @@ import {ToDoCardHeading} from './styled';
 export default function ToDoCardTitle() {
 	return (
 		<>
-			<ToDoCardHeading>ToDo</ToDoCardHeading>
+			<ToDoCardHeading>ToDo(g)s</ToDoCardHeading>
 		</>
 	);
 }

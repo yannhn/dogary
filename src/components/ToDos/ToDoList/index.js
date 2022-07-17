@@ -2,10 +2,7 @@ import {useState} from 'react';
 
 import NewToDoForm from '../NewToDoForm';
 import ToDo from '../ToDo';
-import ToDoCardTitle from '../ToDoCardTitle';
 import ToDoFilterSection from '../ToDoFilterSection';
-
-import {ToDoListContainer} from './styled';
 
 export default function ToDoList() {
 	const [toDos, setToDos] = useState([]);
@@ -68,8 +65,7 @@ export default function ToDoList() {
 	}
 
 	return (
-		<ToDoListContainer>
-			<ToDoCardTitle />
+		<section>
 			<ToDoFilterSection onChangeStatus={newStatus => setStatus(newStatus)} />
 			<NewToDoForm addNewToDo={addNewToDo} />
 			{filteredToDo.map(todo => (
@@ -85,6 +81,6 @@ export default function ToDoList() {
 					urgentToDo={() => urgentToDo(todo.id)}
 				/>
 			))}
-		</ToDoListContainer>
+		</section>
 	);
 }
