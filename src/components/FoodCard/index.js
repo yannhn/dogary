@@ -1,17 +1,18 @@
 import {Icon} from '@iconify/react';
 import {useState} from 'react';
 
-import BackgroundHistory from '../BackgroundHistory';
+import FoodGoalModal from '../FoodGoalModal';
 import FormModal from '../FormModal';
 import HistoryModal from '../HistoryModal';
 import InputFood from '../InputFood/index.js';
-import InputGoalButton from '../InputGoalButton';
+import InputGoalForm from '../InputGoalForm';
 
 import {
 	FoodCardContainer,
 	FoodInfoContainer,
 	FoodCardHeaderGroup,
 	FoodCardButtonGroup,
+	FoodCardButtonGoal,
 	FoodCardButtonHistory,
 	FoodCardButtonAdd,
 } from './styled';
@@ -19,6 +20,7 @@ import {
 export default function FoodCard({goalAmount}) {
 	const [showForm, setShowForm] = useState(false);
 	const [showHistory, setShowHistory] = useState(false);
+	const [showGoal, setShowGoal] = useState(false);
 	const [foodItems, setFoodItems] = useState([]);
 
 	const dates = foodItems.map(foodItem => foodItem.date);
@@ -37,6 +39,10 @@ export default function FoodCard({goalAmount}) {
 		setShowHistory(!showHistory);
 	};
 
+	const onCancelGoalForm = () => {
+		setShowHistory(!showHistory);
+	};
+
 	const lastSubmit = foodItems[foodItems.length - 1];
 
 	const foodSum = foodItems.reduce(
@@ -51,7 +57,15 @@ export default function FoodCard({goalAmount}) {
 					<FoodCardHeaderGroup>
 						<h2>Food</h2>
 						<FoodCardButtonGroup>
-							<InputGoalButton />
+							<FoodCardButtonGoal onClick={() => setShowGoal(!showGoal)}>
+								<Icon
+									icon="mdi:bullseye-arrow"
+									width="1.6rem"
+									height="1.6rem"
+									color="white"
+									alt="add activity"
+								/>
+							</FoodCardButtonGoal>
 							<FoodCardButtonHistory
 								onClick={() => {
 									setShowHistory(!showHistory);
@@ -80,7 +94,7 @@ export default function FoodCard({goalAmount}) {
 							</FoodCardButtonAdd>
 						</FoodCardButtonGroup>
 					</FoodCardHeaderGroup>
-					<p>A dogs gotta eat</p>
+					<p>Dogs gotta eat</p>
 				</FoodInfoContainer>
 				{goalAmount && <p>Goal: {goalAmount} gram</p>}
 				{lastSubmit && goalAmount ? (
@@ -99,12 +113,14 @@ export default function FoodCard({goalAmount}) {
 					</FoodInfoContainer>
 				) : (
 					lastSubmit && (
-						<FoodInfoContainer>
+						<section>
+							<section>
+								<h4>Last feed</h4>
+								<p>Amount: {lastSubmit.amount} gram</p>
+								<p>Time: {lastSubmit.time}</p>
+							</section>
 							<p>Todays sum: {foodSum} gram</p>
-							<h4>Last Input</h4>
-							<p>How much {lastSubmit.amount} gram</p>
-							<p>At: {lastSubmit.time}</p>
-						</FoodInfoContainer>
+						</section>
 					)
 				)}
 			</FoodCardContainer>
@@ -115,7 +131,6 @@ export default function FoodCard({goalAmount}) {
 			)}
 			{showHistory && (
 				<HistoryModal onCancelHistoryForm={onCancelHistoryForm}>
-					<BackgroundHistory />
 					{uniqueDates
 						.sort((a, b) => new Date(b) - new Date(a))
 						.map(date => (
@@ -125,13 +140,18 @@ export default function FoodCard({goalAmount}) {
 									.filter(food => food.date === date)
 									.map(food => (
 										<section key={food.id}>
-											<p>Amount: {food.amount}</p>
-											<p>When: {food.time}</p>
+											<p>Amount: {food.amount} gram</p>
+											<p>Time: {food.time}</p>
 										</section>
 									))}
 							</section>
 						))}
 				</HistoryModal>
+			)}
+			{showGoal && (
+				<FoodGoalModal>
+					<InputGoalForm onCancelGoalForm={onCancelGoalForm}></InputGoalForm>
+				</FoodGoalModal>
 			)}
 		</>
 	);

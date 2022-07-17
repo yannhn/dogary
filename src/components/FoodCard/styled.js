@@ -27,16 +27,25 @@ const FoodCardButtonGroup = styled.section`
 	justify-content: flex-end;
 `;
 
-const FoodCardButtonHistory = styled.button`
-	border: none;
+const FoodCardButtonGoal = styled.button`
 	padding: 0.4em 0.6em;
+	border: none;
+	border-top-left-radius: 5px;
+	border-bottom-left-radius: 5px;
+	background: #343d46;
+	cursor: pointer;
+`;
+
+const FoodCardButtonHistory = styled.button`
+	padding: 0.4em 0.6em;
+	border: none;
 	background: #343d46;
 	cursor: pointer;
 `;
 
 const FoodCardButtonAdd = styled.button`
-	border: none;
 	padding: 0.4em 0.6em;
+	border: none;
 	border-top-right-radius: 5px;
 	border-bottom-right-radius: 5px;
 	background: #343d46;
@@ -48,6 +57,7 @@ export {
 	FoodInfoContainer,
 	FoodCardHeaderGroup,
 	FoodCardButtonGroup,
+	FoodCardButtonGoal,
 	FoodCardButtonHistory,
 	FoodCardButtonAdd,
 };

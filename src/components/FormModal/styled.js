@@ -14,7 +14,7 @@ const Modal = styled.dialog`
 	position: fixed;
 	z-index: 2;
 	top: 30%;
-	margin: 0 1em;
+	margin: 0 auto;
 	padding: 1em;
 	transform: translate(0, -30%);
 	border: none;

@@ -72,6 +72,7 @@ export default function BusinessCard() {
 				</BusinessInfoContainer>
 				{lastSubmit && (
 					<section>
+						<h4>Last business</h4>
 						<p>
 							{lastSubmit.smallBusiness && lastSubmit.bigBusiness
 								? 'double business'

@@ -12,7 +12,7 @@ import {
 	InputGoalButtonGroup,
 } from './styled';
 
-export default function InputGoalForm({addNewAmount, cancelForm}) {
+export default function InputGoalForm({cancelForm, onCancelGoalForm}) {
 	const [amount, setAmount] = useState(0);
 
 	const submitHandler = event => {
@@ -20,7 +20,7 @@ export default function InputGoalForm({addNewAmount, cancelForm}) {
 		const newAmount = {
 			amount: amount,
 		};
-		addNewAmount(newAmount);
+
 		setAmount(0);
 	};
 
@@ -40,8 +40,14 @@ export default function InputGoalForm({addNewAmount, cancelForm}) {
 				/>
 			</InputGoalSection>
 			<InputGoalButtonGroup>
+				<button type="button" onCancelGoalForm={onCancelGoalForm}>
+					Get back
+				</button>
+				<button type="button" onCancelGoalForm={onCancelGoalForm}>
+					Get back
+				</button>
 				<CancelButton type="button" buttonText={'Cancel'} cancelForm={cancelForm} />
-				<AddButton type="submit" buttonText={'Add food goal'} cancelForm={cancelForm} />
+				<AddButton type="submit" buttonText={'Add food goal'} onClick={cancelForm} />
 			</InputGoalButtonGroup>
 		</GoalForm>
 	);

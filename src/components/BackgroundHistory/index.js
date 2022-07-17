@@ -14,29 +14,33 @@ const Shape1 = styled.div`
 	position: absolute;
 	z-index: -1;
 	top: 0;
-	width: 10px;
-	height: 10px;
+	right: 10%;
+	width: 45px;
+	height: 45px;
 	border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
-	background-color: #ffbaa5;
+	opacity: 0.2;
+	background-color: #b9e6ff;
 `;
 
 const Shape2 = styled.div`
 	position: absolute;
 	z-index: -1;
-	bottom: 0;
-	width: 150px;
-	height: 120px;
+	bottom: 50%;
+	width: 75px;
+	height: 80px;
 	border-radius: 30% 70% 29% 71% / 30% 75% 25% 70%;
-	background-color: #ffbaa5;
+	opacity: 0.2;
+	background-color: #b9e6ff;
 `;
 
 const Shape3 = styled.div`
 	position: absolute;
 	z-index: -1;
-	right: 10%;
-	bottom: 10%;
-	width: 150px;
-	height: 120px;
+	right: 0%;
+	bottom: 0%;
+	width: 75px;
+	height: 60px;
 	border-radius: 62% 38% 29% 71% / 74% 35% 65% 26%;
-	background-color: #ffbaa5;
+	opacity: 0.2;
+	background-color: #b9e6ff;
 `;
