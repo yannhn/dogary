@@ -13,9 +13,12 @@ export default function Calendar() {
 					plugins={[dayGridPlugin, listPlugin, interactionPlugin]}
 					firstDay={1}
 					headerToolbar={{
-						left: 'dayGridMonth',
+						left: 'prev',
 						center: 'title',
-						right: 'prev,next,today',
+						right: 'next',
+					}}
+					footerToolbar={{
+						left: 'dayGridMonth,today',
 					}}
 					navLinks={true}
 					initialView="dayGridMonth"
@@ -23,20 +26,17 @@ export default function Calendar() {
 						{
 							id: 'a',
 							start: '2022-07-04',
-							title: 'e1',
-							display: 'background',
+							title: 'dentist',
 						},
 						{
 							id: 'b',
 							start: '2022-07-08',
-							title: 'e2',
-							display: 'background',
+							title: 'veterinarian',
 						},
 						{
 							id: 'c',
 							start: '2022-07-15',
-							title: 'e3',
-							display: 'background',
+							title: 'puppy school',
 						},
 					]}
 				/>
