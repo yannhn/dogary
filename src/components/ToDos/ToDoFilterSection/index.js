@@ -10,9 +10,9 @@ export default function ToDoFilterSection({onChangeStatus}) {
 			<StyledFilterLabel>Filter your ToDos</StyledFilterLabel>
 			<StyledFilterSelect onChange={statusHandler}>
 				<option value="all">All</option>
-				<option value="uncompleted">open</option>
-				<option value="urgent">urgent</option>
-				<option value="completed">completed</option>
+				<option value="uncompleted">Open</option>
+				<option value="urgent">Urgent</option>
+				<option value="completed">Completed</option>
 			</StyledFilterSelect>
 		</StyledFilterContainer>
 	);

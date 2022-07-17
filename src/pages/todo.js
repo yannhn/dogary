@@ -1,7 +1,7 @@
 import {Helmet} from 'react-helmet';
 
 import Layout from '../components/Layout';
-import ToDoList from '../components/ToDos/ToDoList';
+import ToDoCard from '../components/ToDos/ToDoCard';
 import Header from '../components/UI/Header';
 
 export default function ToDoPage() {
@@ -12,7 +12,7 @@ export default function ToDoPage() {
 				<meta key="description" name="description" content="Calendar" />
 			</Helmet>
 			<Header heading={'Doggo daily'} />
-			<ToDoList />
+			<ToDoCard />
 		</Layout>
 	);
 }
