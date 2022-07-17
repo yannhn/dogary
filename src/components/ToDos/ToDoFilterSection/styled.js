@@ -4,16 +4,18 @@ const StyledFilterContainer = styled.section`
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
-	width: 100%;
 	margin: 1rem 0;
+	border-bottom: 1px solid white;
 `;
 
 const StyledFilterLabel = styled.label`
+	align-self: flex-end;
 	color: white;
 	font-weight: bold;
 `;
 
 const StyledFilterSelect = styled.select`
+	margin-bottom: 0.2em;
 	padding: 0.4rem 0.4rem;
 	border: none;
 	border-radius: 5px;
