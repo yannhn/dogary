@@ -17,6 +17,32 @@ const InputFoodSection = styled.section`
 	display: flex;
 	flex-direction: column;
 	align-items: center;
+	margin-bottom: 1em;
+`;
+
+const InputFoodLabel = styled.label`
+	margin-bottom: 0.4em;
+`;
+
+const InputFoodAmount = styled.input`
+	padding: 0.4em;
+	border: 1px solid black;
+	border-radius: 5px;
+	text-align: center;
+`;
+
+const InputFoodTime = styled.input`
+	padding: 0.4em;
+	border: 1px solid black;
+	border-radius: 5px;
+	text-align: center;
+`;
+
+const InputFoodDate = styled.input`
+	padding: 0.4em;
+	border: 1px solid black;
+	border-radius: 5px;
+	text-align: center;
 `;
 
 const InputFoodButtonGroup = styled.section`
@@ -32,6 +58,7 @@ const CancelButton = styled.button`
 	background: #c3423f;
 	color: #fff;
 	font-size: 1em;
+	cursor: pointer;
 
 	&:hover {
 		background: #d8b;
@@ -49,6 +76,7 @@ const AddButton = styled.button`
 	background: #64b6ac;
 	color: #fff;
 	font-size: 1em;
+	cursor: pointer;
 
 	&:hover {
 		background: #d8b;
@@ -73,4 +101,8 @@ export {
 	CancelButton,
 	AddButton,
 	LastSubmitSection,
+	InputFoodLabel,
+	InputFoodAmount,
+	InputFoodTime,
+	InputFoodDate,
 };

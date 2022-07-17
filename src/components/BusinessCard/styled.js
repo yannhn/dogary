@@ -33,6 +33,7 @@ const BusinessCardButtonHistory = styled.button`
 	background: #343d46;
 	border-top-left-radius: 5px;
 	border-bottom-left-radius: 5px;
+	cursor: pointer;
 `;
 
 const BusinessCardButtonAdd = styled.button`
@@ -41,6 +42,7 @@ const BusinessCardButtonAdd = styled.button`
 	border-top-right-radius: 5px;
 	border-bottom-right-radius: 5px;
 	background: #343d46;
+	cursor: pointer;
 `;
 
 export {

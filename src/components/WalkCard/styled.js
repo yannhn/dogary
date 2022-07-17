@@ -1,7 +1,5 @@
 import styled from 'styled-components';
 
-import {pxToRem} from '../../utils/unit';
-
 const WalkCardContainer = styled.section`
 	margin: 2em;
 	padding: 1em 1em;
@@ -35,6 +33,7 @@ const WalkCardButtonAdd = styled.button`
 	border-top-right-radius: 5px;
 	border-bottom-right-radius: 5px;
 	background: #343d46;
+	cursor: pointer;
 `;
 
 const BusinessCardButtonHistory = styled.button`
@@ -43,6 +42,7 @@ const BusinessCardButtonHistory = styled.button`
 	background: #343d46;
 	border-top-left-radius: 5px;
 	border-bottom-left-radius: 5px;
+	cursor: pointer;
 `;
 
 export {

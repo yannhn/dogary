@@ -35,6 +35,7 @@ const FoodCardButtonHistory = styled.button`
 	border: none;
 	padding: 0.4em 0.6em;
 	background: #343d46;
+	cursor: pointer;
 `;
 
 const FoodCardButtonAdd = styled.button`
@@ -43,6 +44,7 @@ const FoodCardButtonAdd = styled.button`
 	border-top-right-radius: 5px;
 	border-bottom-right-radius: 5px;
 	background: #343d46;
+	cursor: pointer;
 `;
 
 export {

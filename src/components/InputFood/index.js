@@ -6,6 +6,10 @@ import {
 	InputFoodForm,
 	InputFoodHeader,
 	InputFoodSection,
+	InputFoodLabel,
+	InputFoodAmount,
+	InputFoodTime,
+	InputFoodDate,
 	InputFoodButtonGroup,
 	CancelButton,
 	AddButton,
@@ -40,8 +44,10 @@ export default function InputFood({addNewFoodItem, cancelForm}) {
 				<InputFoodForm onSubmit={submitHandler}>
 					<InputFoodHeader>Input food</InputFoodHeader>
 					<InputFoodSection>
-						<label htmlFor="food-amount-input">How many gram did your dog eat?</label>
-						<input
+						<InputFoodLabel htmlFor="food-amount-input">
+							How many gram did your dog eat?
+						</InputFoodLabel>
+						<InputFoodAmount
 							id="food-amount-input"
 							type="number"
 							min="0"
@@ -51,8 +57,10 @@ export default function InputFood({addNewFoodItem, cancelForm}) {
 						/>
 					</InputFoodSection>
 					<InputFoodSection>
-						<label htmlFor="food-amount-time">At what time did your dog eat? </label>
-						<input
+						<InputFoodLabel htmlFor="food-amount-time">
+							At what time did your dog eat?{' '}
+						</InputFoodLabel>
+						<InputFoodTime
 							id="food-amount-time"
 							type="time"
 							value={enteredTime}
@@ -61,8 +69,10 @@ export default function InputFood({addNewFoodItem, cancelForm}) {
 						/>
 					</InputFoodSection>
 					<InputFoodSection>
-						<label htmlFor="food-amount-date">When did your dog eat?</label>
-						<input
+						<InputFoodLabel htmlFor="food-amount-date">
+							When did your dog eat?
+						</InputFoodLabel>
+						<InputFoodDate
 							id="food-amount-date"
 							type="date"
 							min="2022-07-01"

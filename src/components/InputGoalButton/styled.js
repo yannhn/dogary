@@ -6,6 +6,7 @@ const FoodCardButtonGoal = styled.button`
 	border-top-left-radius: 5px;
 	border-bottom-left-radius: 5px;
 	background: #343d46;
+	cursor: pointer;
 `;
 
 export {FoodCardButtonGoal};

@@ -23,7 +23,7 @@ const CancelButton = styled.button`
 	background: #c3423f;
 	color: #fff;
 	font-size: 1em;
-
+	cursor: pointer;
 	&:hover {
 		background: #d8b;
 	}
@@ -40,7 +40,7 @@ const AddButton = styled.button`
 	background: #64b6ac;
 	color: #fff;
 	font-size: 1em;
-
+	cursor: pointer;
 	&:hover {
 		background: #d8b;
 	}
