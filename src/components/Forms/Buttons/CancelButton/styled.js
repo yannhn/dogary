@@ -9,7 +9,7 @@ const StyledCancelButton = styled.button`
 	font-size: 1em;
 	cursor: pointer;
 	&:hover {
-		background: #d8b;
+		background: #aa3936;
 	}
 
 	&:active {

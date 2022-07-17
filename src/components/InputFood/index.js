@@ -15,6 +15,8 @@ import {
 	InputFoodDate,
 	InputFoodButtonGroup,
 	LastSubmitSection,
+	LastSubmitHeading,
+	LastSubmitText,
 } from './styled';
 
 export default function InputFood({addNewFoodItem, cancelForm}) {
@@ -87,10 +89,12 @@ export default function InputFood({addNewFoodItem, cancelForm}) {
 						<AddButton buttonText={'Add food'} type="submit" />
 					</InputFoodButtonGroup>
 				</InputFoodForm>
-				<LastSubmitSection>
-					<h3>Last submit</h3>
-					<p>{message}</p>
-				</LastSubmitSection>
+				{message && (
+					<LastSubmitSection>
+						<LastSubmitHeading>Good job!</LastSubmitHeading>
+						<LastSubmitText>{message}</LastSubmitText>
+					</LastSubmitSection>
+				)}
 			</InputFoodContainer>
 		</>
 	);

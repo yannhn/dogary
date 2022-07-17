@@ -15,6 +15,8 @@ import {
 	InputWalkDate,
 	InputWalkButtonGroup,
 	LastSubmitSection,
+	LastSubmitHeading,
+	LastSubmitText,
 } from './styled';
 
 export default function InputWalk({addNewWalkItem, addCounter, cancelForm}) {
@@ -95,10 +97,12 @@ export default function InputWalk({addNewWalkItem, addCounter, cancelForm}) {
 						<AddButton buttonText={'Add walk'} type="submit" />
 					</InputWalkButtonGroup>
 				</InputWalkForm>
-				<LastSubmitSection>
-					<h3>Last submit</h3>
-					<p>{message}</p>
-				</LastSubmitSection>
+				{message && (
+					<LastSubmitSection>
+						<LastSubmitHeading>Good job!</LastSubmitHeading>
+						<LastSubmitText>{message}</LastSubmitText>
+					</LastSubmitSection>
+				)}
 			</InputWalkContainer>
 		</>
 	);

@@ -11,6 +11,8 @@ import {
 	InputBusinessSection,
 	InputBusinessButtonGroup,
 	LastSubmitSection,
+	LastSubmitHeading,
+	LastSubmitText,
 } from './styled';
 
 export default function InputBusiness({addNewBusinessItem, cancelForm}) {
@@ -94,10 +96,12 @@ export default function InputBusiness({addNewBusinessItem, cancelForm}) {
 						<AddButton buttonText={'Add business'} type="submit" />
 					</InputBusinessButtonGroup>
 				</InputBusinessForm>
-				<LastSubmitSection>
-					<h3>Last submit</h3>
-					<p>{message}</p>
-				</LastSubmitSection>
+				{message && (
+					<LastSubmitSection>
+						<LastSubmitHeading>Good job!</LastSubmitHeading>
+						<LastSubmitText>{message}</LastSubmitText>
+					</LastSubmitSection>
+				)}
 			</InputBusinessContainer>
 		</>
 	);

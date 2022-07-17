@@ -10,7 +10,7 @@ const StyledAddButton = styled.button`
 	cursor: pointer;
 
 	&:hover {
-		background: #d8b;
+		background: #559c93;
 	}
 
 	&:active {

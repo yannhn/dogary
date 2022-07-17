@@ -1,5 +1,6 @@
 import {Helmet} from 'react-helmet';
 
+import BackgroundHome from '../components/BackgroundHome';
 import BusinessCard from '../components/BusinessCard';
 import DogInfoBar from '../components/DogInfo/DogInfoBar';
 import FoodCard from '../components/FoodCard';
@@ -13,6 +14,7 @@ export default function HomePage() {
 				<title key="title">My Project</title>
 				<meta key="description" name="description" content="This is my project" />
 			</Helmet>
+			<BackgroundHome />
 			<DogInfoBar />
 			<FoodCard />
 			<WalkCard />

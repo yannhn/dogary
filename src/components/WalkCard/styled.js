@@ -6,7 +6,7 @@ const WalkCardContainer = styled.section`
 	border: none;
 	border-radius: 5px;
 	background-color: white;
-	box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px; // 1 bei box-shadow
+	box-shadow: rgba(100, 100, 111, 0.2) 0 7px 29px 0;
 `;
 
 const WalkInfoContainer = styled.section`

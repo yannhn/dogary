@@ -79,9 +79,9 @@ export default function WalkCard() {
 					<p>Take a walk in your dogs shoes</p>
 				</WalkInfoContainer>
 				<section>
-					<p>Todays duration: {count.result} min</p>
-					<p>Duration: {count.duration} h/m</p>
-					<p>When started: {count.startTime}</p>
+					<p>{count.result ? `Todays duration: ${count.result} min` : ''}</p>
+					<p>{count.duration ? `Duration: ${count.duration} h/m` : ''}</p>
+					<p> {count.startTime ? `When started: ${count.startTime}` : ''}</p>
 				</section>
 			</WalkCardContainer>
 			{showForm && (
