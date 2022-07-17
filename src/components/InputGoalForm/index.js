@@ -20,7 +20,7 @@ export default function InputGoalForm({cancelForm, onCancelGoalForm}) {
 		const newAmount = {
 			amount: amount,
 		};
-
+		console.log(newAmount);
 		setAmount(0);
 	};
 
