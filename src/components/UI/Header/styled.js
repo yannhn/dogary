@@ -1,10 +1,9 @@
 import styled from 'styled-components';
 
 const Title = styled.h1`
-	text-align: center;
-	margin-top: 1em;
-	margin-bottom: 1em;
+	margin: 1em 0;
 	font-size: 2.6rem;
+	text-align: center;
 `;
 
 export {Title};
