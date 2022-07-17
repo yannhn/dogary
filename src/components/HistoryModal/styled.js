@@ -1,42 +1,49 @@
 import styled from 'styled-components';
 
-import {pxToRem} from '../../utils/unit';
-
 const ModalContainer = styled.section`
 	position: fixed;
+	z-index: 2;
 	top: 0;
 	left: 0;
 	width: 100%;
 	height: 100%;
 	background: rgba(0, 0, 0, 0.5);
+	overflow: hidden;
 `;
 
 const Modal = styled.dialog`
-	max-width: 90%;
-	max-height: 70%;
+	position: fixed;
+	z-index: 2;
+	top: 30%;
+	width: 80%;
+	max-height: 80%;
+	margin: 0 1em;
 	padding: 2em;
-	overflow: hidden;
-	overflow-y: scroll !important;
-	border-radius: 10px;
+	transform: translate(0, -30%);
+	border: none;
+	border-radius: 5px;
 	background: #fff;
+	box-shadow: rgba(0, 0, 0, 0.24) 0 3px 8px;
+	overflow-y: auto;
 `;
 
 const StyledHistoryModalHeader = styled.section`
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
-	gap: 1em;
+	border-bottom: 1px solid #343d46;
 `;
 
 const StyledHistoryModalButton = styled.button`
-	padding: 0.2em 0.5em;
+	padding: 0.5em 1em;
 	border: none;
-	border-radius: ${pxToRem(4)};
-	background: #343d46;
-	color: white;
+	border-radius: 5px;
+	background: #c3423f;
+	color: #fff;
 	font-size: 1em;
+	cursor: pointer;
 	&:hover {
-		background: grey;
+		background: #aa3936;
 	}
 
 	&:active {

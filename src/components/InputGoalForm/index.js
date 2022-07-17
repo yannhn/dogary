@@ -1,6 +1,16 @@
 import {useState} from 'react';
 
-import {InputGoalContainer, GoalForm} from './styled';
+import AddButton from '../Forms/Buttons/AddButton';
+import CancelButton from '../Forms/Buttons/CancelButton';
+
+import {
+	GoalForm,
+	InputGoalHeader,
+	InputGoalSection,
+	InputGoalLabel,
+	InputGoalAmount,
+	InputGoalButtonGroup,
+} from './styled';
 
 export default function InputGoalForm({addNewAmount, cancelForm}) {
 	const [amount, setAmount] = useState(0);
@@ -15,24 +25,24 @@ export default function InputGoalForm({addNewAmount, cancelForm}) {
 	};
 
 	return (
-		<InputGoalContainer>
-			<GoalForm onSubmit={submitHandler}>
-				<h2>How much food should the dog eat in a day?</h2>
-				<label htmlFor="enterAmount">Input your goal amount in gram</label>
-				<input
+		<GoalForm onSubmit={submitHandler}>
+			<InputGoalHeader>How much food should your dog eat today?</InputGoalHeader>
+			<InputGoalSection>
+				<InputGoalLabel htmlFor="enterAmount">
+					Input your goal amount in gram
+				</InputGoalLabel>
+				<InputGoalAmount
 					id="enterAmount"
 					type="number"
 					value={amount}
 					min="0"
 					onChange={event => setAmount(event.target.value)}
 				/>
-				<section>
-					<button>Add</button>
-					<button type="button" onClick={cancelForm}>
-						cancel
-					</button>
-				</section>
-			</GoalForm>
-		</InputGoalContainer>
+			</InputGoalSection>
+			<InputGoalButtonGroup>
+				<CancelButton type="button" buttonText={'Cancel'} cancelForm={cancelForm} />
+				<AddButton type="submit" buttonText={'Add food goal'} cancelForm={cancelForm} />
+			</InputGoalButtonGroup>
+		</GoalForm>
 	);
 }

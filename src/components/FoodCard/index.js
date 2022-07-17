@@ -1,6 +1,7 @@
 import {Icon} from '@iconify/react';
 import {useState} from 'react';
 
+import BackgroundHistory from '../BackgroundHistory';
 import FormModal from '../FormModal';
 import HistoryModal from '../HistoryModal';
 import InputFood from '../InputFood/index.js';
@@ -114,11 +115,12 @@ export default function FoodCard({goalAmount}) {
 			)}
 			{showHistory && (
 				<HistoryModal onCancelHistoryForm={onCancelHistoryForm}>
+					<BackgroundHistory />
 					{uniqueDates
 						.sort((a, b) => new Date(b) - new Date(a))
 						.map(date => (
 							<section key={date}>
-								<h2>{date}</h2>
+								<h3>{date}</h3>
 								{foodItems
 									.filter(food => food.date === date)
 									.map(food => (

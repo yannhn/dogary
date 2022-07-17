@@ -7,7 +7,7 @@ export default function HistoryModal({children, onCancelHistoryForm}) {
 				<StyledHistoryModalHeader>
 					<h2>History</h2>
 					<StyledHistoryModalButton type="button" onClick={onCancelHistoryForm}>
-						Cancel
+						Get back
 					</StyledHistoryModalButton>
 				</StyledHistoryModalHeader>
 				{children}
