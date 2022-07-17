@@ -17,8 +17,17 @@ export default function Calendar() {
 						center: 'title',
 						right: 'next',
 					}}
+					customButtons={{
+						myCustomButton: {
+							text: 'add event',
+							click: function () {
+								alert('clicked the custom button!');
+								}
+							},
+						},
+					}
 					footerToolbar={{
-						left: 'dayGridMonth,today',
+						left: 'dayGridMonth,today', right: 'myCustomButton',
 					}}
 					navLinks={true}
 					initialView="dayGridMonth"
