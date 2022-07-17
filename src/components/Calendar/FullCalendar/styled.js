@@ -18,6 +18,9 @@ export const StyleWrapper = styled.div`
 		font-size: 1.6rem;
 		text-align: center;
 	}
+	.fc-event-main {
+		border: none;
+	}
 
 	.fc {
 		padding: 1em;

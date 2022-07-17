@@ -17,19 +17,17 @@ export default function Calendar() {
 						center: 'title',
 						right: 'next',
 					}}
+					footerToolbar={{left: 'dayGridMonth,today', right: 'testButton'}}
 					customButtons={{
-						myCustomButton: {
+						testButton: {
 							text: 'add event',
 							click: function () {
 								alert('clicked the custom button!');
-								}
 							},
 						},
-					}
-					footerToolbar={{
-						left: 'dayGridMonth,today', right: 'myCustomButton',
 					}}
 					navLinks={true}
+					editable={true}
 					initialView="dayGridMonth"
 					events={[
 						{
