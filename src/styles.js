@@ -5,8 +5,9 @@ export const GlobalStyle = createGlobalStyle`
 	*::before,
 	*::after {
 		box-sizing: border-box;
-	}
 
+	}
+	
 	:root {
 		--card-info-color: grey;
 		--card-info-fontSize: 0.8rem;
@@ -19,8 +20,9 @@ export const GlobalStyle = createGlobalStyle`
 
 	body {
 		margin: 0;
-		color: #323232;
-		font-family: sans-serif;
+		background-color: #FFF9F4;
+		color: #242424;
+		font-family: 'Roboto', sans-serif;
 		font-size: 1rem;
 	}
 `;
