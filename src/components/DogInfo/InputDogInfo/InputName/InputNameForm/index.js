@@ -1,7 +1,14 @@
 import {nanoid} from 'nanoid';
 import {useState} from 'react';
 
-import {InputInfoContainer, InfoForm} from './styled';
+import {
+	InputInfoContainer,
+	InfoForm,
+	ButtonGroup,
+	CancelButton,
+	AddButton,
+	InputNameText,
+} from './styled';
 
 export default function InputInfoForm({passInfo, cancelForm}) {
 	const [enteredName, setEnteredName] = useState('');
@@ -25,21 +32,22 @@ export default function InputInfoForm({passInfo, cancelForm}) {
 		<InputInfoContainer>
 			<InfoForm onSubmit={submitHandler}>
 				<section>
-					<h2>What is the name of your dog?</h2>
-					<label>
-						Input Name:
-						<input
-							type="text"
-							placeholder="Name"
-							value={enteredName}
-							onChange={nameChangeHandler}
-						></input>
-					</label>
+					<h2>Enter your dogs name!</h2>
+					<label htmlFor="input-name" />
+					<InputNameText
+						id="input-name"
+						type="text"
+						placeholder="input here"
+						value={enteredName}
+						onChange={nameChangeHandler}
+					></InputNameText>
 				</section>
-				<button type="submit">Add</button>
-				<button type="button" onClick={cancelForm}>
-					cancel
-				</button>
+				<ButtonGroup>
+					<CancelButton type="button" onClick={cancelForm}>
+						Cancel
+					</CancelButton>
+					<AddButton type="submit">Add name</AddButton>
+				</ButtonGroup>
 			</InfoForm>
 		</InputInfoContainer>
 	);

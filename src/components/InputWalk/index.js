@@ -1,7 +1,23 @@
 import {nanoid} from 'nanoid';
 import {useState} from 'react';
 
-import {InputWalkContainer, InputWalkForm, InputWalkButton} from './styled';
+import AddButton from '../Forms/Buttons/AddButton';
+import CancelButton from '../Forms/Buttons/CancelButton';
+
+import {
+	InputWalkContainer,
+	InputWalkForm,
+	InputWalkHeader,
+	InputWalkSection,
+	InputWalkLabel,
+	InputWalkDuration,
+	InputWalkStartingTime,
+	InputWalkDate,
+	InputWalkButtonGroup,
+	LastSubmitSection,
+	LastSubmitHeading,
+	LastSubmitText,
+} from './styled';
 
 export default function InputWalk({addNewWalkItem, addCounter, cancelForm}) {
 	const [enteredDuration, setEnteredDuration] = useState('00:00');
@@ -42,43 +58,53 @@ export default function InputWalk({addNewWalkItem, addCounter, cancelForm}) {
 		<>
 			<InputWalkContainer>
 				<InputWalkForm onSubmit={handleSubmit}>
-					<h3>Your walks</h3>
-					<section>
-						<label htmlFor="duration">How long?</label>
-						<input
+					<InputWalkHeader>Enter walks</InputWalkHeader>
+					<InputWalkSection>
+						<InputWalkLabel htmlFor="duration">
+							How long was your last walk?
+						</InputWalkLabel>
+						<InputWalkDuration
 							id="duration"
 							type="time"
 							value={enteredDuration}
+							required
 							onChange={event => setEnteredDuration(event.target.value)}
-						></input>
-						<p>-AND-</p>
-						<label htmlFor="startingTime">When started</label>
-						<input
+						/>
+					</InputWalkSection>
+					<InputWalkSection>
+						<InputWalkLabel htmlFor="startingTime">
+							At what time started your last walk?
+						</InputWalkLabel>
+						<InputWalkStartingTime
 							id="startingTime"
 							type="time"
 							value={enteredStartTime}
+							required
 							onChange={event => setEnteredStartTime(event.target.value)}
-						></input>
-						<p>DATE (Note: this will only be displayed in history-view)</p>
-						<label htmlFor="date">Date of Walk</label>
-						<input
+						/>
+					</InputWalkSection>
+					<InputWalkSection>
+						<InputWalkLabel htmlFor="date">When started your last walk?</InputWalkLabel>
+						<InputWalkDate
 							id="date"
 							type="date"
-							min="2022-07-01"
+							min="2022-07-18"
 							max="2022-12-31"
 							required
 							onChange={event => setEnteredDate(event.target.value)}
 						/>
-					</section>
-					<section>
-						<InputWalkButton type="submit">add</InputWalkButton>
-						<button type="button" onClick={cancelForm}>
-							cancel
-						</button>
-					</section>
+					</InputWalkSection>
+					<InputWalkButtonGroup>
+						<CancelButton buttonText={'Cancel'} type="button" cancelForm={cancelForm} />
+						<AddButton buttonText={'Add walk'} type="submit" />
+					</InputWalkButtonGroup>
 				</InputWalkForm>
-				<h4>Last submit</h4>
-				<p>{message}</p>
+				{message && (
+					<LastSubmitSection>
+						<LastSubmitHeading>Good job!</LastSubmitHeading>
+						<LastSubmitText>{message}</LastSubmitText>
+					</LastSubmitSection>
+				)}
 			</InputWalkContainer>
 		</>
 	);

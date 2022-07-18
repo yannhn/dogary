@@ -5,6 +5,8 @@ import InputNameButton from '../InputDogInfo/InputName/InputNameButton';
 import ShowImage from '../RenderDogInfo/ShowImage';
 import ShowName from '../RenderDogInfo/ShowName';
 
+import {InputIconContainer} from './styled';
+
 export default function DogInfoBar() {
 	const [submittedItem, setSubmittedItems] = useState({enteredName: '', image: ''});
 
@@ -15,10 +17,10 @@ export default function DogInfoBar() {
 
 	return (
 		<>
-			<section>
+			<InputIconContainer>
 				<InputNameButton addNewInfo={addNewInfo} />
 				<InputImageButton addNewInfo={addNewInfo} />
-			</section>
+			</InputIconContainer>
 			<section>
 				<ShowName name={submittedItem.enteredName} />
 				<ShowImage image={submittedItem.image} />

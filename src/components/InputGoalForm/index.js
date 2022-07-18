@@ -1,8 +1,18 @@
 import {useState} from 'react';
 
-import {InputGoalContainer, GoalForm} from './styled';
+import AddButton from '../Forms/Buttons/AddButton';
+import CancelButton from '../Forms/Buttons/CancelButton';
 
-export default function InputGoalForm({addNewAmount, cancelForm}) {
+import {
+	GoalForm,
+	InputGoalHeader,
+	InputGoalSection,
+	InputGoalLabel,
+	InputGoalAmount,
+	InputGoalButtonGroup,
+} from './styled';
+
+export default function InputGoalForm({cancelForm, onCancelGoalForm}) {
 	const [amount, setAmount] = useState(0);
 
 	const submitHandler = event => {
@@ -10,29 +20,35 @@ export default function InputGoalForm({addNewAmount, cancelForm}) {
 		const newAmount = {
 			amount: amount,
 		};
-		addNewAmount(newAmount);
+		console.log(newAmount);
 		setAmount(0);
 	};
 
 	return (
-		<InputGoalContainer>
-			<GoalForm onSubmit={submitHandler}>
-				<h2>How much food should the dog eat in a day?</h2>
-				<label htmlFor="enterAmount">Input your goal amount in gram</label>
-				<input
+		<GoalForm onSubmit={submitHandler}>
+			<InputGoalHeader>How much food should your dog eat today?</InputGoalHeader>
+			<InputGoalSection>
+				<InputGoalLabel htmlFor="enterAmount">
+					Input your goal amount in gram
+				</InputGoalLabel>
+				<InputGoalAmount
 					id="enterAmount"
 					type="number"
 					value={amount}
 					min="0"
 					onChange={event => setAmount(event.target.value)}
 				/>
-				<section>
-					<button>Add</button>
-					<button type="button" onClick={cancelForm}>
-						cancel
-					</button>
-				</section>
-			</GoalForm>
-		</InputGoalContainer>
+			</InputGoalSection>
+			<InputGoalButtonGroup>
+				<button type="button" onCancelGoalForm={onCancelGoalForm}>
+					Get back
+				</button>
+				<button type="button" onCancelGoalForm={onCancelGoalForm}>
+					Get back
+				</button>
+				<CancelButton type="button" buttonText={'Cancel'} cancelForm={cancelForm} />
+				<AddButton type="submit" buttonText={'Add food goal'} onClick={cancelForm} />
+			</InputGoalButtonGroup>
+		</GoalForm>
 	);
 }

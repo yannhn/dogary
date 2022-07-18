@@ -1,12 +1,20 @@
 import styled from 'styled-components';
 
-const StyledPicture = styled.img`
+const StyledContainer = styled.div`
 	display: flex;
 	justify-content: center;
-	width: 250px;
-	height: 250px;
-	margin: 1em auto;
-	border-radius: 50%;
+	width: 225px;
+	height: 225px;
+	margin: 0 auto 3em;
+	border-radius: 40% 60% 54% 46% / 42% 44% 56% 58%;
+	background-color: #f2cdc4;
 `;
 
-export {StyledPicture};
+const StyledPicture = styled.img`
+	width: auto;
+	height: auto;
+	margin: 1em auto;
+	border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+`;
+
+export {StyledPicture, StyledContainer};
