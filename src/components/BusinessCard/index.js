@@ -1,10 +1,18 @@
+import {Icon} from '@iconify/react';
 import {useState} from 'react';
 
 import FormModal from '../FormModal';
 import HistoryModal from '../HistoryModal';
 import InputBusiness from '../InputBusiness/index';
 
-import {BusinessCardContainer, BusinessCardHead, BusinessCardButton} from './styled';
+import {
+	BusinessCardContainer,
+	BusinessInfoContainer,
+	BusinessCardHeaderGroup,
+	BusinessCardButtonGroup,
+	BusinessCardButtonHistory,
+	BusinessCardButtonAdd,
+} from './styled';
 
 export default function BusinessCard() {
 	const [showForm, setShowForm] = useState(false);
@@ -32,42 +40,51 @@ export default function BusinessCard() {
 	return (
 		<>
 			<BusinessCardContainer>
-				<BusinessCardHead>
-					<section>
+				<BusinessInfoContainer>
+					<BusinessCardHeaderGroup>
 						<h2>Business</h2>
-						<p>A dog has to do what a dog has to do</p>
-					</section>
-					<button
-						onClick={() => {
-							setShowHistory(!showHistory);
-						}}
-					>
-						{showHistory ? 'Hide History' : 'Show History'}
-					</button>
-					<BusinessCardButton onClick={() => setShowForm(!showForm)}>
-						{showForm ? '-' : '+'}
-					</BusinessCardButton>
-				</BusinessCardHead>
-				<section>
+						<BusinessCardButtonGroup>
+							<BusinessCardButtonHistory
+								onClick={() => {
+									setShowHistory(!showHistory);
+								}}
+							>
+								<Icon
+									icon="mdi:history"
+									width="1.6rem"
+									height="1.6rem"
+									color="white"
+									alt="show history"
+								/>
+							</BusinessCardButtonHistory>
+							<BusinessCardButtonAdd onClick={() => setShowForm(!showForm)}>
+								<Icon
+									icon="mdi:plus-circle"
+									width="1.6rem"
+									height="1.6rem"
+									color="white"
+									alt="add activity"
+								/>
+							</BusinessCardButtonAdd>
+						</BusinessCardButtonGroup>
+					</BusinessCardHeaderGroup>
+					<p>A dog has to do what a dog has to do</p>
+				</BusinessInfoContainer>
+				{lastSubmit && (
 					<section>
-						{lastSubmit && (
-							<section>
-								<p>
-									What:{' '}
-									{lastSubmit.smallBusiness && lastSubmit.bigBusiness
-										? 'double business'
-										: lastSubmit.smallBusiness
-										? 'small business'
-										: lastSubmit.bigBusiness
-										? 'big business'
-										: 'No business yet! (Sometimes your dog is simply just not in the right mood. You might have to try again later.)'}
-								</p>
-								<p>When: {lastSubmit.time}</p>
-								<hr></hr>
-							</section>
-						)}
+						<h4>Last business</h4>
+						<p>
+							{lastSubmit.smallBusiness && lastSubmit.bigBusiness
+								? 'double business'
+								: lastSubmit.smallBusiness
+								? 'small business'
+								: lastSubmit.bigBusiness
+								? 'big business'
+								: 'No business yet! (Sometimes your dog is simply just not in the right mood. You might have to try again later.)'}
+						</p>
+						<p>When: {lastSubmit.time}</p>
 					</section>
-				</section>
+				)}
 			</BusinessCardContainer>
 			{showForm && (
 				<FormModal>
@@ -89,7 +106,7 @@ export default function BusinessCard() {
 									.map(businessItem => (
 										<section key={businessItem.id}>
 											<p>
-												What:{' '}
+												Type:{' '}
 												{businessItem.smallBusiness &&
 												businessItem.bigBusiness
 													? 'double business'

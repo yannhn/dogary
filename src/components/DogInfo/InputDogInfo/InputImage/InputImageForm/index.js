@@ -1,7 +1,16 @@
 import {nanoid} from 'nanoid';
 import {useState} from 'react';
 
-import {InputInfoContainer, InfoForm, InfoImgPreview} from './styled';
+import {
+	InputInfoContainer,
+	InfoForm,
+	InfoFormInput,
+	InfoImgPreview,
+	StyledPreviewContainer,
+	ButtonGroup,
+	CancelButton,
+	AddButton,
+} from './styled';
 
 export default function InputImageForm({passInfo, cancelForm}) {
 	const [image, setImage] = useState('');
@@ -24,24 +33,33 @@ export default function InputImageForm({passInfo, cancelForm}) {
 		<InputInfoContainer>
 			<InfoForm onSubmit={submitHandler}>
 				<section>
-					<h2>Upload your image!</h2>
-					<label htmlFor="img-input">Upload profile picture: </label>
-					<input
+					<h2>Upload your cutest picture!</h2>
+					<label htmlFor="img-input">(Preferably of your dog.)</label>
+					<InfoFormInput
 						id="img-input"
 						type="file"
 						accept=".png, .jpg, .jpeg"
 						required
 						onChange={imageChangeHandler}
-					></input>
+					/>
 				</section>
 				<section>
-					<h2>Image Preview</h2>
-					<InfoImgPreview src={image} alt="preview" width="250" height="250" />
+					<h2>Picture Preview</h2>
+					<StyledPreviewContainer>
+						<InfoImgPreview
+							src={image ? image : 'https://placedog.net/800/640?id=12'}
+							alt="preview"
+							width="auto"
+							height="auto"
+						/>
+					</StyledPreviewContainer>
 				</section>
-				<button type="submit">Add</button>
-				<button type="button" onClick={cancelForm}>
-					cancel
-				</button>
+				<ButtonGroup>
+					<CancelButton type="CancelButton" onClick={cancelForm}>
+						Cancel
+					</CancelButton>
+					<AddButton type="submit">Add Picture</AddButton>
+				</ButtonGroup>
 			</InfoForm>
 		</InputInfoContainer>
 	);

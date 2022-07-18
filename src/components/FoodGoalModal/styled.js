@@ -32,7 +32,6 @@ const StyledHistoryModalHeader = styled.section`
 	align-items: center;
 	justify-content: space-between;
 	border-bottom: 2px solid #343d46;
-	color: #343d46;
 `;
 
 const StyledHistoryModalButton = styled.button`
