@@ -1,14 +1,26 @@
+import {Icon} from '@iconify/react';
 import {useState} from 'react';
 
+import FoodGoalModal from '../FoodGoalModal';
 import FormModal from '../FormModal';
 import HistoryModal from '../HistoryModal';
 import InputFood from '../InputFood/index.js';
+import InputGoalForm from '../InputGoalForm';
 
-import {FoodCardContainer, FoodCardButton, FoodInfoContainer, FoodCardHead} from './styled';
+import {
+	FoodCardContainer,
+	FoodInfoContainer,
+	FoodCardHeaderGroup,
+	FoodCardButtonGroup,
+	FoodCardButtonGoal,
+	FoodCardButtonHistory,
+	FoodCardButtonAdd,
+} from './styled';
 
 export default function FoodCard({goalAmount}) {
 	const [showForm, setShowForm] = useState(false);
 	const [showHistory, setShowHistory] = useState(false);
+	const [showGoal, setShowGoal] = useState(false);
 	const [foodItems, setFoodItems] = useState([]);
 
 	const dates = foodItems.map(foodItem => foodItem.date);
@@ -27,6 +39,10 @@ export default function FoodCard({goalAmount}) {
 		setShowHistory(!showHistory);
 	};
 
+	const onCancelGoalForm = () => {
+		setShowHistory(!showHistory);
+	};
+
 	const lastSubmit = foodItems[foodItems.length - 1];
 
 	const foodSum = foodItems.reduce(
@@ -37,26 +53,49 @@ export default function FoodCard({goalAmount}) {
 	return (
 		<>
 			<FoodCardContainer>
-				<FoodCardHead>
-					<section>
+				<FoodInfoContainer>
+					<FoodCardHeaderGroup>
 						<h2>Food</h2>
-						<h3>Type of food</h3>
-					</section>
-					<button
-						onClick={() => {
-							setShowHistory(!showHistory);
-						}}
-					>
-						{showHistory ? 'Hide History' : 'Show History'}
-					</button>
-					<FoodCardButton
-						onClick={() => {
-							setShowForm(!showForm);
-						}}
-					>
-						{showForm ? '-' : '+'}
-					</FoodCardButton>
-				</FoodCardHead>
+						<FoodCardButtonGroup>
+							<FoodCardButtonGoal onClick={() => setShowGoal(!showGoal)}>
+								<Icon
+									icon="mdi:bullseye-arrow"
+									width="1.6rem"
+									height="1.6rem"
+									color="white"
+									alt="add activity"
+								/>
+							</FoodCardButtonGoal>
+							<FoodCardButtonHistory
+								onClick={() => {
+									setShowHistory(!showHistory);
+								}}
+							>
+								<Icon
+									icon="mdi:history"
+									width="1.6rem"
+									height="1.6rem"
+									color="white"
+									alt="show history"
+								/>
+							</FoodCardButtonHistory>
+							<FoodCardButtonAdd
+								onClick={() => {
+									setShowForm(!showForm);
+								}}
+							>
+								<Icon
+									icon="mdi:plus-circle"
+									width="1.6rem"
+									height="1.6rem"
+									color="white"
+									alt="add activity"
+								/>
+							</FoodCardButtonAdd>
+						</FoodCardButtonGroup>
+					</FoodCardHeaderGroup>
+					<p>Dogs gotta eat</p>
+				</FoodInfoContainer>
 				{goalAmount && <p>Goal: {goalAmount} gram</p>}
 				{lastSubmit && goalAmount ? (
 					<FoodInfoContainer>
@@ -74,12 +113,14 @@ export default function FoodCard({goalAmount}) {
 					</FoodInfoContainer>
 				) : (
 					lastSubmit && (
-						<FoodInfoContainer>
+						<section>
+							<section>
+								<h4>Last feed</h4>
+								<p>Amount: {lastSubmit.amount} gram</p>
+								<p>Time: {lastSubmit.time}</p>
+							</section>
 							<p>Todays sum: {foodSum} gram</p>
-							<h4>Last Input</h4>
-							<p>How much {lastSubmit.amount} gram</p>
-							<p>At: {lastSubmit.time}</p>
-						</FoodInfoContainer>
+						</section>
 					)
 				)}
 			</FoodCardContainer>
@@ -94,18 +135,23 @@ export default function FoodCard({goalAmount}) {
 						.sort((a, b) => new Date(b) - new Date(a))
 						.map(date => (
 							<section key={date}>
-								<h2>{date}</h2>
+								<h3>{date}</h3>
 								{foodItems
 									.filter(food => food.date === date)
 									.map(food => (
 										<section key={food.id}>
-											<p>Amount: {food.amount}</p>
-											<p>When: {food.time}</p>
+											<p>Amount: {food.amount} gram</p>
+											<p>Time: {food.time}</p>
 										</section>
 									))}
 							</section>
 						))}
 				</HistoryModal>
+			)}
+			{showGoal && (
+				<FoodGoalModal>
+					<InputGoalForm onCancelGoalForm={onCancelGoalForm}></InputGoalForm>
+				</FoodGoalModal>
 			)}
 		</>
 	);
