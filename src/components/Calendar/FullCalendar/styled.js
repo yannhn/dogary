@@ -11,20 +11,31 @@ export const StyleWrapper = styled.div`
 			color: #bad;
 		}
 	}
+
 	.fc-event-today {
 		background-color: blue;
 	}
-	.fc .fc-button-primary {
+	.fc-button-primary {
 		border: none;
-		background-color: #242424;
+		background: #343d46;
+		cursor: pointer;
+
+		&:hover {
+			background: #1a1f24;
+		}
 	}
 	.fc-toolbar-title {
 		color: #323232;
 		font-size: 1.6rem;
 		text-align: center;
 	}
-	.fc-event-main {
-		border: none;
+
+	.fc-testButton-button {
+		background: #64b6ac;
+
+		&:hover {
+			background: #559c93;
+		}
 	}
 
 	.fc {
