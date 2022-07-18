@@ -20,9 +20,9 @@ export default function Calendar() {
 					footerToolbar={{left: 'dayGridMonth,today', right: 'testButton'}}
 					customButtons={{
 						testButton: {
-							text: 'add event',
+							text: 'add new event',
 							click: function () {
-								alert('clicked the custom button!');
+								alert('clicked the new event button!');
 							},
 						},
 					}}
@@ -34,10 +34,12 @@ export default function Calendar() {
 							id: 'a',
 							start: '2022-07-04',
 							title: 'dentist',
+							display: 'block',
 						},
 						{
 							id: 'b',
 							start: '2022-07-08',
+							end: '2022-07-09',
 							title: 'veterinarian',
 						},
 						{

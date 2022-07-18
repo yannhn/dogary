@@ -1,3 +1,4 @@
+import {Icon} from '@iconify/react';
 import {NavLink} from 'react-router-dom';
 import styled from 'styled-components';
 
@@ -24,13 +25,18 @@ const FooterNavItems = styled(NavLink)`
 	align-items: center;
 	justify-content: space-around;
 	padding: 0.8em;
+`;
+
+const StyledIcon = styled(Icon)`
+	color: white;
 
 	&:hover {
-		color: #ea2001;
-	}
-	&.active {
 		color: #ffbaa5;
+	}
+
+	&:active {
+		color: #bad;
 	}
 `;
 
-export {FooterContainer, FooterNav, FooterNavItems};
+export {FooterContainer, FooterNav, FooterNavItems, StyledIcon};

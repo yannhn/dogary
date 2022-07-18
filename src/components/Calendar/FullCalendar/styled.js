@@ -1,10 +1,15 @@
 import styled from 'styled-components';
 
 export const StyleWrapper = styled.div`
-	padding: 1em;
+	margin: 1em;
 
-	.fc-bg-event {
-		background: #ea2001;
+	.fc-event {
+		border: none;
+	}
+	.fc-event-title {
+		:hover {
+			color: #bad;
+		}
 	}
 	.fc-event-today {
 		background-color: blue;
@@ -14,7 +19,7 @@ export const StyleWrapper = styled.div`
 		background-color: #242424;
 	}
 	.fc-toolbar-title {
-		color: #242424;
+		color: #323232;
 		font-size: 1.6rem;
 		text-align: center;
 	}
