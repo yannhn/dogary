@@ -1,5 +1,3 @@
-import {Icon} from '@iconify/react';
-
 import {FooterContainer, FooterNav, FooterNavItems, StyledIcon} from './styled';
 
 export default function Footer() {

@@ -2,6 +2,7 @@ import FullCalendar from '@fullcalendar/react';
 import dayGridPlugin from '@fullcalendar/daygrid';
 import interactionPlugin from '@fullcalendar/interaction';
 import listPlugin from '@fullcalendar/list';
+import timeGridPlugin from '@fullcalendar/timegrid';
 
 import {StyleWrapper} from './styled';
 
@@ -10,7 +11,7 @@ export default function Calendar() {
 		<>
 			<StyleWrapper>
 				<FullCalendar
-					plugins={[dayGridPlugin, listPlugin, interactionPlugin]}
+					plugins={[dayGridPlugin, listPlugin, interactionPlugin, timeGridPlugin]}
 					firstDay={1}
 					headerToolbar={{
 						left: 'prev',
@@ -33,19 +34,24 @@ export default function Calendar() {
 						{
 							id: 'a',
 							start: '2022-07-04',
-							title: 'dentist',
-							display: 'block',
+							end: '2022-07-07',
+							title: 'dog vacation',
 						},
 						{
 							id: 'b',
 							start: '2022-07-08',
-							end: '2022-07-09',
 							title: 'veterinarian',
 						},
 						{
 							id: 'c',
-							start: '2022-07-15',
+							start: '2022-07-15T11:00:00',
+							end: '2022-07-15T12:00:00',
 							title: 'puppy school',
+						},
+						{
+							id: 'd',
+							start: '2022-07-15',
+							title: 'buy snacks',
 						},
 					]}
 				/>
