@@ -19,22 +19,21 @@ export default function BusinessCard() {
 	const [showHistory, setShowHistory] = useState(false);
 	const [businessItems, setBusinessItems] = useState([]);
 
-	const dates = businessItems.map(business => business.date);
-	const uniqueDates = [...new Set(dates)];
-
-	function addNewBusinessItem(prevItem) {
+	const addNewBusinessItem = prevItem => {
 		const newBusinessItems = [...businessItems, prevItem];
 		setBusinessItems(newBusinessItems);
-	}
+	};
 
-	function cancelForm() {
+	const cancelForm = () => {
 		setShowForm(!showForm);
-	}
+	};
 
-	function onCancelHistoryForm() {
+	const onCancelHistoryForm = () => {
 		setShowHistory(!showHistory);
-	}
+	};
 
+	const dates = businessItems.map(business => business.date);
+	const uniqueDates = [...new Set(dates)];
 	const lastSubmit = businessItems[businessItems.length - 1];
 
 	return (

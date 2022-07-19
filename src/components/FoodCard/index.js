@@ -23,9 +23,6 @@ export default function FoodCard({goalAmount}) {
 	const [showGoal, setShowGoal] = useState(false);
 	const [foodItems, setFoodItems] = useState([]);
 
-	const dates = foodItems.map(foodItem => foodItem.date);
-	const uniqueDates = [...new Set(dates)];
-
 	const addNewFoodItem = prevItem => {
 		const newFoodItems = [...foodItems, prevItem];
 		setFoodItems(newFoodItems);
@@ -43,8 +40,9 @@ export default function FoodCard({goalAmount}) {
 		setShowHistory(!showHistory);
 	};
 
+	const dates = foodItems.map(foodItem => foodItem.date);
+	const uniqueDates = [...new Set(dates)];
 	const lastSubmit = foodItems[foodItems.length - 1];
-
 	const foodSum = foodItems.reduce(
 		(total, currentValue) => (total = total + currentValue.amount),
 		0
