@@ -1,12 +1,12 @@
 import {Icon} from '@iconify/react';
 import {useState} from 'react';
 
+import {ActivityCard} from '../Activities/ActivityCard/styled';
 import FormModal from '../FormModal';
 import HistoryModal from '../HistoryModal';
 import InputWalk from '../InputWalk/index';
 
 import {
-	WalkCardContainer,
 	WalkInfoContainer,
 	WalkCardHeaderGroup,
 	WalkCardButtonGroup,
@@ -18,32 +18,45 @@ export default function WalkCard() {
 	const [showForm, setShowForm] = useState(false);
 	const [showHistory, setShowHistory] = useState(false);
 	const [walkItem, setWalkItem] = useState([]);
-	const [count, setCount] = useState({});
+
+	const addNewWalkItem = prevItem => {
+		const newWalkItem = [...walkItem, prevItem];
+		setWalkItem(newWalkItem);
+	};
+
+	const cancelForm = () => {
+		setShowForm(!showForm);
+	};
+
+	const onCancelHistoryForm = () => {
+		setShowHistory(!showHistory);
+	};
 
 	const dates = walkItem.map(walk => walk.date);
 	const uniqueDates = [...new Set(dates)];
+	const lastSubmit = walkItem[walkItem.length - 1];
 
-	function addCounter(prevItem) {
-		const newCount = {...walkItem, ...prevItem};
-		setCount(newCount);
+	function hoursStringToDecimal(hoursString) {
+		const [hoursPart, minutesPart] = hoursString.split(':');
+		return Number(hoursPart) + Number(minutesPart) / 60;
 	}
 
-	function addNewWalkItem(prevItem) {
-		const newWalkItem = [...walkItem, prevItem];
-		setWalkItem(newWalkItem);
+	const walkSum = walkItem.reduce(
+		(total, currentValue) => (total = total + hoursStringToDecimal(currentValue.duration)),
+		0
+	);
+
+	function decimalHoursToString(hoursDecimal) {
+		const numHours = Math.floor(hoursDecimal);
+		const numMinutes = Math.round((hoursDecimal - numHours) * 60);
+		return `${numHours < 10 ? '0' : ''}${numHours}:${numMinutes < 10 ? '0' : ''}${numMinutes}`;
 	}
 
-	function cancelForm() {
-		setShowForm(!showForm);
-	}
-
-	function onCancelHistoryForm() {
-		setShowHistory(!showHistory);
-	}
+	const walkSumTimeFormat = decimalHoursToString(walkSum);
 
 	return (
 		<>
-			<WalkCardContainer>
+			<ActivityCard>
 				<WalkInfoContainer>
 					<WalkCardHeaderGroup>
 						<h2>Walks</h2>
@@ -78,21 +91,24 @@ export default function WalkCard() {
 					</WalkCardHeaderGroup>
 					<p>Take a walk in your dogs shoes</p>
 				</WalkInfoContainer>
-				<section>
+				{lastSubmit && (
 					<section>
-						<p>{count.duration ? `Duration: ${count.duration} h/m` : ''}</p>
-						<p> {count.startTime ? `Time: ${count.startTime}` : ''}</p>
+						<section>
+							<h4>Last walk</h4>
+							<p>
+								{lastSubmit.duration ? `Duration: ${lastSubmit.duration} h/m` : ''}
+							</p>
+							<p> {lastSubmit.startTime ? `Time: ${lastSubmit.startTime}` : ''}</p>
+						</section>
+						<p>
+							{walkSumTimeFormat ? `Todays duration: ${walkSumTimeFormat} h/min` : ''}
+						</p>
 					</section>
-					<p>{count.result ? `Todays duration: ${count.result} min` : ''}</p>
-				</section>
-			</WalkCardContainer>
+				)}
+			</ActivityCard>
 			{showForm && (
 				<FormModal>
-					<InputWalk
-						addNewWalkItem={addNewWalkItem}
-						addCounter={addCounter}
-						cancelForm={cancelForm}
-					/>
+					<InputWalk addNewWalkItem={addNewWalkItem} cancelForm={cancelForm} />
 				</FormModal>
 			)}
 			{showHistory && (

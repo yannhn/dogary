@@ -19,22 +19,11 @@ import {
 	LastSubmitText,
 } from './styled';
 
-export default function InputWalk({addNewWalkItem, addCounter, cancelForm}) {
+export default function InputWalk({addNewWalkItem, cancelForm}) {
 	const [enteredDuration, setEnteredDuration] = useState('00:00');
 	const [enteredStartTime, setEnteredStartTime] = useState('08:00');
-	const [result, setResult] = useState(0);
 	const [message, setMessage] = useState('');
-
 	const [enteredDate, setEnteredDate] = useState('');
-
-	const convertHoursToMinute = enteredDuration => {
-		const hours = enteredDuration.split(':')[0];
-		const minutes = enteredDuration.split(':')[1];
-		return parseInt(hours) + Number(minutes / 60);
-	};
-
-	const showHours = convertHoursToMinute(enteredDuration);
-	const showMinutes = showHours * 60;
 
 	const handleSubmit = event => {
 		event.preventDefault();
@@ -42,13 +31,9 @@ export default function InputWalk({addNewWalkItem, addCounter, cancelForm}) {
 			id: nanoid(),
 			duration: enteredDuration,
 			startTime: enteredStartTime,
-			result: result + showMinutes,
 			date: new Date(enteredDate).toDateString(),
 		};
-
-		addCounter(newInput);
 		addNewWalkItem(newInput);
-		setResult(result + showMinutes);
 		setMessage(
 			`Your last walk with your dog lasted ${newInput.duration} h/m at ${newInput.startTime} o'clock on ${newInput.date}! Your dog will forever be grateful!`
 		);
