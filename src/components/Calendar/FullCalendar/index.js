@@ -5,8 +5,16 @@ import listPlugin from '@fullcalendar/list';
 import timeGridPlugin from '@fullcalendar/timegrid';
 
 import {StyleWrapper} from './styled';
+import {useState} from 'react';
+import AddEventModal from '../AddEventModal/index';
 
 export default function Calendar() {
+	const [modalOpen, setModalOpen] = useState(false);
+
+	const onEventAdded = event => {
+		addEvent(event);
+	};
+
 	return (
 		<>
 			<StyleWrapper>
@@ -56,6 +64,13 @@ export default function Calendar() {
 					]}
 				/>
 			</StyleWrapper>
+			<section>
+				<AddEventModal
+					isOpen={modalOpen}
+					onClose={() => setModalOpen(false)}
+					onEventAdded={event => onEventAdded(event)}
+				></AddEventModal>
+			</section>
 		</>
 	);
 }
