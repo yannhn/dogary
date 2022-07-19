@@ -1,12 +1,12 @@
 import {Icon} from '@iconify/react';
 import {useState} from 'react';
 
+import {ActivityCard} from '../Activities/ActivityCard/styled';
 import FormModal from '../FormModal';
 import HistoryModal from '../HistoryModal';
 import InputBusiness from '../InputBusiness/index';
 
 import {
-	BusinessCardContainer,
 	BusinessInfoContainer,
 	BusinessCardHeaderGroup,
 	BusinessCardButtonGroup,
@@ -19,27 +19,26 @@ export default function BusinessCard() {
 	const [showHistory, setShowHistory] = useState(false);
 	const [businessItems, setBusinessItems] = useState([]);
 
-	const dates = businessItems.map(business => business.date);
-	const uniqueDates = [...new Set(dates)];
-
-	function addNewBusinessItem(prevItem) {
+	const addNewBusinessItem = prevItem => {
 		const newBusinessItems = [...businessItems, prevItem];
 		setBusinessItems(newBusinessItems);
-	}
+	};
 
-	function cancelForm() {
+	const cancelForm = () => {
 		setShowForm(!showForm);
-	}
+	};
 
-	function onCancelHistoryForm() {
+	const onCancelHistoryForm = () => {
 		setShowHistory(!showHistory);
-	}
+	};
 
+	const dates = businessItems.map(business => business.date);
+	const uniqueDates = [...new Set(dates)];
 	const lastSubmit = businessItems[businessItems.length - 1];
 
 	return (
 		<>
-			<BusinessCardContainer>
+			<ActivityCard>
 				<BusinessInfoContainer>
 					<BusinessCardHeaderGroup>
 						<h2>Business</h2>
@@ -85,7 +84,7 @@ export default function BusinessCard() {
 						<p>When: {lastSubmit.time}</p>
 					</section>
 				)}
-			</BusinessCardContainer>
+			</ActivityCard>
 			{showForm && (
 				<FormModal>
 					<InputBusiness

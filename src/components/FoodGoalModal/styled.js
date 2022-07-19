@@ -16,7 +16,7 @@ const Modal = styled.dialog`
 	z-index: 2;
 	top: 30%;
 	width: 80%;
-	max-height: 80%;
+	max-height: 100%;
 	margin: 0 auto;
 	padding: 1.4em;
 	overflow-y: auto;
