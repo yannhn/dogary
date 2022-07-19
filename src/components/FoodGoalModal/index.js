@@ -8,7 +8,7 @@ export default function FoodGoalModal({children, onCancelGoalForm}) {
 			<Modal open>
 				<BackgroundHistory />
 				<StyledHistoryModalHeader>
-					<h2>History</h2>
+					<h2>Food-Goal</h2>
 					<StyledHistoryModalButton type="button" onClick={onCancelGoalForm}>
 						Get back
 					</StyledHistoryModalButton>

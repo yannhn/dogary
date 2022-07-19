@@ -29,7 +29,7 @@ export default function FoodCard() {
 		setFoodItems(newFoodItems);
 	};
 
-	const onAddNewFoodGoal = prevAmount => {
+	const addNewFoodGoal = prevAmount => {
 		const newFoodGoal = {...foodGoal, ...prevAmount};
 		setFoodGoal(newFoodGoal);
 	};
@@ -62,11 +62,8 @@ export default function FoodCard() {
 						<h2>Food</h2>
 						<FoodCardButtonGroup>
 							{showGoal && (
-								<FoodGoalModal>
-									<InputGoalForm
-										addNewFoodGoal={onAddNewFoodGoal}
-										onCancelGoalForm={onCancelGoalForm}
-									/>
+								<FoodGoalModal onCancelGoalForm={onCancelGoalForm}>
+									<InputGoalForm addNewFoodGoal={addNewFoodGoal} />
 								</FoodGoalModal>
 							)}
 							<FoodCardButtonGoal onClick={() => setShowGoal(!showGoal)}>
