@@ -19,7 +19,7 @@ import {
 	LastSubmitText,
 } from './styled';
 
-export default function InputWalk({addNewWalkItem, addCounter, cancelForm}) {
+export default function InputWalk({addNewWalkItem, cancelForm}) {
 	const [enteredDuration, setEnteredDuration] = useState('00:00');
 	const [enteredStartTime, setEnteredStartTime] = useState('08:00');
 	const [message, setMessage] = useState('');
@@ -33,8 +33,6 @@ export default function InputWalk({addNewWalkItem, addCounter, cancelForm}) {
 			startTime: enteredStartTime,
 			date: new Date(enteredDate).toDateString(),
 		};
-
-		addCounter(newInput);
 		addNewWalkItem(newInput);
 		setMessage(
 			`Your last walk with your dog lasted ${newInput.duration} h/m at ${newInput.startTime} o'clock on ${newInput.date}! Your dog will forever be grateful!`

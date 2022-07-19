@@ -35,19 +35,24 @@ export default function WalkCard() {
 	const dates = walkItem.map(walk => walk.date);
 	const uniqueDates = [...new Set(dates)];
 	const lastSubmit = walkItem[walkItem.length - 1];
+
+	function hoursStringToDecimal(hoursString) {
+		const [hoursPart, minutesPart] = hoursString.split(':');
+		return Number(hoursPart) + Number(minutesPart) / 60;
+	}
+
 	const walkSum = walkItem.reduce(
-		(total, currentValue) => (total = total + currentValue.duration),
+		(total, currentValue) => (total = total + hoursStringToDecimal(currentValue.duration)),
 		0
 	);
 
-	// const convertHoursToMinute = enteredDuration => {
-	// 	const hours = enteredDuration.split(':')[0];
-	// 	const minutes = enteredDuration.split(':')[1];
-	// 	return parseInt(hours) + Number(minutes / 60);
-	// };
+	function decimalHoursToString(hoursDecimal) {
+		const numHours = Math.floor(hoursDecimal);
+		const numMinutes = Math.round((hoursDecimal - numHours) * 60);
+		return `${numHours < 10 ? '0' : ''}${numHours}:${numMinutes < 10 ? '0' : ''}${numMinutes}`;
+	}
 
-	// const showHours = convertHoursToMinute(enteredDuration);
-	// const showMinutes = showHours * 60;
+	const walkSumTimeFormat = decimalHoursToString(walkSum);
 
 	return (
 		<>
@@ -89,12 +94,15 @@ export default function WalkCard() {
 				{lastSubmit && (
 					<section>
 						<section>
+							<h4>Last walk</h4>
 							<p>
 								{lastSubmit.duration ? `Duration: ${lastSubmit.duration} h/m` : ''}
 							</p>
 							<p> {lastSubmit.startTime ? `Time: ${lastSubmit.startTime}` : ''}</p>
 						</section>
-						<p>{walkSum ? `Todays duration: ${walkSum} min` : ''}</p>
+						<p>
+							{walkSumTimeFormat ? `Todays duration: ${walkSumTimeFormat} h/min` : ''}
+						</p>
 					</section>
 				)}
 			</WalkCardContainer>
