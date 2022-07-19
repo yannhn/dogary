@@ -1,12 +1,12 @@
 import {Icon} from '@iconify/react';
 import {useState} from 'react';
 
+import {ActivityCard} from '../Activities/ActivityCard/styled';
 import FormModal from '../FormModal';
 import HistoryModal from '../HistoryModal';
 import InputBusiness from '../InputBusiness/index';
 
 import {
-	BusinessCardContainer,
 	BusinessInfoContainer,
 	BusinessCardHeaderGroup,
 	BusinessCardButtonGroup,
@@ -38,7 +38,7 @@ export default function BusinessCard() {
 
 	return (
 		<>
-			<BusinessCardContainer>
+			<ActivityCard>
 				<BusinessInfoContainer>
 					<BusinessCardHeaderGroup>
 						<h2>Business</h2>
@@ -84,7 +84,7 @@ export default function BusinessCard() {
 						<p>When: {lastSubmit.time}</p>
 					</section>
 				)}
-			</BusinessCardContainer>
+			</ActivityCard>
 			{showForm && (
 				<FormModal>
 					<InputBusiness

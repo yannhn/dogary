@@ -1,12 +1,12 @@
 import {Icon} from '@iconify/react';
 import {useState} from 'react';
 
+import {ActivityCard} from '../Activities/ActivityCard/styled';
 import FormModal from '../FormModal';
 import HistoryModal from '../HistoryModal';
 import InputWalk from '../InputWalk/index';
 
 import {
-	WalkCardContainer,
 	WalkInfoContainer,
 	WalkCardHeaderGroup,
 	WalkCardButtonGroup,
@@ -56,7 +56,7 @@ export default function WalkCard() {
 
 	return (
 		<>
-			<WalkCardContainer>
+			<ActivityCard>
 				<WalkInfoContainer>
 					<WalkCardHeaderGroup>
 						<h2>Walks</h2>
@@ -105,7 +105,7 @@ export default function WalkCard() {
 						</p>
 					</section>
 				)}
-			</WalkCardContainer>
+			</ActivityCard>
 			{showForm && (
 				<FormModal>
 					<InputWalk addNewWalkItem={addNewWalkItem} cancelForm={cancelForm} />

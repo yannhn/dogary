@@ -1,6 +1,7 @@
 import {Icon} from '@iconify/react';
 import {useState} from 'react';
 
+import {ActivityCard} from '../Activities/ActivityCard/styled';
 import FoodGoalModal from '../FoodGoalModal';
 import FormModal from '../FormModal';
 import HistoryModal from '../HistoryModal';
@@ -8,7 +9,6 @@ import InputFood from '../InputFood/index.js';
 import InputGoalForm from '../InputGoalForm';
 
 import {
-	FoodCardContainer,
 	FoodInfoContainer,
 	FoodCardHeaderGroup,
 	FoodCardButtonGroup,
@@ -56,7 +56,7 @@ export default function FoodCard() {
 
 	return (
 		<>
-			<FoodCardContainer>
+			<ActivityCard>
 				<FoodInfoContainer>
 					<FoodCardHeaderGroup>
 						<h2>Food</h2>
@@ -105,7 +105,7 @@ export default function FoodCard() {
 					</FoodCardHeaderGroup>
 					<p>Dogs gotta eat</p>
 				</FoodInfoContainer>
-				{foodGoal.amount && <p>Goal: {foodGoal.amount} gram</p>}
+				{foodGoal.amount && <p>Todays goal: {foodGoal.amount} gram</p>}
 				{lastSubmit && foodGoal.amount ? (
 					<section>
 						<p>Todays sum: {foodSum} gram</p>
@@ -132,7 +132,7 @@ export default function FoodCard() {
 						</section>
 					)
 				)}
-			</FoodCardContainer>
+			</ActivityCard>
 			{showForm && (
 				<FormModal>
 					<InputFood addNewFoodItem={addNewFoodItem} cancelForm={cancelForm}></InputFood>
