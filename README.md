@@ -1,3 +1,12 @@
+<p align="center">
+<br>
+<img height="130rem" src="public/img/dogary-logo-outline.png" />
+<br><br>
+<img height="65rem" src="public/img/Element 6@3x.png" />
+</p>
+
+# Dogary
+
 # React App
 
 This is a template for a [Create React App](https://create-react-app.dev/) with additional tools.
