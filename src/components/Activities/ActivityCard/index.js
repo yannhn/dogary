@@ -1,5 +1,5 @@
 import {ActivityCard} from './styled';
 
-export default function FormModal({children}) {
+export default function ActivityContainer({children}) {
 	return <ActivityCard>{children}</ActivityCard>;
 }
