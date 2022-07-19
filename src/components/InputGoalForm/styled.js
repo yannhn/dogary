@@ -31,6 +31,23 @@ const InputGoalButtonGroup = styled.section`
 	margin: 2em 0 1em;
 `;
 
+const AddButton = styled.button`
+	padding: 0.5em 1em;
+	border: none;
+	border-radius: 5px;
+	background: #64b6ac;
+	color: #fff;
+	font-size: 1em;
+	cursor: pointer;
+	&:hover {
+		background: #559c93;
+	}
+
+	&:active {
+		background: #bad;
+	}
+`;
+
 const LastSubmitSection = styled.section`
 	margin: 0.4em;
 	padding: 0.6em;
@@ -56,6 +73,7 @@ export {
 	InputGoalLabel,
 	InputGoalAmount,
 	InputGoalButtonGroup,
+	AddButton,
 	LastSubmitSection,
 	LastSubmitHeading,
 	LastSubmitText,

@@ -8,6 +8,7 @@ import {
 	InputGoalLabel,
 	InputGoalAmount,
 	InputGoalButtonGroup,
+	AddButton,
 	LastSubmitSection,
 	LastSubmitHeading,
 	LastSubmitText,
@@ -26,7 +27,7 @@ export default function InputGoalForm({onCancelGoalForm, addNewFoodGoal}) {
 		};
 		addNewFoodGoal(newAmount);
 		setMessage(
-			`Your food-goal for today to reach is ${newAmount.amount} gram. You can do this!`
+			`Your new food-goal for today is reach to ${newAmount.amount} gram. You can do this!`
 		);
 	};
 
@@ -47,7 +48,7 @@ export default function InputGoalForm({onCancelGoalForm, addNewFoodGoal}) {
 					/>
 				</InputGoalSection>
 				<InputGoalButtonGroup>
-					<button type="submit">add</button>
+					<AddButton type="submit">add</AddButton>
 				</InputGoalButtonGroup>
 			</GoalForm>
 			{message && (
