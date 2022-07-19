@@ -17,15 +17,21 @@ import {
 	FoodCardButtonAdd,
 } from './styled';
 
-export default function FoodCard({goalAmount}) {
+export default function FoodCard() {
 	const [showForm, setShowForm] = useState(false);
 	const [showHistory, setShowHistory] = useState(false);
 	const [showGoal, setShowGoal] = useState(false);
 	const [foodItems, setFoodItems] = useState([]);
+	const [foodGoal, setFoodGoal] = useState({});
 
 	const addNewFoodItem = prevItem => {
 		const newFoodItems = [...foodItems, prevItem];
 		setFoodItems(newFoodItems);
+	};
+
+	const onAddNewFoodGoal = prevAmount => {
+		const newFoodGoal = {...foodGoal, ...prevAmount};
+		setFoodGoal(newFoodGoal);
 	};
 
 	const cancelForm = () => {
@@ -37,7 +43,7 @@ export default function FoodCard({goalAmount}) {
 	};
 
 	const onCancelGoalForm = () => {
-		setShowHistory(!showHistory);
+		setShowGoal(!showGoal);
 	};
 
 	const dates = foodItems.map(foodItem => foodItem.date);
@@ -55,6 +61,14 @@ export default function FoodCard({goalAmount}) {
 					<FoodCardHeaderGroup>
 						<h2>Food</h2>
 						<FoodCardButtonGroup>
+							{showGoal && (
+								<FoodGoalModal>
+									<InputGoalForm
+										addNewFoodGoal={onAddNewFoodGoal}
+										onCancelGoalForm={onCancelGoalForm}
+									/>
+								</FoodGoalModal>
+							)}
 							<FoodCardButtonGoal onClick={() => setShowGoal(!showGoal)}>
 								<Icon
 									icon="mdi:bullseye-arrow"
@@ -94,21 +108,21 @@ export default function FoodCard({goalAmount}) {
 					</FoodCardHeaderGroup>
 					<p>Dogs gotta eat</p>
 				</FoodInfoContainer>
-				{goalAmount && <p>Goal: {goalAmount} gram</p>}
-				{lastSubmit && goalAmount ? (
-					<FoodInfoContainer>
+				{foodGoal.amount && <p>Goal: {foodGoal.amount} gram</p>}
+				{lastSubmit && foodGoal.amount ? (
+					<section>
 						<p>Todays sum: {foodSum} gram</p>
 						{
 							<p>
-								{foodSum >= goalAmount
+								{foodSum >= foodGoal.amount
 									? 'food goal reached (unless you want to have a chunky boy you should probably stop feeding your dog.)'
-									: `missing food: ${goalAmount - foodSum} gram`}
+									: `missing food: ${foodGoal.amount - foodSum} gram`}
 							</p>
 						}
 						<h4>Last Input</h4>
 						<p>How much {lastSubmit.amount} gram</p>
 						<p>At: {lastSubmit.time}</p>
-					</FoodInfoContainer>
+					</section>
 				) : (
 					lastSubmit && (
 						<section>
@@ -145,11 +159,6 @@ export default function FoodCard({goalAmount}) {
 							</section>
 						))}
 				</HistoryModal>
-			)}
-			{showGoal && (
-				<FoodGoalModal>
-					<InputGoalForm onCancelGoalForm={onCancelGoalForm}></InputGoalForm>
-				</FoodGoalModal>
 			)}
 		</>
 	);

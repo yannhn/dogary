@@ -1,7 +1,5 @@
+import {nanoid} from 'nanoid';
 import {useState} from 'react';
-
-import AddButton from '../Forms/Buttons/AddButton';
-import CancelButton from '../Forms/Buttons/CancelButton';
 
 import {
 	GoalForm,
@@ -12,16 +10,18 @@ import {
 	InputGoalButtonGroup,
 } from './styled';
 
-export default function InputGoalForm({cancelForm, onCancelGoalForm}) {
+export default function InputGoalForm({onCancelGoalForm, addNewFoodGoal}) {
 	const [amount, setAmount] = useState(0);
 
 	const submitHandler = event => {
 		event.preventDefault();
+
 		const newAmount = {
+			id: nanoid(),
 			amount: amount,
 		};
-		console.log(newAmount);
-		setAmount(0);
+
+		addNewFoodGoal(newAmount);
 	};
 
 	return (
@@ -40,14 +40,10 @@ export default function InputGoalForm({cancelForm, onCancelGoalForm}) {
 				/>
 			</InputGoalSection>
 			<InputGoalButtonGroup>
-				<button type="button" onCancelGoalForm={onCancelGoalForm}>
+				<button type="button" onClick={onCancelGoalForm}>
 					Get back
 				</button>
-				<button type="button" onCancelGoalForm={onCancelGoalForm}>
-					Get back
-				</button>
-				<CancelButton type="button" buttonText={'Cancel'} cancelForm={cancelForm} />
-				<AddButton type="submit" buttonText={'Add food goal'} onClick={cancelForm} />
+				<button type="submit">add</button>
 			</InputGoalButtonGroup>
 		</GoalForm>
 	);
