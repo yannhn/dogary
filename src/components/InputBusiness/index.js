@@ -22,6 +22,7 @@ import {
 export default function InputBusiness({addNewBusinessItem, cancelForm}) {
 	const [smallBusiness, setSmallBusiness] = useState(false);
 	const [bigBusiness, setBigBusiness] = useState(false);
+	const [noBusiness, setNoBusiness] = useState(false);
 	const [time, setTime] = useState('08:00');
 	const [enteredDate, setEnteredDate] = useState('');
 	const [message, setMessage] = useState('');
@@ -32,22 +33,30 @@ export default function InputBusiness({addNewBusinessItem, cancelForm}) {
 			id: nanoid(),
 			smallBusiness: smallBusiness,
 			bigBusiness: bigBusiness,
+			noBusiness: noBusiness,
 			time: time,
 			date: new Date(enteredDate).toDateString(),
 		};
 		addNewBusinessItem(newBusinessItem);
 		setSmallBusiness(false);
 		setBigBusiness(false);
+		setNoBusiness(false);
 		setTime(time);
 		setMessage(
 			`Your dog ${
-				newBusinessItem.smallBusiness && newBusinessItem.bigBusiness
+				newBusinessItem.smallBusiness &&
+				newBusinessItem.bigBusiness &&
+				newBusinessItem.noBusiness
 					? `did double business at ${newBusinessItem.time} o'clock on ${newBusinessItem.date}. Your dog will forever be grateful!`
-					: newBusinessItem.smallBusiness
+					: newBusinessItem.smallBusiness && !newBusinessItem.noBusiness
 					? `did a small business at ${newBusinessItem.time} o'clock on ${newBusinessItem.date}. Your dog will forever be grateful!`
-					: newBusinessItem.bigBusiness
+					: newBusinessItem.bigBusiness && !newBusinessItem.noBusiness
 					? `did a big business at ${newBusinessItem.time} o'clock on ${newBusinessItem.date}. Your dog will forever be grateful!`
-					: `didn't do any business at all at ${newBusinessItem.time} o'clock on ${newBusinessItem.date}. (Sometimes your dog is simply just not in the right mood. You might have to try again later.)`
+					: newBusinessItem.noBusiness &&
+					  !newBusinessItem.smallBusiness &&
+					  !newBusinessItem.bigBusiness
+					? `didn't do any business at all at ${newBusinessItem.time} o'clock on ${newBusinessItem.date}. (Sometimes your dog is simply just not in the right mood. You might have to try again later.)`
+					: 'maybe did small, big or none of it at all. You currently checked too many boxes or none of it! Now everyone is confused. Maybe you should fix that. (For safety reasons your last submit says no business!)'
 			}`
 		);
 	};
@@ -73,6 +82,13 @@ export default function InputBusiness({addNewBusinessItem, cancelForm}) {
 								type="checkbox"
 								checked={bigBusiness}
 								onChange={() => setBigBusiness(!bigBusiness)}
+							/>
+							<label htmlFor="checkbox-no">no business</label>
+							<input
+								id="checkbox-no"
+								type="checkbox"
+								checked={noBusiness}
+								onChange={() => setNoBusiness(!noBusiness)}
 							/>
 						</section>
 					</InputBusinessCheckboxSection>
