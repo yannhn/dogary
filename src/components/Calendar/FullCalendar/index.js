@@ -31,7 +31,7 @@ export default function Calendar() {
 						testButton: {
 							text: 'add new event',
 							click: function () {
-								alert('clicked the new event button!');
+								setModalOpen(!modalOpen);
 							},
 						},
 					}}
@@ -65,11 +65,13 @@ export default function Calendar() {
 				/>
 			</StyleWrapper>
 			<section>
-				<AddEventModal
-					isOpen={modalOpen}
-					onClose={() => setModalOpen(false)}
-					onEventAdded={event => onEventAdded(event)}
-				></AddEventModal>
+				{modalOpen && (
+					<AddEventModal
+						isOpen={modalOpen}
+						onClose={() => setModalOpen(false)}
+						onEventAdded={event => onEventAdded(event)}
+					></AddEventModal>
+				)}
 			</section>
 		</>
 	);
