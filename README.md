@@ -1,146 +1,75 @@
-# React App
+<p align="center">
+<br>
+<img height="150rem" src="public/img/dogary-logo-outline.png" />
+<br><br>
+<img height="65rem" src="public/img/dogary-font-orange.png" />
+</p>
+<hr>
 
-This is a template for a [Create React App](https://create-react-app.dev/) with additional tools.
+# Project Overview - Dogary🐶
 
-<!-- toc -->
+As my capstone-project of the neue fische Bootcamp I am developing the React App [Dogary](https://dogary.vercel.app/). The dog's daily needs can be tracked in the App, which simplifies communication between dog owners. In addition, appointments can be organized in a calendar and todos can be planned.
 
--   [Tech-Stack](#tech-stack)
--   [Getting started](#getting-started)
--   [Test Driven Development](#test-driven-development)
--   [Commands](#commands)
--   [Skipping linters](#skipping-linters)
+## Used technology
 
-<!-- tocstop -->
+<p align="left">
+<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank" rel="noreferrer"><img src="https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/skills/javascript-colored.svg" width="36" height="36" alt="JavaScript" /></a>
+<a href="https://reactjs.org/" target="_blank" rel="noreferrer"><img src="https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/skills/react-colored.svg" width="36" height="36" alt="React" /></a>
+<a href="https://developer.mozilla.org/en-US/docs/Glossary/HTML5" target="_blank" rel="noreferrer"><img src="https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/skills/html5-colored.svg" width="36" height="36" alt="HTML5" /></a>
+<a href="https://www.w3.org/TR/CSS/#css" target="_blank" rel="noreferrer"><img src="https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/skills/css3-colored.svg" width="36" height="36" alt="CSS3" /></a>
+</p>
 
-It uses the following tools/libraries:
+<hr>
 
-## Tech-Stack
+## Features
 
--   [Storybook](https://storybook.js.org/)
--   [Jest](https://jestjs.io/)
--   [Stylelint](https://stylelint.io/)
--   [Eslint](https://eslint.org/)
--   [Prettier](https://prettier.io/)
+The app is split across three pages which each hold different functionalities.
 
-## Project Setup
+### Tracking
 
-This project uses different deployments to make code reviews easier:
+The key element of the Dogary-App is it's tracking feature. Here the user can track the food the dog ate while simultaneously setting a food-goal for the dog to reach that day day. The same applies to the walks the did with the dog and the business the dog did. The user can also display a history and get a quick overview of the activities of the last few days.
 
--   Vercel (App Production)
--   Vercel (App Preview)
--   GitHub Pages (Storybook Production)
--   Surge (Storybook Preview)
+<p align="center">
+<img src="public/img/Tracking/home-image.png" width="20%" height="20%" alt="dogary-home-image" />
+<img src="public/img/Tracking/home-screen.png" width="20%" height="20%" alt="dogary-home-screen" />
+<img src="public/img/Tracking/home-input.png" width="20%" height="20%" alt="dogary-home-input" />
+<img src="public/img/Tracking/home-history.png" width="20%" height="20%" alt="dogary-home-history" />
+</p>
 
-### Set up Vercel
+You can also upload a cute picture of your dog to display on the main screen!
 
-Please follow this guide: https://vercel.com/docs/concepts/git
+### Calendar
 
-### Setup GitHub Pages
+Thanks to the Full Calendar for React-Library I was able to implement a Calendar into the dogary-App. This allows the user to add their dog-related events and change their date using drag-and-drop.
 
-Please follow this guide: https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site
+<p align="center">
+<img src="public/img/Calendar/calendar-overview.png" width="20%" height="20%" alt="dogary-calendar-overview" />
+<img src="public/img/Calendar/calendar-date.png" width="20%" height="20%" alt="dogary-calendar-date" />
+</p>
 
-Use the `gh-pages` branch
+### ToDo
 
-### Setup Surge
+The final aspect of the dogary-App is the todo-list feature. Here the user can organize, edit, delete or set todos to urgent if they are extremely important.
 
-To generate a surge token please use the following command
+<p align="center">
+<img src="public/img/Todo/todo-overview.png" width="20%" height="20%" alt="dogary-todo-overview" />
+<img src="public/img/Todo/todo-urgent.png" width="20%" height="20%" alt="dogary-todo-urgent" />
+<img src="public/img/Todo/todo-completed.png" width="20%" height="20%" alt="dogary-todo-completed" />
+</p>
 
-```shell
-npx surge token
-```
+<hr>
 
-It will output something like this:
+## Plans for the future🌱
 
-```shell
-❯ npx surge token
+### Statistics
 
-   1234567890abcdefghijklmnopqrstuv
-```
+In the future I would like to build a page for statistics. On this page, the user should see the entered activities of the dog graphically processed. I would also like to add the ability to track the dog's weight.
 
-Add this token to your [GitHub secrets](https://docs.github.com/en/actions/security-guides/encrypted-secrets)
+### Diary
 
-We only need it for the "Preview" Environment, but you can add it to both (see screenshot below)
+What is a dog without the experiences with him? In order to remember them, I would like to add another diary page in which the user can enter the special experiences with his dog and have them to go back again and again.
 
-![GitHub Secret for Surge](./docs/resources/github-secrets-surge.png)
-
-## Getting started
-
-**Run the development server:**
-
-```bash
-npm run start
-```
-
-**Run storybook:**
-
-```shell
-npm run storybook
-```
-
-## Test Driven Development
-
-We jest to write unit tests. Please look at the Documentation for [Jest](https://jestjs.io/)
-and [testing-library](https://testing-library.com/docs/react-testing-library/intro/).
-
-## Commitlint
-
-We use commitlint to ensure conventional commit messages. You can read more about our decision in
-the [documentation](./docs/COMMITS.md).
-
-## Commands
-
-**Run the development server:**
-
-```bash
-npm run dev
-```
-
-**Build:**
-
-```shell
-npm run build
-```
-
-**Run storybook:**
-
-```shell
-npm run storybook
-```
-
-**Build storybook:**
-
-```shell
-npm run storybook:build
-```
-
-**Run unit tests:**
-
-```shell
-npm run jest
-# npm run jest:watch # watch
-# npm run test:unit # same as "npm run jest"
-```
-
-**Run all tests:**
-
-```shell
-npm run test
-```
-
-**Run stylelint**
-
-```shell
-npm run stylelint
-```
-
-**Run eslint**
-
-```shell
-npm run eslint
-```
-
-**Run all linters**
-
-```shell
-npm run lint
-```
+<p align="center">
+<img src="public/img/plans/statistics.png" width="30%" height="30%" alt="dogary-statistics" />
+<img src="public/img/plans/diary.png" width="30%" height="30%" alt="dogary-diary" />
+</p>
