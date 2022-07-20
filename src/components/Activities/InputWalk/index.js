@@ -1,8 +1,8 @@
 import {nanoid} from 'nanoid';
 import {useState} from 'react';
 
-import AddButton from '../Form-components/Buttons/AddButton/index';
-import CancelButton from '../Form-components/Buttons/CancelButton/index';
+import AddButton from '../../Form-components/Buttons/AddButton/index';
+import CancelButton from '../../Form-components/Buttons/CancelButton/index';
 
 import {
 	InputWalkContainer,
