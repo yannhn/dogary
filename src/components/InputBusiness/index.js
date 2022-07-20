@@ -44,7 +44,12 @@ export default function InputBusiness({addNewBusinessItem, cancelForm}) {
 		setTime(time);
 		// ARRAY MIT DEN BUSINESSES ERZEUGEN UND DANN FILTERN
 		// EINZELNE CASES
-
+		const businessArr = [
+			newBusinessItem.smallBusiness,
+			newBusinessItem.bigBusiness,
+			newBusinessItem.noBusiness,
+		];
+		console.log(businessArr);
 		setMessage(
 			`Your dog ${
 				newBusinessItem.smallBusiness &&
