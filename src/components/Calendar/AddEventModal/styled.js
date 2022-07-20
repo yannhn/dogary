@@ -19,4 +19,56 @@ const InputCalendarDateHeader = styled.h3`
 	border-bottom: 1px solid #343d46;
 `;
 
-export {InputCalendarDateContainer, InputCalendarDateForm, InputCalendarDateHeader};
+const InputCalendarSection = styled.section`
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	margin-bottom: 1em;
+`;
+
+const InputCalendarLabel = styled.label`
+	margin-bottom: 0.4em;
+	text-align: center;
+`;
+
+const InputCalendarDate = styled.input`
+	padding: 0.4em;
+	border: 1px solid black;
+	border-radius: 5px;
+	text-align: center;
+`;
+
+const InputCalendarButtonGroup = styled.section`
+	display: flex;
+	justify-content: space-evenly;
+	margin: 2em 0 1em;
+`;
+
+const InputCalendarButton = styled.button`
+	padding: 0.5em 1em;
+	border: none;
+	border-radius: 5px;
+	background: #64b6ac;
+	color: #fff;
+	font-size: 1em;
+	cursor: pointer;
+
+	&:hover {
+		background: #559c93;
+	}
+
+	&:active {
+		background: #bad;
+	}
+`;
+
+export {
+	InputCalendarDateContainer,
+	InputCalendarDateForm,
+	InputCalendarDateHeader,
+	InputCalendarSection,
+	InputCalendarLabel,
+	InputCalendarDate,
+	InputCalendarButtonGroup,
+	InputCalendarButton,
+};

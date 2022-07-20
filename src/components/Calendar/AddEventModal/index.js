@@ -1,6 +1,15 @@
 import {useState} from 'react';
 
-import {InputCalendarDateContainer, InputCalendarDateForm, InputCalendarDateHeader} from './styled';
+import {
+	InputCalendarDateContainer,
+	InputCalendarDateForm,
+	InputCalendarDateHeader,
+	InputCalendarSection,
+	InputCalendarLabel,
+	InputCalendarDate,
+	InputCalendarButtonGroup,
+	InputCalendarButton,
+} from './styled';
 
 export default function AddEventModal({onClose, onEventAdded}) {
 	const [title, setTitle] = useState('');
@@ -10,9 +19,9 @@ export default function AddEventModal({onClose, onEventAdded}) {
 	const onSubmit = event => {
 		event.preventDefault();
 		const newEvent = {
-			title: title,
-			start: start,
-			end: end,
+			title,
+			start,
+			end,
 		};
 		onEventAdded(newEvent);
 		onClose();
@@ -23,27 +32,35 @@ export default function AddEventModal({onClose, onEventAdded}) {
 			<InputCalendarDateContainer onClose={onClose}>
 				<InputCalendarDateForm onSubmit={onSubmit}>
 					<InputCalendarDateHeader>Enter your next event!</InputCalendarDateHeader>
-					<label>What is the name of your event?</label>
-					<input
-						placeholder="Title"
-						value={title}
-						type="text"
-						onChange={event => setTitle(event.target.value)}
-					></input>
-					<label>When does the event start?</label>
-					<input
-						value={start}
-						type="date"
-						required
-						onChange={event => setStart(event.target.value)}
-					></input>
-					<label>Till when should the event go?</label>
-					<input
-						value={end}
-						type="date"
-						onChange={event => setEnd(event.target.value)}
-					></input>
-					<button>Add event</button>
+					<InputCalendarSection>
+						<InputCalendarLabel>What is the name of your event?</InputCalendarLabel>
+						<InputCalendarDate
+							placeholder="Title"
+							value={title}
+							type="text"
+							onChange={event => setTitle(event.target.value)}
+						/>
+					</InputCalendarSection>
+					<InputCalendarSection>
+						<InputCalendarLabel>When does the event start?</InputCalendarLabel>
+						<InputCalendarDate
+							value={start}
+							type="date"
+							required
+							onChange={event => setStart(event.target.value)}
+						/>
+					</InputCalendarSection>
+					<InputCalendarSection>
+						<InputCalendarLabel>Till when should the event go?</InputCalendarLabel>
+						<InputCalendarDate
+							value={end}
+							type="date"
+							onChange={event => setEnd(event.target.value)}
+						/>
+					</InputCalendarSection>
+					<InputCalendarButtonGroup>
+						<InputCalendarButton>Add event</InputCalendarButton>
+					</InputCalendarButtonGroup>
 				</InputCalendarDateForm>
 			</InputCalendarDateContainer>
 		</>
