@@ -42,6 +42,9 @@ export default function InputBusiness({addNewBusinessItem, cancelForm}) {
 		setBigBusiness(false);
 		setNoBusiness(false);
 		setTime(time);
+		// ARRAY MIT DEN BUSINESSES ERZEUGEN UND DANN FILTERN
+		// EINZELNE CASES
+
 		setMessage(
 			`Your dog ${
 				newBusinessItem.smallBusiness &&
