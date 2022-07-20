@@ -70,7 +70,7 @@ export default function Calendar() {
 			<section>
 				{modalOpen && (
 					<AddEventModal
-						isOpen={modalOpen}
+						isOpen={() => setModalOpen(true)}
 						onClose={() => setModalOpen(false)}
 						onEventAdded={event => onEventAdded(event)}
 					></AddEventModal>
