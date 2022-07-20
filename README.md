@@ -8,7 +8,7 @@
 
 # Project Overview - Dogary🐶
 
-As my capstone-project of the neueFische-Bootcamp I am developing the React app Dogary. The dog's daily needs can be tracked in the app, which simplifies communication between dog owners. In addition, appointments can be organized in a calendar and todos can be planned.
+As my capstone-project of the neue fische Bootcamp I am developing the React App [Dogary](https://dogary.vercel.app/). The dog's daily needs can be tracked in the App, which simplifies communication between dog owners. In addition, appointments can be organized in a calendar and todos can be planned.
 
 ## Used technology
 
@@ -27,7 +27,7 @@ The app is split across three pages which each hold different functionalities.
 
 ### Tracking
 
-The key element of Dogary-app is it's tracking feature. Here the user can track the food the dog ate while simultaneously setting a food-goal for the dog to reach that day day. The same applies to the walks the did with the dog and the business the dog did. The user can also display a history and get a quick overview of the activities of the last few days.
+The key element of the Dogary-App is it's tracking feature. Here the user can track the food the dog ate while simultaneously setting a food-goal for the dog to reach that day day. The same applies to the walks the did with the dog and the business the dog did. The user can also display a history and get a quick overview of the activities of the last few days.
 
 <p align="center">
 <img src="public/img/Tracking/home-image.png" width="20%" height="20%" alt="dogary-home-image" />
@@ -40,7 +40,7 @@ You can also upload a cute picture of your dog to display on the main screen!
 
 ### Calendar
 
-Thanks to the Full Calendar for React-Library I was able to implement a Calendar into the dogary-app. This allows the user to add their dog-related events and change their date using drag-and-drop.
+Thanks to the Full Calendar for React-Library I was able to implement a Calendar into the dogary-App. This allows the user to add their dog-related events and change their date using drag-and-drop.
 
 <p align="center">
 <img src="public/img/Calendar/calendar-overview.png" width="20%" height="20%" alt="dogary-calendar-overview" />
@@ -49,7 +49,7 @@ Thanks to the Full Calendar for React-Library I was able to implement a Calendar
 
 ### ToDo
 
-The final aspect of the dogary app is the todo app. Here the user can organize, edit, delete or set todos to urgent if they are extremely important.
+The final aspect of the dogary-App is the todo-list feature. Here the user can organize, edit, delete or set todos to urgent if they are extremely important.
 
 <p align="center">
 <img src="public/img/Todo/todo-overview.png" width="20%" height="20%" alt="dogary-todo-overview" />
