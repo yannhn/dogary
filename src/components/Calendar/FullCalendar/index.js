@@ -5,16 +5,23 @@ import listPlugin from '@fullcalendar/list';
 import timeGridPlugin from '@fullcalendar/timegrid';
 
 import {StyleWrapper} from './styled';
-import {useState} from 'react';
+import {useRef, useState} from 'react';
 import AddEventModal from '../AddEventModal/index';
 
 export default function Calendar() {
 	const [modalOpen, setModalOpen] = useState(false);
+	const calendarRef = useRef(null);
+
+	const onEventAdded = event => {
+		let calendarApi = calendarRef.current.getApi();
+		calendarApi.addEvent(event);
+	};
 
 	return (
 		<>
 			<StyleWrapper>
 				<FullCalendar
+					ref={calendarRef}
 					plugins={[dayGridPlugin, listPlugin, interactionPlugin, timeGridPlugin]}
 					firstDay={1}
 					headerToolbar={{

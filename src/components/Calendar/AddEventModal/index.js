@@ -1,6 +1,6 @@
 import {useState} from 'react';
 
-export default function AddEventModal({onClose, addEvent}) {
+export default function AddEventModal({onClose, onEventAdded}) {
 	const [title, setTitle] = useState('');
 	const [start, setStart] = useState(new Date());
 	const [end, setEnd] = useState(new Date());
@@ -8,17 +8,17 @@ export default function AddEventModal({onClose, addEvent}) {
 	const onSubmit = event => {
 		event.preventDefault();
 		const newEvent = {
-			title: title,
-			start: start,
-			end: end,
+			title,
+			start,
+			end,
 		};
-		addEvent(newEvent);
+		onEventAdded(newEvent);
 		onClose();
 	};
 
 	return (
 		<>
-			<section>
+			<section onClose={onClose}>
 				<form onSubmit={onSubmit}>
 					<label>TITLE</label>
 					<input
