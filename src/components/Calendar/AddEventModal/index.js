@@ -1,6 +1,6 @@
 import {useState} from 'react';
 
-export default function AddEventModal({isOpen, onClose, onEventAdded}) {
+export default function AddEventModal({onClose, addEvent}) {
 	const [title, setTitle] = useState('');
 	const [start, setStart] = useState(new Date());
 	const [end, setEnd] = useState(new Date());
@@ -12,13 +12,13 @@ export default function AddEventModal({isOpen, onClose, onEventAdded}) {
 			start: start,
 			end: end,
 		};
-		onEventAdded(newEvent);
+		addEvent(newEvent);
 		onClose();
 	};
 
 	return (
 		<>
-			<section isOpen={isOpen} onRequestClose={onClose}>
+			<section>
 				<form onSubmit={onSubmit}>
 					<label>TITLE</label>
 					<input

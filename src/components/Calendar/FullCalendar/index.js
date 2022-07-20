@@ -11,10 +11,6 @@ import AddEventModal from '../AddEventModal/index';
 export default function Calendar() {
 	const [modalOpen, setModalOpen] = useState(false);
 
-	const onEventAdded = event => {
-		addEvent(event);
-	};
-
 	return (
 		<>
 			<StyleWrapper>
