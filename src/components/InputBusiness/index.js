@@ -42,21 +42,33 @@ export default function InputBusiness({addNewBusinessItem, cancelForm}) {
 		setBigBusiness(false);
 		setNoBusiness(false);
 		setTime(time);
-		// ARRAY MIT DEN BUSINESSES ERZEUGEN UND DANN FILTERN
-		// EINZELNE CASES
-
-		//CASES GENAU DEFINIEREN
 		const businessArr = [
 			{
-				case: newBusinessItem.smallBusiness,
+				case:
+					newBusinessItem.smallBusiness &&
+					!newBusinessItem.bigBusiness &&
+					!newBusinessItem.noBusiness,
 				message: `did a small business at ${newBusinessItem.time} o'clock on ${newBusinessItem.date}. Your dog will forever be grateful!`,
 			},
 			{
-				case: newBusinessItem.bigBusiness,
+				case:
+					newBusinessItem.bigBusiness &&
+					!newBusinessItem.smallBusiness &&
+					!newBusinessItem.noBusiness,
 				message: `did a big business at ${newBusinessItem.time} o'clock on ${newBusinessItem.date}. Your dog will forever be grateful!`,
 			},
 			{
-				case: newBusinessItem.noBusiness,
+				case:
+					newBusinessItem.smallBusiness &&
+					newBusinessItem.bigBusiness &&
+					!newBusinessItem.noBusiness,
+				message: `did double business at ${newBusinessItem.time} o'clock on ${newBusinessItem.date}. Your dog will forever be grateful!`,
+			},
+			{
+				case:
+					newBusinessItem.noBusiness &&
+					!newBusinessItem.smallBusiness &&
+					!newBusinessItem.bigBusiness,
 				message: `didn't do any business at all at ${newBusinessItem.time} o'clock on ${newBusinessItem.date}. (Sometimes your dog is simply just not in the right mood. You might have to try again later.)`,
 			},
 			{
