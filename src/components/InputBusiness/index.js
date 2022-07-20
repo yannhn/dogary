@@ -48,35 +48,38 @@ export default function InputBusiness({addNewBusinessItem, cancelForm}) {
 					newBusinessItem.smallBusiness &&
 					!newBusinessItem.bigBusiness &&
 					!newBusinessItem.noBusiness,
-				message: `did a small business at ${newBusinessItem.time} o'clock on ${newBusinessItem.date}. Your dog will forever be grateful!`,
+				message: `Your dog did a small business at ${newBusinessItem.time} o'clock on ${newBusinessItem.date}. Your dog will forever be grateful!`,
 			},
 			{
 				case:
 					newBusinessItem.bigBusiness &&
 					!newBusinessItem.smallBusiness &&
 					!newBusinessItem.noBusiness,
-				message: `did a big business at ${newBusinessItem.time} o'clock on ${newBusinessItem.date}. Your dog will forever be grateful!`,
+				message: `Your dog did a big business at ${newBusinessItem.time} o'clock on ${newBusinessItem.date}. Your dog will forever be grateful!`,
 			},
 			{
 				case:
 					newBusinessItem.smallBusiness &&
 					newBusinessItem.bigBusiness &&
 					!newBusinessItem.noBusiness,
-				message: `did double business at ${newBusinessItem.time} o'clock on ${newBusinessItem.date}. Your dog will forever be grateful!`,
+				message: `Your dog did double business at ${newBusinessItem.time} o'clock on ${newBusinessItem.date}. Your dog will forever be grateful!`,
 			},
 			{
 				case:
 					newBusinessItem.noBusiness &&
 					!newBusinessItem.smallBusiness &&
 					!newBusinessItem.bigBusiness,
-				message: `didn't do any business at all at ${newBusinessItem.time} o'clock on ${newBusinessItem.date}. (Sometimes your dog is simply just not in the right mood. You might have to try again later.)`,
+				message: `Your dog didn't do any business at all at ${newBusinessItem.time} o'clock on ${newBusinessItem.date}. (Sometimes your dog is simply just not in the right mood. You might have to try again later.)`,
 			},
 			{
 				case:
-					newBusinessItem.noBusiness &&
-					(newBusinessItem.smallBusiness || newBusinessItem.bigBusiness),
+					(newBusinessItem.noBusiness &&
+						(newBusinessItem.smallBusiness || newBusinessItem.bigBusiness)) ||
+					(!newBusinessItem.noBusiness &&
+						!newBusinessItem.smallBusiness &&
+						!newBusinessItem.bigBusiness),
 				message:
-					'maybe did small, big or none of it at all. You currently checked too many boxes or none of it! Now everyone is confused. Maybe you should fix that. (For safety reasons your last submit says no business!)',
+					'Your dog maybe did a small, a big or no business at all. You currently checked too many boxes or none of it! Now everyone is confused. Maybe you should fix that. (For safety reasons your last submit says no business!)',
 			},
 		];
 		const businessMessage = businessArr.find(business => business.case);
