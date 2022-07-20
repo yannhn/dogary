@@ -49,20 +49,19 @@ export default function InputBusiness({addNewBusinessItem, cancelForm}) {
 			newBusinessItem.bigBusiness,
 			newBusinessItem.noBusiness,
 		];
-		console.log(businessArr);
+		const smallArr = businessArr.filter(business => business.smallBusiness);
+		const bigArr = businessArr.filter(business => business.bigBusiness);
+		const noArr = businessArr.filter(business => business.noBusiness);
+
 		setMessage(
 			`Your dog ${
-				newBusinessItem.smallBusiness &&
-				newBusinessItem.bigBusiness &&
-				newBusinessItem.noBusiness
+				smallArr && bigArr && noArr
 					? `did double business at ${newBusinessItem.time} o'clock on ${newBusinessItem.date}. Your dog will forever be grateful!`
-					: newBusinessItem.smallBusiness && !newBusinessItem.noBusiness
+					: smallArr && !noArr
 					? `did a small business at ${newBusinessItem.time} o'clock on ${newBusinessItem.date}. Your dog will forever be grateful!`
-					: newBusinessItem.bigBusiness && !newBusinessItem.noBusiness
+					: bigArr && !noArr
 					? `did a big business at ${newBusinessItem.time} o'clock on ${newBusinessItem.date}. Your dog will forever be grateful!`
-					: newBusinessItem.noBusiness &&
-					  !newBusinessItem.smallBusiness &&
-					  !newBusinessItem.bigBusiness
+					: noArr && !smallArr && !bigArr
 					? `didn't do any business at all at ${newBusinessItem.time} o'clock on ${newBusinessItem.date}. (Sometimes your dog is simply just not in the right mood. You might have to try again later.)`
 					: 'maybe did small, big or none of it at all. You currently checked too many boxes or none of it! Now everyone is confused. Maybe you should fix that. (For safety reasons your last submit says no business!)'
 			}`
