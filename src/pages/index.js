@@ -1,11 +1,11 @@
 import {Helmet} from 'react-helmet';
 
+import BusinessCard from '../components/Activities/BusinessCard';
+import FoodCard from '../components/Activities/FoodCard';
+import WalkCard from '../components/Activities/WalkCard';
 import BackgroundHome from '../components/BackgroundHome';
-import BusinessCard from '../components/BusinessCard';
 import DogInfoBar from '../components/DogInfo/DogInfoBar';
-import FoodCard from '../components/FoodCard';
 import Layout from '../components/Layout';
-import WalkCard from '../components/WalkCard';
 
 export default function HomePage() {
 	return (
