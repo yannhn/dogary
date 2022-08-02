@@ -1,10 +1,10 @@
 import {Icon} from '@iconify/react';
 import {useState} from 'react';
 
-import {ActivityCard} from '../Activities/ActivityCard/styled';
-import FormModal from '../FormModal';
-import HistoryModal from '../HistoryModal';
-import InputWalk from '../InputWalk/index';
+import FormModal from '../../FormModal';
+import HistoryModal from '../../HistoryModal';
+import ActivityCard from '../ActivityCard/';
+import InputWalk from '../InputWalk/';
 
 import {
 	WalkInfoContainer,

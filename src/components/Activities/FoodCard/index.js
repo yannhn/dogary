@@ -1,12 +1,12 @@
 import {Icon} from '@iconify/react';
 import {useState} from 'react';
 
-import {ActivityCard} from '../Activities/ActivityCard/styled';
-import FoodGoalModal from '../FoodGoalModal';
-import FormModal from '../FormModal';
-import HistoryModal from '../HistoryModal';
-import InputFood from '../InputFood/index.js';
-import InputGoalForm from '../InputGoalForm';
+import FoodGoalModal from '../../FoodGoalModal';
+import FormModal from '../../FormModal';
+import HistoryModal from '../../HistoryModal';
+import InputGoalForm from '../../InputGoalForm';
+import ActivityCard from '../ActivityCard';
+import InputFood from '../InputFood';
 
 import {
 	FoodInfoContainer,

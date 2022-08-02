@@ -1,10 +1,10 @@
 import {Icon} from '@iconify/react';
 import {useState} from 'react';
 
-import {ActivityCard} from '../Activities/ActivityCard/styled';
-import FormModal from '../FormModal';
-import HistoryModal from '../HistoryModal';
-import InputBusiness from '../InputBusiness/index';
+import FormModal from '../../FormModal';
+import HistoryModal from '../../HistoryModal';
+import ActivityCard from '../ActivityCard';
+import InputBusiness from '../InputBusiness';
 
 import {
 	BusinessInfoContainer,
